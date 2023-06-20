@@ -1,0 +1,20 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "tests/*": ["tests/*"]
+    },
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "noImplicitAny": false,
+    "types": [
+      "vite/client"
+    ]
+  },
+  "exclude": ["node_modules", "dist", "coverage"]
+}
