@@ -31,7 +31,7 @@ const { onCopySuccess: openToaster } = useCopyEventHandlers()
 
 const onCopySuccess = () => {
   openToaster({
-    message: t('global.successfullyCopied'),
+    message: t('global.copied'),
   })
 }
 
