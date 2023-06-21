@@ -11,12 +11,14 @@ import { useRoute } from 'vue-router'
 import { GatewayServiceConfigCard } from '@kong-ui/entities-gateway-services'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
+import { useI18n } from '@/composables/useI18n'
 
 defineOptions({
   name: 'ServiceForm',
 })
 
 const route = useRoute()
+const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
 
@@ -29,7 +31,7 @@ const { onCopySuccess: openToaster } = useCopyEventHandlers()
 
 const onCopySuccess = () => {
   openToaster({
-    message: 'Successfully copied to clipboard',
+    message: t('global.successfullyCopied'),
   })
 }
 

@@ -13,6 +13,7 @@ import { GatewayServiceForm } from '@kong-ui/entities-gateway-services'
 import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
+import { useI18n } from '@/composables/useI18n'
 
 defineOptions({
   name: 'ServiceForm',
@@ -21,6 +22,7 @@ defineOptions({
 const route = useRoute()
 const router = useRouter()
 const toaster = useToaster()
+const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
 const isEditing = computed(() => !!id.value)
@@ -46,7 +48,10 @@ const handleUpdate = (service) => {
   router.push(routeOnUpdate)
   toaster.open({
     appearance: 'success',
-    message: `Gateway Service ${service.name ?? service.id} is successfully ${isEditing.value ? 'updated' : 'created'}!`,
+    message: t(
+      isEditing.value ? 'entities.service.updated' : 'entities.service.created',
+      { name: service.name ?? service.id },
+    ),
   })
 }
 </script>

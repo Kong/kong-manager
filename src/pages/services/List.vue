@@ -19,6 +19,7 @@ import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
+import { useI18n } from '@/composables/useI18n'
 
 defineOptions({
   name: 'ServiceList',
@@ -26,6 +27,7 @@ defineOptions({
 
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
+const { t } = useI18n()
 
 const createRoute = computed(() => {
   return { name: 'service-create' }
@@ -40,9 +42,7 @@ const getEditRoute = (id: string) => ({
   params: {
     id,
   },
-  query: {
-    ...createRedirectRouteQuery(),
-  },
+  query: createRedirectRouteQuery(),
 })
 
 const filterSchema: FilterSchema = {
@@ -86,10 +86,12 @@ const canRetrieve = () => Promise.resolve(true)
 
 const { onCopySuccess, onCopyError } = useCopyEventHandlers()
 
-const onDeleteSuccess = (entity: { name: string }) => {
+const onDeleteSuccess = (entity: { name?: string, id: string }) => {
   toaster.open({
     appearance: 'success',
-    message: `${entity.name} Gateway Service successfully deleted!`,
+    message: t('entities.service.deleted', {
+      name: entity.name ?? entity.id,
+    }),
   })
 }
 </script>
