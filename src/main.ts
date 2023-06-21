@@ -1,8 +1,8 @@
 import { createApp } from 'vue'
 import Kongponents from '@kong/kongponents'
-import '@kong/kongponents/dist/style.css'
 import App from './App.vue'
 import { router } from './router'
+import './styles/index'
 
 const app = createApp(App)
 

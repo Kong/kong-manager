@@ -1,5 +1,5 @@
 <template>
-  <p>Home</p>
+  This is the home page
 </template>
 
 <script setup lang="ts">
