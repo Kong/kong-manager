@@ -1,2 +1,5 @@
 import '@kong/kongponents/dist/style.css'
 import '@kong-ui/entities-gateway-services/dist/style.css'
+import '@kong-ui/entities-consumers/dist/style.css'
+import '@kong-ui/entities-plugins/dist/style.css'
+import '@kong-ui/entities-upstreams-targets/dist/style.css'

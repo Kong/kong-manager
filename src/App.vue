@@ -35,6 +35,24 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
     key: 'Gateway Service',
     active: route.meta?.entity === 'service',
   },
+  {
+    name: 'Consumer',
+    to: { name: 'consumer-list' },
+    key: 'Consumer',
+    active: route.meta?.entity === 'consumer',
+  },
+  {
+    name: 'Plugin',
+    to: { name: 'plugin-list' },
+    key: 'Plugin',
+    active: route.meta?.entity === 'plugin',
+  },
+  {
+    name: 'Upstream',
+    to: { name: 'upstream-list' },
+    key: 'Upstream',
+    active: route.meta?.entity === 'upstream',
+  },
 ])
 </script>
 

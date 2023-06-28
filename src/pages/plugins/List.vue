@@ -1,10 +1,13 @@
 <template>
-  <GatewayServiceList
-    :config="serviceListConfig"
+  <PluginList
+    :config="pluginListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"
     :can-edit="canEdit"
+    :can-toggle="canToggle"
     :can-retrieve="canRetrieve"
+    :can-retrieve-scoped-entity="canRetrieveScopedEntity"
+    :can-configure-dynamic-ordering="canConfigureDynamicOrdering"
     @copy:success="onCopySuccess"
     @copy:error="onCopyError"
     @delete:success="onDeleteSuccess"
@@ -13,7 +16,8 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { GatewayServiceList, type EntityRow } from '@kong-ui/entities-gateway-services'
+import type { RouteLocationRaw } from 'vue-router'
+import { PluginList, type EntityRow, type ViewRouteType } from '@kong-ui/entities-plugins'
 import type { FilterSchema } from '@kong-ui/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
@@ -22,7 +26,7 @@ import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 
 defineOptions({
-  name: 'ServiceList',
+  name: 'PluginList',
 })
 
 const { createRedirectRouteQuery } = useListRedirect()
@@ -30,17 +34,30 @@ const toaster = useToaster()
 const { t } = useI18n()
 
 const createRoute = computed(() => {
-  return { name: 'service-create' }
+  return { name: 'plugin-create' }
 })
 
-const getViewRoute = (id: string) => {
-  return { name: 'service-detail', params: { id } }
+const getScopedEntityViewRoute = (type: ViewRouteType, id: string): RouteLocationRaw => {
+  return {
+    name: `${type}-list`,
+    params: {
+      id,
+    },
+  }
 }
 
-const getEditRoute = (id: string) => ({
-  name: 'service-edit',
+const getViewRoute = (plugin: Pick<EntityRow, 'id' | 'name'>) => {
+  return {
+    name: 'plugin-detail',
+    params: { id: plugin.id },
+    query: { pluginType: plugin.name },
+  }
+}
+
+const getEditRoute = (plugin: EntityRow) => ({
+  name: 'plugin-edit',
   params: {
-    id,
+    id: plugin.id,
   },
   query: createRedirectRouteQuery(),
 })
@@ -49,30 +66,22 @@ const filterSchema: FilterSchema = {
   name: {
     type: 'text',
   },
-  protocol: {
-    type: 'select',
-    values: ['tcp', 'tls', 'udp', 'grpc', 'grpcs', 'http', 'https', 'ws', 'wss'],
-  },
-  host: {
-    type: 'text',
-  },
-  port: {
-    type: 'number',
-  },
-  path: {
-    type: 'text',
-  },
   enabled: {
     type: 'select',
     values: ['true', 'false'],
   },
+  instanceName: {
+    type: 'text',
+  },
 }
 
-const serviceListConfig = reactive({
+const pluginListConfig = reactive({
   ...useListGeneralConfig(),
   createRoute,
   getViewRoute,
   getEditRoute,
+  getScopedEntityViewRoute,
+  getConfigureDynamicOrderingRoute: getViewRoute,
   filterSchema,
 })
 
@@ -82,15 +91,25 @@ const canDelete = async () => true
 
 const canEdit = async () => true
 
+// konnect has a special tag for this permission
+// set to always true since Canopy doesn't have such limitation
+// `@kong-ui/entites-plugins` will check `canEdit` internally so we don't need to check it here
+const canToggle = async () => true
+
 const canRetrieve = async () => true
+
+const canRetrieveScopedEntity = async () => true
+
+// Kong OSS does not support dynamic ordering
+const canConfigureDynamicOrdering = async () => false
 
 const { onCopySuccess, onCopyError } = useCopyEventHandlers()
 
 const onDeleteSuccess = (entity: EntityRow) => {
   toaster.open({
     appearance: 'success',
-    message: t('entities.service.deleted', {
-      name: entity.name ?? entity.id,
+    message: t('entities.plugin.deleted', {
+      name: entity.instance_name ?? entity.name,
     }),
   })
 }

@@ -1,6 +1,6 @@
 <template>
-  <GatewayServiceList
-    :config="serviceListConfig"
+  <ConsumerList
+    :config="consumerListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"
     :can-edit="canEdit"
@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { GatewayServiceList, type EntityRow } from '@kong-ui/entities-gateway-services'
+import { ConsumerList, type EntityRow } from '@kong-ui/entities-consumers'
 import type { FilterSchema } from '@kong-ui/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
@@ -22,7 +22,7 @@ import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 
 defineOptions({
-  name: 'ServiceList',
+  name: 'ConsumerList',
 })
 
 const { createRedirectRouteQuery } = useListRedirect()
@@ -30,15 +30,15 @@ const toaster = useToaster()
 const { t } = useI18n()
 
 const createRoute = computed(() => {
-  return { name: 'service-create' }
+  return { name: 'consumer-create' }
 })
 
 const getViewRoute = (id: string) => {
-  return { name: 'service-detail', params: { id } }
+  return { name: 'consumer-detail', params: { id } }
 }
 
 const getEditRoute = (id: string) => ({
-  name: 'service-edit',
+  name: 'consumer-edit',
   params: {
     id,
   },
@@ -46,29 +46,11 @@ const getEditRoute = (id: string) => ({
 })
 
 const filterSchema: FilterSchema = {
-  name: {
-    type: 'text',
-  },
-  protocol: {
-    type: 'select',
-    values: ['tcp', 'tls', 'udp', 'grpc', 'grpcs', 'http', 'https', 'ws', 'wss'],
-  },
-  host: {
-    type: 'text',
-  },
-  port: {
-    type: 'number',
-  },
-  path: {
-    type: 'text',
-  },
-  enabled: {
-    type: 'select',
-    values: ['true', 'false'],
-  },
+  username: { type: 'text' },
+  custom_id: { type: 'text' },
 }
 
-const serviceListConfig = reactive({
+const consumerListConfig = reactive({
   ...useListGeneralConfig(),
   createRoute,
   getViewRoute,
@@ -89,8 +71,8 @@ const { onCopySuccess, onCopyError } = useCopyEventHandlers()
 const onDeleteSuccess = (entity: EntityRow) => {
   toaster.open({
     appearance: 'success',
-    message: t('entities.service.deleted', {
-      name: entity.name ?? entity.id,
+    message: t('entities.consumer.deleted', {
+      name: entity.username ?? entity.custom_id,
     }),
   })
 }

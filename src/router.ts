@@ -9,7 +9,12 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 // add entity routes
-const entities: string[] = ['service']
+const entities: string[] = [
+  'service',
+  'consumer',
+  'plugin',
+  'upstream',
+]
 
 entities.forEach((entity: string) => {
   const entityPlural = `${entity}s`

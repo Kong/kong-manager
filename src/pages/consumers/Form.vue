@@ -1,7 +1,7 @@
 <template>
-  <GatewayServiceForm
-    :config="serviceFormConfig"
-    :gateway-service-id="id"
+  <ConsumerForm
+    :config="consumerFormConfig"
+    :consumer-id="id"
     @update="handleUpdate"
   />
 </template>
@@ -9,14 +9,14 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { GatewayServiceForm } from '@kong-ui/entities-gateway-services'
+import { ConsumerForm } from '@kong-ui/entities-consumers'
 import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 
 defineOptions({
-  name: 'ServiceForm',
+  name: 'ConsumerForm',
 })
 
 const route = useRoute()
@@ -29,17 +29,17 @@ const isEditing = computed(() => !!id.value)
 
 const routeOnCancel = useFormRedirectOnCancel(
   isEditing.value
-    ? { name: 'service-detail', params: { id: id.value } }
-    : { name: 'service-list' }
+    ? { name: 'consumer-detail', params: { id: id.value } }
+    : { name: 'consumer-list' }
 )
 
 const routeOnUpdate = useFormRedirectOnUpdate(
   isEditing.value
-    ? { name: 'service-detail', params: { id: id.value } }
-    : { name: 'service-list' }
+    ? { name: 'consumer-detail', params: { id: id.value } }
+    : { name: 'consumer-list' }
 )
 
-const serviceFormConfig = reactive({
+const consumerFormConfig = reactive({
   ...useFormGeneralConfig(),
   cancelRoute: routeOnCancel,
 })
@@ -49,8 +49,8 @@ const handleUpdate = (entity) => {
   toaster.open({
     appearance: 'success',
     message: t(
-      isEditing.value ? 'entities.service.updated' : 'entities.service.created',
-      { name: entity.name ?? entity.id },
+      isEditing.value ? 'entities.consumer.updated' : 'entities.consumer.created',
+      { name: entity.username ?? entity.custom_id },
     ),
   })
 }

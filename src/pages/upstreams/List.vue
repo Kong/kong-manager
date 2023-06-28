@@ -1,6 +1,6 @@
 <template>
-  <GatewayServiceList
-    :config="serviceListConfig"
+  <UpstreamsList
+    :config="upstreamListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"
     :can-edit="canEdit"
@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { GatewayServiceList, type EntityRow } from '@kong-ui/entities-gateway-services'
+import { UpstreamsList, type EntityRow } from '@kong-ui/entities-upstreams-targets'
 import type { FilterSchema } from '@kong-ui/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
@@ -22,7 +22,7 @@ import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 
 defineOptions({
-  name: 'ServiceList',
+  name: 'UpstreamList',
 })
 
 const { createRedirectRouteQuery } = useListRedirect()
@@ -30,15 +30,15 @@ const toaster = useToaster()
 const { t } = useI18n()
 
 const createRoute = computed(() => {
-  return { name: 'service-create' }
+  return { name: 'upstream-create' }
 })
 
 const getViewRoute = (id: string) => {
-  return { name: 'service-detail', params: { id } }
+  return { name: 'upstream-detail', params: { id } }
 }
 
 const getEditRoute = (id: string) => ({
-  name: 'service-edit',
+  name: 'upstream-edit',
   params: {
     id,
   },
@@ -49,26 +49,12 @@ const filterSchema: FilterSchema = {
   name: {
     type: 'text',
   },
-  protocol: {
-    type: 'select',
-    values: ['tcp', 'tls', 'udp', 'grpc', 'grpcs', 'http', 'https', 'ws', 'wss'],
-  },
-  host: {
-    type: 'text',
-  },
-  port: {
+  slots: {
     type: 'number',
-  },
-  path: {
-    type: 'text',
-  },
-  enabled: {
-    type: 'select',
-    values: ['true', 'false'],
   },
 }
 
-const serviceListConfig = reactive({
+const upstreamListConfig = reactive({
   ...useListGeneralConfig(),
   createRoute,
   getViewRoute,
@@ -89,7 +75,7 @@ const { onCopySuccess, onCopyError } = useCopyEventHandlers()
 const onDeleteSuccess = (entity: EntityRow) => {
   toaster.open({
     appearance: 'success',
-    message: t('entities.service.deleted', {
+    message: t('entities.upstream.deleted', {
       name: entity.name ?? entity.id,
     }),
   })
