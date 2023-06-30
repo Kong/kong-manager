@@ -1,6 +1,7 @@
 {
   "global": {
-    "copied": "Successfully copied to clipboard"
+    "copied": "Successfully copied to clipboard",
+    "error": "An error has occurred, please try again"
   },
   "entities": {
     "service": {
@@ -22,6 +23,13 @@
       "created": "Upstream {name} is successfully created!",
       "updated": "Upstream {name} is successfully updated!",
       "deleted": "Upstream {name} is successfully deleted!"
+    },
+    "target": {
+      "created": "Target {name} is successfully created!",
+      "updated": "Target {name} is successfully updated!",
+      "deleted": "Target {name} is successfully deleted!",
+      "markedAsHealthy": "Target successfully marked as healthy!",
+      "markedAsUnhealthy": "Target successfully marked as unhealthy!"
     }
   }
 }
