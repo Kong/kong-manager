@@ -39,7 +39,7 @@ const createRoute = computed(() => {
 
 const getScopedEntityViewRoute = (type: ViewRouteType, id: string): RouteLocationRaw => {
   return {
-    name: `${type}-list`,
+    name: `${type}-detail`,
     params: {
       id,
     },

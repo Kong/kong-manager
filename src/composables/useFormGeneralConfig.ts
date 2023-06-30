@@ -1,10 +1,11 @@
 import { reactive } from 'vue'
 import type { KongManagerBaseFormConfig } from '@kong-ui/entities-shared'
+import { useAdminApiUrl } from './useAdminApiUrl'
 
 export const useFormGeneralConfig = () => {
   return reactive({
     app: 'kongManager' as const,
     workspace: '',
-    apiBaseUrl: 'http://localhost:8001', // TODO: use the actual Admin API URL instead of hard-coding it
+    apiBaseUrl: useAdminApiUrl(),
   } as Pick<KongManagerBaseFormConfig, 'app' | 'workspace' | 'apiBaseUrl'>)
 }
