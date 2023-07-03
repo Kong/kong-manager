@@ -53,6 +53,12 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
     key: 'Upstream',
     active: route.meta?.entity === 'upstream',
   },
+  {
+    name: 'Vault',
+    to: { name: 'vault-list' },
+    key: 'Vault',
+    active: route.meta?.entity === 'vault',
+  },
 ])
 </script>
 

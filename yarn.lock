@@ -320,12 +320,27 @@
     "@kong-ui-public/copy-uuid" "^0.5.13"
     "@kong-ui/core" "^0.17.0"
 
+"@kong-ui/entities-shared@^0.41.4":
+  version "0.41.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui/entities-shared/-/entities-shared-0.41.4.tgz#3041524256f5b2473fac05fa32503c699cbb3d08"
+  integrity sha512-uxA9148tdwrhwo1qfjuTWaerloTPjjTn5bA1djqebvbEkguLM22WFSFAfUaO6TA/yoPzYBynw9NhCDW/9DeAVw==
+  dependencies:
+    "@kong-ui-public/copy-uuid" "^0.5.13"
+    "@kong-ui/core" "^0.17.0"
+
 "@kong-ui/entities-upstreams-targets@^0.15.11":
   version "0.15.11"
   resolved "https://registry.yarnpkg.com/@kong-ui/entities-upstreams-targets/-/entities-upstreams-targets-0.15.11.tgz#4a27d8cb6f1469e2ad0b533729814f16a28bd7da"
   integrity sha512-N2lHEpL+7lx10X6QVH1rj96uhbMrqQyio31ycLHsCoM5uyKhwYW2x3aDxWL+NNwEWJjYS0rksZvz+iJMeAf6MA==
   dependencies:
     "@kong-ui/entities-shared" "^0.40.3"
+
+"@kong-ui/entities-vaults@^0.14.16":
+  version "0.14.16"
+  resolved "https://registry.yarnpkg.com/@kong-ui/entities-vaults/-/entities-vaults-0.14.16.tgz#e83c9fdab8a8eeadb46968959f3b4435a31798ae"
+  integrity sha512-PuZU15oa9uqFhjlsqzKviZOLBtALV6U1PUJpTzMBim3YDKYyEpJMN24Uh3xfd6lgFM4KJoYvTxNMQk3ODpIxzg==
+  dependencies:
+    "@kong-ui/entities-shared" "^0.41.4"
 
 "@kong/kongponents@^8.83.5":
   version "8.83.5"
