@@ -8,18 +8,26 @@ const routes: Array<RouteRecordRaw> = [
   },
 ]
 
+type RouterEntity = string | [string, { noDetail: boolean }]
+
 // add entity routes
-const entities: string[] = [
+const entities: RouterEntity[] = [
   'service',
   'consumer',
   'plugin',
   'upstream',
+  'certificate',
+  'ca-certificate',
+  ['sni', { noDetail: true }],
   'vault',
   'key-set',
   'key',
 ]
 
-entities.forEach((entity: string) => {
+entities.forEach((routerEntity: RouterEntity) => {
+  const entity = typeof routerEntity === 'string' ? routerEntity : routerEntity[0]
+  const options = typeof routerEntity !== 'string' ? routerEntity[1] : undefined
+
   const entityPlural = `${entity}s`
 
   routes.push(
@@ -47,15 +55,20 @@ entities.forEach((entity: string) => {
         entity,
       },
     },
-    {
-      name: `${entity}-detail`,
-      path: `/${entityPlural}/:id`,
-      component: () => import(`@/pages/${entityPlural}/Detail.vue`),
-      meta: {
-        entity,
-      },
-    },
   )
+
+  if (!options?.noDetail) {
+    routes.push(
+      {
+        name: `${entity}-detail`,
+        path: `/${entityPlural}/:id`,
+        component: () => import(`@/pages/${entityPlural}/Detail.vue`),
+        meta: {
+          entity,
+        },
+      }
+    )
+  }
 })
 
 export const router = createRouter({

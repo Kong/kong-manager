@@ -54,6 +54,24 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
     active: route.meta?.entity === 'upstream',
   },
   {
+    name: 'Certificate',
+    to: { name: 'certificate-list' },
+    key: 'Certificate',
+    active: route.meta?.entity === 'certificate',
+  },
+  {
+    name: 'CA Certificate',
+    to: { name: 'ca-certificate-list' },
+    key: 'CA Certificate',
+    active: route.meta?.entity === 'ca-certificate',
+  },
+  {
+    name: 'SNI',
+    to: { name: 'sni-list' },
+    key: 'SNI',
+    active: route.meta?.entity === 'sni',
+  },
+  {
     name: 'Vault',
     to: { name: 'vault-list' },
     key: 'Vault',
