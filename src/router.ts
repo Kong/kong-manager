@@ -14,7 +14,6 @@ type RouterEntity = string | [string, { noDetail: boolean }]
 const entities: RouterEntity[] = [
   'service',
   'consumer',
-  'plugin',
   'upstream',
   'certificate',
   'ca-certificate',
@@ -70,6 +69,49 @@ entities.forEach((routerEntity: RouterEntity) => {
     )
   }
 })
+
+routes.push(
+  {
+    name: 'plugin-list',
+    path: '/plugins',
+    component: () => import('@/pages/plugins/List.vue'),
+    meta: {
+      entity: 'plugin',
+    },
+  },
+  {
+    name: 'plugin-select',
+    path: '/plugins/select',
+    component: () => import('@/pages/plugins/Select.vue'),
+    meta: {
+      entity: 'plugin',
+    },
+  },
+  {
+    name: 'plugin-create',
+    path: '/plugins/:pluginType/create',
+    component: () => import('@/pages/plugins/Form.vue'),
+    meta: {
+      entity: 'plugin',
+    },
+  },
+  {
+    name: 'plugin-edit',
+    path: '/plugins/:pluginType/:id/edit',
+    component: () => import('@/pages/plugins/Form.vue'),
+    meta: {
+      entity: 'plugin',
+    },
+  },
+  {
+    name: 'plugin-detail',
+    path: '/plugins/:pluginType/:id',
+    component: () => import('@/pages/plugins/Detail.vue'),
+    meta: {
+      entity: 'plugin',
+    },
+  },
+)
 
 export const router = createRouter({
   history: createWebHistory(),

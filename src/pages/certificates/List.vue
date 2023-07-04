@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.certificate.listTitle')" />
   <CertificateList
     :config="certificateListConfig"
     :can-create="canCreate"
@@ -17,6 +18,7 @@ import { useI18n } from '@/composables/useI18n'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 import { useToaster } from '@/composables/useToaster'
+import PageHeader from '@/components/PageHeader.vue'
 import { CertificateList, type EntityRow } from '@kong-ui/entities-certificates'
 import { computed, reactive } from 'vue'
 

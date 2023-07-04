@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.plugin.listTitle')" />
   <PluginList
     :config="pluginListConfig"
     :can-create="canCreate"
@@ -24,6 +25,7 @@ import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
+import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'PluginList',
@@ -34,7 +36,7 @@ const toaster = useToaster()
 const { t } = useI18n()
 
 const createRoute = computed(() => {
-  return { name: 'plugin-create' }
+  return { name: 'plugin-select' }
 })
 
 const getScopedEntityViewRoute = (type: ViewRouteType, id: string): RouteLocationRaw => {
@@ -49,8 +51,10 @@ const getScopedEntityViewRoute = (type: ViewRouteType, id: string): RouteLocatio
 const getViewRoute = (plugin: Pick<EntityRow, 'id' | 'name'>) => {
   return {
     name: 'plugin-detail',
-    params: { id: plugin.id },
-    query: { pluginType: plugin.name },
+    params: {
+      id: plugin.id,
+      pluginType: plugin.name,
+    },
   }
 }
 
@@ -58,6 +62,7 @@ const getEditRoute = (plugin: EntityRow) => ({
   name: 'plugin-edit',
   params: {
     id: plugin.id,
+    pluginType: plugin.name,
   },
   query: createRedirectRouteQuery(),
 })

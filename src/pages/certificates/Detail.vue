@@ -1,6 +1,8 @@
 <template>
+  <PageHeader :title="t('entities.certificate.detailTitle', { id: titleId })" />
   <CertificateConfigCard
     :config="certificateDetailConfig"
+    @fetch:success="onFetchSuccess"
     @copy:success="onCopySuccess"
   />
 </template>
@@ -9,8 +11,9 @@
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useI18n } from '@/composables/useI18n'
+import PageHeader from '@/components/PageHeader.vue'
 import { CertificateConfigCard } from '@kong-ui/entities-certificates'
-import { computed, reactive } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 defineOptions({
@@ -21,6 +24,8 @@ const route = useRoute()
 const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
+
+const titleId = ref<string>('')
 
 const certificateDetailConfig = reactive({
   ...useDetailGeneralConfig(),
@@ -35,4 +40,7 @@ const onCopySuccess = () => {
   })
 }
 
+const onFetchSuccess = (entity) => {
+  titleId.value = entity.id
+}
 </script>

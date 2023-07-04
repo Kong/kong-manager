@@ -1,17 +1,20 @@
 <template>
+  <PageHeader :title="t('entities.consumer.detailTitle', { name: titleName })" />
   <ConsumerConfigCard
     :config="consumerDetailConfig"
+    @fetch:success="onFetchSuccess"
     @copy:success="onCopySuccess"
   />
 </template>
 
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { ConsumerConfigCard } from '@kong-ui/entities-consumers'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
+import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'ConsumerDetail',
@@ -21,6 +24,8 @@ const route = useRoute()
 const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
+
+const titleName = ref<string>('')
 
 const consumerDetailConfig = reactive({
   ...useDetailGeneralConfig(),
@@ -35,4 +40,7 @@ const onCopySuccess = () => {
   })
 }
 
+const onFetchSuccess = (entity) => {
+  titleName.value = entity.username ?? entity.custom_id
+}
 </script>

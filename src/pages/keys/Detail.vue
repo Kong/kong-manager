@@ -1,26 +1,33 @@
 <template>
+  <PageHeader :title="t('entities.key.detailTitle', { name: titleName })" />
   <KeyConfigCard
     :config="keyDetailConfig"
+    @fetch:success="onFetchSuccess"
     @copy:success="onCopySuccess"
+    @navigation-click="onNavigationClick"
   />
 </template>
 
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
-import { useRoute } from 'vue-router'
+import { computed, reactive, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { KeyConfigCard } from '@kong-ui/entities-keys'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
+import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'KeyDetail',
 })
 
 const route = useRoute()
+const router = useRouter()
 const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
+
+const titleName = ref<string>('')
 
 const keyDetailConfig = reactive({
   ...useDetailGeneralConfig(),
@@ -35,4 +42,14 @@ const onCopySuccess = () => {
   })
 }
 
+const onNavigationClick = (id: string) => {
+  router.push({
+    name: 'key-set-detail',
+    params: { id },
+  })
+}
+
+const onFetchSuccess = (entity) => {
+  titleName.value = entity.name ?? entity.id
+}
 </script>

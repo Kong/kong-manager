@@ -30,63 +30,63 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
     active: route.name === 'home',
   },
   {
-    name: 'Gateway Service',
+    name: 'Gateway Services',
     to: { name: 'service-list' },
-    key: 'Gateway Service',
+    key: 'Gateway Services',
     active: route.meta?.entity === 'service',
   },
   {
-    name: 'Consumer',
+    name: 'Consumers',
     to: { name: 'consumer-list' },
-    key: 'Consumer',
+    key: 'Consumers',
     active: route.meta?.entity === 'consumer',
   },
   {
-    name: 'Plugin',
+    name: 'Plugins',
     to: { name: 'plugin-list' },
-    key: 'Plugin',
+    key: 'Plugins',
     active: route.meta?.entity === 'plugin',
   },
   {
-    name: 'Upstream',
+    name: 'Upstreams',
     to: { name: 'upstream-list' },
-    key: 'Upstream',
+    key: 'Upstreams',
     active: route.meta?.entity === 'upstream',
   },
   {
-    name: 'Certificate',
+    name: 'Certificates',
     to: { name: 'certificate-list' },
-    key: 'Certificate',
+    key: 'Certificates',
     active: route.meta?.entity === 'certificate',
   },
   {
-    name: 'CA Certificate',
+    name: 'CA Certificates',
     to: { name: 'ca-certificate-list' },
-    key: 'CA Certificate',
+    key: 'CA Certificates',
     active: route.meta?.entity === 'ca-certificate',
   },
   {
-    name: 'SNI',
+    name: 'SNIs',
     to: { name: 'sni-list' },
-    key: 'SNI',
+    key: 'SNIs',
     active: route.meta?.entity === 'sni',
   },
   {
-    name: 'Vault',
+    name: 'Vaults',
     to: { name: 'vault-list' },
-    key: 'Vault',
+    key: 'Vaults',
     active: route.meta?.entity === 'vault',
   },
   {
-    name: 'Key',
+    name: 'Keys',
     to: { name: 'key-list' },
-    key: 'Key',
+    key: 'Keys',
     active: route.meta?.entity === 'key',
   },
   {
-    name: 'Key Set',
+    name: 'Key Sets',
     to: { name: 'key-set-list' },
-    key: 'Key-Set',
+    key: 'Key Sets',
     active: route.meta?.entity === 'key-set',
   },
 ])
@@ -96,5 +96,6 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
 .app-title {
   color: #fff;
   margin: 0;
+  font-size: 20px;
 }
 </style>

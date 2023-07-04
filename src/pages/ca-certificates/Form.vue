@@ -1,4 +1,7 @@
 <template>
+  <PageHeader
+    :title="isEditing ? t('entities.ca_certificate.editFormTitle') : t('entities.ca_certificate.createFormTitle')"
+  />
   <CACertificateForm
     :config="caCertificateFormConfig"
     :certificate-id="id"
@@ -14,6 +17,7 @@ import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
+import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'CACertificateForm',

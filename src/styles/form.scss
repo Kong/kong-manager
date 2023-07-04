@@ -1,0 +1,24 @@
+.kong-ui-entity-base-form {
+  @media screen and (min-width: 1280px) {
+    .form-section-wrapper {
+      column-gap: var(--spacing-xxxl, 56px)!important;
+    }
+  }
+
+  .k-input-switch {
+    margin-bottom: 0;
+  }
+}
+
+.kong-ui-entities-route-form .kong-ui-entity-base-form {
+  .k-select .k-select-selected-item-label {
+    margin-left: 0;
+  }
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}

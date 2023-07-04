@@ -1,0 +1,157 @@
+/* Form Wrapper & Base Styles
+========================================================================== */
+.vue-form-generator {
+  .form-group {
+    margin-bottom: 1.5rem;
+
+    &:last-child {
+      margin-bottom: 2rem;
+    }
+    &.hide-label > label {
+      display: none;
+    }
+    label {
+      font-weight: bold;
+    }
+  }
+
+  .field-advanced {
+    margin-top: -0.5rem;
+    margin-bottom: 0.5rem;
+
+    .form-group:last-child {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .k-input[type="text"] {
+    width: 100%;
+  }
+
+}
+
+/* inputs & labels
+========================================================================== */
+.form-control {
+  width: 100%;
+  &:required {
+    border-color: var(--KInputBorder, var(--grey-300, #e0e0e0));
+  }
+}
+
+select.form-control,
+[type="select"].form-control {
+  background-color: initial!important;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #262626;
+  margin: 0 0 8px 0;
+  width: 100%;
+  small {
+    float: right;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.form-group.required > label:after {
+  display: none;
+}
+
+.form-group.optional > label,
+.form-group.semi-optional > label {
+  position: relative;
+  width: 100%;
+  &:after {
+    position: absolute;
+    display: block;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: normal;
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.form-group.optional > label:after {
+  content: "Optional";
+}
+
+.form-group.semi-optional > label:after {
+  content: "Semi-Optional";
+}
+
+
+.hint {
+  font-size: small;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  opacity: 0.6;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+  input {
+    flex: 1 1 0%;
+    min-width: 0;
+    margin-bottom: 0;
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  .input-group-addon {
+    margin-left: 8px;
+    button {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+/* Selection Group (radio select field group)
+========================================================================== */
+.option-field {
+  padding-left: 1.5rem;
+  width: 100%;
+  .form-group:last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Radios
+========================================================================== */
+.form-group input[type="radio"] {
+  @extend .k-input;
+  margin-right: 0.5rem;
+}
+
+/* Checkboxes
+========================================================================== */
+.field-checkbox,
+.form-group input[type="checkbox"] {
+  // Use Kong Styles from imported stylesheets
+  @extend .k-input;
+}
+
+.form-group.required input[type="checkbox"],
+.form-group [required="required"] {
+  box-shadow: none;
+}
+
+/*
+  Override Bootstrap & allow k-button to style hrefs
+*/
+.k-button[type="button"] {
+  -webkit-appearance: unset;
+  background: transparent;
+}

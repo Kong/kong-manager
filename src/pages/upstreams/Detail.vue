@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.upstream.detailTitle', { name: titleName })" />
   <KTabs
     v-model="$route.hash"
     :tabs="navTabs"
@@ -7,6 +8,7 @@
     <template #configuration>
       <UpstreamsConfigCard
         :config="upstreamDetailConfig"
+        @fetch:success="onFetchSuccess"
         @copy:success="onCopySuccess"
       />
     </template>
@@ -25,6 +27,7 @@ import { UpstreamsConfigCard, type EntityRow } from '@kong-ui/entities-upstreams
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
+import PageHeader from '@/components/PageHeader.vue'
 import TargetList from './TargetList.vue'
 
 defineOptions({
@@ -49,6 +52,8 @@ const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
 
+const titleName = ref<string>('')
+
 const upstreamDetailConfig = reactive({
   ...useDetailGeneralConfig(),
   entityId: id.value,
@@ -62,4 +67,7 @@ const onCopySuccess = () => {
   })
 }
 
+const onFetchSuccess = (entity) => {
+  titleName.value = entity.name ?? entity.id
+}
 </script>
