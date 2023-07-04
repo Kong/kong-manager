@@ -1,7 +1,7 @@
 <template>
   <CACertificateForm
     :config="caCertificateFormConfig"
-    :ca-certificate-id="id"
+    :certificate-id="id"
     @update="handleUpdate"
   />
 </template>
