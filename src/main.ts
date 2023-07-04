@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import Kongponents from '@kong/kongponents'
 import { createI18n, Translation } from '@kong-ui-public/i18n'
+import CopyUuid from '@kong-ui-public/copy-uuid'
 import english from '@/locales/en.json'
 import App from '@/App.vue'
 import { router } from '@/router'
@@ -12,5 +13,6 @@ const app = createApp(App)
 
 app.use(Translation.install<typeof english>, { i18n })
 app.use(Kongponents)
+app.use(CopyUuid)
 app.use(router)
 app.mount('#app')
