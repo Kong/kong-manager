@@ -15,6 +15,8 @@ const entities: string[] = [
   'plugin',
   'upstream',
   'vault',
+  'key-set',
+  'key',
 ]
 
 entities.forEach((entity: string) => {
