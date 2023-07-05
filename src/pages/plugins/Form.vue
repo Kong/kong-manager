@@ -206,7 +206,7 @@ export default {
     },
 
     title () {
-      return this.isEditing ? 'Edit Plugin' : 'New Plugin'
+      return this.isEditing ? `Edit Plugin: ${this.plugin}` : `New Plugin: ${this.plugin}`
     },
 
     buttonText () {
