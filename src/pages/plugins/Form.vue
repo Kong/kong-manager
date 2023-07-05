@@ -78,7 +78,6 @@ import { PluginScope } from '@kong-ui/entities-plugins'
 import EntityForm from '@/components/EntityForm/EntityForm.vue'
 import FormPageMixin from '@/components/EntityForm/mixins/FormPage'
 import { capitalize, uuidRegEx, redirectOnResponseStatus, isObjectEmpty } from '@/components/EntityForm/helpers'
-import PageHeader from '@/components/PageHeader.vue'
 import { pluginMeta } from './PluginMeta'
 import PluginConfig from './PluginConfig'
 import customSchemas from './schemas/CustomSchemas'
@@ -97,7 +96,7 @@ const formatPluginFieldLabel = (label) => {
 
 export default {
   name: 'PluginForm',
-  components: { EntityForm, PageHeader },
+  components: { EntityForm },
   mixins: [FormPageMixin, FormActionsMixin, RedirectMixin],
 
   props: {

@@ -1,6 +1,6 @@
 <template>
   <PageHeader
-    :title="isEditing ? t('entities.upstream.editFormTitle') : t('entities.upstream.createFormTitle')"
+    :title="isEditing ? t('entities.upstream.edit.form.title') : t('entities.upstream.create.form.title')"
   />
   <UpstreamsForm
     :config="upstreamFormConfig"
@@ -17,7 +17,6 @@ import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'UpstreamForm',

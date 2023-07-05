@@ -1,6 +1,6 @@
 <template>
   <PageHeader
-    :title="isEditing ? t('entities.ca_certificate.editFormTitle') : t('entities.ca_certificate.createFormTitle')"
+    :title="isEditing ? t('entities.ca-certificate.edit.form.title') : t('entities.ca-certificate.create.form.title')"
   />
   <CACertificateForm
     :config="caCertificateFormConfig"
@@ -17,7 +17,6 @@ import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'CACertificateForm',
@@ -53,7 +52,7 @@ const handleUpdate = (entity) => {
   toaster.open({
     appearance: 'success',
     message: t(
-      isEditing.value ? 'entities.ca_certificate.updated' : 'entities.ca_certificate.created',
+      isEditing.value ? 'entities.ca-certificate.updated' : 'entities.ca-certificate.created',
       { id: entity.id },
     ),
   })

@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.upstream.listTitle')" />
+  <PageHeader :title="t('entities.upstream.list.title')" />
   <UpstreamsList
     :config="upstreamListConfig"
     :can-create="canCreate"
@@ -21,7 +21,6 @@ import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'UpstreamList',

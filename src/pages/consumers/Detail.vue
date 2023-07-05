@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.consumer.detailTitle', { name: titleName })" />
+  <PageHeader :title="t('entities.consumer.detail.title', { name: titleName })" />
   <ConsumerConfigCard
     :config="consumerDetailConfig"
     @fetch:success="onFetchSuccess"
@@ -14,7 +14,6 @@ import { ConsumerConfigCard } from '@kong-ui/entities-consumers'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'ConsumerDetail',

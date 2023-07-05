@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.plugin.listTitle')" />
+  <PageHeader :title="t('entities.plugin.list.title')" />
   <PluginList
     :config="pluginListConfig"
     :can-create="canCreate"
@@ -25,7 +25,6 @@ import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'PluginList',

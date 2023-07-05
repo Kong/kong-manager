@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.key-set.detailTitle', { name: titleName })" />
+  <PageHeader :title="t('entities.key-set.detail.title', { name: titleName })" />
   <KeySetConfigCard
     :config="keySetDetailConfig"
     @fetch:success="onFetchSuccess"
@@ -14,7 +14,6 @@ import { KeySetConfigCard } from '@kong-ui/entities-key-sets'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'KeySetDetail',

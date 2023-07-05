@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.upstream.detailTitle', { name: titleName })" />
+  <PageHeader :title="t('entities.upstream.detail.title', { name: titleName })" />
   <KTabs
     v-model="$route.hash"
     :tabs="navTabs"
@@ -27,7 +27,6 @@ import { UpstreamsConfigCard, type EntityRow } from '@kong-ui/entities-upstreams
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 import TargetList from './TargetList.vue'
 
 defineOptions({

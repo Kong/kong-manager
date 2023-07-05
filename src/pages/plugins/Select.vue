@@ -93,7 +93,6 @@
 import axios from 'axios'
 import { PluginGroup, PluginScope } from '@kong-ui/entities-plugins'
 import { sortAlpha } from '@/components/EntityForm/helpers'
-import PageHeader from '@/components/PageHeader.vue'
 import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
 import PluginCardSkeleton from './PluginCardSkeleton.vue'
 import PluginCard from './PluginCard.vue'
@@ -101,7 +100,7 @@ import { pluginMeta } from './PluginMeta'
 
 export default {
   name: 'PluginSelect',
-  components: { PageHeader, PluginCard, PluginCardSkeleton },
+  components: { PluginCard, PluginCardSkeleton },
 
   props: {
     createPathName: {

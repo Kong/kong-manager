@@ -1,6 +1,6 @@
 <template>
   <PageHeader
-    :title="isEditing ? t('entities.key.editFormTitle') : t('entities.key.createFormTitle')"
+    :title="isEditing ? t('entities.key.edit.form.title') : t('entities.key.create.form.title')"
   />
   <KeyForm
     :config="formConfig"
@@ -17,7 +17,6 @@ import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'KeyForm',

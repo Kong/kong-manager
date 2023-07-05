@@ -1,6 +1,6 @@
 <template>
   <PageHeader
-    :title="isEditing ? t('entities.consumer.editFormTitle') : t('entities.consumer.createFormTitle')"
+    :title="isEditing ? t('entities.consumer.edit.form.title') : t('entities.consumer.create.form.title')"
   />
   <ConsumerForm
     :config="consumerFormConfig"
@@ -17,7 +17,6 @@ import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'ConsumerForm',

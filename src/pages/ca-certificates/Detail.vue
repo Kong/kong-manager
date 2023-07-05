@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.ca_certificate.detailTitle', { id: titleId })" />
+  <PageHeader :title="t('entities.ca-certificate.detail.title', { id: titleId })" />
   <CACertificateConfigCard
     :config="caCertificateDetailConfig"
     @fetch:success="onFetchSuccess"
@@ -11,7 +11,6 @@
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 import { CACertificateConfigCard } from '@kong-ui/entities-certificates'
 import { computed, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'

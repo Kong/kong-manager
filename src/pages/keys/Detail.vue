@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.key.detailTitle', { name: titleName })" />
+  <PageHeader :title="t('entities.key.detail.title', { name: titleName })" />
   <KeyConfigCard
     :config="keyDetailConfig"
     @fetch:success="onFetchSuccess"
@@ -15,7 +15,6 @@ import { KeyConfigCard } from '@kong-ui/entities-keys'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'KeyDetail',

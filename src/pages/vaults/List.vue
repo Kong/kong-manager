@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.vault.listTitle')" />
+  <PageHeader :title="t('entities.vault.list.title')" />
   <VaultList
     :config="vaultListConfig"
     :can-create="canCreate"
@@ -21,7 +21,6 @@ import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'VaultList',

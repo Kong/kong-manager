@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.plugin.detailTitle', { name: route.params.pluginType as string })" />
+  <PageHeader :title="t('entities.plugin.detail.title', { name: route.params.pluginType as string })" />
   <PluginConfigCard
     :config="pluginDetailConfig"
     @copy:success="onCopySuccess"
@@ -13,7 +13,6 @@ import { PluginConfigCard } from '@kong-ui/entities-plugins'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'PluginDetail',

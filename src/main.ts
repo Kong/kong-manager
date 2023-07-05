@@ -8,6 +8,7 @@ import english from '@/locales/en.json'
 import App from '@/App.vue'
 import { router } from '@/router'
 import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
+import PageHeader from '@/components/PageHeader.vue'
 import './styles/index'
 
 const adminApiUrl = useAdminApiUrl()
@@ -30,4 +31,5 @@ app.use(vfgPlugin, {
   },
 })
 app.use(router)
+app.component('PageHeader', PageHeader)
 app.mount('#app')

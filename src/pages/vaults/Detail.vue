@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.vault.detailTitle', { name: titleName })" />
+  <PageHeader :title="t('entities.vault.detail.title', { name: titleName })" />
   <VaultConfigCard
     :config="vaultDetailConfig"
     @fetch:success="onFetchSuccess"
@@ -14,7 +14,6 @@ import { VaultConfigCard } from '@kong-ui/entities-vaults'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'VaultDetail',

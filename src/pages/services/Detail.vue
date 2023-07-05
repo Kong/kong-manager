@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.service.detailTitle', { name: titleName })" />
+  <PageHeader :title="t('entities.service.detail.title', { name: titleName })" />
   <GatewayServiceConfigCard
     :config="serviceDetailConfig"
     @fetch:success="onFetchSuccess"
@@ -14,7 +14,6 @@ import { GatewayServiceConfigCard } from '@kong-ui/entities-gateway-services'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'ServiceDetail',

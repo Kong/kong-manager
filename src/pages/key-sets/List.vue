@@ -1,5 +1,5 @@
 <template>
-  <PageHeader :title="t('entities.key-set.listTitle')" />
+  <PageHeader :title="t('entities.key-set.list.title')" />
   <KeySetList
     :config="keyListConfig"
     :can-create="canCreate"
@@ -21,7 +21,6 @@ import { useListRedirect } from '@/composables/useListRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
-import PageHeader from '@/components/PageHeader.vue'
 
 defineOptions({
   name: 'KeySetList',
