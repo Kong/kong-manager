@@ -1,0 +1,72 @@
+html {
+  font-size: 16px!important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  font-weight: bold;
+}
+
+/* Bootstrap sizes. Need to revisit ALL headers to match Kong style guide */
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  font-family: 'Roboto', helvetica, arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+}
+
+a {
+  color: var(--blue-500);
+  text-decoration: none;
+}
+
+hr {
+  margin-top: 1rem 0;
+  border: 0;
+  border-top: 1px solid var(--black-10);
+}
+
+ul {
+  list-style: none;
+}
+
+.delete svg:hover path {
+  fill: #C20A0A;
+  transition: all 250ms ease;
+}
+
+code {
+  padding: .1rem .2rem;
+  font-size: 90%;
+  color: #bd4147;
+  background-color: #f7f7f9;
+  border-radius: .25rem;
+}
+
+.plugin-icon {
+  width: 22px;
+  margin-right: 12px;
+}
+
+.material-icons.info-text {cursor: default; }
+
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }

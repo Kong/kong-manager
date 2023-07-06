@@ -1,4 +1,7 @@
 <template>
+  <PageHeader
+    :title="isEditing ? t('entities.upstream.edit.form.title') : t('entities.upstream.create.form.title')"
+  />
   <UpstreamsForm
     :config="upstreamFormConfig"
     :upstream-id="id"

@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.sni.list.title')" />
   <SniList
     :config="sniListConfig"
     :can-create="canCreate"

@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.ca-certificate.list.title')" />
   <CACertificateList
     :config="caCertificateListConfig"
     :can-create="canCreate"
@@ -63,7 +64,7 @@ const { onCopySuccess, onCopyError } = useCopyEventHandlers()
 const onDeleteSuccess = (entity: EntityRow) => {
   toaster.open({
     appearance: 'success',
-    message: t('entities.ca_certificate.deleted', { id: entity.id }),
+    message: t('entities.ca-certificate.deleted', { id: entity.id }),
   })
 }
 </script>

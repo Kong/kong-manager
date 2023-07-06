@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.consumer.list.title')" />
   <ConsumerList
     :config="consumerListConfig"
     :can-create="canCreate"

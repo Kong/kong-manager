@@ -1,4 +1,7 @@
 <template>
+  <PageHeader
+    :title="isEditing ? t('entities.certificate.edit.form.title') : t('entities.certificate.create.form.title')"
+  />
   <CertificateForm
     :config="certificateFormConfig"
     :certificate-id="id"

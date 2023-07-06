@@ -1,4 +1,7 @@
 <template>
+  <PageHeader
+    :title="isEditing ? t('entities.service.edit.form.title') : t('entities.service.create.form.title')"
+  />
   <GatewayServiceForm
     :config="serviceFormConfig"
     :gateway-service-id="id"

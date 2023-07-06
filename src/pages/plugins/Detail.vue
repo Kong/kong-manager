@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.plugin.detail.title', { name: route.params.pluginType as string })" />
   <PluginConfigCard
     :config="pluginDetailConfig"
     @copy:success="onCopySuccess"
@@ -25,7 +26,7 @@ const id = computed(() => (route.params.id as string) ?? '')
 const pluginDetailConfig = reactive({
   ...useDetailGeneralConfig(),
   entityId: id.value,
-  pluginType: (route.query.pluginType ?? '') as string,
+  pluginType: (route.params.pluginType ?? '') as string,
 })
 
 const { onCopySuccess: openToaster } = useCopyEventHandlers()

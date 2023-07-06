@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.service.list.title')" />
   <GatewayServiceList
     :config="serviceListConfig"
     :can-create="canCreate"

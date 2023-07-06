@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.vault.list.title')" />
   <VaultList
     :config="vaultListConfig"
     :can-create="canCreate"

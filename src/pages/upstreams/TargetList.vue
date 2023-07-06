@@ -94,7 +94,7 @@ const makeHealthyAction = async (item: EntityRow) => {
     if (response.status === 204) {
       toaster.open({
         appearance: 'success',
-        message: t('entities.target.markedAsHealthy'),
+        message: t('entities.target.marked.as.healthy'),
       })
     } else {
       toaster.open({
@@ -118,7 +118,7 @@ const makeUnhealthyAction = async (item: EntityRow) => {
     if (response.status === 204) {
       toaster.open({
         appearance: 'success',
-        message: t('entities.target.markedAsUnhealthy'),
+        message: t('entities.target.marked.as.unhealthy'),
       })
     } else {
       toaster.open({

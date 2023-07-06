@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.plugin.list.title')" />
   <PluginList
     :config="pluginListConfig"
     :can-create="canCreate"
@@ -34,7 +35,7 @@ const toaster = useToaster()
 const { t } = useI18n()
 
 const createRoute = computed(() => {
-  return { name: 'plugin-create' }
+  return { name: 'plugin-select' }
 })
 
 const getScopedEntityViewRoute = (type: ViewRouteType, id: string): RouteLocationRaw => {
@@ -49,8 +50,10 @@ const getScopedEntityViewRoute = (type: ViewRouteType, id: string): RouteLocatio
 const getViewRoute = (plugin: Pick<EntityRow, 'id' | 'name'>) => {
   return {
     name: 'plugin-detail',
-    params: { id: plugin.id },
-    query: { pluginType: plugin.name },
+    params: {
+      id: plugin.id,
+      pluginType: plugin.name,
+    },
   }
 }
 
@@ -58,6 +61,7 @@ const getEditRoute = (plugin: EntityRow) => ({
   name: 'plugin-edit',
   params: {
     id: plugin.id,
+    pluginType: plugin.name,
   },
   query: createRedirectRouteQuery(),
 })

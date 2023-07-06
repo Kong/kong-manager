@@ -1,4 +1,7 @@
 <template>
+  <PageHeader
+    :title="isEditing ? t('entities.key.edit.form.title') : t('entities.key.create.form.title')"
+  />
   <KeyForm
     :config="formConfig"
     :key-id="id"

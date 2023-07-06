@@ -1,4 +1,7 @@
 <template>
+  <PageHeader
+    :title="isEditing ? t('entities.ca-certificate.edit.form.title') : t('entities.ca-certificate.create.form.title')"
+  />
   <CACertificateForm
     :config="caCertificateFormConfig"
     :certificate-id="id"
@@ -49,7 +52,7 @@ const handleUpdate = (entity) => {
   toaster.open({
     appearance: 'success',
     message: t(
-      isEditing.value ? 'entities.ca_certificate.updated' : 'entities.ca_certificate.created',
+      isEditing.value ? 'entities.ca-certificate.updated' : 'entities.ca-certificate.created',
       { id: entity.id },
     ),
   })

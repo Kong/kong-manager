@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.key-set.list.title')" />
   <KeySetList
     :config="keyListConfig"
     :can-create="canCreate"

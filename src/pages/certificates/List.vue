@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.certificate.list.title')" />
   <CertificateList
     :config="certificateListConfig"
     :can-create="canCreate"

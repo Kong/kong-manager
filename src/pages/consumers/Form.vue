@@ -1,4 +1,7 @@
 <template>
+  <PageHeader
+    :title="isEditing ? t('entities.consumer.edit.form.title') : t('entities.consumer.create.form.title')"
+  />
   <ConsumerForm
     :config="consumerFormConfig"
     :consumer-id="id"

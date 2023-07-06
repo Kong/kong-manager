@@ -7,59 +7,103 @@
     "service": {
       "created": "Gateway Service {name} is successfully created!",
       "updated": "Gateway Service {name} is successfully updated!",
-      "deleted": "Gateway Service {name} is successfully deleted!"
+      "deleted": "Gateway Service {name} is successfully deleted!",
+      "list.title": "Gateway Services",
+      "detail.title": "Gateway Service: {name}",
+      "create.form.title": "New Gateway Service",
+      "edit.form.title": "Edit Gateway Service"
     },
     "consumer": {
       "created": "Consumer {name} is successfully created!",
       "updated": "Consumer {name} is successfully updated!",
-      "deleted": "Consumer {name} is successfully deleted!"
+      "deleted": "Consumer {name} is successfully deleted!",
+      "list.title": "Consumers",
+      "detail.title": "Consumer: {name}",
+      "create.form.title": "New Consumer",
+      "edit.form.title": "Edit Consumer"
     },
     "plugin": {
       "created": "Plugin {name} is successfully created!",
       "updated": "Plugin {name} is successfully updated!",
-      "deleted": "Plugin {name} is successfully deleted!"
+      "deleted": "Plugin {name} is successfully deleted!",
+      "list.title": "Plugins",
+      "detail.title": "Plugin: {name}",
+      "create.form.title": "New Plugin",
+      "edit.form.title": "Edit Plugin"
     },
     "upstream": {
       "created": "Upstream {name} is successfully created!",
       "updated": "Upstream {name} is successfully updated!",
-      "deleted": "Upstream {name} is successfully deleted!"
+      "deleted": "Upstream {name} is successfully deleted!",
+      "list.title": "Upstreams",
+      "detail.title": "Upstream: {name}",
+      "create.form.title": "New Upstream",
+      "edit.form.title": "Edit Upstream"
     },
     "certificate": {
       "created": "Certificate {id} is successfully created!",
       "updated": "Certificate {id} is successfully updated!",
-      "deleted": "Certificate {id} is successfully deleted!"
+      "deleted": "Certificate {id} is successfully deleted!",
+      "list.title": "Certificates",
+      "detail.title": "Certificate: {id}",
+      "create.form.title": "New Certificate",
+      "edit.form.title": "Edit Certificate"
     },
-    "ca_certificate": {
-      "created": "CA certificate {id} is successfully created!",
-      "updated": "CA certificate {id} is successfully updated!",
-      "deleted": "CA certificate {id} is successfully deleted!"
+    "ca-certificate": {
+      "created": "CA Certificate {id} is successfully created!",
+      "updated": "CA Certificate {id} is successfully updated!",
+      "deleted": "CA Certificate {id} is successfully deleted!",
+      "list.title": "CA Certificates",
+      "detail.title": "CA Certificate: {id}",
+      "create.form.title": "New CA Certificate",
+      "edit.form.title": "Edit CA Certificate"
     },
     "sni": {
       "created": "SNI {name} is successfully created!",
       "updated": "SNI {name} is successfully updated!",
-      "deleted": "SNI {name} is successfully deleted!"
+      "deleted": "SNI {name} is successfully deleted!",
+      "list.title": "SNIs",
+      "detail.title": "SNI: {name}",
+      "create.form.title": "New SNI",
+      "edit.form.title": "Edit SNI"
     },
     "target": {
       "created": "Target {name} is successfully created!",
       "updated": "Target {name} is successfully updated!",
       "deleted": "Target {name} is successfully deleted!",
-      "markedAsHealthy": "Target successfully marked as healthy!",
-      "markedAsUnhealthy": "Target successfully marked as unhealthy!"
+      "marked.as.healthy": "Target successfully marked as healthy!",
+      "marked.as.unhealthy": "Target successfully marked as unhealthy!",
+      "list.title": "Targets",
+      "detail.title": "Target: {name}",
+      "create.form.title": "New Target",
+      "edit.form.title": "Edit Target"
     },
     "vault": {
       "created": "Vault {name} is successfully created!",
       "updated": "Vault {name} is successfully updated!",
-      "deleted": "Vault {name} is successfully deleted!"
+      "deleted": "Vault {name} is successfully deleted!",
+      "list.title": "Vaults",
+      "detail.title": "Vault: {name}",
+      "create.form.title": "New Vault",
+      "edit.form.title": "Edit Vault"
     },
     "key": {
       "created": "Key {name} is successfully created!",
       "updated": "Key {name} is successfully updated!",
-      "deleted": "Key {name} is successfully deleted!"
+      "deleted": "Key {name} is successfully deleted!",
+      "list.title": "Keys",
+      "detail.title": "Key: {name}",
+      "create.form.title": "New Key",
+      "edit.form.title": "Edit Key"
     },
     "key-set": {
       "created": "Key Set {name} is successfully created!",
       "updated": "Key Set {name} is successfully updated!",
-      "deleted": "Key Set {name} is successfully deleted!"
+      "deleted": "Key Set {name} is successfully deleted!",
+      "list.title": "Key Sets",
+      "detail.title": "Key Set: {name}",
+      "create.form.title": "New Key Set",
+      "edit.form.title": "Edit Key Set"
     }
   }
 }

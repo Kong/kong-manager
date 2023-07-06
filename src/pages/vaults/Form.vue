@@ -1,4 +1,7 @@
 <template>
+  <PageHeader
+    :title="isEditing ? t('entities.vault.edit.form.title') : t('entities.vault.create.form.title')"
+  />
   <VaultForm
     :config="vaultFormConfig"
     :vault-id="id"
@@ -41,6 +44,7 @@ const routeOnUpdate = useFormRedirectOnUpdate(
 
 const vaultFormConfig = reactive({
   ...useFormGeneralConfig(),
+  azureVaultProviderAvailable: false,
   cancelRoute: routeOnCancel,
 })
 

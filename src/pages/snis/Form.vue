@@ -1,4 +1,7 @@
 <template>
+  <PageHeader
+    :title="isEditing ? t('entities.sni.edit.form.title') : t('entities.sni.create.form.title')"
+  />
   <SniForm
     :config="sniFormConfig"
     :sni-id="id"

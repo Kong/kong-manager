@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.upstream.detail.title', { name: titleName })" />
   <KTabs
     v-model="$route.hash"
     :tabs="navTabs"
@@ -7,6 +8,7 @@
     <template #configuration>
       <UpstreamsConfigCard
         :config="upstreamDetailConfig"
+        @fetch:success="onFetchSuccess"
         @copy:success="onCopySuccess"
       />
     </template>
@@ -49,6 +51,8 @@ const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
 
+const titleName = ref<string>('')
+
 const upstreamDetailConfig = reactive({
   ...useDetailGeneralConfig(),
   entityId: id.value,
@@ -62,4 +66,7 @@ const onCopySuccess = () => {
   })
 }
 
+const onFetchSuccess = (entity) => {
+  titleName.value = entity.name ?? entity.id
+}
 </script>

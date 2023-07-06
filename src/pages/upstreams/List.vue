@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.upstream.list.title')" />
   <UpstreamsList
     :config="upstreamListConfig"
     :can-create="canCreate"
