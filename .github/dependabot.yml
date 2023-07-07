@@ -1,0 +1,45 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+
+registries:
+  yarn:
+    type: npm-registry
+    url: https://registry.yarnpkg.com
+    token: ${{secrets.NPM_TOKEN}}
+    replaces-base: true
+  npm:
+    type: npm-registry
+    url: https://registry.npmjs.org
+    token: ${{secrets.NPM_TOKEN}}
+    replaces-base: true
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    registries:
+      - npm
+      - yarn
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "06:42"
+      timezone: "Asia/Shanghai"
+    target-branch: "main"
+    allow:
+      - dependency-name: "@kong/kongponents"
+      - dependency-name: "@kong-ui/*"
+      - dependency-name: "@kong-ui-public/*"
+      - dependency-name: "@playwright/test"
+    groups:
+      kong-packages:
+        patterns:
+          - "@kong/kongponents"
+          - "@kong-ui/*"
+          - "@kong-ui-public/*"
+      playwright:
+        patterns:
+          - "@playwright/test"
