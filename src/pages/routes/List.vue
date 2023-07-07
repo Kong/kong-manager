@@ -1,4 +1,5 @@
 <template>
+  <PageHeader :title="t('entities.route.list.title')" />
   <RouteList
     :config="routeListConfig"
     :can-create="canCreate"
