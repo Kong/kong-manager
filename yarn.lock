@@ -330,16 +330,24 @@
     "@kong-ui/entities-shared" "^0.41.4"
 
 "@kong-ui/entities-routes@^0.17.9":
-  version "0.17.9"
-  resolved "https://registry.yarnpkg.com/@kong-ui/entities-routes/-/entities-routes-0.17.9.tgz#f58a6d0240fc8f577823ab9684a0129e4bb6a2e8"
-  integrity sha512-MmtdSeBeP8gN8wrGJ+tEkNEYFhsOWwWwcc5e3FIWUiZ7wWJw+tXPGOZTlys3uE8i9r2xElFdXImCNt5iVVhNsw==
+  version "0.17.15"
+  resolved "https://registry.yarnpkg.com/@kong-ui/entities-routes/-/entities-routes-0.17.15.tgz#c01eb921a825a6a3c2211ac64a64f3befdbf2205"
+  integrity sha512-sRcLA3ZtOrHjAa+fBRUzqtBp929KlK53/3/EZYfA7kpAGvNmsSimLslcPycrQmCs/vkuBLP2Jwkztm0ULc4z3A==
   dependencies:
-    "@kong-ui/entities-shared" "^0.41.4"
+    "@kong-ui/entities-shared" "^0.41.8"
 
 "@kong-ui/entities-shared@^0.41.4":
   version "0.41.4"
   resolved "https://registry.yarnpkg.com/@kong-ui/entities-shared/-/entities-shared-0.41.4.tgz#3041524256f5b2473fac05fa32503c699cbb3d08"
   integrity sha512-uxA9148tdwrhwo1qfjuTWaerloTPjjTn5bA1djqebvbEkguLM22WFSFAfUaO6TA/yoPzYBynw9NhCDW/9DeAVw==
+  dependencies:
+    "@kong-ui-public/copy-uuid" "^0.5.13"
+    "@kong-ui/core" "^0.17.0"
+
+"@kong-ui/entities-shared@^0.41.8":
+  version "0.41.8"
+  resolved "https://registry.yarnpkg.com/@kong-ui/entities-shared/-/entities-shared-0.41.8.tgz#9ad24b3e8dcba09bd61d3b71838fb9800c2e65ea"
+  integrity sha512-NPJJlkv8MZKUtADX18m9Y1r3w0uF45TLRbM3FLcn1GncA9OsigPqvyngoJwFPh9fgPBYLnOL3bt03TEUUk76Dw==
   dependencies:
     "@kong-ui-public/copy-uuid" "^0.5.13"
     "@kong-ui/core" "^0.17.0"
@@ -375,10 +383,10 @@
     fecha "^4.2.3"
     lodash "^4.17.21"
 
-"@kong/kongponents@^8.84.0":
-  version "8.84.0"
-  resolved "https://registry.yarnpkg.com/@kong/kongponents/-/kongponents-8.84.0.tgz#4a728c440c10afcb1c6c0f1ec8fdccf9f47a2089"
-  integrity sha512-n0ZQXz/pfTz1277/S17VXaf8Z53V1wrr7eefNBEQhEQIK8ssQxO6ARXFm9irvjBJiElfGwfkXqEwaoj51AcN4g==
+"@kong/kongponents@^8.84.7":
+  version "8.84.7"
+  resolved "https://registry.yarnpkg.com/@kong/kongponents/-/kongponents-8.84.7.tgz#281f5d6ebe2120dcd654431273cc775ae52ae24f"
+  integrity sha512-6UDIyqR8WMllDqy1ngGmywajjAF8RuPiaUVoH5NeyLDG+lpu3xloyAPlVHgh57LvhFCS6S/Ol6SFGo0sVmh/ZQ==
   dependencies:
     axios "^0.27.2"
     date-fns "^2.29.3"
