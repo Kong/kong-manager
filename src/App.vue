@@ -98,4 +98,8 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
   margin: 0;
   font-size: 20px;
 }
+
+:deep(main.kong-ui-app-layout-main) {
+  background: #fff!important;
+}
 </style>
