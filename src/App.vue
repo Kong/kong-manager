@@ -36,6 +36,12 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
     active: route.meta?.entity === 'service',
   },
   {
+    name: 'Route',
+    to: { name: 'route-list' },
+    key: 'Route',
+    active: route.meta?.entity === 'route',
+  },
+  {
     name: 'Consumers',
     to: { name: 'consumer-list' },
     key: 'Consumers',

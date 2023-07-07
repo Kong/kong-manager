@@ -311,12 +311,12 @@
   dependencies:
     "@kong-ui/entities-shared" "^0.41.4"
 
-"@kong-ui/entities-keys@^0.13.6":
-  version "0.13.6"
-  resolved "https://registry.yarnpkg.com/@kong-ui/entities-keys/-/entities-keys-0.13.6.tgz#8931627fa0b85bbacf7560029b06e3c39c0ed53a"
-  integrity sha512-CRZGKzNeNxH24r2scF5x0YjAKe5sxnDFoBQ+lBLtb6ExgLA6DmcIGtkPa23Rn1DJm49AuzKzS2R6JO9zT3XeIQ==
+"@kong-ui/entities-keys@^0.13.10":
+  version "0.13.10"
+  resolved "https://registry.yarnpkg.com/@kong-ui/entities-keys/-/entities-keys-0.13.10.tgz#53307829c1958c7a012b41452ca1286a1148c2a9"
+  integrity sha512-dsW/9N67wi2B/hI1uD9OhNGl5RWO5/3W4frEzWl3BlVNWlO7NsNmYR+F93BoL5D8FbxpX1BH3xarBSkv3C3hSA==
   dependencies:
-    "@kong-ui/entities-shared" "^0.41.4"
+    "@kong-ui/entities-shared" "^0.41.7"
 
 "@kong-ui/entities-plugins@^0.10.17":
   version "0.10.17"
@@ -329,6 +329,13 @@
     "@kong-ui/entities-routes" "^0.17.9"
     "@kong-ui/entities-shared" "^0.41.4"
 
+"@kong-ui/entities-routes@^0.17.13":
+  version "0.17.13"
+  resolved "https://registry.yarnpkg.com/@kong-ui/entities-routes/-/entities-routes-0.17.13.tgz#0e386e4d50c0d179839aeadb705c73736e020721"
+  integrity sha512-G3rPxM8ID7eTKSGmO8u9o6hYog6AQghgmnWdycOK1dx2TnPauw0toK/JXdKkVzxiXywnvRMZ3mQ4TAXCMeiRdQ==
+  dependencies:
+    "@kong-ui/entities-shared" "^0.41.7"
+
 "@kong-ui/entities-routes@^0.17.9":
   version "0.17.9"
   resolved "https://registry.yarnpkg.com/@kong-ui/entities-routes/-/entities-routes-0.17.9.tgz#f58a6d0240fc8f577823ab9684a0129e4bb6a2e8"
@@ -340,6 +347,14 @@
   version "0.41.4"
   resolved "https://registry.yarnpkg.com/@kong-ui/entities-shared/-/entities-shared-0.41.4.tgz#3041524256f5b2473fac05fa32503c699cbb3d08"
   integrity sha512-uxA9148tdwrhwo1qfjuTWaerloTPjjTn5bA1djqebvbEkguLM22WFSFAfUaO6TA/yoPzYBynw9NhCDW/9DeAVw==
+  dependencies:
+    "@kong-ui-public/copy-uuid" "^0.5.13"
+    "@kong-ui/core" "^0.17.0"
+
+"@kong-ui/entities-shared@^0.41.7":
+  version "0.41.7"
+  resolved "https://registry.yarnpkg.com/@kong-ui/entities-shared/-/entities-shared-0.41.7.tgz#02b4053a1abd2b4629c075cccffa384c887e4e84"
+  integrity sha512-o2ctgVDGW9i7LEFX6BrHDIZiagRr+nL4eVULNDEW7lvZ1oTRDBO13z8RXmBvx5Pkj2KvNnqPAyBPXxmnuPgIZQ==
   dependencies:
     "@kong-ui-public/copy-uuid" "^0.5.13"
     "@kong-ui/core" "^0.17.0"

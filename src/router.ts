@@ -13,6 +13,7 @@ type RouterEntity = string | [string, { noDetail: boolean }]
 // add entity routes
 const entities: RouterEntity[] = [
   'service',
+  'route',
   'consumer',
   'upstream',
   'certificate',
