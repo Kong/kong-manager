@@ -114,6 +114,12 @@ routes.push(
   },
 )
 
+routes.push({
+  name: 'not-found',
+  path: '/:pathMatch(.*)*',
+  component: () => import('@/pages/NotFound.vue'),
+})
+
 export const router = createRouter({
   history: createWebHistory(),
   routes,
