@@ -1,0 +1,57 @@
+name: Build & Release
+
+on:
+  push:
+    branches:
+      - main
+    tags-ignore:
+      - nightly
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+
+  release:
+    name: Release
+    runs-on: ${{ vars.RUNS_ON }}
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN_PRIVATE_READ }}
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Download assets
+        timeout-minutes: 5
+        uses: actions/download-artifact@v3
+        with:
+          name: assets
+
+      - name: Rename assets
+        run: mv ./assets.tar.gz ./release.tar.gz
+
+      - name: Release non-nightly
+        # TODO if: startsWith(github.ref, 'refs/tags/')
+        timeout-minutes: 5
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+          RELEASE_TAG_NAME: test-only-v0.0.1 # TODO ${{ github.ref_name }} # this is the tag name
+          RELEASE_TARGET: ${{ github.sha }}
+        run: bash .ci/release-non-nightly.sh
+
+      - name: Release nightly
+        if: github.ref == 'refs/heads/main'
+        timeout-minutes: 5
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+          RELEASE_TAG_NAME: nightly
+          RELEASE_TARGET: ${{ github.sha }}
+        run: bash .ci/release-nightly.sh

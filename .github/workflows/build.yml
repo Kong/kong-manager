@@ -1,0 +1,76 @@
+# REUSABLE
+
+name: Install Dependencies, Run Lint & Build
+
+on:
+  workflow_call:
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN_PRIVATE_READ }}
+
+jobs:
+  lint:
+    name: Run lint
+    runs-on: ${{ vars.RUNS_ON }}
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - id: setup-node
+        name: Setup Node
+        timeout-minutes: 5
+        continue-on-error: true
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Install dependency
+        timeout-minutes: 5
+        run: |
+          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+          yarn install
+
+      - name: Run lint
+        timeout-minutes: 10
+        run: yarn lint
+
+  build-assets:
+    name: Build assets
+    runs-on: ${{ vars.RUNS_ON }}
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - id: setup-node
+        name: Setup Node
+        timeout-minutes: 5
+        continue-on-error: true
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Install dependencies
+        timeout-minutes: 5
+        run: |
+          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+          yarn install
+
+      - name: Build assets
+        timeout-minutes: 10
+        env:
+          NODE_OPTIONS: "--max-old-space-size=8192"
+        run: |
+          yarn build
+          echo "${{ github.sha }}" > dist/build.sha1
+
+      - name: Pack assets
+        run: tar -cvzf ./assets.tar.gz dist/*
+
+      - name: Upload assets
+        timeout-minutes: 5
+        uses: actions/upload-artifact@v3
+        with:
+          name: assets
+          path: ./assets.tar.gz
