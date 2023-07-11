@@ -1,6 +1,8 @@
 name: Build & Release
 
 on:
+  pull_request: # TODO
+
   push:
     branches:
       - main
