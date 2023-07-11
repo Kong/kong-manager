@@ -1,8 +1,6 @@
 name: Build & Release
 
 on:
-  pull_request: # TODO
-
   push:
     branches:
       - main
@@ -39,12 +37,12 @@ jobs:
         run: mv ./assets.tar.gz ./release.tar.gz
 
       - name: Release non-nightly
-        # TODO if: startsWith(github.ref, 'refs/tags/')
+        if: startsWith(github.ref, 'refs/tags/')
         timeout-minutes: 5
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPOSITORY: ${{ github.repository }}
-          RELEASE_TAG_NAME: test-only-v0.0.1 # TODO ${{ github.ref_name }} # this is the tag name
+          RELEASE_TAG_NAME: ${{ github.ref_name }} # this is the tag name
           RELEASE_TARGET: ${{ github.sha }}
         run: bash .ci/release-non-nightly.sh
 
