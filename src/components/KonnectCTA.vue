@@ -83,7 +83,7 @@ const listItems = [
 
 const getIconPath = (icon: string) => new URL(`../assets/icon-${icon}.svg`, import.meta.url).href
 
-const link = 'https://konghq.com/products/kong-konnect/register?utm_medium=product&utm_source=gateway-free-ui&utm_campaign=gateway-konnect&utm_content=main-cta'
+const link = 'https://konghq.com/products/kong-konnect/register?utm_medium=product&utm_source=canopy-ui&utm_campaign=gateway-konnect&utm_content=instance-home'
 </script>
 
 <style scoped lang="scss">

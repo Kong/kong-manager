@@ -8,7 +8,6 @@
     :can-toggle="canToggle"
     :can-retrieve="canRetrieve"
     :can-retrieve-scoped-entity="canRetrieveScopedEntity"
-    :can-configure-dynamic-ordering="canConfigureDynamicOrdering"
     @copy:success="onCopySuccess"
     @copy:error="onCopyError"
     @delete:success="onDeleteSuccess"
@@ -103,9 +102,6 @@ const canToggle = async () => true
 const canRetrieve = async () => true
 
 const canRetrieveScopedEntity = async () => true
-
-// Kong OSS does not support dynamic ordering
-const canConfigureDynamicOrdering = async () => false
 
 const { onCopySuccess, onCopyError } = useCopyEventHandlers()
 

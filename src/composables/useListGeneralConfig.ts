@@ -6,6 +6,10 @@ export const useListGeneralConfig = () => {
   return reactive({
     app: 'kongManager' as const,
     workspace: '',
+    gatewayInfo: {
+      edition: 'community',
+      version: '3.4.0.0',
+    },
     apiBaseUrl: useAdminApiUrl(),
-  } as Pick<KongManagerBaseTableConfig, 'app' | 'workspace' | 'apiBaseUrl'>)
+  } as Pick<KongManagerBaseTableConfig, 'app' | 'workspace' | 'gatewayInfo' | 'apiBaseUrl'>)
 }
