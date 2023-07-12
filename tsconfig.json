@@ -6,7 +6,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "tests/*": ["tests/*"]
+      "tests/*": ["tests/*"],
+      "config": ["src/config.ts"]
     },
     "moduleResolution": "node",
     "resolveJsonModule": true,
