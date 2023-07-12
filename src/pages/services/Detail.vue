@@ -19,13 +19,15 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { GatewayServiceConfigCard } from '@kong-ui/entities-gateway-services'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useTabs } from '@/composables/useTabs'
+import { useAxios } from '@/composables/useAxios'
+import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
 
 defineOptions({
   name: 'ServiceDetail',
@@ -44,6 +46,8 @@ const { kongponentTabs: tabs, initialHash, onTabChange } = useTabs([
 
 const route = useRoute()
 const { t } = useI18n()
+const { axiosInstance } = useAxios()
+const adminApiUrl = useAdminApiUrl()
 
 const id = computed(() => (route.params.id as string) ?? '')
 
@@ -65,4 +69,13 @@ const onCopySuccess = () => {
 const onFetchSuccess = (entity) => {
   titleName.value = entity.name ?? entity.id
 }
+
+onMounted(async () => {
+  // If the page is loaded on the routes tab, we need to fetch the service name
+  if (route.name === 'service-detail-routes') {
+    const { data } = await axiosInstance.get(`${adminApiUrl}/services/${id.value}`)
+
+    titleName.value = data.name
+  }
+})
 </script>
