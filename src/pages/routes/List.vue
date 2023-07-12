@@ -1,6 +1,10 @@
 <template>
-  <PageHeader :title="t('entities.route.list.title')" />
+  <PageHeader
+    v-if="!serviceId"
+    :title="t('entities.route.list.title')"
+  />
   <RouteList
+    :cache-identifier="cacheIdentifier"
     :config="routeListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"
@@ -14,6 +18,7 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
+import { useRoute } from 'vue-router'
 import { RouteList, type EntityRow } from '@kong-ui/entities-routes'
 import type { FilterSchema } from '@kong-ui/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
@@ -25,8 +30,12 @@ import { useI18n } from '@/composables/useI18n'
 defineOptions({ name: 'RouteList' })
 
 const toaster = useToaster()
+const route = useRoute()
 const { t } = useI18n()
 const { createRedirectRouteQuery } = useListRedirect()
+
+const serviceId = computed(() => (route.params?.id ?? '') as string)
+const cacheIdentifier = computed(() => `routes-${serviceId.value}`)
 
 const filterSchema: FilterSchema = {
   name: {
@@ -56,6 +65,7 @@ const createRoute = computed(() => {
   return {
     name: 'route-create',
     query: {
+      serviceId: serviceId.value,
       ...createRedirectRouteQuery(),
     },
   }
@@ -65,6 +75,7 @@ const getViewRoute = (id: string) => ({
   name: 'route-detail',
   params: { id },
   query: {
+    serviceId: serviceId.value,
     ...createRedirectRouteQuery(),
   },
 })
@@ -75,12 +86,14 @@ const getEditRoute = (id: string) => ({
     id,
   },
   query: {
+    serviceId: serviceId.value,
     ...createRedirectRouteQuery(),
   },
 })
 
 const routeListConfig = reactive({
   ...useListGeneralConfig(),
+  serviceId,
   useExpression: false,
   createRoute,
   getViewRoute,
