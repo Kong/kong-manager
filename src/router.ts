@@ -1,3 +1,4 @@
+import { config } from 'config'
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
@@ -121,6 +122,6 @@ routes.push({
 })
 
 export const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(config.ADMIN_GUI_PATH),
   routes,
 })

@@ -1,4 +1,5 @@
 import { reactive } from 'vue'
+import { config } from 'config'
 import type { KongManagerBaseTableConfig } from '@kong-ui/entities-shared'
 import { useAdminApiUrl } from './useAdminApiUrl'
 
@@ -7,8 +8,8 @@ export const useListGeneralConfig = () => {
     app: 'kongManager' as const,
     workspace: '',
     gatewayInfo: {
-      edition: 'community',
-      version: '3.4.0.0',
+      edition: config.GATEWAY_EDITION,
+      version: config.GATEWAY_VERSION,
     },
     apiBaseUrl: useAdminApiUrl(),
   } as Pick<KongManagerBaseTableConfig, 'app' | 'workspace' | 'gatewayInfo' | 'apiBaseUrl'>)
