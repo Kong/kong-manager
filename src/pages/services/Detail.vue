@@ -1,10 +1,21 @@
 <template>
   <PageHeader :title="t('entities.service.detail.title', { name: titleName })" />
-  <GatewayServiceConfigCard
-    :config="serviceDetailConfig"
-    @fetch:success="onFetchSuccess"
-    @copy:success="onCopySuccess"
-  />
+  <KTabs
+    :model-value="initialHash"
+    :tabs="tabs"
+    @changed="onTabChange"
+  >
+    <template #configuration>
+      <GatewayServiceConfigCard
+        :config="serviceDetailConfig"
+        @fetch:success="onFetchSuccess"
+        @copy:success="onCopySuccess"
+      />
+    </template>
+    <template #routes>
+      <router-view />
+    </template>
+  </KTabs>
 </template>
 
 <script setup lang="ts">
@@ -14,10 +25,22 @@ import { GatewayServiceConfigCard } from '@kong-ui/entities-gateway-services'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
+import { useTabs } from '@/composables/useTabs'
 
 defineOptions({
   name: 'ServiceDetail',
 })
+
+const { kongponentTabs: tabs, initialHash, onTabChange } = useTabs([
+  {
+    title: 'Configuration',
+    route: { name: 'service-detail' },
+  },
+  {
+    title: 'Routes',
+    route: { name: 'service-detail-routes' },
+  },
+])
 
 const route = useRoute()
 const { t } = useI18n()

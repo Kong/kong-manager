@@ -3,6 +3,7 @@
   <RouteForm
     :config="routeFormConfig"
     :route-id="id"
+    :service-id="serviceId"
     @update="handleUpdate"
   />
 </template>
@@ -26,6 +27,7 @@ const toaster = useToaster()
 const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
+const serviceId = computed(() => (route.query.serviceId as string) ?? '')
 
 const isEditing = computed(() => !!id.value)
 

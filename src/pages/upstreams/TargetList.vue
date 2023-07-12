@@ -1,5 +1,6 @@
 <template>
   <TargetsList
+    :cache-identifier="cacheIdentifier"
     :config="targetListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"
@@ -38,6 +39,7 @@ const { axiosInstance } = useAxios()
 const adminApiUrl = useAdminApiUrl()
 
 const upstreamId = computed(() => (route.params.id as string) ?? '')
+const cacheIdentifier = computed(() => `targets-${upstreamId.value}`)
 
 const canCreate = async () => true
 
@@ -136,3 +138,9 @@ const makeUnhealthyAction = async (item: EntityRow) => {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+:deep(.kong-ui-entities-target-form .kong-card) {
+  border: none;
+}
+</style>

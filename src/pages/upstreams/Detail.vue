@@ -1,9 +1,9 @@
 <template>
   <PageHeader :title="t('entities.upstream.detail.title', { name: titleName })" />
   <KTabs
-    v-model="$route.hash"
-    :tabs="navTabs"
-    @changed="hash => $router.replace({ hash })"
+    :model-value="initialHash"
+    :tabs="tabs"
+    @changed="onTabChange"
   >
     <template #configuration>
       <UpstreamsConfigCard
@@ -13,9 +13,7 @@
       />
     </template>
     <template #targets>
-      <TargetList
-        :upstream-id="upstream?.id ?? ''"
-      />
+      <router-view />
     </template>
   </KTabs>
 </template>
@@ -23,28 +21,26 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { UpstreamsConfigCard, type EntityRow } from '@kong-ui/entities-upstreams-targets'
+import { UpstreamsConfigCard } from '@kong-ui/entities-upstreams-targets'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
-import TargetList from './TargetList.vue'
+import { useTabs } from '@/composables/useTabs'
 
 defineOptions({
   name: 'UpstreamDetail',
 })
 
-const navTabs = [
+const { kongponentTabs: tabs, initialHash, onTabChange } = useTabs([
   {
-    hash: '#configuration',
     title: 'Configuration',
+    route: { name: 'upstream-detail' },
   },
   {
-    hash: '#targets',
     title: 'Targets',
+    route: { name: 'upstream-detail-targets' },
   },
-]
-
-const upstream = ref<EntityRow>()
+])
 
 const route = useRoute()
 const { t } = useI18n()
