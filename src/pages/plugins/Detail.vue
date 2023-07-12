@@ -2,6 +2,8 @@
   <PageHeader :title="t('entities.plugin.detail.title', { name: route.params.pluginType as string })" />
   <PluginConfigCard
     :config="pluginDetailConfig"
+    :entity-type="entityType"
+    :entity-id="entityId"
     @copy:success="onCopySuccess"
   />
 </template>
@@ -22,6 +24,8 @@ const route = useRoute()
 const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
+const entityType = computed(() => route.query?.entity_type)
+const entityId = computed(() => route.query?.entity_id)
 
 const pluginDetailConfig = reactive({
   ...useDetailGeneralConfig(),

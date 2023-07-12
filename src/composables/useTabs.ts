@@ -3,7 +3,7 @@ import { useRoute, useRouter, type RouteLocationRaw } from 'vue-router'
 
 interface Tab {
   title: string
-  route: Omit<RouteLocationRaw, 'name'> & { name: string }
+  route: RouteLocationRaw & { name: string }
 }
 
 const convertTitleToHash = (title: string) => `#${title.replace(/\s+/g, '-').toLowerCase()}`

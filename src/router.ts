@@ -51,10 +51,19 @@ const routes: Array<RouteRecordRaw> = [
     children: [
       {
         name: 'service-detail-routes',
-        path: '/services/:id/routes',
+        path: 'routes',
         component: () => import('@/pages/routes/List.vue'),
         meta: {
           entity: 'service',
+        },
+      },
+      {
+        name: 'service-detail-plugins',
+        path: 'plugins',
+        component: () => import('@/pages/plugins/List.vue'),
+        meta: {
+          entity: 'service',
+          scopedIn: 'services',
         },
       },
     ],
@@ -92,6 +101,17 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       entity: 'route',
     },
+    children: [
+      {
+        name: 'route-detail-plugins',
+        path: 'plugins',
+        component: () => import('@/pages/plugins/List.vue'),
+        meta: {
+          entity: 'route',
+          scopedIn: 'routes',
+        },
+      },
+    ],
   },
 
   // consumer pages
@@ -126,6 +146,17 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       entity: 'consumer',
     },
+    children: [
+      {
+        name: 'consumer-detail-plugins',
+        path: 'plugins',
+        component: () => import('@/pages/plugins/List.vue'),
+        meta: {
+          entity: 'consumer',
+          scopedIn: 'consumers',
+        },
+      },
+    ],
   },
 
   // plugin pages
