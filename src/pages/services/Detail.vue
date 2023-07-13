@@ -15,6 +15,9 @@
     <template #routes>
       <router-view />
     </template>
+    <template #plugins>
+      <router-view />
+    </template>
   </KTabs>
 </template>
 
@@ -41,6 +44,10 @@ const { kongponentTabs: tabs, initialHash, onTabChange } = useTabs([
   {
     title: 'Routes',
     route: { name: 'service-detail-routes' },
+  },
+  {
+    title: 'Plugins',
+    route: { name: 'service-detail-plugins' },
   },
 ])
 
@@ -71,11 +78,11 @@ const onFetchSuccess = (entity) => {
 }
 
 onMounted(async () => {
-  // If the page is loaded on the routes tab, we need to fetch the service name
-  if (route.name === 'service-detail-routes') {
+  // If the page is not loaded from the configuration tab, we need to fetch the service name
+  if (route.name !== 'service-detail') {
     const { data } = await axiosInstance.get(`${adminApiUrl}/services/${id.value}`)
 
-    titleName.value = data.name
+    titleName.value = data.name ?? data.id
   }
 })
 </script>
