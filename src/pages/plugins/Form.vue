@@ -507,7 +507,7 @@ export default {
 
           this.returnLink
             ? this.$router.push({ path: this.returnLink })
-            : redirectOnResponseStatus(this.$router, 200, { name: 'plugins' })(res)
+            : redirectOnResponseStatus(this.$router, 200, { name: 'plugin-detail', params: { id: this.id } })(res)
 
           return res.data
         })

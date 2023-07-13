@@ -78,7 +78,10 @@ const getViewRoute = (plugin: Pick<EntityRow, 'id' | 'name'>) => {
       id: plugin.id,
       pluginType: plugin.name,
     },
-    query: scopedQuery.value,
+    query: {
+      ...scopedQuery.value,
+      ...createRedirectRouteQuery(),
+    },
   }
 }
 

@@ -11,6 +11,8 @@ export const useListGeneralConfig = () => {
       edition: config.GATEWAY_EDITION,
       version: config.GATEWAY_VERSION,
     },
+    // Kong Gateway OSS only supports exact match
+    isExactMatch: true,
     apiBaseUrl: useAdminApiUrl(),
-  } as Pick<KongManagerBaseTableConfig, 'app' | 'workspace' | 'gatewayInfo' | 'apiBaseUrl'>)
+  } as Pick<KongManagerBaseTableConfig, 'app' | 'workspace' | 'gatewayInfo' | 'isExactMatch' | 'apiBaseUrl'>)
 }
