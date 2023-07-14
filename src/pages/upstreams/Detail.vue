@@ -1,5 +1,11 @@
 <template>
-  <PageHeader :title="t('entities.upstream.detail.title', { name: titleName })" />
+  <PageHeader :title="t('entities.upstream.detail.title', { name: titleName })">
+    <HeaderBackButton entity="upstream" />
+    <HeaderEditButton
+      class="ml-4"
+      entity="upstream"
+    />
+  </PageHeader>
   <KTabs
     :model-value="initialHash"
     :tabs="tabs"

@@ -1,0 +1,32 @@
+<template>
+  <KButton
+    :to="editPath"
+    appearance="primary"
+  >
+    {{ t('global.buttons.edit') }}
+  </KButton>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { useI18n } from '@/composables/useI18n'
+
+const props = defineProps({
+  entity: {
+    type: String,
+    required: true,
+    default: '',
+  },
+})
+
+const route = useRoute()
+const { t } = useI18n()
+
+const editPath = computed(() => {
+  return {
+    name: `${props.entity}-edit`,
+    params: { id: route.params.id },
+  }
+})
+</script>

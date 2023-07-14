@@ -45,7 +45,6 @@ const getEditRoute = (id: string) => ({
 
 const certificateListConfig = reactive({
   ...useListGeneralConfig(),
-  isExactMatch: true,
   createRoute,
   getViewRoute,
   getEditRoute,

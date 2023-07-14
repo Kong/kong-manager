@@ -1,5 +1,11 @@
 <template>
-  <PageHeader :title="t('entities.service.detail.title', { name: titleName })" />
+  <PageHeader :title="t('entities.service.detail.title', { name: titleName })">
+    <HeaderBackButton entity="service" />
+    <HeaderEditButton
+      class="ml-4"
+      entity="service"
+    />
+  </PageHeader>
   <KTabs
     :model-value="initialHash"
     :tabs="tabs"

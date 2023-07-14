@@ -1,5 +1,11 @@
 <template>
-  <PageHeader :title="t('entities.plugin.detail.title', { name: route.params.pluginType as string })" />
+  <PageHeader :title="t('entities.plugin.detail.title', { name: route.params.pluginType as string })">
+    <HeaderBackButton entity="plugin" />
+    <HeaderEditButton
+      class="ml-4"
+      entity="plugin"
+    />
+  </PageHeader>
   <PluginConfigCard
     :config="pluginDetailConfig"
     :entity-type="entityType"

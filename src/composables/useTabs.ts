@@ -1,5 +1,5 @@
 import { computed } from 'vue'
-import { useRoute, useRouter, type RouteLocationRaw } from 'vue-router'
+import { useRoute, useRouter, type RouteLocationRaw, type RouteLocationNamedRaw } from 'vue-router'
 
 interface Tab {
   title: string
@@ -35,7 +35,10 @@ export const useTabs = (tabs: Array<Tab>) => {
       return
     }
 
-    router.push(activeTab.route as RouteLocationRaw)
+    router.push({
+      query: route.query,
+      ...(activeTab.route as RouteLocationNamedRaw),
+    })
   }
 
   return {

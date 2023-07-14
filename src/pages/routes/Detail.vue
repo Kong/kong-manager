@@ -1,5 +1,11 @@
 <template>
-  <PageHeader :title="t('entities.route.detail.title', { name: titleName })" />
+  <PageHeader :title="t('entities.route.detail.title', { name: titleName })">
+    <HeaderBackButton entity="route" />
+    <HeaderEditButton
+      class="ml-4"
+      entity="route"
+    />
+  </PageHeader>
   <KTabs
     :model-value="initialHash"
     :tabs="tabs"
@@ -9,6 +15,7 @@
       <RouteConfigCard
         :config="routeDetailConfig"
         :service-id="serviceId"
+        @navigation-click="onNavigationClick"
         @fetch:success="onFetchSuccess"
         @copy:success="onCopySuccess"
       />
@@ -21,7 +28,7 @@
 
 <script setup lang="ts">
 import { computed, reactive, ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { RouteConfigCard } from '@kong-ui/entities-routes'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
@@ -29,6 +36,7 @@ import { useI18n } from '@/composables/useI18n'
 import { useTabs } from '@/composables/useTabs'
 import { useAxios } from '@/composables/useAxios'
 import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
+import { useListRedirect } from '@/composables/useListRedirect'
 
 defineOptions({
   name: 'RouteDetail',
@@ -46,9 +54,11 @@ const { kongponentTabs: tabs, initialHash, onTabChange } = useTabs([
 ])
 
 const route = useRoute()
+const router = useRouter()
 const { t } = useI18n()
 const { axiosInstance } = useAxios()
 const adminApiUrl = useAdminApiUrl()
+const { createRedirectRouteQuery } = useListRedirect()
 
 const id = computed(() => (route.params.id as string) ?? '')
 const serviceId = computed(() => (route.query.serviceId as string) ?? '')
@@ -70,6 +80,14 @@ const onCopySuccess = () => {
 
 const onFetchSuccess = (entity) => {
   titleName.value = entity.name ?? entity.id
+}
+
+const onNavigationClick = (id: string) => {
+  router.push({
+    name: 'service-detail',
+    params: { id },
+    query: createRedirectRouteQuery(),
+  })
 }
 
 onMounted(async () => {
