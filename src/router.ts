@@ -1,5 +1,9 @@
+import { datadogRum } from '@datadog/browser-rum'
+import {
+  createRouter, createWebHistory, type RouteLocationNormalized, type RouteRecordRaw,
+} from 'vue-router'
+
 import { config } from 'config'
-import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
   // home page
@@ -328,3 +332,20 @@ export const router = createRouter({
   history: createWebHistory(config.ADMIN_GUI_PATH),
   routes,
 })
+
+const extractRouteName = (route: RouteLocationNormalized) => {
+  const name = route.name
+  let routeName: string | undefined
+
+  if (typeof name === 'string') {
+    routeName = name
+  } else if (typeof name === 'symbol') {
+    routeName = name.description
+  }
+
+  return routeName
+}
+
+router.afterEach(to => datadogRum.startView({
+  name: extractRouteName(to) || 'unknown',
+}))
