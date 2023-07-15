@@ -7,6 +7,8 @@ on:
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN_PRIVATE_READ }}
+  VITE_DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
+  VITE_DATADOG_APPID: ${{ secrets.DATADOG_APPID }}
 
 jobs:
   lint:
