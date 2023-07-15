@@ -1,67 +1,67 @@
-# Kong Manager Open Source
+# Kong Manager OSS
 
-Kong Manager Open Source is a graphical user interface (GUI) for Kong Gateway. It uses Admin API under the hood to administer and control the Gateway.
+[Installation](#getting-started) | [Provide feedback](https://github.com/Kong/kong-manager-oss/issues/new) | [Ask a question](https://join.slack.com/t/kongcommunity/shared_invite/zt-1s4nb74vo-jLdMEk8MoTm~uMWYMMLPWg) | [Contributing](#contributing) | [Blog](https://konghq.com/blog)
+
+![Kong Manager OSS - Plugin list](https://github.com/Kong/kong-manager-oss/assets/59130/64bdf0aa-cf08-499e-bf1e-b306fcc2da13)
+
+Kong Manager OSS, a **free** and **open-source** UI for [Kong](https://github.com/kong/kong), the world's most used open source API Gateway.
+
+Built and maintained with ❤️ by the team at Kong.
+
+## Features
+
+Kong Manager OSS allows you to view and edit all Kong Gateway objects using the admin API. It interacts directly with the Kong admin API and does not require a separate database.
+
+![Kong Manager OSS - Service edit](https://github.com/Kong/kong-manager-oss/assets/59130/f1c1d1da-b90a-4b21-8eaa-0114755f4662)
+
+> **Important:** Kong Manager OSS is only compatible in Kong Gateway 3.4+
+
+Kong Manager OSS is bundled with Kong Gateway, see [Getting Started](#getting-started) for information on how to use it. To run Kong Manager OSS locally, please see the [contributing](#contributing) section.
 
 ## Getting Started
 
-Kong Manager Open Source comes with [Kong Gateway](https://github.com/Kong/kong) 3.4 or later. To start, you need to start Kong Gateway. You may find all supported distributions or platforms and follow the steps in the [_Install Kong Gateway_ section](https://konghq.com/install#kong-community) on our documentation website.
+> Note: Kong Manager OSS can only be run locally by Kong employees. We are migrating private dependencies to public packages. Once completed, dependencies will be available to the community to build, develop, and contribute to this repository.
 
-After starting the Gateway, the 8002 port on localhost should be accessible by default. You can visit [http://localhost:8002/](http://localhost:8002/) in your browser and start exploring.
+To use Kong Manager OSS you'll need a running Kong Gateway instance. This can be a local instance or running on a remote server.
 
-Furthermore, you could also find [helpful tutorials and quick-start guides](https://docs.konghq.com/gateway/latest/get-started/#main) on our documentation website.
+### Local testing
+
+The quickest way to get started is using the quickstart script:
+
+```bash
+curl -Ls https://get.konghq.com/quickstart | bash -s -- -i kong -t latest
+```
+
+Finally, visit https://localhost:8002 to view Kong Manager.
+
+### Server usage
+
+Kong Manager OSS is intended to be a local testing tool. However, you can also use it on a public server.
+
+> If running Kong Manger OSS on a public server, ensure that ports `8001` and `8002` are only accessible to your IP address
+
+To access Kong Manager OSS from a remote machine, ensure that `admin_listen` and `admin_gui_listen` are binding to `0.0.0.0` rather than `127.0.0.1` in `kong.conf` and restart your Kong Gateway instance.
+
+## Why do I need this?
+
+You've been using the admin API just fine for years. Why would you want to use a UI?
+
+Kong Manager OSS is a great way to see your Kong Gateway configuration at glance. You can see the routes and plugins configured on a service and drill in to the configuration of each in a single click.
+
+In addition, the plugin configuration UI provides instructions for each configuration option. You can configure a plugin using the UI with helpful tooltips before running `deck dump` to see the final configuration values.
+
+![Kong Manager OSS - Plugin configuration tooltip](https://github.com/Kong/kong/assets/59130/095e520a-0b1d-4455-9b65-a230f421174b)
 
 ## Contributing
 
-> Note: This section is still **a work in progress**, as we are working on migrating the dependencies this repository uses from private scopes to public ones. Once completed, dependencies will be available to the community to build, develop, and contribute to this repository.
+Kong Manager OSS is written in JavaScript. It uses Vue for it's UI components, and `yarn` for managing dependencies. To build Kong Manager OSS locally please ensure that you have `node.js 18+` and `yarn` installed.
 
-Your contribution makes Kong Manager a better one. We are open to issues and contributions.
+You'll also need a running Kong Gateway instance. See [local testing](#local-testing) for a one-line solution. Alternatively, you can [build Kong Gateway from source](https://github.com/Kong/kong/tree/master/build).
 
-Because Kong Manager operates the Admin API under the hood, it is recommended to start Kong Gateway locally. You may check out the [_Getting Started_](https://github.com/Kong/kong/blob/master/README.md#getting-started) and [_Contributing_](https://github.com/Kong/kong/blob/master/README.md#contributing) section in [Kong Gateway's README](https://github.com/Kong/kong/blob/master/README.md) for more information.
+Once Kong Gateway is running, run the following command to start the development server:
 
-The development server will use the 8001 (Admin API) and 8002 (Admin GUI) ports on localhost by default. To verify if these two ports are available, please visit [http://localhost:8001/](http://localhost:8001/) and [http://localhost:8002/kconfig.js](http://localhost:8002/kconfig.js) in the browser. You should see the content showing in the browser.
-
-Besides, the software listed below is required:
-
-- Git
-- Node (See [.nvmrc](.nvmrc) for recommended version)
-
-Next, we will clone the repository and `cd` into the directory:
-
-```shell
-git clone https://github.com/Kong/kong-manager-oss.git
-cd kong-manager-oss
+```bash
+yarn && yarn serve
 ```
 
-Then, we will install the dependencies:
-
-```shell
-yarn
-```
-
-Finally, let's start the development server:
-
-```shell
-yarn serve
-```
-
-The development server will be now accessible from [http://localhost:8080/](http://localhost:8080/) by default.
-
-## License
-
-```
-Copyright 2016-2023 Kong Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
-
-See [LICENSE](LICENSE) for the full text
+Kong Manager OSS is now available at http://localhost:8080

@@ -1,6 +1,10 @@
 <template>
-  <PageHeader :title="t('entities.plugin.list.title')" />
+  <PageHeader
+    v-if="!entityType"
+    :title="t('entities.plugin.list.title')"
+  />
   <PluginList
+    :cache-identifier="cacheIdentifier"
     :config="pluginListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"
@@ -16,8 +20,8 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import type { RouteLocationRaw } from 'vue-router'
-import { PluginList, type EntityRow, type ViewRouteType } from '@kong-ui/entities-plugins'
+import { useRoute, type RouteLocationRaw } from 'vue-router'
+import { PluginList, type EntityRow, type ViewRouteType, type EntityType } from '@kong-ui/entities-plugins'
 import type { FilterSchema } from '@kong-ui/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
@@ -32,9 +36,30 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
+const route = useRoute()
+const cacheIdentifier = computed(() => `plugins-${route.params?.id}`)
+const entityType = computed(() => route.meta?.scopedIn as EntityType)
+const scopedQuery = computed(() => {
+  switch (entityType.value) {
+    case 'services':
+      return { entity_type: 'service_id', entity_id: route.params?.id }
+    case 'routes':
+      return { entity_type: 'route_id', entity_id: route.params?.id }
+    case 'consumers':
+      return { entity_type: 'consumer_id', entity_id: route.params?.id }
+    default:
+      return {}
+  }
+})
 
 const createRoute = computed(() => {
-  return { name: 'plugin-select' }
+  return {
+    name: 'plugin-select',
+    query: {
+      ...scopedQuery.value,
+      ...createRedirectRouteQuery(),
+    },
+  }
 })
 
 const getScopedEntityViewRoute = (type: ViewRouteType, id: string): RouteLocationRaw => {
@@ -53,6 +78,10 @@ const getViewRoute = (plugin: Pick<EntityRow, 'id' | 'name'>) => {
       id: plugin.id,
       pluginType: plugin.name,
     },
+    query: {
+      ...scopedQuery.value,
+      ...createRedirectRouteQuery(),
+    },
   }
 }
 
@@ -62,7 +91,10 @@ const getEditRoute = (plugin: EntityRow) => ({
     id: plugin.id,
     pluginType: plugin.name,
   },
-  query: createRedirectRouteQuery(),
+  query: {
+    ...scopedQuery.value,
+    ...createRedirectRouteQuery(),
+  },
 })
 
 const filterSchema: FilterSchema = {
@@ -80,6 +112,8 @@ const filterSchema: FilterSchema = {
 
 const pluginListConfig = reactive({
   ...useListGeneralConfig(),
+  entityType,
+  entityId: route.params?.id as string,
   createRoute,
   getViewRoute,
   getEditRoute,

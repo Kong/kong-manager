@@ -4,11 +4,11 @@
   >
     <template #navbar-left>
       <h2 class="app-title">
-        Kong Canopy
+        Kong Manager Open Source
       </h2>
     </template>
     <template #sidebar-header>
-      Canopy Logo
+      <NavbarLogo />
     </template>
     <router-view />
   </AppLayout>
@@ -19,6 +19,7 @@ import { computed } from 'vue'
 import { AppLayout, type SidebarPrimaryItem } from '@kong-ui-public/app-layout'
 import { useRoute } from 'vue-router'
 import '@kong-ui-public/app-layout/dist/style.css'
+import NavbarLogo from '@/components/NavbarLogo.vue'
 
 const route = useRoute()
 

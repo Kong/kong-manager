@@ -184,6 +184,13 @@ export default {
             return plugin
           }
 
+          if (entityType === 'service_id') {
+            const isNotServicePlugin = (pluginMeta[plugin] && !pluginMeta[plugin].scope.includes(PluginScope.SERVICE))
+            if (isNotServicePlugin) {
+              return false
+            }
+          }
+
           if (entityType === 'route_id') {
             const isNotRoutePlugin = (pluginMeta[plugin] && !pluginMeta[plugin].scope.includes(PluginScope.ROUTE))
             if (isNotRoutePlugin) {

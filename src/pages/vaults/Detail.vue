@@ -1,5 +1,11 @@
 <template>
-  <PageHeader :title="t('entities.vault.detail.title', { name: titleName })" />
+  <PageHeader :title="t('entities.vault.detail.title', { name: titleName })">
+    <HeaderBackButton entity="vault" />
+    <HeaderEditButton
+      class="ml-4"
+      entity="vault"
+    />
+  </PageHeader>
   <VaultConfigCard
     :config="vaultDetailConfig"
     @fetch:success="onFetchSuccess"

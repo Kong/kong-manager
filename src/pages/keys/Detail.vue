@@ -1,5 +1,11 @@
 <template>
-  <PageHeader :title="t('entities.key.detail.title', { name: titleName })" />
+  <PageHeader :title="t('entities.key.detail.title', { name: titleName })">
+    <HeaderBackButton entity="key" />
+    <HeaderEditButton
+      class="ml-4"
+      entity="key"
+    />
+  </PageHeader>
   <KeyConfigCard
     :config="keyDetailConfig"
     @fetch:success="onFetchSuccess"

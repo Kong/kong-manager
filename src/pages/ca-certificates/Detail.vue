@@ -1,5 +1,11 @@
 <template>
-  <PageHeader :title="t('entities.ca-certificate.detail.title', { id: titleId })" />
+  <PageHeader :title="t('entities.ca-certificate.detail.title', { id: titleId })">
+    <HeaderBackButton entity="ca-certificate" />
+    <HeaderEditButton
+      class="ml-4"
+      entity="ca-certificate"
+    />
+  </PageHeader>
   <CACertificateConfigCard
     :config="caCertificateDetailConfig"
     @fetch:success="onFetchSuccess"
