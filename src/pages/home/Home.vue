@@ -6,6 +6,6 @@
 import KonnectCTA from '@/components/KonnectCTA.vue'
 
 defineOptions({
-  name: 'CanopyHome',
+  name: 'ManagerHome',
 })
 </script>

@@ -129,7 +129,7 @@ const canDelete = async () => true
 const canEdit = async () => true
 
 // konnect has a special tag for this permission
-// set to always true since Canopy doesn't have such limitation
+// set to always true since Kong Manager doesn't have such limitation
 // `@kong-ui/entites-plugins` will check `canEdit` internally so we don't need to check it here
 const canToggle = async () => true
 
