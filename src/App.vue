@@ -7,6 +7,9 @@
         Kong Manager Open Source
       </h2>
     </template>
+    <template #navbar-right>
+      <GithubStar url="https://github.com/kong/kong" />
+    </template>
     <template #sidebar-header>
       <NavbarLogo />
     </template>
@@ -16,9 +19,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { AppLayout, type SidebarPrimaryItem } from '@kong-ui-public/app-layout'
 import { useRoute } from 'vue-router'
-import '@kong-ui-public/app-layout/dist/style.css'
+import { AppLayout, type SidebarPrimaryItem } from '@kong-ui-public/app-layout'
+import { GithubStar } from '@kong-ui-public/misc-widgets'
 import NavbarLogo from '@/components/NavbarLogo.vue'
 
 const route = useRoute()
