@@ -21,12 +21,11 @@ env:
 
 jobs:
   e2e-tests:
-  strategy:
+    strategy:
       matrix:
         suite:
           - stub # TODO
       fail-fast: false
-
     name: ${{ inputs.suite }}
     runs-on: ${{ vars.RUNS_ON }}
 
