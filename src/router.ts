@@ -152,6 +152,14 @@ const routes: Array<RouteRecordRaw> = [
     },
     children: [
       {
+        name: 'consumer-detail-credentials',
+        path: 'credentials',
+        component: () => import('@/pages/consumers/ConsumerCredentials.vue'),
+        meta: {
+          entity: 'consumer',
+        },
+      },
+      {
         name: 'consumer-detail-plugins',
         path: 'plugins',
         component: () => import('@/pages/plugins/List.vue'),
@@ -161,6 +169,22 @@ const routes: Array<RouteRecordRaw> = [
         },
       },
     ],
+  },
+  {
+    name: 'consumer-detail-credentials-create',
+    path: '/consumers/:id/credentials/:pluginType/create',
+    component: () => import('@/pages/consumers/CredentialForm.vue'),
+    meta: {
+      entity: 'consumer',
+    },
+  },
+  {
+    name: 'consumer-detail-credentials-edit',
+    path: '/consumers/:id/credentials/:pluginType/:credentialId/edit',
+    component: () => import('@/pages/consumers/CredentialForm.vue'),
+    meta: {
+      entity: 'consumer',
+    },
   },
 
   // plugin pages

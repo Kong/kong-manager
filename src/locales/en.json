@@ -4,7 +4,9 @@
     "error": "An error has occurred, please try again",
     "buttons": {
       "back": "Back",
-      "edit": "Edit"
+      "edit": "Edit",
+      "save": "Save",
+      "create": "Create"
     }
   },
   "not-found": {
@@ -48,6 +50,18 @@
       "detail.title": "Consumer: {name}",
       "create.form.title": "New Consumer",
       "edit.form.title": "Edit Consumer"
+    },
+    "consumer-credential": {
+      "created": "Credential is successfully created!",
+      "updated": "Credential is successfully updated!",
+      "deleted": "Credential is successfully deleted!",
+      "empty": {
+        "title": "No Plugins Enabled",
+        "message": "Add one of the following Plugins for the ability to add credentials to this Consumer: {plugins}",
+        "button": "Install Plugin"
+      },
+      "create.form.title": "Create: {type}",
+      "edit.form.title": "Edit: {type}"
     },
     "plugin": {
       "created": "Plugin {name} is successfully created!",
