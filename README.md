@@ -1,6 +1,6 @@
 # Kong Manager OSS
 
-[Installation](#getting-started) | [Provide feedback](https://github.com/Kong/kong-manager-oss/issues/new) | [Ask a question](https://join.slack.com/t/kongcommunity/shared_invite/zt-1s4nb74vo-jLdMEk8MoTm~uMWYMMLPWg) | [Contributing](#contributing) | [Blog](https://konghq.com/blog)
+[Installation](#getting-started) | [Provide feedback](https://github.com/Kong/kong-manager/issues/new) | [Ask a question](https://join.slack.com/t/kongcommunity/shared_invite/zt-1s4nb74vo-jLdMEk8MoTm~uMWYMMLPWg) | [Contributing](#contributing) | [Blog](https://konghq.com/blog)
 
 ![Kong Manager OSS - Plugin list](./media/Plugin%20list.png)
 
