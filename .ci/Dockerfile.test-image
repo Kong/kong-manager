@@ -1,0 +1,9 @@
+# Build context for this Dockerfile MUST BE the project root (..)
+
+ARG GATEWAY_IMAGE=kong/kong:nightly-ubuntu
+FROM $GATEWAY_IMAGE
+
+ARG KONG_MANAGER_BUILD_SHA1=${KONG_MANAGER_BUILD_SHA1}
+LABEL com.konghq.kong-manager.build="${KONG_MANAGER_BUILD_SHA1}"
+
+ADD ./dist /usr/local/kong/gui

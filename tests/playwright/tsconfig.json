@@ -1,0 +1,22 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "paths": {
+      "@pw-config": ["../../playwright.config"],
+      "@pw/*": ["./*"]
+    },
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "noImplicitAny": false,
+    "types": [
+      "vite/client",
+      "node"
+    ]
+  },
+  "exclude": ["node_modules", "dist", "coverage"]
+}

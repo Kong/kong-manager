@@ -1,0 +1,30 @@
+name: Test
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/.reusable_build.yml
+    secrets: inherit
+
+  build-and-push-test-image:
+    name: Build and Push Test Image to GHCR
+    uses: ./.github/workflows/.reusable_test_image.yml
+    needs: build
+    secrets: inherit
+    with:
+      gateway-image: kong/kong:nightly-ubuntu
+
+  e2e-tests:
+    name: E2E Tests
+    needs: build-and-push-test-image
+    uses: ./.github/workflows/.reusable_e2e_tests.yml
+    with:
+      gateway-image: ${{ needs.build-and-push-test-image.outputs.gateway-test-image }}
+    secrets: inherit
