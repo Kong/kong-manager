@@ -24,7 +24,7 @@ jobs:
     strategy:
       matrix:
         suite:
-          - stub # TODO
+          - vaults
       fail-fast: false
     name: ${{ matrix.suite }}
     runs-on: ${{ vars.RUNS_ON }}
