@@ -6,9 +6,11 @@
   "scripts": {
     "serve": "vite",
     "build": "vite build",
+    "test:e2e": "playwright test specs/",
     "preview": "vite build && vite preview",
     "lint": "eslint --ext .js,.vue,.ts src",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "playwright": "playwright"
   },
   "lint-staged": {
     "src/**/*.{ts,js,vue}": "eslint --fix"
@@ -39,6 +41,7 @@
     "vue-router": "^4.2.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.36.1",
     "@types/node": "^20.3.1",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
     "@typescript-eslint/parser": "^5.60.0",

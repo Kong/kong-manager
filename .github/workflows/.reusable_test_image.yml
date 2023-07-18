@@ -1,0 +1,74 @@
+# This is a reusable workflow
+
+# This workflow builds the test image for testing purposes and pushes it to ghcr.io
+# The test images are built with `kong/kong:nightly-ubuntu` (as default) as the base image
+
+name: Build and Push Test Image to GHCR
+
+on:
+  workflow_call:
+    inputs:
+      gateway-image:
+        description: Name of the Gateway image (base) to use
+        type: string
+        default: kong/kong:nightly-ubuntu
+    outputs:
+      gateway-test-image:
+        description: Name of the Gateway test image being built
+        value: ${{ jobs.build-and-push-test-image.outputs.image-name }}
+
+env:
+  GATEWAY_IMAGE: ${{ inputs.gateway-image }} # Important for the "Build image" step. Do not delete.
+  GATEWAY_TEST_IMAGE: ghcr.io/kong/kong-manager:${{ github.sha }}
+
+jobs:
+  build-and-push-test-image:
+    name: Build and push test image
+    runs-on: ${{ vars.RUNS_ON }}
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image-name: ${{ env.GATEWAY_TEST_IMAGE }}
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Download assets
+        timeout-minutes: 5
+        uses: actions/download-artifact@v3
+        with:
+          name: assets
+
+      - name: Unpack assets
+        run: tar xzvf ./assets.tar.gz
+
+      - name: Set KONG_MANAGER_BUILD_SHA1
+        run: |
+          KONG_MANAGER_BUILD_SHA1=$(cat dist/build.sha1)
+          echo "KONG_MANAGER_BUILD_SHA1=${KONG_MANAGER_BUILD_SHA1}" >> $GITHUB_ENV
+          echo "KONG_MANAGER_BUILD_SHA1 = ${KONG_MANAGER_BUILD_SHA1}"
+
+      - name: Log in to Docker Hub
+        timeout-minutes: 1
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_PULL_USER }}
+          password: ${{ secrets.DOCKER_PULL_PASSWORD }}
+
+      - name: Log in to GitHub Container Registry
+        timeout-minutes: 1
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build image
+        run: |
+          docker compose -f .ci/docker-compose.yml build kong-test-image
+
+      - name: Push image
+        run: |
+          docker compose -f .ci/docker-compose.yml push kong-test-image

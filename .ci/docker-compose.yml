@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  # nosemgrep: yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service
+  kong-test-image:
+    image: ${GATEWAY_TEST_IMAGE}
+    security_opt:
+      - no-new-privileges:true
+    build:
+      context: ${GITHUB_WORKSPACE:-..} # MUST BE the project root (.. here)
+      dockerfile: .ci/Dockerfile.test-image # relative to the build context
+      args:
+        GATEWAY_IMAGE: ${GATEWAY_IMAGE:-kong/kong:nightly-ubuntu}
+        KONG_MANAGER_BUILD_SHA1: ${KONG_MANAGER_BUILD_SHA1:-null}
+
+  # nosemgrep: yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service
+  kong-db:
+    image: "postgres:13"
+    security_opt:
+      - no-new-privileges:true
+    hostname: kong-db
+    command: "-c max_connections=5000"
+    environment:
+      POSTGRES_USER: kong
+      POSTGRES_DB: kong
+      POSTGRES_HOST_AUTH_METHOD: trust
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 3s
+      timeout: 5s
+      retries: 10
+    restart: always
+
+  # nosemgrep: yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service
+  kong:
+    &kong
+    image: "${GATEWAY_IMAGE:-kong/kong:nightly-ubuntu}"
+    security_opt:
+      - no-new-privileges:true
+    hostname: kong
+    command: 'sh -c "kong migrations bootstrap && kong start"'
+    ports:
+      - "8000-8002:8000-8002"
+    environment:
+      &kong-environment
+      KONG_PG_HOST: kong-db
+      KONG_PG_USER: kong
+      KONG_ADMIN_LISTEN: "0.0.0.0:8001"
+      KONG_ANONYMOUS_REPORTS: "off"
+    restart: always
+    depends_on:
+      &kong-depends_on
+      kong-db:
+        condition: service_healthy
