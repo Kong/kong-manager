@@ -5,15 +5,9 @@ name: Run E2E Tests
 on:
   workflow_call:
     inputs:
-      suite:
-        type: string
-        required: true
       base-url:
         type: string
         default: http://localhost:8002
-      compose-service:
-        type: string
-        default: kong
       gateway-image:
         type: string
         default: kong/kong:nightly-ubuntu
@@ -27,6 +21,12 @@ env:
 
 jobs:
   e2e-tests:
+  strategy:
+      matrix:
+        suite:
+          - stub # TODO
+      fail-fast: false
+
     name: ${{ inputs.suite }}
     runs-on: ${{ vars.RUNS_ON }}
 
@@ -78,7 +78,7 @@ jobs:
         run: |
           echo "Using image: $GATEWAY_IMAGE"
           docker_compose_exit_code=0
-          docker compose -f .ci/docker-compose.yml up -d ${{ inputs.compose-service }} --wait || docker_compose_exit_code=$?
+          docker compose -f .ci/docker-compose.yml up -d kong --wait || docker_compose_exit_code=$?
           docker compose -f .ci/docker-compose.yml logs
           exit $compose_exit
 
