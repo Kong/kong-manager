@@ -83,7 +83,7 @@ jobs:
             --pass-with-no-tests \
             --retries ${{ inputs.retries }} \
             --reporter=list \
-            specs/{{ matrix.suite }}
+            specs/${{ matrix.suite }}
 
       - name: Upload results
         if: ${{ !cancelled() }}
