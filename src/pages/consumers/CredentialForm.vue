@@ -64,14 +64,14 @@ const fetchRecord = () => {
   }
 }
 
-const createRecord = (model) => {
-  axiosInstance
+const createRecord = async (model) => {
+  return axiosInstance
     .post(`${adminApiUrl}/${resourceEndpoint.value}`, model)
     .then(onSuccess)
 }
 
-const updateRecord = (model) => {
-  axiosInstance
+const updateRecord = async (model) => {
+  return axiosInstance
     .patch(`${adminApiUrl}/${resourceEndpoint.value}/${credentialId.value}`, model)
     .then(onSuccess)
 }
