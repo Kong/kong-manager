@@ -128,6 +128,10 @@ export const redirectOnResponseStatus = ($router, status, location, options) => 
   }
 }
 
+export const compareObjects = (a, b) => {
+  return JSON.stringify(a) === JSON.stringify(b)
+}
+
 export const isObjectEmpty = (obj) => {
   return Object.keys(obj).length === 0
 }

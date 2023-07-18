@@ -2,11 +2,6 @@
   <AppLayout
     :sidebar-top-items="sidebarItems"
   >
-    <template #navbar-left>
-      <h2 class="app-title">
-        Kong Manager Open Source
-      </h2>
-    </template>
     <template #navbar-right>
       <GithubStar url="https://github.com/kong/kong" />
     </template>

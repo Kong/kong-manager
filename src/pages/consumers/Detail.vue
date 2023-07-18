@@ -18,6 +18,9 @@
         @copy:success="onCopySuccess"
       />
     </template>
+    <template #credentials>
+      <router-view />
+    </template>
     <template #plugins>
       <router-view />
     </template>
@@ -43,6 +46,10 @@ const { kongponentTabs: tabs, initialHash, onTabChange } = useTabs([
   {
     title: 'Configuration',
     route: { name: 'consumer-detail' },
+  },
+  {
+    title: 'Credentials',
+    route: { name: 'consumer-detail-credentials' },
   },
   {
     title: 'Plugins',
