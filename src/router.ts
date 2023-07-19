@@ -11,6 +11,9 @@ const routes: Array<RouteRecordRaw> = [
     name: 'home',
     path: '/',
     component: () => import('@/pages/home/Home.vue'),
+    meta: {
+      title: 'Home',
+    },
   },
 
   // not found page
@@ -18,6 +21,9 @@ const routes: Array<RouteRecordRaw> = [
     name: 'not-found',
     path: '/:pathMatch(.*)*',
     component: () => import('@/pages/NotFound.vue'),
+    meta: {
+      title: 'Not Found',
+    },
   },
 
   // service pages
@@ -27,6 +33,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/services/List.vue'),
     meta: {
       entity: 'service',
+      title: 'Gateway Services',
     },
   },
   {
@@ -35,6 +42,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/services/Form.vue'),
     meta: {
       entity: 'service',
+      title: 'Create Gateway Service',
     },
   },
   {
@@ -43,6 +51,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/services/Form.vue'),
     meta: {
       entity: 'service',
+      title: 'Edit Gateway Service',
     },
   },
   {
@@ -51,6 +60,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/services/Detail.vue'),
     meta: {
       entity: 'service',
+      title: 'View Gateway Service',
     },
     children: [
       {
@@ -59,6 +69,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/pages/routes/List.vue'),
         meta: {
           entity: 'service',
+          title: 'Gateway Service Routes',
         },
       },
       {
@@ -68,6 +79,7 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
           entity: 'service',
           scopedIn: 'services',
+          title: 'Gateway Service Plugins',
         },
       },
     ],
@@ -80,6 +92,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/routes/List.vue'),
     meta: {
       entity: 'route',
+      title: 'Routes',
     },
   },
   {
@@ -88,6 +101,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/routes/Form.vue'),
     meta: {
       entity: 'route',
+      title: 'Create Route',
     },
   },
   {
@@ -96,6 +110,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/routes/Form.vue'),
     meta: {
       entity: 'route',
+      title: 'Edit Route',
     },
   },
   {
@@ -104,6 +119,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/routes/Detail.vue'),
     meta: {
       entity: 'route',
+      title: 'View Route',
     },
     children: [
       {
@@ -113,6 +129,7 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
           entity: 'route',
           scopedIn: 'routes',
+          title: 'Route Plugins',
         },
       },
     ],
@@ -125,6 +142,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/consumers/List.vue'),
     meta: {
       entity: 'consumer',
+      title: 'Consumers',
     },
   },
   {
@@ -133,6 +151,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/consumers/Form.vue'),
     meta: {
       entity: 'consumer',
+      title: 'Create Consumer',
     },
   },
   {
@@ -141,6 +160,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/consumers/Form.vue'),
     meta: {
       entity: 'consumer',
+      title: 'Edit Consumer',
     },
   },
   {
@@ -149,6 +169,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/consumers/Detail.vue'),
     meta: {
       entity: 'consumer',
+      title: 'View Consumer',
     },
     children: [
       {
@@ -157,6 +178,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/pages/consumers/ConsumerCredentials.vue'),
         meta: {
           entity: 'consumer',
+          title: 'Consumer Credentials',
         },
       },
       {
@@ -166,6 +188,7 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
           entity: 'consumer',
           scopedIn: 'consumers',
+          title: 'Consumer Plugins',
         },
       },
     ],
@@ -176,6 +199,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/consumers/CredentialForm.vue'),
     meta: {
       entity: 'consumer',
+      title: 'Create Consumer Credential',
     },
   },
   {
@@ -184,6 +208,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/consumers/CredentialForm.vue'),
     meta: {
       entity: 'consumer',
+      title: 'Edit Consumer Credential',
     },
   },
 
@@ -194,6 +219,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/plugins/List.vue'),
     meta: {
       entity: 'plugin',
+      title: 'Plugins',
     },
   },
   {
@@ -202,6 +228,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/plugins/Select.vue'),
     meta: {
       entity: 'plugin',
+      title: 'Select Plugin',
     },
   },
   {
@@ -210,6 +237,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/plugins/Form.vue'),
     meta: {
       entity: 'plugin',
+      title: 'Create Plugin',
     },
   },
   {
@@ -218,6 +246,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/plugins/Form.vue'),
     meta: {
       entity: 'plugin',
+      title: 'Edit Plugin',
     },
   },
   {
@@ -226,6 +255,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/plugins/Detail.vue'),
     meta: {
       entity: 'plugin',
+      title: 'View Plugin',
     },
   },
 
@@ -236,6 +266,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/upstreams/List.vue'),
     meta: {
       entity: 'upstream',
+      title: 'Upstreams',
     },
   },
   {
@@ -244,6 +275,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/upstreams/Form.vue'),
     meta: {
       entity: 'upstream',
+      title: 'Create Upstream',
     },
   },
   {
@@ -252,6 +284,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/upstreams/Form.vue'),
     meta: {
       entity: 'upstream',
+      title: 'Edit Upstream',
     },
   },
   {
@@ -260,6 +293,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/upstreams/Detail.vue'),
     meta: {
       entity: 'upstream',
+      title: 'View Upstream',
     },
     children: [
       {
@@ -268,6 +302,7 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/pages/upstreams/TargetList.vue'),
         meta: {
           entity: 'upstream',
+          title: 'Upstream Targets',
         },
       },
     ],
@@ -280,6 +315,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/snis/List.vue'),
     meta: {
       entity: 'sni',
+      title: 'SNIs',
     },
   },
   {
@@ -288,6 +324,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/snis/Form.vue'),
     meta: {
       entity: 'sni',
+      title: 'Create SNI',
     },
   },
   {
@@ -296,6 +333,7 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/pages/snis/Form.vue'),
     meta: {
       entity: 'sni',
+      title: 'Edit SNI',
     },
   },
 ]
@@ -315,6 +353,8 @@ const entities = [
 
 entities.forEach((entity: string) => {
   const entityPlural = `${entity}s`
+  const capitalizedEntity = `${entity.charAt(0).toUpperCase()}${entity.slice(1)}`.replace(/(-[a-z])/, ([_, letter]) => ` ${letter.toUpperCase()}`)
+  const capitalizedEntityPlural = `${capitalizedEntity}s`
 
   routes.push(
     {
@@ -323,6 +363,7 @@ entities.forEach((entity: string) => {
       component: () => import(`@/pages/${entityPlural}/List.vue`),
       meta: {
         entity,
+        title: `${capitalizedEntityPlural}`,
       },
     },
     {
@@ -331,6 +372,7 @@ entities.forEach((entity: string) => {
       component: () => import(`@/pages/${entityPlural}/Form.vue`),
       meta: {
         entity,
+        title: `Create ${capitalizedEntity}`,
       },
     },
     {
@@ -339,6 +381,7 @@ entities.forEach((entity: string) => {
       component: () => import(`@/pages/${entityPlural}/Form.vue`),
       meta: {
         entity,
+        title: `Edit ${capitalizedEntity}`,
       },
     },
     {
@@ -347,6 +390,7 @@ entities.forEach((entity: string) => {
       component: () => import(`@/pages/${entityPlural}/Detail.vue`),
       meta: {
         entity,
+        title: `View ${capitalizedEntity}`,
       },
     },
   )
@@ -370,6 +414,9 @@ const extractRouteName = (route: RouteLocationNormalized) => {
   return routeName
 }
 
-router.afterEach(to => datadogRum.startView({
-  name: extractRouteName(to) || 'unknown',
-}))
+router.afterEach(to => {
+  document.title = `${to.meta.title} | Kong Manager OSS`
+  datadogRum.startView({
+    name: extractRouteName(to) || 'unknown',
+  })
+})
