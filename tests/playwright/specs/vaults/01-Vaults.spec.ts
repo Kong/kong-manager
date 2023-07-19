@@ -15,7 +15,7 @@ const mockTag = 'env.tag'
 const test = baseTest()
 
 test.describe('vaults', () => {
-  test.beforeAll(async ({}) => {
+  test.beforeAll(async () => {
     await clearKongResources('/vaults')
   })
 

@@ -5,6 +5,7 @@
   <KeyForm
     :config="formConfig"
     :key-id="id"
+    :fixed-key-set-id="keySetId"
     @update="handleUpdate"
   />
 </template>
@@ -28,6 +29,7 @@ const toaster = useToaster()
 const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
+const keySetId = computed(() => (route.query.keySetId as string) ?? '')
 const isEditing = computed(() => !!id.value)
 
 const routeOnCancel = useFormRedirectOnCancel(

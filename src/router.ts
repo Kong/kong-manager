@@ -336,9 +336,58 @@ const routes: Array<RouteRecordRaw> = [
       title: 'Edit SNI',
     },
   },
+
+  // key set pages
+  {
+    name: 'key-set-list',
+    path: '/key-sets',
+    component: () => import('@/pages/key-sets/List.vue'),
+    meta: {
+      entity: 'key-set',
+      title: 'Key Sets',
+    },
+  },
+  {
+    name: 'key-set-create',
+    path: '/key-sets/create',
+    component: () => import('@/pages/key-sets/Form.vue'),
+    meta: {
+      entity: 'key-set',
+      title: 'Create Key Set',
+    },
+  },
+  {
+    name: 'key-set-edit',
+    path: '/key-sets/:id/edit',
+    component: () => import('@/pages/key-sets/Form.vue'),
+    meta: {
+      entity: 'key-set',
+      title: 'Edit Key Set',
+    },
+  },
+  {
+    name: 'key-set-detail',
+    path: '/key-sets/:id',
+    component: () => import('@/pages/key-sets/Detail.vue'),
+    meta: {
+      entity: 'key-set',
+      title: 'View Key Set',
+    },
+    children: [
+      {
+        name: 'key-set-detail-keys',
+        path: 'keys',
+        component: () => import('@/pages/keys/List.vue'),
+        meta: {
+          entity: 'key-set',
+          title: 'Key Set Keys',
+        },
+      },
+    ],
+  },
 ]
 
-// Add other entity routes. Each of these entities should have:
+// Add other entity routes. Each of these entities should have and only have:
 // - a list page
 // - a create page
 // - an edit page
@@ -347,7 +396,6 @@ const entities = [
   'certificate',
   'ca-certificate',
   'vault',
-  'key-set',
   'key',
 ]
 

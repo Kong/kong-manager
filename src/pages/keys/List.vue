@@ -1,6 +1,10 @@
 <template>
-  <PageHeader :title="t('entities.key.list.title')" />
+  <PageHeader
+    v-if="!keySetId"
+    :title="t('entities.key.list.title')"
+  />
   <KeyList
+    :cache-identifier="cacheIdentifier"
     :config="keyListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"
@@ -14,6 +18,7 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
+import { useRoute } from 'vue-router'
 import { KeyList, type EntityRow } from '@kong-ui/entities-keys'
 import type { FilterSchema } from '@kong-ui/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
@@ -28,7 +33,11 @@ defineOptions({
 
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
+const route = useRoute()
 const { t } = useI18n()
+
+const keySetId = computed(() => (route.params?.id ?? '') as string)
+const cacheIdentifier = computed(() => `routes-${keySetId.value}`)
 
 const filterSchema = computed<FilterSchema>(() => {
   return {
@@ -37,13 +46,23 @@ const filterSchema = computed<FilterSchema>(() => {
 })
 
 const createRoute = computed(() => {
-  return { name: 'key-create' }
+  return {
+    name: 'key-create',
+    query: {
+      keySetId: keySetId.value,
+      ...createRedirectRouteQuery(),
+    },
+  }
 })
 
 const getViewRoute = computed(() => (id: string) => ({
   name: 'key-detail',
   params: {
     id,
+  },
+  query: {
+    keySetId: keySetId.value,
+    ...createRedirectRouteQuery(),
   },
 }))
 
@@ -52,11 +71,15 @@ const getEditRoute = computed(() => (id: string) => ({
   params: {
     id,
   },
-  query: createRedirectRouteQuery(),
+  query: {
+    keySetId: keySetId.value,
+    ...createRedirectRouteQuery(),
+  },
 }))
 
 const keyListConfig = reactive({
   ...useListGeneralConfig(),
+  keySetId,
   createRoute,
   getViewRoute,
   getEditRoute,
