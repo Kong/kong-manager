@@ -25,6 +25,8 @@ jobs:
       matrix:
         suite:
           - vaults
+          - keys
+          - key-sets
       fail-fast: false
     name: ${{ matrix.suite }}
     runs-on: ${{ vars.RUNS_ON }}
