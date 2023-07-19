@@ -27,6 +27,7 @@ jobs:
           - vaults
           - keys
           - key-sets
+          - consumers
       fail-fast: false
     name: ${{ matrix.suite }}
     runs-on: ${{ vars.RUNS_ON }}

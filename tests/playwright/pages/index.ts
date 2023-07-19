@@ -12,4 +12,6 @@ export class POM {
 }
 
 POM.prototype.$ = {
+  success: '.k-alert.success',
+  submitButton: '[data-testid="form-footer-actions"] .k-button.primary',
 }
