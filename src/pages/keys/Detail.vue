@@ -8,6 +8,7 @@
   </PageHeader>
   <KeyConfigCard
     :config="keyDetailConfig"
+    :key-set-id="keySetId"
     @fetch:success="onFetchSuccess"
     @copy:success="onCopySuccess"
     @navigation-click="onNavigationClick"
@@ -31,6 +32,7 @@ const router = useRouter()
 const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
+const keySetId = computed(() => (route.query.keySetId as string) ?? '')
 
 const titleName = ref<string>('')
 

@@ -14,12 +14,16 @@ const mockTags = 'ktags'
 const test = baseTest()
 
 test.describe('keySets', () => {
-  test.beforeAll(async ({}) => {
+  test.beforeAll(async () => {
     await clearKongResources('/key-sets')
   })
 
   test.beforeEach(async ({ page }) => {
     await new KeySetListPage(page).goto()
+  })
+
+  test.afterAll(async () => {
+    await clearKongResources('/key-sets')
   })
 
   test('cancel the creation of a key set', async ({ page }) => {

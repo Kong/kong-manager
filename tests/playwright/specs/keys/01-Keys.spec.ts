@@ -22,7 +22,7 @@ const test = baseTest()
 test.describe('keys', () => {
   let testKeySet: { id: string } | null = null
 
-  test.beforeAll(async ({}) => {
+  test.beforeAll(async () => {
     await clearKongResources('/keys')
     await clearKongResources('/key-sets')
     testKeySet = (await createKongResource('/key-sets', { name: mockKeySetName }))?.data
@@ -61,7 +61,7 @@ test.describe('keys', () => {
     await withNavigation(page, () => fillEntityForm({
       page,
       formData: {
-         'key-form-name': mockJwName,
+        'key-form-name': mockJwName,
         'key-form-id': mockJwKid,
         'key-format-container': 'jwk',
         'key-form-jwk': mockJwk,
