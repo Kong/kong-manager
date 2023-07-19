@@ -9,6 +9,7 @@
       <NavbarLogo />
     </template>
     <router-view />
+    <MakeAWish />
   </AppLayout>
 </template>
 
@@ -18,6 +19,7 @@ import { useRoute } from 'vue-router'
 import { AppLayout, type SidebarPrimaryItem } from '@kong-ui-public/app-layout'
 import { GithubStar } from '@kong-ui-public/misc-widgets'
 import NavbarLogo from '@/components/NavbarLogo.vue'
+import MakeAWish from '@/components/MakeAWish.vue'
 
 const route = useRoute()
 
@@ -106,5 +108,11 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
 
 :deep(main.kong-ui-app-layout-main) {
   background: #fff!important;
+}
+
+:deep(.kong-ui-app-layout-content-inner) {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 80px!important;
 }
 </style>
