@@ -165,7 +165,7 @@ test.describe('keys', () => {
     await expect(selectRoot.locator('.k-popover.k-select-popover')).toContainText(mockKeySetName)
   })
 
-  test('keyset in from should be able to auto complete by inputting partial id', async ({ page }) => {
+  test('keyset in form should be able to auto complete by inputting partial id', async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
 
     const selectInput = page.locator('[data-testid="key-form-key-set"]')
