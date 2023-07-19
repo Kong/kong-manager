@@ -177,7 +177,7 @@ test.describe('keys', () => {
     await expect(selectRoot.locator('.k-popover.k-select-popover')).toContainText(mockKeySetName)
   })
 
-  test('keyset in from should not able to auto complete by inputting random characters', async ({ page }) => {
+  test('keyset in form should not able to auto complete by inputting random characters', async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
 
     const selectInput = page.locator('[data-testid="key-form-key-set"]')
