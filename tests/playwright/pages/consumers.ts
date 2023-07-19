@@ -10,13 +10,3 @@ export class ConsumerListPage extends POM {
     super(page, '/consumers')
   }
 }
-
-export class ConsumerDetailsPage extends POM {
-  public $ = {
-    ...super.$,
-  }
-
-  constructor (page: Page, consumerId: string, urlPath = '') {
-    super(page, `/consumers/${consumerId}${urlPath}`)
-  }
-}
