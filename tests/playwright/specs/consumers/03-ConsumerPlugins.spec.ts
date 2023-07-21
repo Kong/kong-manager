@@ -15,7 +15,6 @@ const test = baseTest()
 
 test.describe('consumer plugins', () => {
   test.beforeAll(async () => {
-    await clearKongResources('/routes')
     await clearKongResources('/consumers')
     await clearKongResources('/plugins')
     await createKongResource('/consumers', {
@@ -25,6 +24,11 @@ test.describe('consumer plugins', () => {
 
   test.beforeEach(async ({ page }) => {
     await new ConsumerListPage(page).goto()
+  })
+
+  test.afterAll(async () => {
+    await clearKongResources('/consumers')
+    await clearKongResources('/plugins')
   })
 
   test('install a plugin from the Plugins tab', async ({ page }) => {
@@ -48,7 +52,7 @@ test.describe('consumer plugins', () => {
     )
   })
 
-  test('submit/cancel plugin editing using header actions', async ({ page }) => {
+  test('submit/cancel plugin editing', async ({ page }) => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'plugins')
     await clickEntityListAction(page, 'edit')
@@ -64,7 +68,7 @@ test.describe('consumer plugins', () => {
     await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
 
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
-    await page.locator('#tags').fill(mockTag)
+    await page.locator('#tags').fill(`${mockTag}${mockTag}`)
     await withNavigation(
       page,
       async () => await page.locator('.entity-form [data-testid="form-footer-action-cancel"]').click()
