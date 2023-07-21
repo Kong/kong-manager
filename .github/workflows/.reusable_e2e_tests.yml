@@ -24,10 +24,12 @@ jobs:
     strategy:
       matrix:
         suite:
-          - vaults
+          - certificates
+          - ca-certificates
+          - consumers
           - keys
           - key-sets
-          - consumers
+          - vaults
       fail-fast: false
     name: ${{ matrix.suite }}
     runs-on: ${{ vars.RUNS_ON }}
