@@ -325,11 +325,6 @@
     focus-trap-vue "^4.0.2"
     lodash.clonedeep "^4.5.0"
 
-"@kong-ui-public/copy-uuid@^0.5.13":
-  version "0.5.13"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/copy-uuid/-/copy-uuid-0.5.13.tgz#072bb1aeef10da86c4c54f16c02035495074b96e"
-  integrity sha512-/wBV41/jK3X4EbZGt4b+X1JbZHtS7Pd941AHTr8y/wa2TPNMUytvfUy8lgz+cWxOKfIjWMmD9Aa9imRNSHgLSA==
-
 "@kong-ui-public/copy-uuid@^0.6.0":
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/@kong-ui-public/copy-uuid/-/copy-uuid-0.6.0.tgz#0e9810392de315d125303974d85c26993451ee62"
@@ -356,13 +351,6 @@
   resolved "https://registry.yarnpkg.com/@kong-ui-public/misc-widgets/-/misc-widgets-0.5.0.tgz#9c7b5d15a565837efb1312bcae06ab89d686839f"
   integrity sha512-3r9DuQ/fOUCG2GzOGWykoIlMMj+C3J1bTmooK74J/NID1sKF6Mfg/hBqsw5kev+IBxOoxrHd+hDgytJjEb7rzg==
 
-"@kong-ui/core@^0.17.0":
-  version "0.17.1"
-  resolved "https://registry.yarnpkg.com/@kong-ui/core/-/core-0.17.1.tgz#2dacb4672c37b3b3207a2e0dac7229ea20303531"
-  integrity sha512-hjRN5zpRMLJnvxpeCNEuGV9vel46L0OhGO0ZnzJp+vrGDaoU6P1qnjTJwkiCO3/oI7R1d3L7Inmib4nvZUIm6A==
-  dependencies:
-    date-fns "^2.30.0"
-
 "@kong-ui/entities-certificates@^0.18.2":
   version "0.18.2"
   resolved "https://registry.yarnpkg.com/@kong-ui/entities-certificates/-/entities-certificates-0.18.2.tgz#103051f0bf2875714fbd29eaf5ad3f4361abb47c"
@@ -386,13 +374,6 @@
   integrity sha512-xczU3SqDN8tcrBAp5uKF/JZFEyW2W3RtwEcLwWNBy5QcxMV6XvedlYwuS1i6TkxUhu8pS0ACEmeW3Eh/ufyatQ==
   dependencies:
     "@kong-ui/entities-shared" "^0.44.2"
-
-"@kong-ui/entities-gateway-services@^0.14.1":
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/@kong-ui/entities-gateway-services/-/entities-gateway-services-0.14.1.tgz#e4b9b4b43b9549db3133d8c53c4b660c47aafca1"
-  integrity sha512-RuyxR1HialHCN0Mk1FONJebDAkrwI/Ac8nJa1OHD9uoVTJbfTAa78hJm8vwtnLw7BwXA6EVjREfwjb/J8BmfcA==
-  dependencies:
-    "@kong-ui/entities-shared" "^0.42.1"
 
 "@kong-ui/entities-gateway-services@^0.15.2":
   version "0.15.2"
@@ -432,15 +413,6 @@
   integrity sha512-/rLKvqVj4QGFMX6F9+RqjLD3AFkghBmMV+0N6nFzjlLiZ5Kh+xnoTrOo6PKQIyiAgcFp2VrI2NdZA13weJQiBA==
   dependencies:
     "@kong-ui/entities-shared" "^0.44.2"
-
-"@kong-ui/entities-shared@^0.42.1":
-  version "0.42.1"
-  resolved "https://registry.yarnpkg.com/@kong-ui/entities-shared/-/entities-shared-0.42.1.tgz#a1162cba71b30fdf9c6fd3fdca7d00e2feab25bd"
-  integrity sha512-y4E9WyK80IBv1fB+OB5IX+8kmvCdzbvj9TNsAqGDrueUJQCGHoHf1anvokVCcUmadkQjS+jmb4rIc/qEMSBThw==
-  dependencies:
-    "@kong-ui-public/copy-uuid" "^0.5.13"
-    "@kong-ui/core" "^0.17.0"
-    compare-versions "^6.0.0"
 
 "@kong-ui/entities-shared@^0.44.2":
   version "0.44.2"
