@@ -1,10 +1,10 @@
 interface Pem {
-  private_key: string;
-  public_key: string;
+  privateKey: string;
+  publicKey: string;
 }
 
 const pem: Pem = {
-  private_key: `-----BEGIN RSA PRIVATE KEY-----
+  privateKey: `-----BEGIN RSA PRIVATE KEY-----
 MIIEpAIBAAKCAQEAv/d2oDG+fxC0tgem7Xsi0Z7+rZMFcjWHrXBIMnXsuTyrpoY6
 Kau3BNoA9C8FBIH2dTRa4N5f3ZB5oNOgDgivbcw75hJHQ6bMy8Htjlj+OrMZKnQW
 tRx+zCCaWRqoM53qvqgdDff8zeN0XOQKPB3B3q31xQDbGLDdtyXBGnzRnOCvmQkO
@@ -31,7 +31,7 @@ Kmpk+VUCgYBasaoKbSLkJHK8ol4nP9hyYbaAj5miWKmSY2L181D/QCANiWcP8jly
 8TWfyP77IOVkVqvGteZ5zJYVB31E7TWJj4wvInl6HJXSzftXvspe6kgmUU6SRTmv
 Vjj76K6T1VT/lgZasF4Zttb0CxRVMJW8ESKxs8TaZZbP3rMtgr36Lg==
 -----END RSA PRIVATE KEY-----`,
-  public_key: `-----BEGIN PUBLIC KEY-----
+  publicKey: `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv/d2oDG+fxC0tgem7Xsi
 0Z7+rZMFcjWHrXBIMnXsuTyrpoY6Kau3BNoA9C8FBIH2dTRa4N5f3ZB5oNOgDgiv
 bcw75hJHQ6bMy8Htjlj+OrMZKnQWtRx+zCCaWRqoM53qvqgdDff8zeN0XOQKPB3B
