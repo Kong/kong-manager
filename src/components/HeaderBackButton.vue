@@ -1,5 +1,8 @@
 <template>
-  <KButton :to="backPath">
+  <KButton
+    data-testid="header-back-button"
+    :to="backPath"
+  >
     {{ t('global.buttons.back') }}
   </KButton>
 </template>

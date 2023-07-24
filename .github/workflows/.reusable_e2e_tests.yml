@@ -31,6 +31,7 @@ jobs:
           - keys
           - key-sets
           - snis
+          - upstreams
       fail-fast: false
     name: ${{ matrix.suite }}
     runs-on: ${{ vars.RUNS_ON }}
