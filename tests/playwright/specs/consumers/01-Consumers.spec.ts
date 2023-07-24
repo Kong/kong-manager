@@ -18,13 +18,17 @@ const test = baseTest()
 
 test.describe('consumers', () => {
   test.beforeAll(async () => {
-    await clearKongResources('/routes')
     await clearKongResources('/consumers')
     await clearKongResources('/plugins')
   })
 
   test.beforeEach(async ({ page }) => {
     await new ConsumerListPage(page).goto()
+  })
+
+  test.afterAll(async () => {
+    await clearKongResources('/consumers')
+    await clearKongResources('/plugins')
   })
 
   test('consumer list - empty', async ({ page }) => {
@@ -208,6 +212,7 @@ test.describe('consumers', () => {
 
     // Add key when table has data already
     const key_auth_locator = page.locator('.credential-list-wrapper').filter({ hasText: 'Key Authentication' })
+
     await key_auth_locator.locator('[data-testid="toolbar-add-credential"]').click()
     await page.waitForSelector('#key')
     await page.fill('#key', 'my-second-api-key')

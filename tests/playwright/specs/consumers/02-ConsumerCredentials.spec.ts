@@ -15,7 +15,6 @@ const test = baseTest()
 
 test.describe('consumer credentials', () => {
   test.beforeAll(async () => {
-    await clearKongResources('/routes')
     await clearKongResources('/consumers')
     await clearKongResources('/plugins')
     await createKongResource('/consumers', {
@@ -27,6 +26,11 @@ test.describe('consumer credentials', () => {
     await new ConsumerListPage(page).goto()
   })
 
+  test.afterAll(async () => {
+    await clearKongResources('/consumers')
+    await clearKongResources('/plugins')
+  })
+
   test('consumer show - can add a credential, basic-auth', async ({ page }) => {
     await createKongResource('/plugins', { name: 'basic-auth' })
 
@@ -34,6 +38,7 @@ test.describe('consumer credentials', () => {
     await switchDetailTab(page, 'credentials')
 
     const basic_auth_locator = page.locator('.credential-list-wrapper').filter({ hasText: 'Basic Authentication' })
+
     await basic_auth_locator.locator('[data-testid="new-basic-auth-credential"]').click()
     await page.locator('#username').fill(mockCredential)
     await page.locator('#password').fill(mockCredentialPassword)
@@ -48,6 +53,7 @@ test.describe('consumer credentials', () => {
     await expect(page.locator('.k-modal-dialog.modal-dialog')).toBeVisible()
     await page.locator('.k-prompt-action-buttons .danger').click()
     const basic_auth_locator = page.locator('.credential-list-wrapper').filter({ hasText: 'Basic Authentication' })
+
     await expect(basic_auth_locator.locator('.empty-state-content .primary')).toContainText('New Basic Auth Credential')
   })
 })
