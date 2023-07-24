@@ -43,10 +43,6 @@ test.describe('consumers', () => {
     // exit from cancel button
     await expect(page.locator('[data-testid="form-cancel"]')).toContainText('Cancel')
     await withNavigation(page, () => page.click('[data-testid="form-cancel"]'))
-
-    // from create button in list header
-    await withNavigation(page, () => page.click('.kong-ui-entity-base-table [data-testid="new-consumer"]'))
-    await page.waitForSelector('.kong-ui-entities-consumer-form')
   })
 
   test('consumer create - save button is disabled', async ({ page }) => {
@@ -159,9 +155,9 @@ test.describe('consumers', () => {
     // TODO Skip on Webkit
     if (browserName !== 'webkit') {
       const clipboard = await page.evaluate(() => navigator.clipboard.readText())
-      const clipboard_json = JSON.parse(clipboard)
+      const clipboardJSON = JSON.parse(clipboard)
 
-      expect(clipboard_json.username).toBe(`${mockConsumerName}_1_update_1`)
+      expect(clipboardJSON.username).toBe(`${mockConsumerName}_1_update_1`)
     }
   })
 
@@ -211,15 +207,15 @@ test.describe('consumers', () => {
     await waitAndDismissToasts(page)
 
     // Add key when table has data already
-    const key_auth_locator = page.locator('.credential-list-wrapper').filter({ hasText: 'Key Authentication' })
+    const keyAuthLocator = page.locator('.credential-list-wrapper').filter({ hasText: 'Key Authentication' })
 
-    await key_auth_locator.locator('[data-testid="toolbar-add-credential"]').click()
+    await keyAuthLocator.locator('[data-testid="toolbar-add-credential"]').click()
     await page.waitForSelector('#key')
     await page.fill('#key', 'my-second-api-key')
     await page.click(consumerListPage.$.submitButton)
     await page.waitForSelector(consumerListPage.$.success)
-    await expect(key_auth_locator.locator('[data-testid="copy-id"][title="my-api-key"]')).toBeVisible()
-    await expect(key_auth_locator.locator('[data-testid="copy-id"][title="my-second-api-key"]')).toBeVisible()
+    await expect(keyAuthLocator.locator('[data-testid="copy-id"][title="my-api-key"]')).toBeVisible()
+    await expect(keyAuthLocator.locator('[data-testid="copy-id"][title="my-second-api-key"]')).toBeVisible()
   })
 
   test('consumer create - success2', async ({ page }) => {

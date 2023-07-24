@@ -37,13 +37,13 @@ test.describe('consumer credentials', () => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'credentials')
 
-    const basic_auth_locator = page.locator('.credential-list-wrapper').filter({ hasText: 'Basic Authentication' })
+    const basicAuthLocator = page.locator('.credential-list-wrapper').filter({ hasText: 'Basic Authentication' })
 
-    await basic_auth_locator.locator('[data-testid="new-basic-auth-credential"]').click()
+    await basicAuthLocator.locator('[data-testid="new-basic-auth-credential"]').click()
     await page.locator('#username').fill(mockCredential)
     await page.locator('#password').fill(mockCredentialPassword)
     await page.locator('[data-testid="form-footer-actions"] .primary').click()
-    await expect(basic_auth_locator.locator('table [data-testid="username"]')).toContainText(mockCredential)
+    await expect(basicAuthLocator.locator('table [data-testid="username"]')).toContainText(mockCredential)
   })
 
   test('consumer show - can delete a credential', async ({ page }) => {
@@ -52,8 +52,8 @@ test.describe('consumer credentials', () => {
     await withNavigation(page, () => clickEntityListAction(page, 'delete'))
     await expect(page.locator('.k-modal-dialog.modal-dialog')).toBeVisible()
     await page.locator('.k-prompt-action-buttons .danger').click()
-    const basic_auth_locator = page.locator('.credential-list-wrapper').filter({ hasText: 'Basic Authentication' })
+    const basicAuthLocator = page.locator('.credential-list-wrapper').filter({ hasText: 'Basic Authentication' })
 
-    await expect(basic_auth_locator.locator('.empty-state-content .primary')).toContainText('New Basic Auth Credential')
+    await expect(basicAuthLocator.locator('.empty-state-content .primary')).toContainText('New Basic Auth Credential')
   })
 })

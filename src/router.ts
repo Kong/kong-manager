@@ -387,58 +387,71 @@ const routes: Array<RouteRecordRaw> = [
   },
 ]
 
-// Add other entity routes. Each of these entities should have and only have:
-// - a list page
-// - a create page
-// - an edit page
-// - and a detail page
-const entities = [
+type EntityNameDefinition = { key: string, keyPlural?: string, capitalizedName?: string, capitalizedNamePlural?: string }
+
+type EntityName = string | EntityNameDefinition
+
+/**
+ * Add other entity routes. Each of these entities should have and only have:
+ * - a list page
+ * - a create page
+ * - an edit page
+ * - and a detail page
+ */
+const entities: EntityName[] = [
   'certificate',
-  'ca-certificate',
+  {
+    key: 'ca-certificate',
+    keyPlural: 'ca-certificates',
+    capitalizedName: 'CA Certificate',
+    capitalizedNamePlural: 'CA Certificates',
+  },
   'vault',
   'key',
 ]
 
-entities.forEach((entity: string) => {
-  const entityPlural = `${entity}s`
-  const capitalizedEntity = `${entity.charAt(0).toUpperCase()}${entity.slice(1)}`.replace(/(-[a-z])/, ([_, letter]) => ` ${letter.toUpperCase()}`)
-  const capitalizedEntityPlural = `${capitalizedEntity}s`
+entities.forEach((entityName: EntityName) => {
+  const entity = typeof entityName === 'string' ? { key: entityName } : entityName
+
+  entity.keyPlural = entity.keyPlural ?? `${entity.key}s`
+  entity.capitalizedName = entity.capitalizedName ?? `${entity.key.charAt(0).toUpperCase()}${entity.key.slice(1)}`.replace(/(-[a-z])/, ([_, letter]) => ` ${letter.toUpperCase()}`)
+  entity.capitalizedNamePlural = `${entity.capitalizedName}s`
 
   routes.push(
     {
-      name: `${entity}-list`,
-      path: `/${entityPlural}`,
-      component: () => import(`@/pages/${entityPlural}/List.vue`),
+      name: `${entity.key}-list`,
+      path: `/${entity.keyPlural}`,
+      component: () => import(`@/pages/${entity.keyPlural}/List.vue`),
       meta: {
-        entity,
-        title: `${capitalizedEntityPlural}`,
+        entity: entity.key,
+        title: `${entity.capitalizedNamePlural}`,
       },
     },
     {
-      name: `${entity}-create`,
-      path: `/${entityPlural}/create`,
-      component: () => import(`@/pages/${entityPlural}/Form.vue`),
+      name: `${entity.key}-create`,
+      path: `/${entity.keyPlural}/create`,
+      component: () => import(`@/pages/${entity.keyPlural}/Form.vue`),
       meta: {
-        entity,
-        title: `Create ${capitalizedEntity}`,
+        entity: entity.key,
+        title: `Create ${entity.capitalizedName}`,
       },
     },
     {
-      name: `${entity}-edit`,
-      path: `/${entityPlural}/:id/edit`,
-      component: () => import(`@/pages/${entityPlural}/Form.vue`),
+      name: `${entity.key}-edit`,
+      path: `/${entity.keyPlural}/:id/edit`,
+      component: () => import(`@/pages/${entity.keyPlural}/Form.vue`),
       meta: {
-        entity,
-        title: `Edit ${capitalizedEntity}`,
+        entity: entity.key,
+        title: `Edit ${entity.capitalizedName}`,
       },
     },
     {
-      name: `${entity}-detail`,
-      path: `/${entityPlural}/:id`,
-      component: () => import(`@/pages/${entityPlural}/Detail.vue`),
+      name: `${entity.key}-detail`,
+      path: `/${entity.keyPlural}/:id`,
+      component: () => import(`@/pages/${entity.keyPlural}/Detail.vue`),
       meta: {
-        entity,
-        title: `View ${capitalizedEntity}`,
+        entity: entity.key,
+        title: `View ${entity.capitalizedName}`,
       },
     },
   )
