@@ -1,5 +1,6 @@
 <template>
   <KButton
+    data-testid="header-edit-button"
     :to="editPath"
     appearance="primary"
   >
