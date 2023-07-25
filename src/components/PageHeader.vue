@@ -8,7 +8,10 @@
         >{{ title }}</span>
         <slot name="title-logo" />
       </component>
-      <nav class="d-inline-flex justify-content-end ml-auto text-right">
+      <nav
+        class="d-inline-flex justify-content-end ml-auto text-right"
+        data-testid="header-actions"
+      >
         <slot />
       </nav>
     </div>

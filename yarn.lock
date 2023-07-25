@@ -330,6 +330,11 @@
   resolved "https://registry.yarnpkg.com/@kong-ui-public/copy-uuid/-/copy-uuid-0.6.0.tgz#0e9810392de315d125303974d85c26993451ee62"
   integrity sha512-SDNeKfTURx8VW0q0i63tYOJzT3lQXd8OoG7hmgyKbstbMmj9XeGwW3NuHeNxW8brY4WTgebXRAWHIoHPktIqwg==
 
+"@kong-ui-public/copy-uuid@^0.6.2":
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/copy-uuid/-/copy-uuid-0.6.2.tgz#80ff07efb049aab90789db89c1778ee7832ad3b0"
+  integrity sha512-MpKLA3AXqWI7CWarRGc3daP4/wXTIJRCiRpxM5MvLDigLRT+hcMvUICMW4K9k7JiYG/lrEIzeINp2dpMvIbPQQ==
+
 "@kong-ui-public/core@1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@kong-ui-public/core/-/core-1.1.0.tgz#882542f6b128e6754c962840b2f312266dc630b5"
@@ -382,6 +387,13 @@
   dependencies:
     "@kong-ui/entities-shared" "^0.44.2"
 
+"@kong-ui/entities-gateway-services@^0.15.6":
+  version "0.15.6"
+  resolved "https://registry.yarnpkg.com/@kong-ui/entities-gateway-services/-/entities-gateway-services-0.15.6.tgz#c63758690cf2a0dc2da047cd6bd3c0b4290e984b"
+  integrity sha512-gvygd/DfyNmn46XtLfOnx+9qg2Z4ZRQhMC4BeVw2coZhLQ8kIB4u4HVMq+98NfiWH/PfX2ib1L0YilHUQ7Rz1Q==
+  dependencies:
+    "@kong-ui/entities-shared" "^0.45.2"
+
 "@kong-ui/entities-key-sets@^0.12.2":
   version "0.12.2"
   resolved "https://registry.yarnpkg.com/@kong-ui/entities-key-sets/-/entities-key-sets-0.12.2.tgz#2e86b2a8c9b19c6cbad3a450b19d7b2c20d8cf88"
@@ -420,6 +432,15 @@
   integrity sha512-ZQ3c8GNrq+pQ2zaps8uZkXBq7g5XgomzjQeMB2zmKT4bB6vLFo/JVX+HXDyIh5z241WTXWG4VyFx8hfvfKCr7g==
   dependencies:
     "@kong-ui-public/copy-uuid" "^0.6.0"
+    "@kong-ui-public/core" "1.1.0"
+    compare-versions "^6.0.0"
+
+"@kong-ui/entities-shared@^0.45.2":
+  version "0.45.2"
+  resolved "https://registry.yarnpkg.com/@kong-ui/entities-shared/-/entities-shared-0.45.2.tgz#16f78d831c3855ef4e3113a41424482022441838"
+  integrity sha512-MCdw+yqtmecSaA5JJutQU4gU1pBcWWwaeSe/kHfOgdNGK58r+qpcy4ki3nbFheCDoNFUKEdNsFCCGnpn78E8ew==
+  dependencies:
+    "@kong-ui-public/copy-uuid" "^0.6.2"
     "@kong-ui-public/core" "1.1.0"
     compare-versions "^6.0.0"
 
