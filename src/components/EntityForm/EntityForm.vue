@@ -53,6 +53,7 @@
         :disabled="isSaveActionDisabled"
         appearance="primary"
         class="mr-2"
+        data-testid="form-footer-action-submit"
         @click="confirm"
       >
         <template #icon>
