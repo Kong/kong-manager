@@ -25,10 +25,12 @@ const test = baseTest().extend<{
   consumerListPage: ConsumerListPage,
   pluginListPage: PluginListPage
   serviceListPage: ServiceListPage
+  routeListPage: RouteListPage
 }>({
   consumerListPage: async ({ page }, use) => use(new ConsumerListPage(page)),
   pluginListPage: async ({ page }, use) => use(new PluginListPage(page)),
   serviceListPage: async ({ page }, use) => use(new ServiceListPage(page)),
+  routeListPage: async ({ page }, use) => use(new RouteListPage(page)),
 })
 
 test.describe('plugins', () => {
@@ -39,8 +41,8 @@ test.describe('plugins', () => {
     await clearKongResources('/plugins')
   })
 
-  test.beforeEach(async ({ page }) => {
-    await new PluginListPage(page).goto()
+  test.beforeEach(async ({ pluginListPage }) => {
+    await pluginListPage.goto()
   })
 
   test.afterAll(async () => {
@@ -50,23 +52,20 @@ test.describe('plugins', () => {
     await clearKongResources('/plugins')
   })
 
-  test('plugin list should be empty now', async ({ page, pluginListPage }) => {
-    await pluginListPage.goto()
+  test('plugin list should be empty now', async ({ page }) => {
     const emptyState = page.locator('.kong-ui-entities-plugins-list .empty-state-wrapper')
 
     await expect(emptyState).toBeVisible()
     await expect(emptyState).toContainText('Configure a New Plugin')
   })
 
-  test('install a plugin when the scope is "service"', async ({ page, pluginListPage }) => {
-    await pluginListPage.goto()
-
+  test('install a plugin when the scope is "service"', async ({ page, serviceListPage }) => {
     await createKongResource('/services', {
       name: mockServiceName,
       url: 'http://example.com:8080/test',
     })
 
-    await new ServiceListPage(page).goto()
+    await serviceListPage.goto()
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     const uuid = await page.locator('.uuid-container').innerText()
 
@@ -96,14 +95,11 @@ test.describe('plugins', () => {
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
   })
 
-  test('plugin list should have one plugin now', async ({ page, pluginListPage }) => {
-    await pluginListPage.goto()
+  test('plugin list should have one plugin now', async ({ page }) => {
     await expect(page.locator('.kong-ui-entities-plugins-list .k-table tbody tr')).toHaveCount(1)
   })
 
-  test('plugin icons - plugin select', async ({ browserName, page, pluginListPage }) => {
-    await pluginListPage.goto()
-
+  test('plugin icons - plugin select', async ({ browserName, page }) => {
     await withNavigation(
       page,
       async () => await page.click('.kong-ui-entities-plugins-list [data-testid="toolbar-add-plugin"]')
@@ -119,8 +115,7 @@ test.describe('plugins', () => {
     }
   })
 
-  test('plugin icons - plugins list', async ({ browserName, page, pluginListPage }) => {
-    await pluginListPage.goto()
+  test('plugin icons - plugins list', async ({ browserName, page }) => {
     const pluginIcon = page.locator('.name-cell-wrapper img.plugin-icon')
 
     await expect(pluginIcon).toBeVisible()
@@ -131,8 +126,7 @@ test.describe('plugins', () => {
     }
   })
 
-  test('plugin icons - plugin detail', async ({ browserName, page, pluginListPage }) => {
-    await pluginListPage.goto()
+  test('plugin icons - plugin detail', async ({ browserName, page }) => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     const pluginIcon = page.locator('.page-header img.plugin-detail-icon')
 
@@ -144,9 +138,7 @@ test.describe('plugins', () => {
     }
   })
 
-  test('copy JSON action in list actions should work', async ({ browserName, page, pluginListPage }) => {
-    await pluginListPage.goto()
-
+  test('copy JSON action in list actions should work', async ({ browserName, page }) => {
     await clickEntityListAction(page, 'copy-id')
 
     await waitAndDismissToasts(page)
@@ -158,9 +150,7 @@ test.describe('plugins', () => {
     }
   })
 
-  test('status switch in list item should work', async ({ page, pluginListPage }) => {
-    await pluginListPage.goto()
-
+  test('status switch in list item should work', async ({ page }) => {
     const row = page.locator('.kong-ui-entities-plugins-list tr[data-testid="basic-auth"]')
     const statusLabel = row.locator('.k-switch .toggle-label')
     const statusSwitch = row.locator('.k-switch .switch-control')
@@ -176,7 +166,7 @@ test.describe('plugins', () => {
     await expect(statusLabel).toHaveText('Disabled')
   })
 
-  test('install a plugin when the scope is "route"', async ({ page }) => {
+  test('install a plugin when the scope is "route"', async ({ page, routeListPage }) => {
     const res = await createKongResource('/services', {
       name: `${mockServiceName}-1`,
       url: 'http://example.com:8080/test',
@@ -188,7 +178,7 @@ test.describe('plugins', () => {
       hosts: ['example.com'],
     })
 
-    await new RouteListPage(page).goto()
+    await routeListPage.goto()
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     const uuid = await page.locator('.uuid-container').innerText()
 
@@ -215,12 +205,12 @@ test.describe('plugins', () => {
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
   })
 
-  test('install plugin when the scope is "consumer"', async ({ page }) => {
+  test('install plugin when the scope is "consumer"', async ({ page, consumerListPage }) => {
     await createKongResource('/consumers', {
       username: mockConsumerName,
     })
 
-    await new ConsumerListPage(page).goto()
+    await consumerListPage.goto()
 
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     const uuid = await page.locator('.uuid-container').innerText()
@@ -297,9 +287,7 @@ test.describe('plugins', () => {
     await expect(getPropertyValue(page, 'name')).toContainText(new RegExp(mockPluginName, 'i'))
   })
 
-  test('submit/cancel plugin editing using footer actions', async ({ page, pluginListPage }) => {
-    await pluginListPage.goto()
-
+  test('submit/cancel plugin editing using footer actions', async ({ page }) => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'edit'))
     await withNavigation(
       page,
@@ -336,9 +324,7 @@ test.describe('plugins', () => {
     await expect(row.locator('[data-testid="tags"]')).toHaveText(mockTag)
   })
 
-  test('delete the plugin', async ({ page, pluginListPage }) => {
-    await pluginListPage.goto()
-
+  test('delete the plugin', async ({ page }) => {
     await clickEntityListAction(page, 'delete')
     await expect(page.locator('.kong-ui-entity-delete-modal .k-modal-dialog')).toBeVisible()
     await autocompleteDeleteModal(page)
@@ -378,8 +364,7 @@ test.describe('plugins', () => {
     await expect(page.locator('.entity-form #instance_name')).toHaveValue(mockInstanceName)
   })
 
-  test('filter should work in plugin select page', async ({ page, pluginListPage }) => {
-    await pluginListPage.goto()
+  test('filter should work in plugin select page', async ({ page }) => {
     const filterInput = page.locator('[data-testid="plugins-filter"]')
 
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="toolbar-add-plugin"]').click())
@@ -411,7 +396,7 @@ test.describe('plugins', () => {
     await expect(page.locator('[data-testid="config-key_names-item-0"] input')).toHaveValue('apikey')
   })
 
-  test('by using plugin "ip-restriction" as example, service, route and consumer should be auto completed', async ({ page, pluginListPage }) => {
+  test('by using plugin "ip-restriction" as example, service, route and consumer should be auto completed', async ({ page }) => {
     await clearKongResources('/plugins')
     await clearKongResources('/routes')
     await clearKongResources('/services')
@@ -434,7 +419,6 @@ test.describe('plugins', () => {
 
     let selectItem: Locator
 
-    await pluginListPage.goto()
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
     await page.locator('[data-testid="IP Restriction"]').click()
 
