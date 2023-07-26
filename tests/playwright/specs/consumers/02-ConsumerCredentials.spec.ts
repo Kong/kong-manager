@@ -49,7 +49,7 @@ test.describe('consumer credentials', () => {
   test('consumer show - can delete a credential', async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'credentials')
-    await withNavigation(page, () => clickEntityListAction(page, 'delete'))
+    await clickEntityListAction(page, 'delete')
     await expect(page.locator('.k-modal-dialog.modal-dialog')).toBeVisible()
     await page.locator('.k-prompt-action-buttons .danger').click()
     const basicAuthLocator = page.locator('.credential-list-wrapper').filter({ hasText: 'Basic Authentication' })
