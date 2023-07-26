@@ -11,7 +11,7 @@
           {{ plugin.name }}
         </h4>
         <PluginIcon
-          :name="plugin.imageName || plugin.id"
+          :name="plugin.id"
           :alt="plugin.name"
           class="card-icon"
           :size="55"
