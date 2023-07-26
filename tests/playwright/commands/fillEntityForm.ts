@@ -14,6 +14,12 @@ interface Params {
   withAction?: 'submit' | 'cancel';
 
   method?: 'type' | 'fill';
+
+  /**
+   * If set to true, the helper assumes that a model will show up after performing the `*-submit` action.
+   * And the primary button on the modal will be clicked.
+   */
+  handleModal?: boolean;
 }
 
 export const fillEntityForm = async (params: Params) => {
@@ -22,6 +28,7 @@ export const fillEntityForm = async (params: Params) => {
     formData = {},
     withAction,
     method = 'type',
+    handleModal,
   } = params
 
   for (const [key, value] of Object.entries(formData)) {
@@ -38,7 +45,7 @@ export const fillEntityForm = async (params: Params) => {
 
     // for text input
     if (typeof value === 'string') {
-      await page.getByTestId(key)[method](value)
+      await page.getByTestId(key).or(page.locator(`#${key}`))[method](value)
     }
 
     if (value && value.constructor === Array) {
@@ -54,5 +61,11 @@ export const fillEntityForm = async (params: Params) => {
     return
   }
 
-  await page.getByTestId(`form-${withAction}`).click()
+  await page.getByTestId(`form-${withAction}`)
+    .or(page.getByTestId(`form-footer-action-${withAction}`))
+    .click()
+
+  if (handleModal) {
+    await page.locator('.modal-dialog .k-button.primary').click()
+  }
 }
