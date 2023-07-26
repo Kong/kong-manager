@@ -61,6 +61,8 @@ const tag = computed(() => `h${props.size}`)
 h1, h2, h3, h4, h5, h6, nav {
   margin-top: 0px;
   margin-bottom: 20px;
+  display: flex;
+  align-items: center;
 }
 
 nav {

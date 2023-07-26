@@ -15,6 +15,7 @@
     @copy:success="onCopySuccess"
     @copy:error="onCopyError"
     @delete:success="onDeleteSuccess"
+    @toggle-enabled="onToggleEnabled"
   />
 </template>
 
@@ -143,6 +144,15 @@ const onDeleteSuccess = (entity: EntityRow) => {
   toaster.open({
     appearance: 'success',
     message: t('entities.plugin.deleted', {
+      name: entity.instance_name ?? entity.name,
+    }),
+  })
+}
+
+const onToggleEnabled = (isEnabled: boolean, entity: EntityRow) => {
+  toaster.open({
+    appearance: 'success',
+    message: t(isEnabled ? 'entities.plugin.enabled' : 'entities.plugin.disabled', {
       name: entity.instance_name ?? entity.name,
     }),
   })
