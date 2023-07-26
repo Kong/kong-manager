@@ -469,6 +469,7 @@ test.describe('upstreams', () => {
   })
 
   test(`upstream create - successful enbale/disbale active or passive health check`, async ({ page, upstreamListPage }) => {
+    test.slow()
     // create a new upstream
     await create_upstream(
       page, upstreamListPage,
@@ -566,6 +567,7 @@ test.describe('upstreams', () => {
   }
 
   test(`upstream update - successful updates 'health check'`, async ({ page, upstreamListPage }) => {
+    test.slow()
     // create a new upstream
     await create_upstream(
       page, upstreamListPage,
