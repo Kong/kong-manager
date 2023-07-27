@@ -14,32 +14,6 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@datadog/browser-core@4.45.0":
-  version "4.45.0"
-  resolved "https://registry.yarnpkg.com/@datadog/browser-core/-/browser-core-4.45.0.tgz#fe6ed4d2df6680746adc8ef9ec07636778de5f9c"
-  integrity sha512-w0zlk5xiZsg+1XCU5PvI9tymnGhe35j0tLWMgcuwgulKfcUHfXZlYX1NRxWrgRvpFosAi/xwY8viNA6LLSYowQ==
-
-"@datadog/browser-rum-core@4.45.0":
-  version "4.45.0"
-  resolved "https://registry.yarnpkg.com/@datadog/browser-rum-core/-/browser-rum-core-4.45.0.tgz#45d3ca4fbcf161ee946ade05d150b2f60feda16f"
-  integrity sha512-0r0tkjAq2mzWdRhTJgtrFin8Px07bh/V8fnC0CLjqQTHffLhLVqgS4YcjHn1K8LAYLrJDY35lOBuLyl39UmSdQ==
-  dependencies:
-    "@datadog/browser-core" "4.45.0"
-
-"@datadog/browser-rum@^4.45.0":
-  version "4.45.0"
-  resolved "https://registry.yarnpkg.com/@datadog/browser-rum/-/browser-rum-4.45.0.tgz#39ec9481fc277de9ad16b2fb9545bfa6933a3608"
-  integrity sha512-xbcXGU1LmTBRX3Ban2+0cqp/HQ3moZB5nr0FBCr+YpCytsRyZDY5o0sUbqrUhUjEdqdzsZ3paqonl4RKs7dLJg==
-  dependencies:
-    "@datadog/browser-core" "4.45.0"
-    "@datadog/browser-rum-core" "4.45.0"
-    "@datadog/browser-worker" "4.45.0"
-
-"@datadog/browser-worker@4.45.0":
-  version "4.45.0"
-  resolved "https://registry.yarnpkg.com/@datadog/browser-worker/-/browser-worker-4.45.0.tgz#eac7af7c5e5cb1aea4f4f9b281189773b19d59a1"
-  integrity sha512-VLbtn78R4LU1quOHWmLKUNndPg4fx85zumeP8j0EYPxJXo674ZPG9IvNsEk0JG5ik7KVm/66VTgLTffyfy/1hw==
-
 "@esbuild/android-arm64@0.17.19":
   version "0.17.19"
   resolved "https://registry.yarnpkg.com/@esbuild/android-arm64/-/android-arm64-0.17.19.tgz#bafb75234a5d3d1b690e7c2956a599345e84a2fd"
