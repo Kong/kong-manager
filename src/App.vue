@@ -25,10 +25,10 @@ const route = useRoute()
 
 const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
   {
-    name: 'Home',
-    to: { name: 'home' },
-    key: 'Home',
-    active: route.name === 'home',
+    name: 'Overview',
+    to: { name: 'overview' },
+    key: 'Overview',
+    active: route.name === 'overview',
   },
   {
     name: 'Gateway Services',

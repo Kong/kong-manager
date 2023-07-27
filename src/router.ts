@@ -6,13 +6,13 @@ import {
 import { config } from 'config'
 
 const routes: Array<RouteRecordRaw> = [
-  // home page
+  // overview page
   {
-    name: 'home',
+    name: 'overview',
     path: '/',
-    component: () => import('@/pages/home/Home.vue'),
+    component: () => import('@/pages/overview/Overview.vue'),
     meta: {
-      title: 'Home',
+      title: 'Overview',
     },
   },
 

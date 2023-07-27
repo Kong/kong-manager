@@ -32,7 +32,7 @@ const backPath = computed(() => {
   }
 
   return {
-    name: props.entity ? `${props.entity}-list` : 'home',
+    name: props.entity ? `${props.entity}-list` : 'overview',
   }
 })
 </script>

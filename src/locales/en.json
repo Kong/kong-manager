@@ -9,8 +9,55 @@
       "create": "Create"
     }
   },
+  "overview": {
+    "info": {
+      "gateway": {
+        "title": "Gateway",
+        "edition": "Edition",
+        "version": "Version"
+      },
+      "node": {
+        "title": "Node Details",
+        "address": "Address",
+        "hostname": "Host Name"
+      },
+      "port": {
+        "title": "Port Details",
+        "port": "Kong Manager Port",
+        "ssl": "Kong Manager SSL port",
+        "proxy": "Proxy Port",
+        "proxy.ssl": "Proxy SSL Port"
+      },
+      "datastore": {
+        "title": "Datastore",
+        "type": "Type",
+        "user": "User",
+        "host": "Host",
+        "port": "Port",
+        "ssl": "SSL"
+      }
+    },
+    "resource": {
+      "intro": {
+        "title": "Introduction",
+        "description": "A lightweight, fast, and flexible cloud-native API gateway."
+      },
+      "start": {
+        "title": "Get Started",
+        "description": "New to Kong? Get started with the basics."
+      },
+      "plugin": {
+        "title": "Plugin Hub",
+        "description": "Extend Kong Gateway with powerful plugins."
+      },
+      "discuss": {
+        "title": "Kong Nation",
+        "description": "Discuss Kong with others."
+      }
+    }
+  },
   "not-found": {
-    "description": "We cannot find the page you were looking for. Go back to the previous page or {home}."
+    "description": "We cannot find the page you were looking for. Go back to the previous page or {overview}."
   },
   "konnect-cta": {
     "name": "Konnect",
@@ -150,6 +197,7 @@
   },
   "wish": {
     "text": "I wish this page would...",
-    "subject": "I wish this page({title}) would..."
+    "subject": "I wish this page({title}) would...",
+    "tooltip": "Share your feedback with us"
   }
 }
