@@ -1,5 +1,14 @@
 <template>
-  <PageHeader :title="t('entities.key-set.list.title')" />
+  <PageHeader :title="t('entities.key-set.list.title')">
+    <template #below-title>
+      <SupportText>
+        {{ t('entities.key-set.description') }}
+        <KExternalLink :href="docsLink">
+          {{ t('global.learn.more') }}
+        </KExternalLink>
+      </SupportText>
+    </template>
+  </PageHeader>
   <KeySetList
     :config="keyListConfig"
     :can-create="canCreate"
@@ -21,6 +30,7 @@ import { useListRedirect } from '@/composables/useListRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
+import { useDocsLink } from '@/composables/useDocsLink'
 
 defineOptions({
   name: 'KeySetList',
@@ -29,6 +39,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
+const docsLink = useDocsLink('key-set')
 
 const filterSchema = computed<FilterSchema>(() => {
   return {

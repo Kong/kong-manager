@@ -1,5 +1,14 @@
 <template>
-  <PageHeader :title="t('entities.vault.list.title')" />
+  <PageHeader :title="t('entities.vault.list.title')">
+    <template #below-title>
+      <SupportText>
+        {{ t('entities.vault.description') }}
+        <KExternalLink :href="docsLink">
+          {{ t('global.learn.more') }}
+        </KExternalLink>
+      </SupportText>
+    </template>
+  </PageHeader>
   <VaultList
     :config="vaultListConfig"
     :can-create="canCreate"
@@ -21,6 +30,7 @@ import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
+import { useDocsLink } from '@/composables/useDocsLink'
 
 defineOptions({
   name: 'VaultList',
@@ -29,6 +39,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
+const docsLink = useDocsLink('vaults')
 
 const createRoute = computed(() => {
   return { name: 'vault-create' }

@@ -193,11 +193,13 @@ onBeforeMount(async () => {
 </script>
 
 <style scoped lang="scss">
+$card-spacing: 32px;
+
 .info-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 32px;
-  margin-bottom: 32px;
+  grid-gap: $card-spacing;
+  margin-bottom: $card-spacing;
 }
 .info-list, .resource-list {
   list-style: none;
@@ -234,7 +236,7 @@ onBeforeMount(async () => {
 
 .resource-card {
   padding: 0;
-  margin-bottom: 32px;
+  margin-bottom: $card-spacing;
 
   :deep(.k-card-header) {
     padding: var(--spacing-lg);

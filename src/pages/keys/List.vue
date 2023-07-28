@@ -2,7 +2,16 @@
   <PageHeader
     v-if="!keySetId"
     :title="t('entities.key.list.title')"
-  />
+  >
+    <template #below-title>
+      <SupportText>
+        {{ t('entities.key.description') }}
+        <KExternalLink :href="docsLink">
+          {{ t('global.learn.more') }}
+        </KExternalLink>
+      </SupportText>
+    </template>
+  </PageHeader>
   <KeyList
     :cache-identifier="cacheIdentifier"
     :config="keyListConfig"
@@ -26,6 +35,7 @@ import { useListRedirect } from '@/composables/useListRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
+import { useDocsLink } from '@/composables/useDocsLink'
 
 defineOptions({
   name: 'KeyList',
@@ -35,6 +45,7 @@ const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const route = useRoute()
 const { t } = useI18n()
+const docsLink = useDocsLink('keys')
 
 const keySetId = computed(() => (route.params?.id ?? '') as string)
 const cacheIdentifier = computed(() => `routes-${keySetId.value}`)

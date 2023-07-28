@@ -2,7 +2,16 @@
   <PageHeader
     v-if="!entityType"
     :title="t('entities.plugin.list.title')"
-  />
+  >
+    <template #below-title>
+      <SupportText>
+        {{ t('entities.plugin.description') }}
+        <KExternalLink :href="docsLink">
+          {{ t('global.learn.more') }}
+        </KExternalLink>
+      </SupportText>
+    </template>
+  </PageHeader>
   <PluginList
     :cache-identifier="cacheIdentifier"
     :config="pluginListConfig"
@@ -29,6 +38,7 @@ import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
+import { useDocsLink } from '@/composables/useDocsLink'
 
 defineOptions({
   name: 'PluginList',
@@ -37,6 +47,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
+const docsLink = useDocsLink('plugin')
 const route = useRoute()
 const cacheIdentifier = computed(() => `plugins-${route.params?.id}`)
 const entityType = computed(() => route.meta?.scopedIn as EntityType)

@@ -309,6 +309,11 @@
   resolved "https://registry.yarnpkg.com/@kong-ui-public/copy-uuid/-/copy-uuid-0.6.2.tgz#80ff07efb049aab90789db89c1778ee7832ad3b0"
   integrity sha512-MpKLA3AXqWI7CWarRGc3daP4/wXTIJRCiRpxM5MvLDigLRT+hcMvUICMW4K9k7JiYG/lrEIzeINp2dpMvIbPQQ==
 
+"@kong-ui-public/copy-uuid@^0.7.2":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/copy-uuid/-/copy-uuid-0.7.2.tgz#8e1008918f2a67d04c221d4f14763fc2f9adf917"
+  integrity sha512-ghHXJxqblGLP88rsEOJmolN155hwugnIH/Qs8QY/329WEQQZ3jr936HWwq7CZM0Cu+aik1lt6e5kVL+g5efK7g==
+
 "@kong-ui-public/core@1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@kong-ui-public/core/-/core-1.1.0.tgz#882542f6b128e6754c962840b2f312266dc630b5"
@@ -418,6 +423,15 @@
     "@kong-ui-public/core" "1.1.0"
     compare-versions "^6.0.0"
 
+"@kong-ui/entities-shared@^0.45.5":
+  version "0.45.5"
+  resolved "https://registry.yarnpkg.com/@kong-ui/entities-shared/-/entities-shared-0.45.5.tgz#0873721c6ff29eb34ca8aa90abf18274c839b569"
+  integrity sha512-0tjkkJ5xUi0nx9lhdsvDETlJFvGOlRdofChsE/Jv562cerMPCTi9en+wfDekOyOdiFkRBW+CQvJHo5Rm+TXBIA==
+  dependencies:
+    "@kong-ui-public/copy-uuid" "^0.7.2"
+    "@kong-ui-public/core" "1.1.0"
+    compare-versions "^6.0.0"
+
 "@kong-ui/entities-snis@^0.14.2":
   version "0.14.2"
   resolved "https://registry.yarnpkg.com/@kong-ui/entities-snis/-/entities-snis-0.14.2.tgz#8acec186d437a6972a8f84283f4c654620853572"
@@ -434,12 +448,12 @@
   dependencies:
     "@kong-ui/entities-shared" "^0.44.2"
 
-"@kong-ui/entities-vaults@^0.16.2":
-  version "0.16.2"
-  resolved "https://registry.yarnpkg.com/@kong-ui/entities-vaults/-/entities-vaults-0.16.2.tgz#7f8513d93367a172cd5e7123dedfde225f834fa5"
-  integrity sha512-Xt4uNCFxD5RVsVAgrdaowlM5UMAQoPlE5KFcWXgSD/HU1+wnqfTLyrofVGvq4OdWjB05v3guex5tbfqT4dJPtg==
+"@kong-ui/entities-vaults@^0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@kong-ui/entities-vaults/-/entities-vaults-0.17.0.tgz#6d61fc10845a4cb1f5df35ace5d70e59b6e48362"
+  integrity sha512-J2/0BBE7nDnT730hVOte+E4F0ciCFFmLfqu0QlYXg2TjOnyCJXCrebOpX4QLEShWNhImrcZstHPzRX7YlEy4Fw==
   dependencies:
-    "@kong-ui/entities-shared" "^0.44.2"
+    "@kong-ui/entities-shared" "^0.45.5"
 
 "@kong-ui/forms@^0.21.1":
   version "0.21.1"

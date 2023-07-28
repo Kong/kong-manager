@@ -5,6 +5,7 @@ import { vfgPlugin } from '@kong-ui/forms'
 import PageHeader from '@/components/PageHeader.vue'
 import HeaderBackButton from '@/components/HeaderBackButton.vue'
 import HeaderEditButton from '@/components/HeaderEditButton.vue'
+import SupportText from '@/components/SupportText.vue'
 import { useAxios } from '@/composables/useAxios'
 import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
 
@@ -19,12 +20,13 @@ export const registerGlobalComponents = (app: App) => {
       getOne: (entity: string, id: string) => {
         return axiosInstance.get(`${adminApiUrl}/${entity}/${id}`)
       },
-      getAll: (entity: string) => {
-        return axiosInstance.get(`${adminApiUrl}/${entity}`)
+      getAll: (entity: string, params: Record<string, string | number>) => {
+        return axiosInstance.get(`${adminApiUrl}/${entity}`, { params })
       },
     },
   })
   app.component('PageHeader', PageHeader)
   app.component('HeaderBackButton', HeaderBackButton)
   app.component('HeaderEditButton', HeaderEditButton)
+  app.component('SupportText', SupportText)
 }
