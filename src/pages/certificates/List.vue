@@ -1,5 +1,14 @@
 <template>
-  <PageHeader :title="t('entities.certificate.list.title')" />
+  <PageHeader :title="t('entities.certificate.list.title')">
+    <template #below-title>
+      <SupportText>
+        {{ t('entities.certificate.description') }}
+        <KExternalLink :href="docsLink">
+          {{ t('global.learn.more') }}
+        </KExternalLink>
+      </SupportText>
+    </template>
+  </PageHeader>
   <CertificateList
     :config="certificateListConfig"
     :can-create="canCreate"
@@ -13,13 +22,14 @@
 </template>
 
 <script setup lang="ts">
+import { computed, reactive } from 'vue'
+import { CertificateList, type EntityRow } from '@kong-ui/entities-certificates'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 import { useToaster } from '@/composables/useToaster'
-import { CertificateList, type EntityRow } from '@kong-ui/entities-certificates'
-import { computed, reactive } from 'vue'
+import { useDocsLink } from '@/composables/useDocsLink'
 
 defineOptions({
   name: 'CertificateList',
@@ -28,6 +38,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
+const docsLink = useDocsLink('certificate')
 
 const createRoute = computed(() => {
   return { name: 'certificate-create' }

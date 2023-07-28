@@ -2,7 +2,16 @@
   <PageHeader
     v-if="!serviceId"
     :title="t('entities.route.list.title')"
-  />
+  >
+    <template #below-title>
+      <SupportText>
+        {{ t('entities.route.description') }}
+        <KExternalLink :href="docsLink">
+          {{ t('global.learn.more') }}
+        </KExternalLink>
+      </SupportText>
+    </template>
+  </PageHeader>
   <RouteList
     :cache-identifier="cacheIdentifier"
     :config="routeListConfig"
@@ -26,12 +35,14 @@ import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
+import { useDocsLink } from '@/composables/useDocsLink'
 
 defineOptions({ name: 'RouteList' })
 
 const toaster = useToaster()
 const route = useRoute()
 const { t } = useI18n()
+const docsLink = useDocsLink('route')
 const { createRedirectRouteQuery } = useListRedirect()
 
 const serviceId = computed(() => (route.params?.id ?? '') as string)

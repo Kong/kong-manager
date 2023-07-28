@@ -7,7 +7,8 @@
       "edit": "Edit",
       "save": "Save",
       "create": "Create"
-    }
+    },
+    "learn.more": "Learn more"
   },
   "overview": {
     "info": {
@@ -72,6 +73,7 @@
   },
   "entities": {
     "service": {
+      "description": "Gateway Service entities are abstractions of each of your own upstream services, e.g., a data transformation microservice, a billing API.",
       "created": "Gateway Service {name} is successfully created!",
       "updated": "Gateway Service {name} is successfully updated!",
       "deleted": "Gateway Service {name} is successfully deleted!",
@@ -81,6 +83,7 @@
       "edit.form.title": "Edit Gateway Service"
     },
     "route": {
+      "description": "A Route defines rules to match client requests, and is associated with a Service.",
       "created": "Route {name} is successfully created!",
       "updated": "Route {name} is successfully updated!",
       "deleted": "Route {name} is successfully deleted!",
@@ -90,6 +93,7 @@
       "edit.form.title": "Edit Route"
     },
     "consumer": {
+      "description": "Consumers are the end users of a service.",
       "created": "Consumer {name} is successfully created!",
       "updated": "Consumer {name} is successfully updated!",
       "deleted": "Consumer {name} is successfully deleted!",
@@ -111,6 +115,7 @@
       "edit.form.title": "Edit: {type}"
     },
     "plugin": {
+      "description": "Plugins allow you to extend Kong's capabilities with features like rate limiting, authentication, and logging.",
       "created": "Plugin {name} is successfully created!",
       "updated": "Plugin {name} is successfully updated!",
       "deleted": "Plugin {name} is successfully deleted!",
@@ -121,6 +126,7 @@
       "edit.form.title": "Edit Plugin"
     },
     "upstream": {
+      "description": "An Upstream represents a virtual hostname and can be used to load balance incoming requests over multiple Services.",
       "created": "Upstream {name} is successfully created!",
       "updated": "Upstream {name} is successfully updated!",
       "deleted": "Upstream {name} is successfully deleted!",
@@ -130,6 +136,7 @@
       "edit.form.title": "Edit Upstream"
     },
     "certificate": {
+      "description": "Certificates handle SSL/TLS termination for encrypted requests.",
       "created": "Certificate {id} is successfully created!",
       "updated": "Certificate {id} is successfully updated!",
       "deleted": "Certificate {id} is successfully deleted!",
@@ -139,6 +146,7 @@
       "edit.form.title": "Edit Certificate"
     },
     "ca-certificate": {
+      "description": "CA certificates validate client or server certificates.",
       "created": "CA Certificate {id} is successfully created!",
       "updated": "CA Certificate {id} is successfully updated!",
       "deleted": "CA Certificate {id} is successfully deleted!",
@@ -148,6 +156,7 @@
       "edit.form.title": "Edit CA Certificate"
     },
     "sni": {
+      "description": "An SNI object represents a many-to-one mapping of hostnames to a certificate.",
       "created": "SNI {name} is successfully created!",
       "updated": "SNI {name} is successfully updated!",
       "deleted": "SNI {name} is successfully deleted!",
@@ -168,6 +177,7 @@
       "edit.form.title": "Edit Target"
     },
     "vault": {
+      "description": "Improve the security of your Kong Gateway deployment with centralized secrets.",
       "created": "Vault {name} is successfully created!",
       "updated": "Vault {name} is successfully updated!",
       "deleted": "Vault {name} is successfully deleted!",
@@ -177,6 +187,7 @@
       "edit.form.title": "Edit Vault"
     },
     "key": {
+      "description": "A Key object holds a representation of asymmetric keys in various formats.",
       "created": "Key {name} is successfully created!",
       "updated": "Key {name} is successfully updated!",
       "deleted": "Key {name} is successfully deleted!",
@@ -186,6 +197,7 @@
       "edit.form.title": "Edit Key"
     },
     "key-set": {
+      "description": "A Key Set object holds a collection of asymmetric key objects.",
       "created": "Key Set {name} is successfully created!",
       "updated": "Key Set {name} is successfully updated!",
       "deleted": "Key Set {name} is successfully deleted!",
