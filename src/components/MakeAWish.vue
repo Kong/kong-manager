@@ -16,11 +16,12 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from '@/composables/useI18n'
+import { config } from 'config'
 
 const route = useRoute()
 const { t } = useI18n()
 
-const mailToUrl = computed(() => `mailto:wish@konghq.com?subject=${t('wish.subject', { title: `${route.meta.title} | Kong Manager OSS` })}`)
+const mailToUrl = computed(() => `mailto:wish@konghq.com?subject=${t('wish.subject', { title: `${route.meta.title} | Kong Manager OSS@${config.GATEWAY_VERSION}` })}`)
 </script>
 
 <style scoped lang="scss">
