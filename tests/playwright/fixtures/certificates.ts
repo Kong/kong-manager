@@ -66,7 +66,7 @@ Gn+T2uCyOP4a1DTUoPyoNJXo
 `,
   subject: 'CN=secure-foo-bar, O=konghq.org',
   issuer: 'CN=secure-foo-bar, O=konghq.org',
-  notAfterFormattedUTC: /Wed, Dec 18, 2019( at|,) 21:28:00/g, // To fix some issues on some browsers
+  notAfterFormattedUTC: /Dec 18, 2019, 9:28 PM/g, // To fix some issues on some browsers
   subjectAltNameFormatted: '',
   keyUsages: [],
 }
@@ -125,7 +125,7 @@ qHL/5OriV8Dfo7Wxs3INfTd40kgBPqO2rhh6lKr5I8Sog9S/y062bA==
 `,
   subject: 'C=US, CN=Kong',
   issuer: 'C=US, CN=Kong',
-  notAfterFormattedUTC: /Mon, September 27, 2032( at|,) 09:35:22/g, // To fix some issues on some browsers
+  notAfterFormattedUTC: /Sep 27, 2032, 9:35 AM/g, // To fix some issues on some browsers
   subjectAltNameFormatted: 'dns=example.com, *.example.com',
   keyUsages: [
     'digitalSignature', 'nonRepudiation', 'keyEncipherment', 'dataEncipherment', 'keyAgreement', 'keyCertSign',
@@ -168,7 +168,7 @@ wWaPbub8SN2jKnT0g6ZWuca4VwEo1fRaBkzSZDqXwhkBDWP8UBqLXMXWHdZaT8NK
 -----END CERTIFICATE-----
 `,
   issuer: 'C=US, ST=California, O=Kong Testing, CN=Kong Testing Root CA',
-  notAfterFormattedUTC: /Wed, April 27, 2039( at|,) 19:34:42/g, // To fix some issues on some browsers
+  notAfterFormattedUTC: /Apr 27, 2039, 7:34 PM/g, // To fix some issues on some browsers
   keyUsages: [
     'digitalSignature', 'keyCertSign', 'cRLSign',
   ],
