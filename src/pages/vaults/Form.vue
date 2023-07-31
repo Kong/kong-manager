@@ -45,6 +45,7 @@ const routeOnUpdate = useFormRedirectOnUpdate(
 const vaultFormConfig = reactive({
   ...useFormGeneralConfig(),
   azureVaultProviderAvailable: false,
+  ttl: true,
   cancelRoute: routeOnCancel,
 })
 
