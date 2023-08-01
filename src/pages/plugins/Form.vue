@@ -79,7 +79,6 @@ import EntityForm from '@/components/EntityForm/EntityForm.vue'
 import FormPageMixin from '@/components/EntityForm/mixins/FormPage'
 import { capitalize, uuidRegEx, redirectOnResponseStatus, isObjectEmpty } from '@/components/EntityForm/helpers'
 import { pluginMeta } from './PluginMeta'
-import PluginConfig from './PluginConfig'
 import customSchemas from '@/schemas/CustomSchemas'
 import typedefs from '@/schemas/typedefs'
 import { ArrayStringFieldSchema } from '@/components/EntityForm/fields'
@@ -563,9 +562,8 @@ export default {
         }
 
         if (parent === 'config') {
-          const definition = PluginConfig[this.plugin]?.find(config => config.name === key)
-          if (definition?.description) {
-            output[field].help = marked.parse(definition.description, { mangle: false, headerIds: false })
+          if (schema[key]?.description) {
+            output[field].help = marked.parse(schema[key].description, { mangle: false, headerIds: false })
           }
         }
 
