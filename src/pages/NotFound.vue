@@ -26,6 +26,7 @@
   h2 {
     font-size: 72px;
     color: var(--black-45, rgba(0, 0, 0, .45));
+    line-height: 1;
   }
 
   p {
