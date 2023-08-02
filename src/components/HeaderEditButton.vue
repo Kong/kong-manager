@@ -19,6 +19,11 @@ const props = defineProps({
     required: true,
     default: '',
   },
+  routeOptions: {
+    type: Object,
+    required: false,
+    default: () => ({}),
+  },
 })
 
 const route = useRoute()
@@ -28,6 +33,7 @@ const editPath = computed(() => {
   return {
     name: `${props.entity}-edit`,
     params: { id: route.params.id },
+    ...props.routeOptions,
   }
 })
 </script>

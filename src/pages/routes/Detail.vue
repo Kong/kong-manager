@@ -4,6 +4,7 @@
     <HeaderEditButton
       class="ml-4"
       entity="route"
+      :route-options="{ query: { serviceId } }"
     />
   </PageHeader>
   <KTabs

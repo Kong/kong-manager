@@ -13,12 +13,18 @@
     <HeaderEditButton
       class="ml-4"
       entity="plugin"
+      :route-options="{
+        query: {
+          entity_type: route.query?.entity_type,
+          entity_id: route.query?.entity_id,
+        },
+      }"
     />
   </PageHeader>
   <PluginConfigCard
     :config="pluginDetailConfig"
-    :entity-type="entityType"
-    :entity-id="entityId"
+    :scoped-entity-type="entityType"
+    :scoped-entity-id="entityId"
     @copy:success="onCopySuccess"
   />
 </template>
@@ -41,7 +47,13 @@ const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
 const pluginType = computed(() => (route.params.pluginType ?? '') as string)
-const entityType = computed(() => route.query?.entity_type)
+const entityType = computed(() => {
+  if (!route.query?.entity_type) {
+    return undefined
+  }
+
+  return `${(route.query?.entity_type as string).split('_')[0]}s`
+})
 const entityId = computed(() => route.query?.entity_id)
 
 const pluginDetailConfig = reactive({
