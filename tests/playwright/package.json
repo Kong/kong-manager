@@ -1,0 +1,17 @@
+{
+  "name": "playwright-tests",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "module": "esnext",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.35.1",
+    "axios": "^1.4.0",
+    "bmp-js": "^0.1.0",
+    "dotenv": "^16.0.1",
+    "lodash-es": "^4.17.21"
+  }
+}

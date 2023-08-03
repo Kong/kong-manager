@@ -1,5 +1,5 @@
 import type { Page, Response } from '@playwright/test'
-import debounce from 'lodash.debounce'
+import * as _ from 'lodash-es'
 
 const consumeNavigationStack = async (
   page: Page,
@@ -12,7 +12,7 @@ const consumeNavigationStack = async (
 ): Promise<Array<Response | null>> => {
   let all_cleared = false
 
-  const resetTimer = debounce(() => {
+  const resetTimer = _.debounce(() => {
     all_cleared = true
   }, timeout, {
     leading: false,
