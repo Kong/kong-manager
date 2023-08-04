@@ -64,8 +64,8 @@ jobs:
         timeout-minutes: 10
         run: |
           npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-          yarn add -D @playwright/test
-          npx --yes playwright install chromium
+          yarn install:e2e
+          yarn playwright install chromium
 
       - name: Log in to GitHub Container Registry
         timeout-minutes: 1
@@ -90,11 +90,11 @@ jobs:
         env:
           KM_TEST_GUI_URL: ${{ inputs.base-url }}
         run: |
-          yarn playwright test \
+          yarn test:e2e \
             --pass-with-no-tests \
             --retries ${{ inputs.retries }} \
             --reporter=list \
-            specs/${{ matrix.suite }}
+            ${{ matrix.suite }}/
 
       - name: Upload results
         if: ${{ !cancelled() }}
@@ -102,5 +102,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: results-${{ matrix.suite }}
-          path: test-results/
+          path: tests/playwright/test-results/
           retention-days: 1

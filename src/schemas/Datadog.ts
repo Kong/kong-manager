@@ -1,4 +1,4 @@
-import cloneDeep from 'lodash.clonedeep'
+import * as _ from 'lodash-es'
 import { ArrayStringFieldSchema } from '@/components/EntityForm/fields'
 import MetricFields from './MetricFields'
 
@@ -51,7 +51,7 @@ export default {
         }, {
           model: 'tags',
           label: 'Tags',
-          ...cloneDeep(ArrayStringFieldSchema),
+          ..._.cloneDeep(ArrayStringFieldSchema),
         }],
       },
     },

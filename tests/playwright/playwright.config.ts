@@ -1,11 +1,11 @@
 import type { PlaywrightTestConfig } from '@playwright/test'
 import * as dotenv from 'dotenv'
 
-dotenv.config()
+dotenv.config({ path: '../../.env' })
 
 const config: PlaywrightTestConfig = {
   reporter: [['junit', { outputFile: './test-results/playwright.xml' }]],
-  testDir: './tests/playwright',
+  testDir: './specs',
   retries: 1,
   workers: 1,
   use: {

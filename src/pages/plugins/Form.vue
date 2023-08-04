@@ -73,7 +73,7 @@
 <script>
 import axios from 'axios'
 import { marked } from 'marked'
-import cloneDeep from 'lodash.clonedeep'
+import * as _ from 'lodash-es'
 import { PluginScope } from '@kong-ui/entities-plugins'
 import EntityForm from '@/components/EntityForm/EntityForm.vue'
 import FormPageMixin from '@/components/EntityForm/mixins/FormPage'
@@ -638,7 +638,7 @@ export default {
           if (elements.type === 'string' && !elements.one_of) {
             const { help, label } = output[field]
 
-            output[field] = { ...cloneDeep(ArrayStringFieldSchema), help, label }
+            output[field] = { ..._.cloneDeep(ArrayStringFieldSchema), help, label }
           }
         }
 
