@@ -74,7 +74,7 @@
 import axios from 'axios'
 import { marked } from 'marked'
 import * as _ from 'lodash-es'
-import { PluginScope } from '@kong-ui/entities-plugins'
+import { PluginScope } from '@kong-ui-public/entities-plugins'
 import EntityForm from '@/components/EntityForm/EntityForm.vue'
 import FormPageMixin from '@/components/EntityForm/mixins/FormPage'
 import { capitalize, uuidRegEx, redirectOnResponseStatus, isObjectEmpty } from '@/components/EntityForm/helpers'

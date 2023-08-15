@@ -11,7 +11,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { RouteForm } from '@kong-ui/entities-routes'
+import { RouteForm } from '@kong-ui-public/entities-routes'
 import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'

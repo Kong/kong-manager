@@ -23,8 +23,8 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { SniList, type EntityRow } from '@kong-ui/entities-snis'
-import type { FilterSchema } from '@kong-ui/entities-shared'
+import { SniList, type EntityRow } from '@kong-ui-public/entities-snis'
+import type { FilterSchema } from '@kong-ui-public/entities-shared'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'

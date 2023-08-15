@@ -23,8 +23,8 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { ConsumerList, type EntityRow } from '@kong-ui/entities-consumers'
-import type { FilterSchema } from '@kong-ui/entities-shared'
+import { ConsumerList, type EntityRow } from '@kong-ui-public/entities-consumers'
+import type { FilterSchema } from '@kong-ui-public/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'

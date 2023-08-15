@@ -1,6 +1,6 @@
 import { reactive } from 'vue'
 import { config } from 'config'
-import type { KongManagerBaseTableConfig } from '@kong-ui/entities-shared'
+import type { KongManagerBaseTableConfig } from '@kong-ui-public/entities-shared'
 import { useAdminApiUrl } from './useAdminApiUrl'
 
 export const useListGeneralConfig = () => {

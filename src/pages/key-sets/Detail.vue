@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { KeySetConfigCard } from '@kong-ui/entities-key-sets'
+import { KeySetConfigCard } from '@kong-ui-public/entities-key-sets'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'

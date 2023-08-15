@@ -28,8 +28,8 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute } from 'vue-router'
-import { KeyList, type EntityRow } from '@kong-ui/entities-keys'
-import type { FilterSchema } from '@kong-ui/entities-shared'
+import { KeyList, type EntityRow } from '@kong-ui-public/entities-keys'
+import type { FilterSchema } from '@kong-ui-public/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 import { useToaster } from '@/composables/useToaster'

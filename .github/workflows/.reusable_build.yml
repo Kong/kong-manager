@@ -74,3 +74,10 @@ jobs:
         with:
           name: assets
           path: ./assets.tar.gz
+
+      - name: Upload bundle-analyzer
+        timeout-minutes: 5
+        uses: actions/upload-artifact@v3
+        with:
+          name: bundle-analyzer
+          path: bundle-analyzer/

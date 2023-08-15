@@ -23,8 +23,8 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { UpstreamsList, type EntityRow } from '@kong-ui/entities-upstreams-targets'
-import type { FilterSchema } from '@kong-ui/entities-shared'
+import { UpstreamsList, type EntityRow } from '@kong-ui-public/entities-upstreams-targets'
+import type { FilterSchema } from '@kong-ui-public/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'

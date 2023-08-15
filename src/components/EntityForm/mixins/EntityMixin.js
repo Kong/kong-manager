@@ -1,4 +1,4 @@
-import { customFields } from '@kong-ui/forms'
+import { customFields } from '@kong-ui-public/forms'
 import { capitalize, generateFieldLabel } from '../helpers'
 import { ArrayStringFieldSchema } from '../fields'
 

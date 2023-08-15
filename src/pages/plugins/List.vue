@@ -31,8 +31,8 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute, type RouteLocationRaw } from 'vue-router'
-import { PluginList, type EntityRow, type ViewRouteType, type EntityType } from '@kong-ui/entities-plugins'
-import type { FilterSchema } from '@kong-ui/entities-shared'
+import { PluginList, type EntityRow, type ViewRouteType, type EntityType } from '@kong-ui-public/entities-plugins'
+import type { FilterSchema } from '@kong-ui-public/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
@@ -142,7 +142,7 @@ const canEdit = async () => true
 
 // konnect has a special tag for this permission
 // set to always true since Kong Manager doesn't have such limitation
-// `@kong-ui/entites-plugins` will check `canEdit` internally so we don't need to check it here
+// `@kong-ui-public/entites-plugins` will check `canEdit` internally so we don't need to check it here
 const canToggle = async () => true
 
 const canRetrieve = async () => true

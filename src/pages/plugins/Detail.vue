@@ -32,7 +32,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute } from 'vue-router'
-import { PluginConfigCard, PluginIcon } from '@kong-ui/entities-plugins'
+import { PluginConfigCard, PluginIcon } from '@kong-ui-public/entities-plugins'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'

@@ -31,12 +31,10 @@ updates:
     target-branch: "main"
     allow:
       - dependency-name: "@kong/kongponents"
-      - dependency-name: "@kong-ui/*"
       - dependency-name: "@kong-ui-public/*"
       - dependency-name: "@playwright/test"
     groups:
       kong-packages:
         patterns:
           - "@kong/kongponents"
-          - "@kong-ui/*"
           - "@kong-ui-public/*"

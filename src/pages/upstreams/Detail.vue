@@ -27,7 +27,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { UpstreamsConfigCard } from '@kong-ui/entities-upstreams-targets'
+import { UpstreamsConfigCard } from '@kong-ui-public/entities-upstreams-targets'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'

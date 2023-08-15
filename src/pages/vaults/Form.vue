@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { VaultForm } from '@kong-ui/entities-vaults'
+import { VaultForm } from '@kong-ui-public/entities-vaults'
 import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'

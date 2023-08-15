@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { ConsumerConfigCard } from '@kong-ui/entities-consumers'
+import { ConsumerConfigCard } from '@kong-ui-public/entities-consumers'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'

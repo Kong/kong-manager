@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { CertificateList, type EntityRow } from '@kong-ui/entities-certificates'
+import { CertificateList, type EntityRow } from '@kong-ui-public/entities-certificates'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'

@@ -93,7 +93,7 @@
 </template>
 
 <script>
-import { customFields, getSharedFormName, sharedForms } from '@kong-ui/forms'
+import { customFields, getSharedFormName, sharedForms } from '@kong-ui-public/forms'
 import ConfirmModalDialog from './ConfirmModalDialog.vue'
 import EntityMixin from './mixins/EntityMixin'
 import RedirectMixin from './mixins/RedirectMixin'
