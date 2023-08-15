@@ -9,7 +9,7 @@
         <slot name="title-logo" />
       </component>
       <nav
-        class="d-inline-flex justify-content-end ml-auto text-right"
+        class="header-actions"
         data-testid="header-actions"
       >
         <slot />
@@ -47,7 +47,7 @@ const tag = computed(() => `h${props.size}`)
 <style lang="scss" scoped>
 .page-header h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
-  color: var(--blue-700);
+  color: $kui-color-background-primary-strongest;
   .title {
     word-break: break-all;
   }
@@ -65,9 +65,12 @@ h1, h2, h3, h4, h5, h6, nav {
   align-items: center;
 }
 
-nav {
+.header-actions {
   -ms-flex-positive: 0.1 !important;
   flex-grow: 0;
   white-space: nowrap;
+  display: inline-flex;
+  justify-content: flex-end;
+  margin-left: auto;
 }
 </style>

@@ -17,7 +17,7 @@ import '@kong-ui-public/forms/dist/style.css'
 import '@kong-ui-public/misc-widgets/dist/style.css'
 
 import './bootstrap-grid.css'
-import './typography.css'
+import './typography.scss'
 import './reboot.scss'
 import './form.scss'
 import './inputs.scss'

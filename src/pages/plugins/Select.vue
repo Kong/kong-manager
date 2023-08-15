@@ -1,7 +1,7 @@
 <template>
   <div class="plugins-shell">
     <PageHeader title="New Plugin">
-      <div class="d-flex flex-column">
+      <div class="plugins-filter-wrapper">
         <input
           v-model="filter"
           class="k-input"
@@ -23,7 +23,7 @@
         >
           <div class="col">
             <h5>{{ group }}</h5>
-            <div class="row mt-4">
+            <div class="row filter-row">
               <component
                 :is="plugin.disabledMessage ? 'KTooltip' : plugin.available ? 'router-link' : 'div'"
                 v-for="(plugin, index) in filteredPlugins[group]"
@@ -63,7 +63,7 @@
         class="row"
         data-testid="no-results"
       >
-        <div class="col-12 text-center">
+        <div class="col-12">
           <h4>No results found for "{{ filter }}"</h4>
         </div>
       </div>
@@ -77,7 +77,7 @@
           width="6"
         />
         <KSkeletonBox
-          class="ml-4"
+          class="search-result-skeleton-box-right"
           width="6"
         />
       </KSkeleton>
@@ -233,7 +233,7 @@ export default {
 
 <style lang="scss" scoped>
 .page-header {
-  border-bottom: 1px solid var(--black-10);
+  border-bottom: 1px solid $kui-color-border;
   margin-bottom: 2rem;
 }
 
@@ -251,6 +251,19 @@ export default {
     flex-direction: column;
     display: flex;
     flex: 1;
+  }
+
+  .plugins-filter-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filter-row {
+    margin-top: $kui-space-60;
+  }
+
+  .search-result-skeleton-box-right {
+    margin-left: $kui-space-60;
   }
 }
 </style>

@@ -214,21 +214,21 @@ $card-spacing: 32px;
   padding: 10px 0;
 
   &:not(:last-child) {
-    border-bottom: 1px solid var(--black-10);
+    border-bottom: 1px solid $kui-color-border;
   }
 
   label {
-    color: var(--black-70);
+    color: $kui-color-background-neutral-stronger;
     font-size: 14px;
     font-weight: bold;
     margin: 0;
   }
 
   span {
-    color: var(--blue-600);
+    color: $kui-color-background-primary-stronger;
     font-size: 14px;
     margin: 0;
-    background-color: var(--blue-100);
+    background-color: $kui-color-background-primary-weakest;
     padding: 4px 12px;
     border-radius: 20px;
   }
@@ -239,7 +239,7 @@ $card-spacing: 32px;
   margin-bottom: $card-spacing;
 
   :deep(.k-card-header) {
-    padding: var(--spacing-lg);
+    padding: $kui-line-height-40;
     margin-bottom: 0!important;
   }
 
@@ -251,26 +251,26 @@ $card-spacing: 32px;
 .resource-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: 1px solid var(--black-10);
+  border-top: 1px solid $kui-color-border;
 }
 
 .resource-item {
   .resource-link {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--black-10);
+    border-bottom: 1px solid $kui-color-border;
     transition: background-color 0.3s;
-    padding: 16px var(--spacing-lg);
+    padding: 16px $kui-line-height-40;
     text-decoration: none;
     color: inherit;
 
     &:hover {
-      background-color: var(--blue-100);
+      background-color: $kui-color-background-primary-weakest;
     }
   }
 
   &:nth-child(odd) .resource-link {
-    border-right: 1px solid var(--black-10);
+    border-right: 1px solid $kui-color-border;
   }
 
   &:nth-last-child(-n+2) .resource-link {
@@ -284,14 +284,14 @@ $card-spacing: 32px;
   }
 
   .resource-title {
-    color: var(--blue-500);
+    color: $kui-color-background-primary-strong;
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 6px;
   }
 
   .resource-description {
-    color: var(--black-70);
+    color: $kui-color-background-neutral-stronger;
     font-size: 12px;
   }
 }

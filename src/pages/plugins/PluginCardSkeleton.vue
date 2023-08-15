@@ -5,7 +5,7 @@
     type="card"
   >
     <template #card-header>
-      <div class="mx-auto">
+      <div class="skeleton-card-header">
         <KSkeletonBox width="25" />
       </div>
     </template>
@@ -13,9 +13,9 @@
       &nbsp;
     </template>
     <template #card-footer>
-      <div class="w-100">
+      <div class="skeleton-card-footer">
         <hr style="margin: 0 -1rem 1rem;">
-        <div class="d-flex justify-content-center py-2">
+        <div class="skeleton-card-footer-skeleton">
           <KSkeletonBox width="25" />
         </div>
       </div>
@@ -38,9 +38,31 @@ export default {
 
 <style lang="scss">
 .k-skeleton-25 {
-  --KSkeletonCardWidth: 24%;
   .skeleton-card {
     height: 240px;
+  }
+
+  // --KSkeletonCardWidth: 24%;
+  .skeleton-card-column {
+    margin-bottom: 16px;
+    margin-bottom: $kui-line-height-20;
+    width: calc(33% - 16px);
+    width: 24%;
+  }
+}
+
+.skeleton-card-header {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skeleton-card-footer {
+  width: 100%;
+  .skeleton-card-footer-skeleton {
+    display: flex;
+    justify-content: center;
+    padding-bottom: $kui-space-40;
+    padding-top: $kui-space-40;
   }
 }
 </style>

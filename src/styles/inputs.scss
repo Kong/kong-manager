@@ -35,7 +35,7 @@
 .form-control {
   width: 100%;
   &:required {
-    border-color: var(--KInputBorder, var(--grey-300, #e0e0e0));
+    border-color: $kui-color-background-disabled;
   }
 }
 
@@ -131,16 +131,7 @@ select.form-control,
 /* Radios
 ========================================================================== */
 .form-group input[type="radio"] {
-  @extend .k-input;
   margin-right: 0.5rem;
-}
-
-/* Checkboxes
-========================================================================== */
-.field-checkbox,
-.form-group input[type="checkbox"] {
-  // Use Kong Styles from imported stylesheets
-  @extend .k-input;
 }
 
 .form-group.required input[type="checkbox"],

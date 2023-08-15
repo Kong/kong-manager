@@ -11,7 +11,7 @@
     </template>
     <HeaderBackButton entity="plugin" />
     <HeaderEditButton
-      class="ml-4"
+      class="button-edit"
       entity="plugin"
       :route-options="{
         query: {
@@ -74,5 +74,9 @@ const onCopySuccess = () => {
 <style scoped lang="scss">
 .plugin-detail-icon {
   margin-right: 8px;
+}
+
+.button-edit {
+  margin-left: $kui-space-60;
 }
 </style>

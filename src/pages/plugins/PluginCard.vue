@@ -56,35 +56,35 @@ export default {
   &:hover {
     text-decoration: none;
   }
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: $kui-line-height-60;
   .card-content {
-    background-color: var(--white);
+    background-color: $kui-color-background;
     flex: 1;
-    padding: var(--spacing-md);
-    border-color: var(--black-10);
+    padding: $kui-line-height-20;
+    border-color: $kui-color-border;
     border-style: solid;
     border-width: 1px 1px 0 1px;
   }
   .card-title {
     font-weight: bold;
-    font-size: var(--type-md);
-    margin-bottom: var(--spacing-xl);
+    font-size: $kui-font-size-40;
+    margin-bottom: $kui-line-height-60;
   }
   .card-icon {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: $kui-line-height-20;
   }
   .card-text {
-    color: var(--black-70);
+    color: $kui-color-background-neutral-stronger;
     font-weight: 400;
-    font-size: var(--type-sm);
+    font-size: $kui-font-size-30;
   }
   .card-footer {
-    color: var(--blue-500);
-    padding: var(--spacing-sm);
+    color: $kui-color-background-primary-strong;
+    padding: $kui-line-height-10;
     font-weight: bold;
-    font-size: var(--type-sm);
-    border: 1px solid var(--blue-300);
-    background-color: var(--blue-100);
+    font-size: $kui-font-size-30;
+    border: 1px solid $kui-color-background-primary-weak;
+    background-color: $kui-color-background-primary-weakest
   }
   .k-card-content {
     flex: 1;

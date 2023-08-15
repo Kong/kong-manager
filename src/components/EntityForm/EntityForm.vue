@@ -41,7 +41,7 @@
     >
       <div
         v-if="error"
-        class="error-message mb-4"
+        class="error-message"
       >
         <KAlert
           :alert-message="error"
@@ -52,7 +52,7 @@
       <KButton
         :disabled="isSaveActionDisabled"
         appearance="primary"
-        class="mr-2"
+        class="button-confirm"
         data-testid="form-footer-action-submit"
         @click="confirm"
       >
@@ -749,5 +749,12 @@ export default {
     display: none;
   }
 
+  .error-message {
+    margin-bottom: $kui-space-60;
+  }
+
+  .button-confirm {
+    margin-right: $kui-space-40;
+  }
 }
 </style>

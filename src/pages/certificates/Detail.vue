@@ -2,7 +2,7 @@
   <PageHeader :title="t('entities.certificate.detail.title', { id: titleId })">
     <HeaderBackButton entity="certificate" />
     <HeaderEditButton
-      class="ml-4"
+      class="button-edit"
       entity="certificate"
     />
   </PageHeader>
@@ -49,3 +49,9 @@ const onFetchSuccess = (entity) => {
   titleId.value = entity.id
 }
 </script>
+
+<style lang="scss" scoped>
+.button-edit {
+  margin-left: $kui-space-60;
+}
+</style>

@@ -14,10 +14,6 @@
 //
 // Credit: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 
-html {
-  box-sizing: border-box;
-}
-
 *,
 *::before,
 *::after {
@@ -30,6 +26,8 @@ html {
 //
 
 html {
+  box-sizing: border-box;
+
   // We assume no initial pixel `font-size` for accessibility reasons. This
   // allows web visitors to customize their browser default font-size, making
   // your project more inclusive and accessible to everyone.
@@ -53,7 +51,7 @@ body {
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
-  color: var(--black-70);
+  color: $kui-color-background-neutral-stronger;
   background-color: #fff;
 }
 
@@ -117,7 +115,7 @@ dd {
 //
 
 a {
-  color: var(--blue-500);
+  color: $kui-color-background-primary-strong;
   text-decoration: none;
 
   &:hover,
