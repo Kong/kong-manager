@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute } from 'vue-router'
-import { ConsumerCredentialList, type CredentialPlugins } from '@kong-ui/entities-consumer-credentials'
+import { ConsumerCredentialList, type CredentialPlugins } from '@kong-ui-public/entities-consumer-credentials'
 import PageHeader from '@/components/PageHeader.vue'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'

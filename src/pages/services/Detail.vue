@@ -30,7 +30,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { GatewayServiceConfigCard } from '@kong-ui/entities-gateway-services'
+import { GatewayServiceConfigCard } from '@kong-ui-public/entities-gateway-services'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'

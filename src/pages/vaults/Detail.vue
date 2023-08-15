@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
-import { VaultConfigCard } from '@kong-ui/entities-vaults'
+import { VaultConfigCard } from '@kong-ui-public/entities-vaults'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'

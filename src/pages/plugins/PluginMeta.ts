@@ -1,4 +1,4 @@
-import { usePluginMetaData } from '@kong-ui/entities-plugins'
+import { usePluginMetaData } from '@kong-ui-public/entities-plugins'
 
 const meta = usePluginMetaData()
 

@@ -20,7 +20,7 @@
 import { computed, reactive } from 'vue'
 import type { AxiosResponse, AxiosError } from 'axios'
 import { useRoute } from 'vue-router'
-import { TargetsList, type EntityRow } from '@kong-ui/entities-upstreams-targets'
+import { TargetsList, type EntityRow } from '@kong-ui-public/entities-upstreams-targets'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'

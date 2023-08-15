@@ -17,7 +17,7 @@
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useI18n } from '@/composables/useI18n'
-import { CertificateConfigCard } from '@kong-ui/entities-certificates'
+import { CertificateConfigCard } from '@kong-ui-public/entities-certificates'
 import { computed, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 

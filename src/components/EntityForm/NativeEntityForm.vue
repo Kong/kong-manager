@@ -92,7 +92,7 @@ import {
   redirectOnResponseStatus,
   getMessageFromError,
 } from './helpers'
-import { customFields } from '@kong-ui/forms'
+import { customFields } from '@kong-ui-public/forms'
 
 const { axiosInstance } = useAxios()
 const adminApiUrl = useAdminApiUrl()

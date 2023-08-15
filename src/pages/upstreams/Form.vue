@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { UpstreamsForm } from '@kong-ui/entities-upstreams-targets'
+import { UpstreamsForm } from '@kong-ui-public/entities-upstreams-targets'
 import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'

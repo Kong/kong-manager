@@ -91,7 +91,7 @@
 
 <script>
 import axios from 'axios'
-import { PluginGroup, PluginScope } from '@kong-ui/entities-plugins'
+import { PluginGroup, PluginScope } from '@kong-ui-public/entities-plugins'
 import { sortAlpha } from '@/components/EntityForm/helpers'
 import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
 import PluginCardSkeleton from './PluginCardSkeleton.vue'

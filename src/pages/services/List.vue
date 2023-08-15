@@ -23,8 +23,8 @@
 
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
-import { GatewayServiceList, type EntityRow } from '@kong-ui/entities-gateway-services'
-import type { FilterSchema } from '@kong-ui/entities-shared'
+import { GatewayServiceList, type EntityRow } from '@kong-ui-public/entities-gateway-services'
+import type { FilterSchema } from '@kong-ui-public/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'

@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { PluginIcon } from '@kong-ui/entities-plugins'
+import { PluginIcon } from '@kong-ui-public/entities-plugins'
 
 export default {
   components: { PluginIcon },

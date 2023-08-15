@@ -1,7 +1,7 @@
 import type { App } from 'vue'
 import Kongponents from '@kong/kongponents'
 import CopyUuid from '@kong-ui-public/copy-uuid'
-import { vfgPlugin } from '@kong-ui/forms'
+import { vfgPlugin } from '@kong-ui-public/forms'
 import PageHeader from '@/components/PageHeader.vue'
 import HeaderBackButton from '@/components/HeaderBackButton.vue'
 import HeaderEditButton from '@/components/HeaderEditButton.vue'

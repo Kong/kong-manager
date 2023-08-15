@@ -28,8 +28,8 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute } from 'vue-router'
-import { RouteList, type EntityRow } from '@kong-ui/entities-routes'
-import type { FilterSchema } from '@kong-ui/entities-shared'
+import { RouteList, type EntityRow } from '@kong-ui-public/entities-routes'
+import type { FilterSchema } from '@kong-ui-public/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
