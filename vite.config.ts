@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import autoprefixer from 'autoprefixer'
 import { createHtmlPlugin } from 'vite-plugin-html'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 const basePath = process.env.NODE_ENV !== 'production' || process.env.DISABLE_BASE_PATH === 'true' ? '/' : '/__km_base__/'
 
@@ -30,6 +31,12 @@ export default defineConfig({
           basePath,
         },
       },
+    }),
+    visualizer({
+      filename: path.resolve(__dirname, 'bundle-analyzer/stats-treemap.html'),
+      template: 'treemap', // sunburst|treemap|network
+      gzipSize: true,
+      brotliSize: true,
     }),
   ],
   server: {

@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+test-results
+bundle-analyzer
 
 # Editor directories and files
 .vscode/*
@@ -25,5 +27,3 @@ dist-ssr
 
 # suppress build warning
 public/kconfig.js
-
-test-results
