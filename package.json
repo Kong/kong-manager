@@ -15,7 +15,8 @@
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{ts,js,vue}": "eslint --fix"
+    "src/**/*.{ts,js,vue}": "eslint --fix",
+    "src/**/*.{css,scss,sass,less,styl,vue}": "stylelint --allow-empty-input --fix 'src/**/*.{css,scss,sass,less,styl,vue}'"
   },
   "dependencies": {
     "@kong-ui-public/app-layout": "^0.22.10",
