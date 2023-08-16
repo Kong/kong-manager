@@ -45,7 +45,7 @@ export default {
   // --KSkeletonCardWidth: 24%;
   .skeleton-card-column {
     margin-bottom: 16px;
-    margin-bottom: $kui-line-height-20;
+    margin-bottom: $kui-space-60;
     width: calc(33% - 16px);
     width: 24%;
   }

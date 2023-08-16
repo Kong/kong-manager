@@ -56,11 +56,11 @@ export default {
   &:hover {
     text-decoration: none;
   }
-  margin-bottom: $kui-line-height-60;
+  margin-bottom: $kui-space-90;
   .card-content {
     background-color: $kui-color-background;
     flex: 1;
-    padding: $kui-line-height-20;
+    padding: $kui-space-60;
     border-color: $kui-color-border;
     border-style: solid;
     border-width: 1px 1px 0 1px;
@@ -68,10 +68,10 @@ export default {
   .card-title {
     font-weight: bold;
     font-size: $kui-font-size-40;
-    margin-bottom: $kui-line-height-60;
+    margin-bottom: $kui-space-90;
   }
   .card-icon {
-    margin-bottom: $kui-line-height-20;
+    margin-bottom: $kui-space-60;
   }
   .card-text {
     color: $kui-color-background-neutral-stronger;
@@ -80,7 +80,7 @@ export default {
   }
   .card-footer {
     color: $kui-color-background-primary-strong;
-    padding: $kui-line-height-10;
+    padding: $kui-space-50;
     font-weight: bold;
     font-size: $kui-font-size-30;
     border: 1px solid $kui-color-background-primary-weak;

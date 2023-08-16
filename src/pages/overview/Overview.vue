@@ -239,7 +239,7 @@ $card-spacing: 32px;
   margin-bottom: $card-spacing;
 
   :deep(.k-card-header) {
-    padding: $kui-line-height-40;
+    padding: $kui-space-80;
     margin-bottom: 0!important;
   }
 
@@ -260,7 +260,7 @@ $card-spacing: 32px;
     align-items: center;
     border-bottom: 1px solid $kui-color-border;
     transition: background-color 0.3s;
-    padding: 16px $kui-line-height-40;
+    padding: 16px $kui-space-80;
     text-decoration: none;
     color: inherit;
 

@@ -3,13 +3,13 @@ const ArrayStringFieldSchema = {
   valueType: 'string',
   valueArrayType: 'array',
   itemContainerComponent: 'FieldArrayItem',
-  fieldClasses: 'w-100',
-  fieldItemsClasses: 'd-flex mt-2 w-90',
+  fieldClasses: 'kong-form-array-string-field',
+  fieldItemsClasses: 'kong-form-array-string-field-item',
   inputAttributes: { class: 'k-input', style: { minWidth: '200px' } },
   validator: 'array',
-  styleClasses: 'w-100',
+  styleClasses: 'kong-form-field-wrapper',
   newElementButtonLabel: '+ Add',
-  newElementButtonLabelClasses: 'my-5',
+  newElementButtonLabelClasses: 'kong-form-new-element-button-label',
 }
 
 export { ArrayStringFieldSchema }

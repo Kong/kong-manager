@@ -22,3 +22,36 @@ fieldset {
   margin: 0;
   border: 0;
 }
+
+// styleClasses
+.kong-form-field-wrapper {
+  width: 100%;
+}
+
+.kong-form-hidden-field-wrapper {
+  display: none;
+}
+
+// fieldClasses
+.kong-form-array-field,
+.kong-form-array-string-field {
+  width: 100%;
+}
+
+// fieldItemsClasses
+.kong-form-array-field-item {
+  display: flex;
+  margin-top: $kui-space-40;
+  width: 50%;
+}
+
+.kong-form-array-string-field-item {
+  display: flex;
+  margin-top: $kui-space-40;
+}
+
+// newElementButtonLabelClasses
+.kong-form-new-element-button-label {
+  margin-top: $kui-space-80 !important;
+  margin-bottom: $kui-space-80 !important;
+}

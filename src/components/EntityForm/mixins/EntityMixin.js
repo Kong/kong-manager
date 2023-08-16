@@ -230,7 +230,7 @@ export default {
     handleFieldForeign (schema, formModel) {
       schema.type = 'input'
       schema.inputType = 'hidden'
-      schema.styleClasses = 'd-none'
+      schema.styleClasses = 'kong-form-hidden-field-wrapper'
       const foreignKeyId = (this.entityId && this.entityId.split(',')[0]) || this.$route.params.id
 
       formModel[schema.model] = foreignKeyId ? { id: foreignKeyId } : null

@@ -168,7 +168,7 @@ export default {
           default: plugin,
           type: 'input',
           inputType: 'hidden',
-          styleClasses: 'd-none',
+          styleClasses: 'kong-form-hidden-field-wrapper',
         },
 
         selectionGroup: {
