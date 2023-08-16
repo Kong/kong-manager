@@ -39,7 +39,7 @@
             <KIcon
               :icon="resource.icon"
               size="24"
-              color="var(--blue-500)"
+              :color="KUI_COLOR_TEXT_PRIMARY_STRONG"
             />
             <div class="resource-info">
               <span class="resource-title">{{ resource.title }}</span>
@@ -61,6 +61,7 @@ import { useAxios } from '@/composables/useAxios'
 import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
 import { useI18n } from '@/composables/useI18n'
 import { formatVersion } from '@/utils'
+import { KUI_COLOR_TEXT_PRIMARY_STRONG } from '@kong/design-tokens'
 
 defineOptions({
   name: 'ManagerOverview',
@@ -218,14 +219,14 @@ $card-spacing: 32px;
   }
 
   label {
-    color: $kui-color-background-neutral-stronger;
+    color: $kui-color-text-neutral-stronger;
     font-size: 14px;
     font-weight: bold;
     margin: 0;
   }
 
   span {
-    color: $kui-color-background-primary-stronger;
+    color: $kui-color-text-primary-stronger;
     font-size: 14px;
     margin: 0;
     background-color: $kui-color-background-primary-weakest;
@@ -284,14 +285,14 @@ $card-spacing: 32px;
   }
 
   .resource-title {
-    color: $kui-color-background-primary-strong;
+    color: $kui-color-text-primary-strong;
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 6px;
   }
 
   .resource-description {
-    color: $kui-color-background-neutral-stronger;
+    color: $kui-color-text-neutral-stronger;
     font-size: 12px;
   }
 }

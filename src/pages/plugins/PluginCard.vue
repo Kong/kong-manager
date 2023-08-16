@@ -74,16 +74,16 @@ export default {
     margin-bottom: $kui-space-60;
   }
   .card-text {
-    color: $kui-color-background-neutral-stronger;
+    color: $kui-color-text-neutral-stronger;
     font-weight: 400;
     font-size: $kui-font-size-30;
   }
   .card-footer {
-    color: $kui-color-background-primary-strong;
+    color: $kui-color-text-primary-strong;
     padding: $kui-space-50;
     font-weight: bold;
     font-size: $kui-font-size-30;
-    border: 1px solid $kui-color-background-primary-weak;
+    border: 1px solid $kui-color-border-primary-weak;
     background-color: $kui-color-background-primary-weakest
   }
   .k-card-content {
