@@ -33,7 +33,7 @@ jobs:
 
       - name: Run lint
         timeout-minutes: 10
-        run: yarn lint
+        run: yarn lint && yarn stylelint
 
   build-assets:
     name: Build assets
