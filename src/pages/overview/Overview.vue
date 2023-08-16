@@ -37,9 +37,9 @@
             target="_blank"
           >
             <KIcon
+              :color="KUI_COLOR_TEXT_PRIMARY_STRONG"
               :icon="resource.icon"
               size="24"
-              :color="KUI_COLOR_TEXT_PRIMARY_STRONG"
             />
             <div class="resource-info">
               <span class="resource-title">{{ resource.title }}</span>
