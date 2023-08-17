@@ -35,9 +35,8 @@ import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useTabs } from '@/composables/useTabs'
-import { useAxios } from '@/composables/useAxios'
-import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
 import { useListRedirect } from '@/composables/useListRedirect'
+import { apiService } from '@/services/apiService'
 
 defineOptions({
   name: 'RouteDetail',
@@ -57,8 +56,6 @@ const { kongponentTabs: tabs, initialHash, onTabChange } = useTabs([
 const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
-const { axiosInstance } = useAxios()
-const adminApiUrl = useAdminApiUrl()
 const { createRedirectRouteQuery } = useListRedirect()
 
 const id = computed(() => (route.params.id as string) ?? '')
@@ -94,7 +91,7 @@ const onNavigationClick = (id: string) => {
 onMounted(async () => {
   // If the page is not loaded from the configuration tab, we need to fetch the route name
   if (route.name !== 'route-detail') {
-    const { data } = await axiosInstance.get(`${adminApiUrl}/routes/${id.value}`)
+    const { data } = await apiService.findRecord('routes', id.value)
 
     titleName.value = data.name ?? data.id
   }

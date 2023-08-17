@@ -18,9 +18,8 @@
   - `updateRecord` - method to update a resource record
   - `transformRecord` - method to transform a resource record before update and create
 */
-import axios from 'axios'
 import { redirectOnResponseStatus } from '../helpers'
-import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
+import { apiService } from '@/services/apiService'
 
 export default {
   computed: {
@@ -49,12 +48,6 @@ export default {
     },
   },
 
-  data () {
-    return {
-      adminApiUrl: useAdminApiUrl(),
-    }
-  },
-
   methods: {
     onFormLoad () {
       return Promise.resolve(this.id ? this.getRecord() : false)
@@ -70,7 +63,7 @@ export default {
     },
 
     getRecord () {
-      return axios.get(`${this.adminApiUrl}/${this.resourceEndpoint}/${this.id}`)
+      return apiService.findRecord(this.resourceEndpoint, this.id)
     },
 
     /**
@@ -79,7 +72,7 @@ export default {
      *  to calculate the vue router location from the response
      */
     async createRecord (model, callback) {
-      return axios.post(`${this.adminApiUrl}/${this.resourceEndpoint}`, model)
+      return apiService.createRecord(this.resourceEndpoint, model)
         .then(res => {
           if (this.hideSubmit) {
             return res.data
@@ -115,8 +108,8 @@ export default {
         })
     },
 
-    updateRecord (model) {
-      return axios.patch(`${this.adminApiUrl}/${this.resourceEndpoint}/${this.id}`, model)
+    async updateRecord (model) {
+      return apiService.updateRecord(this.resourceEndpoint, this.id, model)
         .then(res => {
           const link = this.redirectPath || this.returnLink || this.$route.query.returnLink || this.$route.query.redirect
 

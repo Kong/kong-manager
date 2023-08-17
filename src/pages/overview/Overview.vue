@@ -57,9 +57,8 @@
 import { onBeforeMount, ref, computed } from 'vue'
 import { config as gatewayConfig } from 'config'
 import KonnectCTA from '@/components/KonnectCTA.vue'
-import { useAxios } from '@/composables/useAxios'
-import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
 import { useI18n } from '@/composables/useI18n'
+import { apiService } from '@/services/apiService'
 import { formatVersion } from '@/utils'
 import { KUI_COLOR_TEXT_PRIMARY_STRONG } from '@kong/design-tokens'
 
@@ -67,8 +66,6 @@ defineOptions({
   name: 'ManagerOverview',
 })
 
-const { axiosInstance } = useAxios()
-const adminApiUrl = useAdminApiUrl()
 const { t } = useI18n()
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -184,7 +181,7 @@ const resources = computed(() => [
 ])
 
 onBeforeMount(async () => {
-  const { data } = await axiosInstance.get(`${adminApiUrl}`)
+  const { data } = await apiService.get()
 
   config.value = {
     ...data.configuration,

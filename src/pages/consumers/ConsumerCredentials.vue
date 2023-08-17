@@ -27,14 +27,11 @@ import { computed, onBeforeMount, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { config } from 'config'
 import { pluginMeta } from '@/pages/plugins/PluginMeta'
-import { useAxios } from '@/composables/useAxios'
-import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
 import { useI18n } from '@/composables/useI18n'
+import { apiService } from '@/services/apiService'
 import CredentialList from './CredentialList.vue'
 
 const router = useRouter()
-const { axiosInstance } = useAxios()
-const adminApiUrl = useAdminApiUrl()
 const { t } = useI18n()
 
 const enabledPlugins = ref<string[]>([])
@@ -67,7 +64,7 @@ const navigateToPluginSelection = () => {
 }
 
 onBeforeMount(async () => {
-  const { data } = await axiosInstance.get(adminApiUrl)
+  const { data } = await apiService.get()
 
   enabledPlugins.value = data?.plugins?.enabled_in_cluster ?? []
   enabledPluginsFetched.value = true

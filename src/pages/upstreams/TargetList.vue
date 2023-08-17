@@ -25,8 +25,7 @@ import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
-import { useAxios } from '@/composables/useAxios'
-import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
+import { apiService } from '@/services/apiService'
 
 defineOptions({
   name: 'TargetList',
@@ -35,8 +34,6 @@ defineOptions({
 const route = useRoute()
 const toaster = useToaster()
 const { t } = useI18n()
-const { axiosInstance } = useAxios()
-const adminApiUrl = useAdminApiUrl()
 
 const upstreamId = computed(() => (route.params.id as string) ?? '')
 const cacheIdentifier = computed(() => `targets-${upstreamId.value}`)
@@ -92,7 +89,7 @@ const onDeleteSuccess = (entity: EntityRow) => {
 
 const makeHealthyAction = async (item: EntityRow) => {
   try {
-    const response: AxiosResponse = await axiosInstance.put(`${adminApiUrl}/upstreams/${upstreamId.value}/targets/${item.id}/healthy`)
+    const response: AxiosResponse = await apiService.put(`upstreams/${upstreamId.value}/targets/${item.id}/healthy`)
     if (response.status === 204) {
       toaster.open({
         appearance: 'success',
@@ -116,7 +113,7 @@ const makeHealthyAction = async (item: EntityRow) => {
 
 const makeUnhealthyAction = async (item: EntityRow) => {
   try {
-    const response: AxiosResponse = await axiosInstance.put(`${adminApiUrl}/upstreams/${upstreamId.value}/targets/${item.id}/unhealthy`)
+    const response: AxiosResponse = await apiService.put(`upstreams/${upstreamId.value}/targets/${item.id}/unhealthy`)
     if (response.status === 204) {
       toaster.open({
         appearance: 'success',

@@ -32,8 +32,7 @@ import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useTabs } from '@/composables/useTabs'
-import { useAxios } from '@/composables/useAxios'
-import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
+import { apiService } from '@/services/apiService'
 
 defineOptions({
   name: 'KeySetDetail',
@@ -51,8 +50,6 @@ const { kongponentTabs: tabs, initialHash, onTabChange } = useTabs([
 ])
 const route = useRoute()
 const { t } = useI18n()
-const { axiosInstance } = useAxios()
-const adminApiUrl = useAdminApiUrl()
 
 const id = computed(() => (route.params.id as string) ?? '')
 
@@ -78,7 +75,7 @@ const onFetchSuccess = (entity) => {
 onMounted(async () => {
   // If the page is not loaded from the configuration tab, we need to fetch the key set name
   if (route.name !== 'key-set-detail') {
-    const { data } = await axiosInstance.get(`${adminApiUrl}/key-sets/${id.value}`)
+    const { data } = await apiService.findRecord('key-sets', id.value)
 
     titleName.value = data.name ?? data.id
   }

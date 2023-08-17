@@ -71,7 +71,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { marked } from 'marked'
 import * as _ from 'lodash-es'
 import { PluginScope } from '@kong-ui-public/entities-plugins'
@@ -84,6 +83,7 @@ import typedefs from '@/schemas/typedefs'
 import { ArrayStringFieldSchema } from '@/components/EntityForm/fields'
 import FormActionsMixin from '@/components/EntityForm/mixins/FormActionsMixin'
 import RedirectMixin from '@/components/EntityForm/mixins/RedirectMixin'
+import { apiService } from '@/services/apiService'
 
 const formatPluginFieldLabel = (label) => {
   if (!label.startsWith('config-')) {
@@ -442,7 +442,7 @@ export default {
         endpoint = `routes/${model.route.id}/plugins`
       }
 
-      return axios.post(`${this.adminApiUrl}/${this.$route.query?.from === 'developer' ? this.resourceEndpoint : endpoint}`, model)
+      return apiService.createRecord(this.$route.query?.from === 'developer' ? this.resourceEndpoint : endpoint, model)
         .then((res) => {
           // if parent form defines a redirectRouteNames object, we either go back to previous page if -1 is passed
           // else we go to the named route
@@ -491,7 +491,7 @@ export default {
         endpoint = `routes/${this.originalModel['route-id']}/plugins`
       }
 
-      return axios.patch(`${this.adminApiUrl}/${endpoint}/${this.id}`, model)
+      return apiService.updateRecord(endpoint, this.id, model)
         .then((res) => {
           const redirectUpdateRoute = this.redirectRouteNames.update
           if (redirectUpdateRoute) {
@@ -513,7 +513,7 @@ export default {
     },
 
     getPluginSchema () {
-      return axios.get(`${this.adminApiUrl}/schemas/plugins/${this.plugin}`)
+      return apiService.get(`schemas/plugins/${this.plugin}`)
         .then(response => response.data)
         .catch(redirectOnResponseStatus(this.$router, 404, '/404', { replace: true }))
     },

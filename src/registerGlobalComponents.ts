@@ -6,22 +6,18 @@ import PageHeader from '@/components/PageHeader.vue'
 import HeaderBackButton from '@/components/HeaderBackButton.vue'
 import HeaderEditButton from '@/components/HeaderEditButton.vue'
 import SupportText from '@/components/SupportText.vue'
-import { useAxios } from '@/composables/useAxios'
-import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
+import { apiService } from './services/apiService'
 
 export const registerGlobalComponents = (app: App) => {
-  const { axiosInstance } = useAxios()
-  const adminApiUrl = useAdminApiUrl()
-
   app.use(Kongponents)
   app.use(CopyUuid)
   app.use(vfgPlugin, {
     apiService: {
       getOne: (entity: string, id: string) => {
-        return axiosInstance.get(`${adminApiUrl}/${entity}/${id}`)
+        return apiService.findRecord(entity, id)
       },
       getAll: (entity: string, params: Record<string, string | number>) => {
-        return axiosInstance.get(`${adminApiUrl}/${entity}`, { params })
+        return apiService.findAll(entity, { params })
       },
     },
   })

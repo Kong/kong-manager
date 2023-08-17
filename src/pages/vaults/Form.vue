@@ -17,6 +17,7 @@ import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
+import { useGatewayFeatureSupported } from '@/composables/useGatewayFeatureSupported'
 
 defineOptions({
   name: 'VaultForm',
@@ -45,7 +46,10 @@ const routeOnUpdate = useFormRedirectOnUpdate(
 const vaultFormConfig = reactive({
   ...useFormGeneralConfig(),
   azureVaultProviderAvailable: false,
-  ttl: true,
+  // ttl fields are supported in Kong Gateway Enterprise 3.4
+  ttl: useGatewayFeatureSupported({
+    enterprise: ['3.4'],
+  }),
   cancelRoute: routeOnCancel,
 })
 
