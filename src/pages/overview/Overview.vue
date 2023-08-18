@@ -37,9 +37,9 @@
             target="_blank"
           >
             <KIcon
+              :color="KUI_COLOR_TEXT_PRIMARY_STRONG"
               :icon="resource.icon"
               size="24"
-              color="var(--blue-500)"
             />
             <div class="resource-info">
               <span class="resource-title">{{ resource.title }}</span>
@@ -61,6 +61,7 @@ import { useAxios } from '@/composables/useAxios'
 import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
 import { useI18n } from '@/composables/useI18n'
 import { formatVersion } from '@/utils'
+import { KUI_COLOR_TEXT_PRIMARY_STRONG } from '@kong/design-tokens'
 
 defineOptions({
   name: 'ManagerOverview',
@@ -214,21 +215,21 @@ $card-spacing: 32px;
   padding: 10px 0;
 
   &:not(:last-child) {
-    border-bottom: 1px solid var(--black-10);
+    border-bottom: 1px solid $kui-color-border;
   }
 
   label {
-    color: var(--black-70);
+    color: $kui-color-text-neutral-stronger;
     font-size: 14px;
     font-weight: bold;
     margin: 0;
   }
 
   span {
-    color: var(--blue-600);
+    color: $kui-color-text-primary-stronger;
     font-size: 14px;
     margin: 0;
-    background-color: var(--blue-100);
+    background-color: $kui-color-background-primary-weakest;
     padding: 4px 12px;
     border-radius: 20px;
   }
@@ -239,7 +240,7 @@ $card-spacing: 32px;
   margin-bottom: $card-spacing;
 
   :deep(.k-card-header) {
-    padding: var(--spacing-lg);
+    padding: $kui-space-80;
     margin-bottom: 0!important;
   }
 
@@ -251,26 +252,26 @@ $card-spacing: 32px;
 .resource-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: 1px solid var(--black-10);
+  border-top: 1px solid $kui-color-border;
 }
 
 .resource-item {
   .resource-link {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--black-10);
+    border-bottom: 1px solid $kui-color-border;
     transition: background-color 0.3s;
-    padding: 16px var(--spacing-lg);
+    padding: 16px $kui-space-80;
     text-decoration: none;
     color: inherit;
 
     &:hover {
-      background-color: var(--blue-100);
+      background-color: $kui-color-background-primary-weakest;
     }
   }
 
   &:nth-child(odd) .resource-link {
-    border-right: 1px solid var(--black-10);
+    border-right: 1px solid $kui-color-border;
   }
 
   &:nth-last-child(-n+2) .resource-link {
@@ -284,14 +285,14 @@ $card-spacing: 32px;
   }
 
   .resource-title {
-    color: var(--blue-500);
+    color: $kui-color-text-primary-strong;
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 6px;
   }
 
   .resource-description {
-    color: var(--black-70);
+    color: $kui-color-text-neutral-stronger;
     font-size: 12px;
   }
 }

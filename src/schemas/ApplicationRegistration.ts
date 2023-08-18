@@ -17,7 +17,7 @@ export default {
     default: 'application-registration',
     type: 'input',
     inputType: 'hidden',
-    styleClasses: 'd-none',
+    styleClasses: 'kong-form-hidden-field-wrapper',
   },
   'service-id': {
     type: 'AutoSuggest',

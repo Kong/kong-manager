@@ -2,7 +2,7 @@
   <PageHeader :title="t('entities.route.detail.title', { name: titleName })">
     <HeaderBackButton entity="route" />
     <HeaderEditButton
-      class="ml-4"
+      class="button-edit"
       entity="route"
       :route-options="{ query: { serviceId } }"
     />
@@ -100,3 +100,9 @@ onMounted(async () => {
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.button-edit {
+  margin-left: $kui-space-60;
+}
+</style>

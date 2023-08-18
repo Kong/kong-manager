@@ -2,7 +2,7 @@
   <PageHeader :title="t('entities.upstream.detail.title', { name: titleName })">
     <HeaderBackButton entity="upstream" />
     <HeaderEditButton
-      class="ml-4"
+      class="button-edit"
       entity="upstream"
     />
   </PageHeader>
@@ -72,3 +72,9 @@ const onFetchSuccess = (entity) => {
   titleName.value = entity.name ?? entity.id
 }
 </script>
+
+<style lang="scss" scoped>
+.button-edit {
+  margin-left: $kui-space-60;
+}
+</style>

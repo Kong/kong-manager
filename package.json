@@ -11,10 +11,12 @@
     "playwright": "yarn --cwd tests/playwright run playwright",
     "preview": "vite build && vite preview",
     "lint": "eslint --ext .js,.vue,.ts src",
+    "stylelint": "stylelint --allow-empty-input 'src/**/*.{css,scss,sass,less,styl,vue}'",
     "postinstall": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{ts,js,vue}": "eslint --fix"
+    "src/**/*.{ts,js,vue}": "eslint --fix",
+    "src/**/*.{css,scss,sass,less,styl,vue}": "stylelint --allow-empty-input --fix 'src/**/*.{css,scss,sass,less,styl,vue}'"
   },
   "dependencies": {
     "@kong-ui-public/app-layout": "^0.22.10",
@@ -42,6 +44,7 @@
     "vue-router": "^4.2.2"
   },
   "devDependencies": {
+    "@kong/design-tokens": "^1.9.0",
     "@types/lodash-es": "^4.17.8",
     "@types/node": "^20.3.1",
     "@typescript-eslint/eslint-plugin": "^5.60.0",
@@ -61,7 +64,12 @@
     "lint-staged": "^13.2.2",
     "lodash-es": "^4.17.21",
     "rollup-plugin-visualizer": "^5.9.2",
+    "postcss-html": "^1.5.0",
     "sass": "^1.63.4",
+    "stylelint": "^15.10.2",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-recommended-scss": "^12.0.0",
+    "stylelint-config-recommended-vue": "^1.5.0",
     "typescript": "^5.1.3",
     "vite": "^4.3.9",
     "vite-plugin-html": "^3.2.0"

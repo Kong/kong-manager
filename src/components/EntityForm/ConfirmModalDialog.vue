@@ -17,7 +17,7 @@
         <div
           v-if="errorText"
           data-testid="error-message"
-          class="mt-4"
+          class="error-message"
         >
           <KAlert
             :alert-message="errorText"
@@ -156,7 +156,11 @@ export default {
   }
 
   &.k-modal .k-modal-footer .k-button:not(:last-child) {
-    margin-right: var(--spacing-sm, 12px);
+    margin-right: $kui-space-50;
+  }
+
+  .error-message {
+    margin-top: $kui-space-60;
   }
 }
 </style>

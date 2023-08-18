@@ -46,6 +46,11 @@ export default defineConfig({
     port: 8080,
   },
   css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@kong/design-tokens/tokens/scss/variables";',
+      },
+    },
     postcss: {
       plugins: [
         autoprefixer,

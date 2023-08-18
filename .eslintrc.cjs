@@ -1,3 +1,5 @@
+const kongponentUtilityClasses = require('./kongponent-utility-classes.cjs')
+
 module.exports = {
   root: true,
   parser: 'vue-eslint-parser',
@@ -95,6 +97,7 @@ module.exports = {
     'vue/no-deprecated-dollar-listeners-api': 'error',
     'vue/no-deprecated-events-api': 'error',
     'vue/no-deprecated-v-on-native-modifier': 'error',
+    'vue/no-restricted-class': ['error', ...kongponentUtilityClasses],
 
     // a11y
     'vuejs-accessibility/label-has-for': 'off',

@@ -6,7 +6,7 @@
       v-if="warningMessage"
       :alert-message="warningMessage"
       appearance="warning"
-      class="mb-4"
+      class="warning-alert"
     />
 
     <EntityForm
@@ -27,12 +27,12 @@
       @model-updated="handleUpdate"
     >
       <template #afterFormContainer>
-        <div class="mb-4">
+        <div class="after-form">
           <KAlert
             v-if="warningMessage"
             :alert-message="warningMessage"
             appearance="warning"
-            class="mb-6"
+            class="warning-alert"
           />
 
           <KEmptyState
@@ -41,7 +41,7 @@
             is-error
           >
             <template #message>
-              <h5 class="mb-0">
+              <h5 class="error-message">
                 Error: Something went wrong
               </h5>
             </template>
@@ -61,7 +61,7 @@
       <template #cta>
         <KExternalLink
           :href="docsLink"
-          class="justify-content-center"
+          class="docs-link"
         >
           Visit documentation
         </KExternalLink>
@@ -168,7 +168,7 @@ export default {
           default: plugin,
           type: 'input',
           inputType: 'hidden',
-          styleClasses: 'd-none',
+          styleClasses: 'kong-form-hidden-field-wrapper',
         },
 
         selectionGroup: {
@@ -722,6 +722,26 @@ export default {
 .plugin-form {
   :deep(.k-popover-content p) {
     margin: 0;
+  }
+
+  .warning-alert {
+    margin-bottom: $kui-space-60;
+  }
+
+  .after-form {
+    margin-bottom: $kui-space-60;
+
+    .warning-alert {
+      margin-bottom: $kui-space-90;
+    }
+
+    .error-message {
+      margin-bottom: 0;
+    }
+  }
+
+  .docs-link {
+    justify-content: center;
   }
 }
 </style>

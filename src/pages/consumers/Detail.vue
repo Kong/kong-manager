@@ -2,7 +2,7 @@
   <PageHeader :title="t('entities.consumer.detail.title', { name: titleName })">
     <HeaderBackButton entity="consumer" />
     <HeaderEditButton
-      class="ml-4"
+      class="button-edit"
       entity="consumer"
     />
   </PageHeader>
@@ -92,3 +92,9 @@ onMounted(async () => {
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.button-edit {
+  margin-left: $kui-space-60;
+}
+</style>

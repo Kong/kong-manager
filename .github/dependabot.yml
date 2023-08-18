@@ -30,11 +30,13 @@ updates:
       timezone: "Asia/Shanghai"
     target-branch: "main"
     allow:
+      - dependency-name: "@kong/design-tokens"
       - dependency-name: "@kong/kongponents"
       - dependency-name: "@kong-ui-public/*"
       - dependency-name: "@playwright/test"
     groups:
       kong-packages:
         patterns:
+          - "@kong/design-tokens"
           - "@kong/kongponents"
           - "@kong-ui-public/*"

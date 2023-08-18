@@ -2,7 +2,7 @@
   <PageHeader :title="t('entities.vault.detail.title', { name: titleName })">
     <HeaderBackButton entity="vault" />
     <HeaderEditButton
-      class="ml-4"
+      class="button-edit"
       entity="vault"
     />
   </PageHeader>
@@ -49,3 +49,9 @@ const onFetchSuccess = (entity) => {
   titleName.value = entity.name ?? entity.id
 }
 </script>
+
+<style lang="scss" scoped>
+.button-edit {
+  margin-left: $kui-space-60;
+}
+</style>
