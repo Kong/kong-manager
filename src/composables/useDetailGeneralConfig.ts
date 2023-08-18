@@ -1,7 +1,6 @@
 import { reactive } from 'vue'
 import { config } from 'config'
 import type { KongManagerBaseEntityConfig } from '@kong-ui-public/entities-shared'
-import { useAdminApiUrl } from './useAdminApiUrl'
 
 export const useDetailGeneralConfig = () => {
   return reactive({
@@ -11,6 +10,6 @@ export const useDetailGeneralConfig = () => {
       edition: config.GATEWAY_EDITION,
       version: config.GATEWAY_VERSION,
     },
-    apiBaseUrl: useAdminApiUrl(),
+    apiBaseUrl: config.ADMIN_API_URL,
   } as Pick<KongManagerBaseEntityConfig, 'app' | 'workspace' | 'gatewayInfo' | 'apiBaseUrl'>)
 }

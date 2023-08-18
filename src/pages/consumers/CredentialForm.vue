@@ -17,16 +17,13 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import NativeEntityForm from '@/components/EntityForm/NativeEntityForm.vue'
-import { useAxios } from '@/composables/useAxios'
-import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
 import { useI18n } from '@/composables/useI18n'
 import { useToaster } from '@/composables/useToaster'
+import { apiService } from '@/services/apiService'
 import CredentialPlugins from './CredentialPlugins'
 
 const route = useRoute()
 const router = useRouter()
-const { axiosInstance } = useAxios()
-const adminApiUrl = useAdminApiUrl()
 const { t } = useI18n()
 const toaster = useToaster()
 
@@ -60,19 +57,19 @@ const onSuccess = () => {
 
 const fetchRecord = () => {
   if (isEditing.value) {
-    return axiosInstance.get(`${adminApiUrl}/${resourceEndpoint.value}/${credentialId.value}`)
+    return apiService.findRecord(resourceEndpoint.value, credentialId.value)
   }
 }
 
 const createRecord = async (model) => {
-  return axiosInstance
-    .post(`${adminApiUrl}/${resourceEndpoint.value}`, model)
+  return apiService
+    .post(resourceEndpoint.value, model)
     .then(onSuccess)
 }
 
 const updateRecord = async (model) => {
-  return axiosInstance
-    .patch(`${adminApiUrl}/${resourceEndpoint.value}/${credentialId.value}`, model)
+  return apiService
+    .patch(`${resourceEndpoint.value}/${credentialId.value}`, model)
     .then(onSuccess)
 }
 

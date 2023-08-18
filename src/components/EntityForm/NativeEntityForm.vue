@@ -82,8 +82,7 @@
 import ConfirmModalDialog from './ConfirmModalDialog.vue'
 import EntityMixin from './mixins/EntityMixin'
 import RedirectMixin from './mixins/RedirectMixin'
-import { useAxios } from '@/composables/useAxios'
-import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
+import { apiService } from '@/services/apiService'
 import {
   convertToDotNotation,
   unFlattenObject,
@@ -93,9 +92,6 @@ import {
   getMessageFromError,
 } from './helpers'
 import { customFields } from '@kong-ui-public/forms'
-
-const { axiosInstance } = useAxios()
-const adminApiUrl = useAdminApiUrl()
 
 export default {
   name: 'NativeEntityForm',
@@ -360,11 +356,11 @@ export default {
     },
 
     fetchSchema () {
-      return axiosInstance.get(`${adminApiUrl}/schemas/${this._schemaEndpoint}`)
+      return apiService.get(`schemas/${this._schemaEndpoint}`)
     },
 
     validateSchema (formData) {
-      return axiosInstance.post(`${adminApiUrl}/schemas/${this._schemaEndpoint}/validate`, formData)
+      return apiService.post(`schemas/${this._schemaEndpoint}/validate`, formData)
     },
 
     handleLoad (response) {

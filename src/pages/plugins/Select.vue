@@ -90,10 +90,9 @@
 </template>
 
 <script>
-import axios from 'axios'
 import { PluginGroup, PluginScope } from '@kong-ui-public/entities-plugins'
 import { sortAlpha } from '@/components/EntityForm/helpers'
-import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
+import { apiService } from '@/services/apiService'
 import PluginCardSkeleton from './PluginCardSkeleton.vue'
 import PluginCard from './PluginCard.vue'
 import { pluginMeta } from './PluginMeta'
@@ -129,7 +128,6 @@ export default {
       selected: null,
       filter: '',
       availablePlugins: [],
-      adminApiUrl: useAdminApiUrl(),
     }
   },
 
@@ -162,7 +160,7 @@ export default {
   },
 
   async mounted () {
-    const response = await axios.get(`${this.adminApiUrl}`)
+    const response = await apiService.get()
 
     this.availablePlugins = response?.data?.plugins?.available_on_server ?? []
     this.pluginsList = this.buildPluginList()
