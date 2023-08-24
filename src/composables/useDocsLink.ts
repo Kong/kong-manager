@@ -2,7 +2,7 @@ import { computed } from 'vue'
 import { formatVersion } from '@/utils'
 import { config } from 'config'
 
-export const useDocsLink = (entity: string) => {
+export const useDocsLink = (entity?: string) => {
   const version = computed(() => {
     if (!config.GATEWAY_VERSION) {
       return 'latest'
@@ -11,15 +11,15 @@ export const useDocsLink = (entity: string) => {
     return `${formatVersion(config.GATEWAY_VERSION)}.x`
   })
 
-  const docsBase = computed(() => `https://docs.konghq.com/gateway/${version.value}/admin-api`)
+  const docsBase = computed(() => `https://docs.konghq.com/gateway/${version.value}`)
   const docsLink = computed(() => {
     switch (entity) {
       case 'key-set':
-        return `${docsBase.value}/#key-sets-entity`
+        return `${docsBase.value}/admin-api/#key-sets-entity`
       default:
-        return `${docsBase.value}/#${entity}-object`
+        return `${docsBase.value}/admin-api/#${entity}-object`
     }
   })
 
-  return docsLink
+  return { docsBase, docsLink }
 }

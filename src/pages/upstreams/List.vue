@@ -39,7 +39,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('upstream')
+const { docsLink } = useDocsLink('upstream')
 
 const createRoute = computed(() => {
   return { name: 'upstream-create' }

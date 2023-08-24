@@ -6,7 +6,9 @@
       "back": "Back",
       "edit": "Edit",
       "save": "Save",
-      "create": "Create"
+      "create": "Create",
+      "update": "Update",
+      "cancel": "Cancel"
     },
     "learn.more": "Learn more"
   },
@@ -123,7 +125,21 @@
       "disabled": "Plugin {name} is successfully disabled!",
       "list.title": "Plugins",
       "create.form.title": "New Plugin",
-      "edit.form.title": "Edit Plugin"
+      "edit.form.title": "Edit Plugin",
+      "ordering.title": "Ordering",
+      "ordering.disabled": "Consumer-scoped plugins don't support dynamic ordering",
+      "doc.dynamic": "Dynamic plugin ordering - {docLink}",
+      "doc.default": "Default plugin execution order - {docLink}",
+      "empty.ordering.title": "No dynamic ordering applied",
+      "empty.ordering.cta.text": "Add ordering to override the static priority for Plugin execution",
+      "empty.ordering.cta.button": "Add ordering",
+      "ordering.plugin.label": "Plugin {index}",
+      "ordering.add.plugin": "Add Plugin",
+      "ordering.before.label": "Before access",
+      "ordering.before.desc": "Dynamic plugin ordering for 'before.access' phase",
+      "ordering.after.label": "After access",
+      "ordering.after.desc": "Dynamic plugin ordering for 'after.access' phase",
+      "ordering.updated": "Plugin ordering successfully updated"
     },
     "upstream": {
       "description": "An Upstream represents a virtual hostname and can be used to load balance incoming requests over multiple Services.",

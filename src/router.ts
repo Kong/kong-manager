@@ -256,6 +256,26 @@ const routes: Array<RouteRecordRaw> = [
       entity: 'plugin',
       title: 'View Plugin',
     },
+    children: [
+      {
+        name: 'plugin-ordering',
+        path: 'ordering',
+        component: () => import('@/pages/plugins/PluginOrdering.vue'),
+        meta: {
+          entity: 'plugin',
+          title: 'Plugin Ordering',
+        },
+      },
+    ],
+  },
+  {
+    name: 'plugin-ordering-update',
+    path: '/plugins/:pluginType/:id/ordering/update',
+    component: () => import('@/pages/plugins/PluginOrderingForm.vue'),
+    meta: {
+      entity: 'plugin',
+      title: 'Plugin Ordering Edit',
+    },
   },
 
   // upstream pages

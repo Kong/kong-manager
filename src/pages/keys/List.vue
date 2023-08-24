@@ -45,7 +45,7 @@ const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const route = useRoute()
 const { t } = useI18n()
-const docsLink = useDocsLink('keys')
+const { docsLink } = useDocsLink('keys')
 
 const keySetId = computed(() => (route.params?.id ?? '') as string)
 const cacheIdentifier = computed(() => `routes-${keySetId.value}`)
