@@ -12,6 +12,10 @@ on:
         description: Name of the Gateway image (base) to use
         type: string
         default: kong/kong:nightly-ubuntu
+      image-name:
+        description: Name of the Gateway test image being built
+        type: string
+        default: kong-manager
     outputs:
       gateway-test-image:
         description: Name of the Gateway test image being built
@@ -19,7 +23,7 @@ on:
 
 env:
   GATEWAY_IMAGE: ${{ inputs.gateway-image }} # Important for the "Build image" step. Do not delete.
-  GATEWAY_TEST_IMAGE: ghcr.io/kong/kong-manager:${{ github.sha }}
+  GATEWAY_TEST_IMAGE: ghcr.io/kong/${{ inputs.image-name }}:${{ github.sha }}
 
 jobs:
   build-and-push-test-image:
@@ -49,6 +53,14 @@ jobs:
           KONG_MANAGER_BUILD_SHA1=$(cat dist/build.sha1)
           echo "KONG_MANAGER_BUILD_SHA1=${KONG_MANAGER_BUILD_SHA1}" >> $GITHUB_ENV
           echo "KONG_MANAGER_BUILD_SHA1 = ${KONG_MANAGER_BUILD_SHA1}"
+
+      - name: Log in to Docker Hub
+        if: ${{ inputs.image-name == 'kong-manager-ee' }}
+        timeout-minutes: 1
+        uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc # v2.2.0
+        with:
+          username: ${{ secrets.DOCKER_PULL_USER }}
+          password: ${{ secrets.DOCKER_PULL_PASSWORD }}
 
       - name: Log in to GitHub Container Registry
         timeout-minutes: 1

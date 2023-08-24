@@ -5,7 +5,7 @@ dotenv.config({ path: '../../.env' })
 
 const config: PlaywrightTestConfig = {
   reporter: [['junit', { outputFile: './test-results/playwright.xml' }]],
-  testDir: './specs',
+  testDir: '.', // Using default value here. Let's keep it here to prevent it from being forgotten in future migrations.
   retries: 1,
   workers: 1,
   use: {

@@ -17,26 +17,43 @@ jobs:
     uses: ./.github/workflows/.reusable_build.yml
     secrets: inherit
 
-  build-and-push-test-image:
-    name: Build and Push Test Image to GHCR
+  build-and-push-test-image-oss:
+    name: Build and Push Test Image to GHCR - OSS
     uses: ./.github/workflows/.reusable_test_image.yml
     needs: build
     secrets: inherit
     with:
       gateway-image: kong/kong:nightly-ubuntu
 
-  e2e-tests:
-    name: E2E Tests
-    needs: build-and-push-test-image
-    uses: ./.github/workflows/.reusable_e2e_tests.yml
+  build-and-push-test-image-ee:
+    name: Build and Push Test Image to GHCR - EE
+    uses: ./.github/workflows/.reusable_test_image.yml
+    needs: build
+    secrets: inherit
     with:
-      gateway-image: ${{ needs.build-and-push-test-image.outputs.gateway-test-image }}
+      gateway-image: kong/kong-gateway-internal:nightly-ubuntu
+      image-name: kong-manager-ee
+
+  e2e-tests-oss:
+    name: E2E Tests - OSS
+    needs: build-and-push-test-image-oss
+    uses: ./.github/workflows/.reusable_e2e_tests_oss.yml
+    with:
+      gateway-image: ${{ needs.build-and-push-test-image-oss.outputs.gateway-test-image }}
+    secrets: inherit
+
+  e2e-tests-ee:
+    name: E2E Tests - EE
+    needs: build-and-push-test-image-ee
+    uses: ./.github/workflows/.reusable_e2e_tests_ee.yml
+    with:
+      gateway-image: ${{ needs.build-and-push-test-image-ee.outputs.gateway-test-image }}
     secrets: inherit
 
   release:
     name: Release
     runs-on: ${{ vars.RUNS_ON }}
-    needs: e2e-tests
+    needs: [e2e-tests-oss, e2e-tests-ee]
     env:
       NPM_TOKEN: ${{ secrets.NPM_TOKEN_PRIVATE_READ }}
 
