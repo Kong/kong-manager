@@ -1,6 +1,6 @@
-# This is a BASE reusable workflow used by other workflows for E2E testing
+# This is a BASE reusable workflow used by other workflows for E2E testing with Gateway EE
 
-name: Run E2E Tests
+name: Run E2E Tests - EE
 
 on:
   workflow_call:
@@ -24,18 +24,7 @@ jobs:
     strategy:
       matrix:
         suite:
-          - consumers
-          - certificates
-          - ca-certificates
-          - misc
-          - vaults
-          - keys
-          - key-sets
           - plugins
-          - routes
-          - services
-          - snis
-          - upstreams
       fail-fast: false
     name: ${{ matrix.suite }}
     runs-on: ${{ vars.RUNS_ON }}
@@ -85,7 +74,7 @@ jobs:
           docker compose -f .ci/docker-compose.yml logs
           exit $compose_exit
 
-      - name: Run E2E tests
+      - name: Run E2E tests - EE
         timeout-minutes: 10
         env:
           KM_TEST_GUI_URL: ${{ inputs.base-url }}
@@ -94,7 +83,7 @@ jobs:
             --pass-with-no-tests \
             --retries ${{ inputs.retries }} \
             --reporter=list \
-            ${{ matrix.suite }}/
+            ${{ format('specs-ee/{0}/', matrix.suite) }}
 
       - name: Upload results
         if: ${{ !cancelled() }}

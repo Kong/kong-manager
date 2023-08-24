@@ -1,0 +1,106 @@
+# This is a BASE reusable workflow used by other workflows for E2E testing with Gateway CE
+
+name: Run E2E Tests - OSS
+
+on:
+  workflow_call:
+    inputs:
+      base-url:
+        type: string
+        default: http://localhost:8002
+      gateway-image:
+        type: string
+        default: kong/kong:nightly-ubuntu
+      retries:
+        type: number
+        default: 0
+
+env:
+  GATEWAY_IMAGE: ${{ inputs.gateway-image }}
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN_PRIVATE_READ }}
+
+jobs:
+  e2e-tests:
+    strategy:
+      matrix:
+        suite:
+          - consumers
+          - certificates
+          - ca-certificates
+          - misc
+          - vaults
+          - keys
+          - key-sets
+          - plugins
+          - routes
+          - services
+          - snis
+          - upstreams
+      fail-fast: false
+    name: ${{ matrix.suite }}
+    runs-on: ${{ vars.RUNS_ON }}
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - name: Download assets
+        timeout-minutes: 5
+        uses: actions/download-artifact@v3
+        with:
+          name: assets
+
+      - name: Unpack assets
+        run: tar xzvf ./assets.tar.gz
+
+      - id: setup-node
+        name: Setup Node
+        timeout-minutes: 5
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Install Playwright
+        timeout-minutes: 10
+        run: |
+          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+          yarn install:e2e
+          yarn playwright install chromium
+
+      - name: Log in to GitHub Container Registry
+        timeout-minutes: 1
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Start Kong
+        timeout-minutes: 10
+        working-directory: ${{ github.workspace }}
+        run: |
+          echo "Using image: $GATEWAY_IMAGE"
+          docker_compose_exit_code=0
+          docker compose -f .ci/docker-compose.yml up -d kong --wait || docker_compose_exit_code=$?
+          docker compose -f .ci/docker-compose.yml logs
+          exit $compose_exit
+
+      - name: Run E2E tests - OSS
+        timeout-minutes: 10
+        env:
+          KM_TEST_GUI_URL: ${{ inputs.base-url }}
+        run: |
+          yarn test:e2e \
+            --pass-with-no-tests \
+            --retries ${{ inputs.retries }} \
+            --reporter=list \
+            ${{ format('specs/{0}/', matrix.suite) }}
+
+      - name: Upload results
+        if: ${{ !cancelled() }}
+        continue-on-error: true
+        uses: actions/upload-artifact@v3
+        with:
+          name: results-${{ matrix.suite }}
+          path: tests/playwright/test-results/
+          retention-days: 1
