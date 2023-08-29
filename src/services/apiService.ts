@@ -15,6 +15,10 @@ class ApiService {
     })
   }
 
+  getInfo () {
+    return this.instance.get(`${adminApiUrl}`)
+  }
+
   // entity-specific methods
   findAll (entity: string, params: Pick<AxiosRequestConfig, 'params'> = {}) {
     return this.instance.get(`${adminApiUrl}/${entity}`, { params })
