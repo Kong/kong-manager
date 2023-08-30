@@ -17,15 +17,21 @@
 </template>
 
 <script setup lang="ts">
-import { computed, reactive } from 'vue'
-import type { AxiosResponse, AxiosError } from 'axios'
-import { useRoute } from 'vue-router'
-import { TargetsList, type EntityRow } from '@kong-ui-public/entities-upstreams-targets'
-import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
-import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
+import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
+import { useToaster } from '@/composables/useToaster'
 import { apiService } from '@/services/apiService'
+import { useInfoStore } from '@/stores/info'
+import { TargetsList, type EntityRow } from '@kong-ui-public/entities-upstreams-targets'
+import type { AxiosError, AxiosResponse } from 'axios'
+import { storeToRefs } from 'pinia'
+import {
+  computed,
+  onBeforeMount,
+  reactive, ref,
+} from 'vue'
+import { useRoute } from 'vue-router'
 
 defineOptions({
   name: 'TargetList',
@@ -34,9 +40,54 @@ defineOptions({
 const route = useRoute()
 const toaster = useToaster()
 const { t } = useI18n()
+const infoStore = useInfoStore()
+
+const { isHybridMode } = storeToRefs(infoStore)
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const upstream = ref<any>()
 
 const upstreamId = computed(() => (route.params.id as string) ?? '')
 const cacheIdentifier = computed(() => `targets-${upstreamId.value}`)
+
+/**
+ * Check whether this target's parent upstream is using healthchecks.
+ *
+ * Conditions here refer to:
+ * https://github.com/Kong/kong-ee/blob/21cd7e3b609717d82302684ad3e75582707754c4/kong/runloop/balancer/healthcheckers.lua#L233-L243
+ *
+ * @returns {boolean}
+ * - `true` if using healthchecks or unknown (insufficient permission to the upstream)
+ * - `false` if not using
+ */
+const isUpstreamUsingHealthchecks = computed(() => {
+  if (upstream.value === undefined) {
+    // Returning `true` here because we do not know if the parent upstream is using
+    // healthchecks due to insufficient permission
+    return true
+  }
+
+  const active = upstream.value.healthchecks?.active
+  const passive = upstream.value.healthchecks?.passive
+
+  return (
+    (active?.healthy?.interval ?? 0) !== 0 ||
+    (active?.unhealthy?.interval ?? 0) !== 0 ||
+    (passive?.unhealthy?.tcp_failures ?? 0) !== 0 ||
+    (passive?.unhealthy?.timeouts ?? 0) !== 0 ||
+    (passive?.unhealthy?.http_failures ?? 0) !== 0
+  )
+})
+
+onBeforeMount(async () => {
+  try {
+    const response: AxiosResponse = await apiService.findRecord('upstreams', upstreamId.value)
+
+    upstream.value = response.data
+  } catch (err) {
+    console.warn(err)
+  }
+})
 
 const canCreate = async () => true
 
@@ -46,16 +97,20 @@ const canEdit = async () => true
 
 const canRetrieve = async () => true
 
-const canMarkHealthy = async () => true
-
-const canMarkUnhealthy = async () => true
+const canMarkHealthyUnhealthy = computed(
+  () => (
+    (a, b) => async () => a && b
+  )(
+    !isHybridMode.value, isUpstreamUsingHealthchecks.value
+  )
+)
 
 const targetListConfig = reactive({
   ...useListGeneralConfig(),
   upstreamId: upstreamId.value,
   disableSorting: true, // TODO: Admin API does not support sorting targets yet
-  canMarkHealthy,
-  canMarkUnhealthy,
+  canMarkHealthy: canMarkHealthyUnhealthy,
+  canMarkUnhealthy: canMarkHealthyUnhealthy,
 })
 
 const { onCopySuccess, onCopyError } = useCopyEventHandlers()

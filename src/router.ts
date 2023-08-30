@@ -3,6 +3,7 @@ import {
 } from 'vue-router'
 
 import { config } from 'config'
+import { useInfoStore } from './stores/info'
 
 const routes: Array<RouteRecordRaw> = [
   // overview page
@@ -459,4 +460,10 @@ entities.forEach((entityName: EntityName) => {
 export const router = createRouter({
   history: createWebHistory(config.ADMIN_GUI_PATH),
   routes,
+})
+
+router.beforeEach(() => {
+  const infoStore = useInfoStore()
+
+  infoStore.getInfo({ silent: true })
 })

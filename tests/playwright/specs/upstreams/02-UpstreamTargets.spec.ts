@@ -3,7 +3,9 @@ import baseTest from '@pw/base-test'
 import { clearKongResources } from '@pw/commands/clearKongResources'
 import { clickEntityListAction } from '@pw/commands/clickEntityListAction'
 import { createKongResource } from '@pw/commands/createKongResource'
+import { fillEntityForm } from '@pw/commands/fillEntityForm'
 import { switchDetailTab } from '@pw/commands/switchDetailTab'
+import { waitAndDismissToasts } from '@pw/commands/waitAndDismissToast'
 import { withNavigation } from '@pw/commands/withNavigation'
 import { UpstreamListPage } from '@pw/pages/upstreams'
 
@@ -47,5 +49,116 @@ test.describe('upstreams', () => {
     await page.locator('.k-prompt .k-prompt-proceed').click()
     await expect(page.locator('.kong-ui-entities-target-form [data-testid="form-error"]')).toBeVisible()
     await expect(page.locator('.kong-ui-entities-target-form [data-testid="form-error"]')).toHaveText(`schema violation (target: Invalid target ('123'); not a valid hostname or ip address)`)
+  })
+
+  test('mark healthy/unhealthy should not appear in the menu', async ({ page }) => {
+    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
+    await switchDetailTab(page, 'targets')
+    const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
+
+    await row.locator('[data-testid="overflow-actions-button"]').click()
+    await expect(row.locator('[data-testid="action-target-mark-healthy"]')).not.toBeVisible()
+    await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).not.toBeVisible()
+  })
+
+  test('enable active healthcheck, mark healthy/unhealthy should appear in the menu', async ({ page }) => {
+    await withNavigation(page, async () => await clickEntityListAction(page, 'edit'))
+
+    await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).not.toBeVisible()
+    await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).not.toBeVisible()
+    await page.locator('.active-health-switch').click()
+    await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).not.toBeVisible()
+
+    await fillEntityForm({
+      page,
+      formData: {},
+      withAction: 'submit',
+    })
+    await waitAndDismissToasts(page)
+
+    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
+
+    await switchDetailTab(page, 'targets')
+    const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
+
+    await row.locator('[data-testid="overflow-actions-button"]').click()
+    await expect(row.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
+    await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
+  })
+
+  test('enable passive healthcheck, mark healthy/unhealthy should appear in the menu', async ({ page }) => {
+    await withNavigation(page, async () => await clickEntityListAction(page, 'edit'))
+
+    await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).not.toBeVisible()
+    await page.locator('.active-health-switch').click()
+    await page.locator('.passive-health-switch').click()
+    await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).not.toBeVisible()
+    await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).toBeVisible()
+
+    await fillEntityForm({
+      page,
+      formData: {},
+      withAction: 'submit',
+    })
+    await waitAndDismissToasts(page)
+
+    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
+
+    await switchDetailTab(page, 'targets')
+    const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
+
+    await row.locator('[data-testid="overflow-actions-button"]').click()
+    await expect(row.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
+    await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
+  })
+
+  test('enable active+passive healthcheck, mark healthy/unhealthy should appear in the menu', async ({ page }) => {
+    await withNavigation(page, async () => await clickEntityListAction(page, 'edit'))
+
+    await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).not.toBeVisible()
+    await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).toBeVisible()
+    await page.locator('.active-health-switch').click()
+    await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).toBeVisible()
+
+    await fillEntityForm({
+      page,
+      formData: {},
+      withAction: 'submit',
+    })
+    await waitAndDismissToasts(page)
+
+    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
+
+    await switchDetailTab(page, 'targets')
+    const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
+
+    await row.locator('[data-testid="overflow-actions-button"]').click()
+    await expect(row.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
+    await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
+  })
+
+  test('hybrid mode: mark healthy/unhealthy should not appear in the menu', async ({ page }) => {
+    await page.route('http://localhost:8001/', async (route) => {
+      const response = await route.fetch()
+      const json = await response.json()
+
+      // mock for control_plane in hybrid mode
+      json.configuration.role = 'control_plane'
+      await route.fulfill({ response, json })
+    })
+
+    await new UpstreamListPage(page).goto()
+
+    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
+
+    await switchDetailTab(page, 'targets')
+    const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
+
+    await row.locator('[data-testid="overflow-actions-button"]').click()
+    await expect(row.locator('[data-testid="action-target-mark-healthy"]')).not.toBeVisible()
+    await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).not.toBeVisible()
   })
 })
