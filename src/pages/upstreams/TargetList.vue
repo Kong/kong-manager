@@ -81,7 +81,7 @@ const isUpstreamUsingHealthchecks = computed(() => {
 
 onBeforeMount(async () => {
   try {
-    const response: AxiosResponse = await apiService.get(`upstreams/${upstreamId.value}`)
+    const response: AxiosResponse = await apiService.findRecord('upstreams', upstreamId.value)
 
     upstream.value = response.data
   } catch (err) {
