@@ -112,9 +112,9 @@ export default {
       default: () => ({}),
     },
     /**
-     * @param {boolean} showOnlyAvailablePlugins checks kong config plugins.available_on_server and if
+     * @param {boolean} showOnlyAvailablePlugins checks kong config plugins.availableOnServer and if
      * showOnlyAvailablePlugins = true, then it will not show plugins from PluginMeta that are outside
-     * of the available_on_server array.
+     * of the availableOnServer array.
      */
     showOnlyAvailablePlugins: {
       type: Boolean,
@@ -132,7 +132,9 @@ export default {
   },
 
   computed: {
-    ...mapState(useInfoStore, ['info']),
+    ...mapState(useInfoStore, {
+      infoPlugins: 'plugins',
+    }),
 
     filteredPlugins () {
       const plugins = this.pluginsList
@@ -161,7 +163,7 @@ export default {
     },
 
     availablePlugins () {
-      return this.info?.plugins?.available_on_server ?? []
+      return this.infoPlugins.availableOnServer
     },
   },
 

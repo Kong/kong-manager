@@ -35,7 +35,7 @@ const router = useRouter()
 const { t } = useI18n()
 const infoStore = useInfoStore()
 
-const enabledPlugins = computed(() => infoStore.info?.plugins?.enabled_in_cluster ?? [])
+const enabledPlugins = computed(() => infoStore.plugins.enabledInCluster)
 const enabledPluginsFetched = ref(false)
 
 const credentialPlugins = [
