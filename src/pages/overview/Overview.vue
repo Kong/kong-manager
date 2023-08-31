@@ -54,11 +54,11 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount, ref, computed } from 'vue'
+import { computed } from 'vue'
 import { config as gatewayConfig } from 'config'
 import KonnectCTA from '@/components/KonnectCTA.vue'
 import { useI18n } from '@/composables/useI18n'
-import { apiService } from '@/services/apiService'
+import { useInfoStore } from '@/stores/info'
 import { formatVersion } from '@/utils'
 import { KUI_COLOR_TEXT_PRIMARY_STRONG } from '@kong/design-tokens'
 
@@ -67,9 +67,12 @@ defineOptions({
 })
 
 const { t } = useI18n()
+const infoStore = useInfoStore()
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const config = ref<Record<string, any>>({})
+const config = computed(() => ({
+  ...infoStore.infoConfig,
+  hostname: infoStore.info.hostname,
+}))
 const version = computed(() => gatewayConfig.GATEWAY_VERSION ? `${formatVersion(gatewayConfig.GATEWAY_VERSION)}.x` : 'latest')
 const info = computed(() => {
   return [
@@ -179,15 +182,6 @@ const resources = computed(() => [
     description: t('overview.resource.discuss.description'),
   },
 ])
-
-onBeforeMount(async () => {
-  const { data } = await apiService.get()
-
-  config.value = {
-    ...data.configuration,
-    hostname: data.hostname,
-  }
-})
 </script>
 
 <style scoped lang="scss">

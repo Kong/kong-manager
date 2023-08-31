@@ -28,13 +28,14 @@ import { useRouter } from 'vue-router'
 import { config } from 'config'
 import { pluginMeta } from '@/pages/plugins/PluginMeta'
 import { useI18n } from '@/composables/useI18n'
-import { apiService } from '@/services/apiService'
+import { useInfoStore } from '@/stores/info'
 import CredentialList from './CredentialList.vue'
 
 const router = useRouter()
 const { t } = useI18n()
+const infoStore = useInfoStore()
 
-const enabledPlugins = ref<string[]>([])
+const enabledPlugins = computed(() => infoStore.plugins.enabledInCluster)
 const enabledPluginsFetched = ref(false)
 
 const credentialPlugins = [
@@ -64,9 +65,8 @@ const navigateToPluginSelection = () => {
 }
 
 onBeforeMount(async () => {
-  const { data } = await apiService.get()
-
-  enabledPlugins.value = data?.plugins?.enabled_in_cluster ?? []
+  // forcely refresh info data to get enabled plugins
+  await infoStore.getInfo({ force: true })
   enabledPluginsFetched.value = true
 })
 </script>

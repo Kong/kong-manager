@@ -90,9 +90,10 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
 import { PluginGroup, PluginScope } from '@kong-ui-public/entities-plugins'
 import { sortAlpha } from '@/components/EntityForm/helpers'
-import { apiService } from '@/services/apiService'
+import { useInfoStore } from '@/stores/info'
 import PluginCardSkeleton from './PluginCardSkeleton.vue'
 import PluginCard from './PluginCard.vue'
 import { pluginMeta } from './PluginMeta'
@@ -111,9 +112,9 @@ export default {
       default: () => ({}),
     },
     /**
-     * @param {boolean} showOnlyAvailablePlugins checks kong config plugins.available_on_server and if
+     * @param {boolean} showOnlyAvailablePlugins checks kong config plugins.availableOnServer and if
      * showOnlyAvailablePlugins = true, then it will not show plugins from PluginMeta that are outside
-     * of the available_on_server array.
+     * of the availableOnServer array.
      */
     showOnlyAvailablePlugins: {
       type: Boolean,
@@ -127,11 +128,14 @@ export default {
       pluginGroups: PluginGroup,
       selected: null,
       filter: '',
-      availablePlugins: [],
     }
   },
 
   computed: {
+    ...mapState(useInfoStore, {
+      infoPlugins: 'plugins',
+    }),
+
     filteredPlugins () {
       const plugins = this.pluginsList
       const query = this.filter.toLowerCase()
@@ -157,13 +161,19 @@ export default {
     noSearchResults () {
       return (Object.keys(this.pluginsList).length > 0 && !this.hasFilteredResults)
     },
+
+    availablePlugins () {
+      return this.infoPlugins.availableOnServer
+    },
   },
 
-  async mounted () {
-    const response = await apiService.get()
-
-    this.availablePlugins = response?.data?.plugins?.available_on_server ?? []
-    this.pluginsList = this.buildPluginList()
+  watch: {
+    availablePlugins: {
+      handler () {
+        this.pluginsList = this.buildPluginList()
+      },
+      immediate: true,
+    },
   },
 
   methods: {

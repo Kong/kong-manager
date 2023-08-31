@@ -28,6 +28,10 @@ export const useInfoStore = defineStore('info', {
     isHybridMode: (state) => {
       return (state.info.configuration?.role ?? 'traditional') !== 'traditional'
     },
+    plugins: (state) => ({
+      enabledInCluster: state.info.plugins?.enabled_in_cluster ?? [],
+      availableOnServer: state.info.plugins?.available_on_server ?? [],
+    }),
   },
 
   actions: {
