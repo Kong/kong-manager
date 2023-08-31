@@ -90,9 +90,10 @@
 </template>
 
 <script>
+import { mapState } from 'pinia'
 import { PluginGroup, PluginScope } from '@kong-ui-public/entities-plugins'
 import { sortAlpha } from '@/components/EntityForm/helpers'
-import { apiService } from '@/services/apiService'
+import { useInfoStore } from '@/stores/info'
 import PluginCardSkeleton from './PluginCardSkeleton.vue'
 import PluginCard from './PluginCard.vue'
 import { pluginMeta } from './PluginMeta'
@@ -127,11 +128,12 @@ export default {
       pluginGroups: PluginGroup,
       selected: null,
       filter: '',
-      availablePlugins: [],
     }
   },
 
   computed: {
+    ...mapState(useInfoStore, ['info']),
+
     filteredPlugins () {
       const plugins = this.pluginsList
       const query = this.filter.toLowerCase()
@@ -157,13 +159,19 @@ export default {
     noSearchResults () {
       return (Object.keys(this.pluginsList).length > 0 && !this.hasFilteredResults)
     },
+
+    availablePlugins () {
+      return this.info?.plugins?.available_on_server ?? []
+    },
   },
 
-  async mounted () {
-    const response = await apiService.get()
-
-    this.availablePlugins = response?.data?.plugins?.available_on_server ?? []
-    this.pluginsList = this.buildPluginList()
+  watch: {
+    availablePlugins: {
+      handler () {
+        this.pluginsList = this.buildPluginList()
+      },
+      immediate: true,
+    },
   },
 
   methods: {
