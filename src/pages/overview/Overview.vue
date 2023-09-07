@@ -13,7 +13,12 @@
             class="info-item"
           >
             <label>{{ item.label }}</label>
-            <span>{{ item.value }}</span>
+            <KBadge
+              max-width="300px"
+              :truncation-tooltip="(item.value as string)"
+            >
+              {{ item.value }}
+            </KBadge>
           </li>
         </ul>
       </template>
@@ -214,15 +219,6 @@ $card-spacing: 32px;
     font-size: 14px;
     font-weight: bold;
     margin: 0;
-  }
-
-  span {
-    color: $kui-color-text-primary-stronger;
-    font-size: 14px;
-    margin: 0;
-    background-color: $kui-color-background-primary-weakest;
-    padding: 4px 12px;
-    border-radius: 20px;
   }
 }
 
