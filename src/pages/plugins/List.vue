@@ -47,7 +47,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('plugin')
+const docsLink = useDocsLink('Plugins')
 const route = useRoute()
 const cacheIdentifier = computed(() => `plugins-${route.params?.id}`)
 const entityType = computed(() => route.meta?.scopedIn as EntityType)

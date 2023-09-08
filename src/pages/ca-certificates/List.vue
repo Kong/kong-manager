@@ -38,7 +38,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('ca-certificate')
+const docsLink = useDocsLink('CA Certificates')
 
 const createRoute = computed(() => {
   return { name: 'ca-certificate-create' }

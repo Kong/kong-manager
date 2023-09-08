@@ -39,7 +39,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('vaults')
+const docsLink = useDocsLink('Vaults')
 
 const createRoute = computed(() => {
   return { name: 'vault-create' }

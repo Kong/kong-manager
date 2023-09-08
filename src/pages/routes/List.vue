@@ -42,7 +42,7 @@ defineOptions({ name: 'RouteList' })
 const toaster = useToaster()
 const route = useRoute()
 const { t } = useI18n()
-const docsLink = useDocsLink('route')
+const docsLink = useDocsLink('Routes')
 const { createRedirectRouteQuery } = useListRedirect()
 
 const serviceId = computed(() => (route.params?.id ?? '') as string)
