@@ -1,4 +1,3 @@
-import { computed } from 'vue'
 import { formatVersion } from '@/utils'
 import { config, type GatewayEdition } from 'config'
 import { EntityType } from '@/types'
@@ -36,7 +35,7 @@ export const useDocsLink = (entityType: EntityType) => {
     [EntityType.Target]: 'Targets',
     [EntityType.Vault]: 'Vaults',
   }
-  const docsLink = computed(() => `${docsBase}${entityTypeToSpecLinkMap[entityType] ?? ''}`)
+  const docsLink = `${docsBase}${entityTypeToSpecLinkMap[entityType] ?? ''}`
 
   return docsLink
 }
