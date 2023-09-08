@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute, type RouteLocationRaw } from 'vue-router'
-import { PluginList, type EntityRow, type ViewRouteType, type EntityType } from '@kong-ui/entities-plugins'
+import { PluginList, type EntityRow, type ViewRouteType, type EntityType as ScopedEntityType } from '@kong-ui/entities-plugins'
 import type { FilterSchema } from '@kong-ui/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
@@ -39,6 +39,7 @@ import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 import { useDocsLink } from '@/composables/useDocsLink'
+import { EntityType } from '@/types'
 
 defineOptions({
   name: 'PluginList',
@@ -47,10 +48,10 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('plugin')
+const docsLink = useDocsLink(EntityType.Plugin)
 const route = useRoute()
 const cacheIdentifier = computed(() => `plugins-${route.params?.id}`)
-const entityType = computed(() => route.meta?.scopedIn as EntityType)
+const entityType = computed(() => route.meta?.scopedIn as ScopedEntityType)
 const scopedQuery = computed(() => {
   switch (entityType.value) {
     case 'services':
