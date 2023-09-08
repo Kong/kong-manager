@@ -1,0 +1,15 @@
+export enum EntityType {
+  GatewayService = 1,
+  Route,
+  Consumer,
+  ConsumerGroup,
+  Plugin,
+  Upstream,
+  Certificate,
+  CACertificate,
+  SNI,
+  Key,
+  KeySet,
+  Target,
+  Vault,
+}

@@ -30,6 +30,7 @@ import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useDocsLink } from '@/composables/useDocsLink'
+import { EntityType } from '@/types'
 
 defineOptions({
   name: 'CACertificateList',
@@ -38,7 +39,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('ca-certificate')
+const docsLink = useDocsLink(EntityType.CACertificate)
 
 const createRoute = computed(() => {
   return { name: 'ca-certificate-create' }

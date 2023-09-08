@@ -36,6 +36,7 @@ import { useToaster } from '@/composables/useToaster'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useDocsLink } from '@/composables/useDocsLink'
+import { EntityType } from '@/types'
 
 defineOptions({
   name: 'KeyList',
@@ -45,7 +46,7 @@ const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const route = useRoute()
 const { t } = useI18n()
-const docsLink = useDocsLink('keys')
+const docsLink = useDocsLink(EntityType.Key)
 
 const keySetId = computed(() => (route.params?.id ?? '') as string)
 const cacheIdentifier = computed(() => `routes-${keySetId.value}`)
