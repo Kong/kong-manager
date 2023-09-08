@@ -31,6 +31,7 @@ import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useDocsLink } from '@/composables/useDocsLink'
+import { EntityType } from '@/types'
 
 defineOptions({
   name: 'SniList',
@@ -39,7 +40,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('SNIs')
+const docsLink = useDocsLink(EntityType.SNI)
 
 const createRoute = computed(() => {
   return { name: 'sni-create' }

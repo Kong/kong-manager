@@ -36,13 +36,14 @@ import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 import { useDocsLink } from '@/composables/useDocsLink'
+import { EntityType } from '@/types'
 
 defineOptions({ name: 'RouteList' })
 
 const toaster = useToaster()
 const route = useRoute()
 const { t } = useI18n()
-const docsLink = useDocsLink('Routes')
+const docsLink = useDocsLink(EntityType.Route)
 const { createRedirectRouteQuery } = useListRedirect()
 
 const serviceId = computed(() => (route.params?.id ?? '') as string)

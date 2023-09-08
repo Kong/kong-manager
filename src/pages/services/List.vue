@@ -31,6 +31,7 @@ import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 import { useDocsLink } from '@/composables/useDocsLink'
+import { EntityType } from '@/types'
 
 defineOptions({
   name: 'ServiceList',
@@ -39,7 +40,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('Services')
+const docsLink = useDocsLink(EntityType.GatewayService)
 
 const createRoute = computed(() => {
   return { name: 'service-create' }

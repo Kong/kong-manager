@@ -31,6 +31,7 @@ import { useToaster } from '@/composables/useToaster'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useDocsLink } from '@/composables/useDocsLink'
+import { EntityType } from '@/types'
 
 defineOptions({
   name: 'KeySetList',
@@ -39,7 +40,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('Key-sets')
+const docsLink = useDocsLink(EntityType.KeySet)
 
 const filterSchema = computed<FilterSchema>(() => {
   return {
