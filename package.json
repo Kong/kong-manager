@@ -14,6 +14,7 @@
     "stylelint": "stylelint --allow-empty-input 'src/**/*.{css,scss,sass,less,styl,vue}'",
     "postinstall": "husky install"
   },
+  "license": "Apache-2.0",
   "lint-staged": {
     "src/**/*.{ts,js,vue}": "eslint --fix",
     "src/**/*.{css,scss,sass,less,styl,vue}": "stylelint --allow-empty-input --fix 'src/**/*.{css,scss,sass,less,styl,vue}'"

@@ -47,7 +47,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('plugin')
+const { docsLink } = useDocsLink('plugin')
 const route = useRoute()
 const cacheIdentifier = computed(() => `plugins-${route.params?.id}`)
 const entityType = computed(() => route.meta?.scopedIn as EntityType)
@@ -97,6 +97,20 @@ const getViewRoute = (plugin: Pick<EntityRow, 'id' | 'name'>) => {
   }
 }
 
+const getConfigureDynamicOrderingRoute = (plugin: Pick<EntityRow, 'id' | 'name'>) => {
+  return {
+    name: 'plugin-ordering',
+    params: {
+      id: plugin.id,
+      pluginType: plugin.name,
+    },
+    query: {
+      ...scopedQuery.value,
+      ...createRedirectRouteQuery(),
+    },
+  }
+}
+
 const getEditRoute = (plugin: EntityRow) => ({
   name: 'plugin-edit',
   params: {
@@ -130,7 +144,7 @@ const pluginListConfig = reactive({
   getViewRoute,
   getEditRoute,
   getScopedEntityViewRoute,
-  getConfigureDynamicOrderingRoute: getViewRoute,
+  getConfigureDynamicOrderingRoute,
   filterSchema,
 })
 

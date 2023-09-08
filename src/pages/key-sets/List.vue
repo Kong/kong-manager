@@ -39,7 +39,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('key-set')
+const { docsLink } = useDocsLink('key-set')
 
 const filterSchema = computed<FilterSchema>(() => {
   return {

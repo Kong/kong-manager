@@ -38,7 +38,7 @@ defineOptions({
 const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
-const docsLink = useDocsLink('ca-certificate')
+const { docsLink } = useDocsLink('ca-certificate')
 
 const createRoute = computed(() => {
   return { name: 'ca-certificate-create' }
@@ -59,6 +59,8 @@ const caCertificateListConfig = reactive({
   createRoute,
   getViewRoute,
   getEditRoute,
+  // CA Certificates only support exact match for both CE and EE
+  isExactMatch: true,
 })
 
 const canCreate = async () => true
