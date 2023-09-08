@@ -47,7 +47,19 @@
             </span>
           </div>
         </div>
-        <div class="konnect-image" />
+        <a
+          :href="link"
+          rel="noopener"
+          target="_blank"
+          class="konnect-preview"
+        >
+          <img
+            class="konnect-preview-screenshot"
+            src="@/assets/konnect-preview.png?external"
+            alt="konnect-preview"
+          >
+          <span class="konnect-preview-start">{{ t('konnect-cta.get.started') }}</span>
+        </a>
       </div>
     </template>
   </KCard>
@@ -162,11 +174,17 @@ const link = 'https://konghq.com/products/kong-konnect/register?utm_medium=produ
     opacity: 0.5;
   }
 
-  .konnect-image {
-    background-size: cover;
-    background-image: url("@/assets/konnect-preview.png?external");
-    width: 570px;
-    border-radius: 10px;
+  .konnect-preview {
+    overflow: hidden;
+
+    .konnect-preview-screenshot {
+      width: 570px;
+    }
+
+    .konnect-preview-start {
+      // this element is only for screen readers
+      display: none;
+    }
   }
 }
 </style>
