@@ -287,6 +287,35 @@ test.describe('plugins', () => {
     await expect(getPropertyValue(page, 'name')).toContainText(new RegExp(mockPluginName, 'i'))
   })
 
+  test('plugin protocols', async ({ page, pluginListPage }) => {
+    await clearKongResources('/plugins')
+    await pluginListPage.goto()
+
+    await withNavigation(
+      page,
+      async () => await page.locator('.empty-state-content .primary').click()
+    )
+    await withNavigation(
+      page,
+      async () => await page.click('a.plugin-card[title="Basic Authentication"]')
+    )
+
+    await page.click('.plugin-protocols-select .k-multiselect-trigger')
+    await page.click('.k-multiselect-item[data-testid="k-multiselect-item-grpcs"]')
+    await page.click('.k-multiselect-item[data-testid="k-multiselect-item-https"]')
+    await page.click('.plugin-protocols-select .k-multiselect-trigger')
+
+    await withNavigation(
+      page,
+      async () => await page.locator('.plugin-form .primary').click()
+    )
+    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
+
+    await expect(page.getByTestId('protocols-property-value')).toContainText('http')
+    await expect(page.getByTestId('protocols-property-value')).toContainText('grpc')
+    await expect(page.getByTestId('protocols-property-value').locator('.config-badge')).toHaveCount(2)
+  })
+
   test('submit/cancel plugin editing using footer actions', async ({ page }) => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'edit'))
     await withNavigation(
