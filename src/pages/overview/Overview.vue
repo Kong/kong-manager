@@ -15,7 +15,7 @@
             <label>{{ item.label }}</label>
             <KBadge
               max-width="300px"
-              :truncation-tooltip="(item.value as string)"
+              :truncation-tooltip="String(item.value)"
             >
               {{ item.value }}
             </KBadge>

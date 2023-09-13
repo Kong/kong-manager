@@ -191,6 +191,27 @@ export default {
         },
 
         tags: typedefs.tags,
+
+        protocols: {
+          default: [],
+          type: 'multiselect',
+          label: 'Protocols',
+          values: [
+            { label: 'grpc', value: 'grpc' },
+            { label: 'grpcs', value: 'grpcs' },
+            { label: 'http', value: 'http' },
+            { label: 'https', value: 'https' },
+            { label: 'tcp', value: 'tcp' },
+            { label: 'tls', value: 'tls' },
+            { label: 'tls_passthrough', value: 'tls_passthrough' },
+            { label: 'udp', value: 'udp' },
+            { label: 'ws', value: 'ws' },
+            { label: 'wss', value: 'wss' },
+          ],
+          help: 'A list of the request protocols that will trigger this plugin. The default value, as well as the possible values allowed on this field, may change depending on the plugin type.',
+          placeholder: 'Select valid protocols for the plugin',
+          styleClasses: 'plugin-protocols-select',
+        },
       },
 
       customSchemas: {
@@ -399,6 +420,16 @@ export default {
         const configField = response.fields.find(field => field.config)
 
         const configResponse = configField ? configField.config : response
+
+        const protocolsField = response.fields.find(field => field.protocols)?.protocols
+        if (protocolsField) {
+          const { default: defaultValues = [], elements = {} } = protocolsField
+
+          this.defaultFormSchema.protocols.default = defaultValues
+          if (elements.one_of?.length) {
+            this.defaultFormSchema.protocols.values = elements.one_of.map(value => ({ label: value, value }))
+          }
+        }
 
         this.schema = this.buildFormSchema('config', configResponse, this.defaultFormSchema)
       }).catch(err => {
