@@ -3,7 +3,7 @@ name: Build & Release
 on:
   push:
     branches:
-      - main
+      - release/3.4.x
     tags-ignore:
       - nightly
 
