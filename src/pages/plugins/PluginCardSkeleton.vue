@@ -1,7 +1,7 @@
 <template>
   <KSkeleton
     :card-count="cardCount"
-    class="k-skeleton-25"
+    class="plugin-card-skeleton"
     type="card"
   >
     <template #card-header>
@@ -37,7 +37,7 @@ export default {
 </script>
 
 <style lang="scss">
-.k-skeleton-25 {
+.plugin-card-skeleton {
   .skeleton-card {
     height: 240px;
   }

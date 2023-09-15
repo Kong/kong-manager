@@ -2,13 +2,12 @@
   <div class="plugins-shell">
     <PageHeader title="New Plugin">
       <div class="plugins-filter-wrapper">
-        <input
+        <KInput
           v-model="filter"
-          class="k-input"
           type="search"
           placeholder="Filter Plugins"
           data-testid="plugins-filter"
-        >
+        />
       </div>
     </PageHeader>
     <section
