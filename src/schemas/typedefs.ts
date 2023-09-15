@@ -54,7 +54,7 @@ export const fields = {
       fieldClasses: 'kong-form-array-field',
       fieldItemsClasses: 'kong-form-array-field-item',
       newElementButtonLabelClasses: 'kong-form-new-element-button-label',
-      inputAttributes: { class: 'k-input', style: { minWidth: '200px' }, ...inputAttributes },
+      inputAttributes: { class: 'form-control', style: { minWidth: '200px' }, ...inputAttributes },
       removeElementButtonLabel: 'remove',
       styleClasses: 'kong-form-field-wrapper',
       inputType: 'text',

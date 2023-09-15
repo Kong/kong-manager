@@ -5,7 +5,7 @@ const ArrayStringFieldSchema = {
   itemContainerComponent: 'FieldArrayItem',
   fieldClasses: 'kong-form-array-string-field',
   fieldItemsClasses: 'kong-form-array-string-field-item',
-  inputAttributes: { class: 'k-input', style: { minWidth: '200px' } },
+  inputAttributes: { class: 'form-control', style: { minWidth: '200px' } },
   validator: 'array',
   styleClasses: 'kong-form-field-wrapper',
   newElementButtonLabel: '+ Add',
