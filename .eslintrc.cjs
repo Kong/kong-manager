@@ -97,7 +97,7 @@ module.exports = {
     'vue/no-deprecated-dollar-listeners-api': 'error',
     'vue/no-deprecated-events-api': 'error',
     'vue/no-deprecated-v-on-native-modifier': 'error',
-    'vue/no-restricted-class': ['error', ...kongponentUtilityClasses],
+    'vue/no-restricted-class': ['error', '/^k-/', ...kongponentUtilityClasses],
 
     // a11y
     'vuejs-accessibility/label-has-for': 'off',
