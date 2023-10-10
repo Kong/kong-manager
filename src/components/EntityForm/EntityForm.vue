@@ -497,8 +497,19 @@ export default {
 
     updateModel (parent, data) {
       Object.keys(data).forEach(key => {
-        const modelKey = parent ? `${parent}-${key}` : key
-        const scheme = this.schema[modelKey]
+        let modelKey = parent ? `${parent}-${key}` : key
+        let scheme = this.schema[modelKey]
+        // If `scheme` is undefined, it is either because the key is not the deepest nested key of the schema object
+        // or the field name has dashes in it and its schema key was converted to underscores during initiation.
+        if (!scheme) {
+          const underscoredModelKey = parent ? `${parent}-${key.replace(/-/g, '_')}` : key.replace(/-/g, '_')
+          // Here we check if the underscored key exists in the schema and the `fieldNameHasDashes` flag is true
+          if (this.schema[underscoredModelKey]?.fieldNameHasDashes) {
+            modelKey = underscoredModelKey
+            scheme = this.schema[modelKey]
+          }
+        }
+
         const value = data[key]
         const type = typeof value
 
@@ -666,6 +677,14 @@ export default {
         // Converts the field name from dasherized notation that HTML & Vue understand
         // to the dot notation that the Kong Admin API understands.
         let fieldNameDotNotation = convertToDotNotation(fieldName)
+
+        // If the field name originally has dashes, they were converted to underscores during initiation.
+        // Now we need to convert them back to dashes because the Admin API expects dashes
+        if (fieldSchema.fieldNameHasDashes) {
+          const [keyToBeConverted, ...rest] = fieldNameDotNotation.split('.').reverse()
+
+          fieldNameDotNotation = [keyToBeConverted.replace(/_/g, '-'), ...rest].reverse().join('.')
+        }
 
         if (fieldSchemaValueType === 'object-expand') {
           let key
