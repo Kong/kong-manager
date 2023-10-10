@@ -80,6 +80,13 @@ const config = computed(() => ({
 }))
 const version = computed(() => gatewayConfig.GATEWAY_VERSION ? `${formatVersion(gatewayConfig.GATEWAY_VERSION)}.x` : 'latest')
 const info = computed(() => {
+  const guiListeners = config.value.admin_gui_listeners
+  const nonSslGuiListener = guiListeners?.find?.(listener => !listener.ssl)
+  const sslGuiListener = guiListeners?.find?.(listener => listener.ssl)
+  const proxyListeners = config.value.proxy_listeners
+  const nonSslProxyListener = proxyListeners?.find?.(listener => !listener.ssl)
+  const sslProxyListener = proxyListeners?.find?.(listener => listener.ssl)
+
   return [
     {
       title: t('overview.info.gateway.title'),
@@ -112,19 +119,19 @@ const info = computed(() => {
       items: [
         {
           label: t('overview.info.port.port'),
-          value: config.value.admin_gui_listeners?.[0]?.port ?? '--',
+          value: nonSslGuiListener?.port ?? '--',
         },
         {
           label: t('overview.info.port.ssl'),
-          value: config.value.admin_gui_listeners?.[1]?.port ?? '--',
+          value: sslGuiListener?.port ?? '--',
         },
         {
           label: t('overview.info.port.proxy'),
-          value: config.value.proxy_listeners?.[0]?.port ?? '--',
+          value: nonSslProxyListener?.port ?? '--',
         },
         {
           label: t('overview.info.port.proxy.ssl'),
-          value: config.value.proxy_listeners?.[1]?.port ?? '--',
+          value: sslProxyListener?.port ?? '--',
         },
       ],
     },
@@ -251,6 +258,7 @@ $card-spacing: 32px;
     padding: 16px $kui-space-80;
     text-decoration: none;
     color: inherit;
+    height: 100%;
 
     &:hover {
       background-color: $kui-color-background-primary-weakest;

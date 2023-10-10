@@ -12,8 +12,8 @@ export interface Info {
     }
     role?: 'traditional' | 'control_plane' | 'data_plane'
     admin_listen?: string[]
-    admin_gui_listeners?: Array<{ port: number }>
-    proxy_listeners?: Array<{ port: number }>
+    admin_gui_listeners?: Array<{ port: number, ssl?: boolean }>
+    proxy_listeners?: Array<{ port: number, ssl?: boolean }>
     pg_user?: string
     pg_host?: string
     pg_port?: number

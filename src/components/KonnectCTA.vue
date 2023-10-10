@@ -102,6 +102,7 @@ const link = 'https://konghq.com/products/kong-konnect/register?utm_medium=produ
 .konnect-container {
   display: flex;
   justify-content: space-between;
+  overflow: auto;
 
   .konnect-content {
     flex-shrink: 0;
@@ -175,8 +176,6 @@ const link = 'https://konghq.com/products/kong-konnect/register?utm_medium=produ
   }
 
   .konnect-preview {
-    overflow: hidden;
-
     .konnect-preview-screenshot {
       width: 570px;
     }
