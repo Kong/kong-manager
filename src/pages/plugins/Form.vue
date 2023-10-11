@@ -563,7 +563,18 @@ export default {
         schema = schema.reduce((acc, current) => {
           const key = Object.keys(current)[0]
 
-          acc[key] = current[key]
+          // If the backend schema has dashes in the field name (e.g. config.response_headers.X-Cache-Status of the proxy-cache plugin),
+          // replace them with underscores because the shared form component treats dashes as separators for nested fields
+          if (key.match(/-/g)) {
+            acc[key.replace(/-/g, '_')] = {
+              ...current[key],
+              // A flag to indicate the field name has dashes originally and they are replaced with underscores.
+              // When submitting the form, the underscores should be replaced with dashes again
+              fieldNameHasDashes: true,
+            }
+          } else {
+            acc[key] = current[key]
+          }
 
           return acc
         }, {})
@@ -736,6 +747,9 @@ export default {
         }
 
         output[field].valueType = valueType
+        if (scheme.fieldNameHasDashes) {
+          output[field].fieldNameHasDashes = true
+        }
       })
 
       return output
