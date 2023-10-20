@@ -45,7 +45,10 @@ const routeOnUpdate = useFormRedirectOnUpdate(
 
 const vaultFormConfig = reactive({
   ...useFormGeneralConfig(),
-  azureVaultProviderAvailable: false,
+  // azure vault is supported in Kong Gateway Enterprise 3.5
+  azureVaultProviderAvailable: useGatewayFeatureSupported({
+    enterprise: ['3.5'],
+  }),
   // ttl fields are supported in Kong Gateway Enterprise 3.4
   ttl: useGatewayFeatureSupported({
     enterprise: ['3.4'],

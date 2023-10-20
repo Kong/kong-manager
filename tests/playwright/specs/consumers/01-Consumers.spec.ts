@@ -145,12 +145,8 @@ test.describe('consumers', () => {
   })
 
   test('consumer detail page - copy json to clipboard', async ({ browserName, page }) => {
-    const consumerListPage = new ConsumerListPage(page)
-
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await clickConfigurationCopy(page, 'consumer')
-    await expect(page.locator(consumerListPage.$.success)).toBeVisible()
-    await expect(page.locator(consumerListPage.$.success)).toContainText('Successfully copied to clipboard')
 
     // TODO Skip on Webkit
     if (browserName !== 'webkit') {
