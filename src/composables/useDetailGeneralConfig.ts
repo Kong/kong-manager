@@ -11,5 +11,6 @@ export const useDetailGeneralConfig = () => {
       version: config.GATEWAY_VERSION,
     },
     apiBaseUrl: config.ADMIN_API_URL,
-  } as Pick<KongManagerBaseEntityConfig, 'app' | 'workspace' | 'gatewayInfo' | 'apiBaseUrl'>)
+    jsonYamlEnabled: true,
+  } as Pick<KongManagerBaseEntityConfig, 'app' | 'workspace' | 'gatewayInfo' | 'apiBaseUrl' | 'jsonYamlEnabled'>)
 }

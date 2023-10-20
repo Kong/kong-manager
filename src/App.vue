@@ -106,13 +106,14 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
   font-size: 20px;
 }
 
-:deep(main.kong-ui-app-layout-main) {
-  background: #fff!important;
-}
-
 :deep(.kong-ui-app-layout-content-inner) {
   position: relative;
   min-height: 100%;
   padding-bottom: 80px!important;
+}
+
+// TODO: remove this when we upgrade to Kongponents v9
+:deep(.k-code-block.theme-dark pre) {
+  background-color: $kui-color-background-neutral-strongest!important;
 }
 </style>
