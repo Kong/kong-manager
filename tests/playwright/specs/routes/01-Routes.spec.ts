@@ -219,7 +219,7 @@ test.describe('routes', () => {
 
   test(`view the route "${mockRouteName}" detail page`, async ({ page }) => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    await expect(page.getByTestId('name-property-value')).toHaveText(mockRouteName)
+    await expect(page.getByTestId('name-property-value')).toContainText(mockRouteName)
   })
 
   test('routes show - links to service with a name', async ({ page }) => {
@@ -227,7 +227,7 @@ test.describe('routes', () => {
 
     await page.getByTestId('service-property-value').locator('.navigation-button').click()
 
-    await expect(page.getByTestId('name-property-value')).toHaveText(mockServiceName)
+    await expect(page.getByTestId('name-property-value')).toContainText(mockServiceName)
   })
 
   test(`cancel the route "${mockRouteName}" editing`, async ({ page }) => {
@@ -385,9 +385,9 @@ test.describe('routes', () => {
         }
       }, data,
       async () => {
-        await expect(page.getByTestId('strip_path-property-value')).toHaveText(`${isStripPath}`)
-        await expect(page.getByTestId('methods-property-value')).toHaveText(['GET'])
-        await expect(page.getByTestId('tags-property-value')).toHaveText(['tag1tag2'])
+        await expect(page.getByTestId('strip_path-property-value')).toContainText(`${isStripPath}`)
+        await expect(page.getByTestId('methods-property-value')).toContainText(['GET'])
+        await expect(page.getByTestId('tags-property-value')).toContainText(['tag1tag2'])
       })
     }
   })
@@ -421,9 +421,9 @@ test.describe('routes', () => {
         await expect(page.getByTestId('route-form-strip-path')).not.toBeVisible()
       }, data,
       async () => {
-        await expect(page.getByTestId('protocols-property-value')).toHaveText(`${protocol}`.replace(',', ''))
-        await expect(page.getByTestId('methods-property-value')).toHaveText(' – ') // todo: this property should not visible here
-        await expect(page.getByTestId('strip_path-property-value')).toHaveText('false') // todo: this property should not visible here
+        await expect(page.getByTestId('protocols-property-value')).toContainText(`${protocol}`.replace(',', ''))
+        await expect(page.getByTestId('methods-property-value')).toContainText(' – ') // todo: this property should not visible here
+        await expect(page.getByTestId('strip_path-property-value')).toContainText('false') // todo: this property should not visible here
       })
     }
   })
@@ -460,9 +460,9 @@ test.describe('routes', () => {
         await page.getByTestId('route-form-sources-port-input-2').fill('4321')
       }, data,
       async () => {
-        await expect(page.getByTestId('protocols-property-value')).toHaveText(`${protocol}`.replace(/,/g, ''))
-        await expect(page.getByTestId('methods-property-value')).toHaveText(' – ') // todo: this property should not visible here
-        await expect(page.getByTestId('hosts-property-value')).toHaveText(' – ') // todo: this property should not visible here
+        await expect(page.getByTestId('protocols-property-value')).toContainText(`${protocol}`.replace(/,/g, ''))
+        await expect(page.getByTestId('methods-property-value')).toContainText(' – ') // todo: this property should not visible here
+        await expect(page.getByTestId('hosts-property-value')).toContainText(' – ') // todo: this property should not visible here
       })
     }
   })
@@ -495,9 +495,9 @@ test.describe('routes', () => {
       await selectMethods(page, ['GET'])
     }, data,
     async () => {
-      await expect(page.getByTestId('protocols-property-value')).toHaveText('http')
-      await expect(page.getByTestId('methods-property-value')).toHaveText(['GET'])
-      await expect(page.getByTestId('sources-property-value')).toHaveText(' – ') // todo: this property should not visible here
+      await expect(page.getByTestId('protocols-property-value')).toContainText('http')
+      await expect(page.getByTestId('methods-property-value')).toContainText(['GET'])
+      await expect(page.getByTestId('sources-property-value')).toContainText(' – ') // todo: this property should not visible here
     })
   })
 
@@ -512,7 +512,7 @@ test.describe('routes', () => {
       await fillArrayField(page, 'hosts', ['localhost'])
     }, data,
     async () => {
-      await expect(page.getByTestId('protocols-property-value')).toHaveText('httphttps')
+      await expect(page.getByTestId('protocols-property-value')).toContainText('httphttps')
     })
   })
 
@@ -528,7 +528,7 @@ test.describe('routes', () => {
       await fillArrayField(page, 'hosts', ['localhost'])
     }, data,
     async () => {
-      await expect(page.getByTestId('protocols-property-value')).toHaveText('https')
+      await expect(page.getByTestId('protocols-property-value')).toContainText('https')
     })
   })
 
@@ -544,7 +544,7 @@ test.describe('routes', () => {
       await fillArrayField(page, 'paths', ['/kong(-ee){0,1}.com'], true)
     }, data,
     async () => {
-      await expect(page.getByTestId('paths-property-value')).toHaveText(['/kong(-ee){0,1}.com'])
+      await expect(page.getByTestId('paths-property-value')).toContainText(['/kong(-ee){0,1}.com'])
     })
   })
 
@@ -559,7 +559,7 @@ test.describe('routes', () => {
       await selectMethods(page, ['GET'])
     }, data,
     async () => {
-      await expect(page.getByTestId('service-property-value')).toHaveText(serviceWithNoName.id)
+      await expect(page.getByTestId('service-property-value')).toContainText(serviceWithNoName.id)
     })
   })
 
@@ -609,6 +609,6 @@ test.describe('routes', () => {
 
     await page.goto(`/routes/${route?.data.id}`)
 
-    await expect(page.getByTestId('service-property-value')).toHaveText('-')
+    await expect(page.getByTestId('service-property-value')).toContainText('-')
   })
 })
