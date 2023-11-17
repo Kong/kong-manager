@@ -1,18 +1,23 @@
 import { formatVersion } from '@/utils'
 import { config, type GatewayEdition } from 'config'
 import { EntityType } from '@/types'
+import { computed } from 'vue'
+import { useInfoStore } from '@/stores/info'
+
+const infoStore = useInfoStore()
+const kongVersion = computed(() => infoStore.kongVersion)
 
 const getVersionInPath = (edition: GatewayEdition) => {
-  if (!config.GATEWAY_VERSION) {
+  if (!kongVersion.value) {
     return 'latest'
   }
 
   return edition === 'enterprise'
     // For Enterprise, the version has a pattern of <major>.<minor>.0.x where the 3rd digit
     // will always be 0 regardless of the actual patch version
-    ? `${formatVersion(config.GATEWAY_VERSION)}.0.x`
+    ? `${formatVersion(kongVersion.value)}.0.x`
     // For OSS, the version has a pattern of <major>.<minor>.x
-    : `${formatVersion(config.GATEWAY_VERSION)}.x`
+    : `${formatVersion(kongVersion.value)}.x`
 }
 
 export const useDocsLink = (entityType: EntityType) => {
