@@ -107,7 +107,7 @@ test.describe('services', () => {
     await withNavigation(page, () =>
       page
         .locator('.page-header')
-        .locator('a[type="button"]:has-text("Back")')
+        .locator('[type="button"]:has-text("Back")')
         .click()
     )
     await page.waitForSelector('.kong-ui-entities-gateway-services-list')

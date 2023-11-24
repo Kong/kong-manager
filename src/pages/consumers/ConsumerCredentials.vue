@@ -30,10 +30,12 @@ import { pluginMeta } from '@/pages/plugins/PluginMeta'
 import { useI18n } from '@/composables/useI18n'
 import { useInfoStore } from '@/stores/info'
 import CredentialList from './CredentialList.vue'
+import { useListRedirect } from '@/composables/useListRedirect'
 
 const router = useRouter()
 const { t } = useI18n()
 const infoStore = useInfoStore()
+const { createRedirectRouteQuery } = useListRedirect()
 
 const enabledPlugins = computed(() => infoStore.plugins.enabledInCluster)
 const enabledPluginsFetched = ref(false)
@@ -58,9 +60,7 @@ const hasEnabledPlugins = computed(() => credentialPlugins.some(({ pluginType })
 const navigateToPluginSelection = () => {
   router.push({
     name: 'plugin-select',
-    query: {
-      redirect: router.currentRoute.value.fullPath,
-    },
+    query: createRedirectRouteQuery(),
   })
 }
 

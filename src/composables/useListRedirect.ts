@@ -1,12 +1,13 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import type { LocationQueryValue } from 'vue-router'
+
+import { useURLFromRouteQuery } from './useRedirect'
 
 export const useListRedirect = () => {
   const route = useRoute()
   const router = useRouter()
 
-  const redirectPath = computed(() => route.query.redirect as LocationQueryValue)
+  const redirectPath = useURLFromRouteQuery('redirect')
   const redirectRouteQuery = computed(() => ({ redirect: redirectPath.value }))
 
   const createRedirectRouteQuery = (redirect = route.fullPath) => {

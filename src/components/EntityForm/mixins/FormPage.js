@@ -41,7 +41,7 @@ export default {
      */
     redirectRoute () {
       if (this.redirectPath) {
-        return { path: this.redirectPath }
+        return this.redirectPath
       }
 
       return { name: this.resourceEndpoint }
@@ -92,10 +92,10 @@ export default {
             return redirectCreateRoute === '-1' ? this.$router.go(-1) : this.$router.push({ name: redirectCreateRoute, params: this.$router.params })
           }
 
-          const link = this.redirectPath || this.returnLink || this.$route.query.returnLink
+          const link = this.redirectPath || this.returnLink
 
           if (link) {
-            return this.$router.push({ path: link })
+            return this.$router.push(link)
           }
 
           const location = typeof callback === 'function'
@@ -111,7 +111,7 @@ export default {
     async updateRecord (model) {
       return apiService.updateRecord(this.resourceEndpoint, this.id, model)
         .then(res => {
-          const link = this.redirectPath || this.returnLink || this.$route.query.returnLink || this.$route.query.redirect
+          const link = this.redirectPath || this.returnLink
 
           // if parent form defines a redirectRouteNames object, we either go back to previous page if -1 is passed
           // else we go to the named route
@@ -121,7 +121,7 @@ export default {
           }
 
           if (link) {
-            return this.$router.push({ path: link })
+            return this.$router.push(link)
           }
 
           redirectOnResponseStatus(this.$router, 200, { name: this.resourceEndpoint })(res)
