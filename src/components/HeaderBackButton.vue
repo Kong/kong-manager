@@ -2,6 +2,7 @@
   <KButton
     data-testid="header-back-button"
     :to="backPath"
+    appearance="tertiary"
   >
     {{ t('global.buttons.back') }}
   </KButton>

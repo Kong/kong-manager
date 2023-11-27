@@ -30,13 +30,24 @@ updates:
       timezone: "Asia/Shanghai"
     target-branch: "main"
     allow:
-      - dependency-name: "@kong/design-tokens"
-      - dependency-name: "@kong/kongponents"
+      - dependency-name: "@kong/*"
       - dependency-name: "@kong-ui-public/*"
-      - dependency-name: "@playwright/test"
     groups:
       kong-packages:
         patterns:
-          - "@kong/design-tokens"
-          - "@kong/kongponents"
+          - "@kong/*"
           - "@kong-ui-public/*"
+
+  - package-ecosystem: "npm"
+    directory: "/tests/playwright"
+    registries:
+      - npm
+      - yarn
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "06:42"
+      timezone: "Asia/Shanghai"
+    target-branch: "main"
+    allow:
+      - dependency-name: "@playwright/test"

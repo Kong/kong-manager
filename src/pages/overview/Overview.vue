@@ -41,10 +41,9 @@
             rel="noopener"
             target="_blank"
           >
-            <KIcon
+            <component
+              :is="resource.icon"
               :color="KUI_COLOR_TEXT_PRIMARY_STRONG"
-              :icon="resource.icon"
-              size="24"
             />
             <div class="resource-info">
               <span class="resource-title">{{ resource.title }}</span>
@@ -60,6 +59,12 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import {
+  FlagIcon,
+  BrainIcon,
+  PlugIcon,
+  KongIcon,
+} from '@kong/icons'
 import { config as gatewayConfig } from 'config'
 import KonnectCTA from '@/components/KonnectCTA.vue'
 import { useI18n } from '@/composables/useI18n'
@@ -172,25 +177,25 @@ const info = computed(() => {
 const resources = computed(() => [
   {
     link: `https://docs.konghq.com/gateway/${version.value}`,
-    icon: 'flag',
+    icon: FlagIcon,
     title: t('overview.resource.intro.title'),
     description: t('overview.resource.intro.description'),
   },
   {
     link: `https://docs.konghq.com/gateway/${version.value}/get-started`,
-    icon: 'handClock',
+    icon: BrainIcon,
     title: t('overview.resource.start.title'),
     description: t('overview.resource.start.description'),
   },
   {
     link: 'https://docs.konghq.com/hub',
-    icon: 'plug',
+    icon: PlugIcon,
     title: t('overview.resource.plugin.title'),
     description: t('overview.resource.plugin.description'),
   },
   {
     link: 'https://discuss.konghq.com/',
-    icon: 'kong',
+    icon: KongIcon,
     title: t('overview.resource.discuss.title'),
     description: t('overview.resource.discuss.description'),
   },

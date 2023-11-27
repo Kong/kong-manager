@@ -36,7 +36,6 @@
             <KButton
               appearance="primary"
               :to="link"
-              size="small"
               rel="noopener"
               target="_blank"
             >
