@@ -48,7 +48,7 @@ test.describe('consumer plugins', () => {
     await expect(page.locator('.autosuggest #consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
     await withNavigation(
       page,
-      async () => await page.locator('.entity-form .primary').click()
+      async () => await page.locator('.entity-form [data-testid="form-footer-actions"] .primary').click()
     )
   })
 
@@ -60,7 +60,7 @@ test.describe('consumer plugins', () => {
     await withNavigation(
       page,
       async () => {
-        await page.locator('.entity-form .primary').click()
+        await page.locator('.entity-form [data-testid="form-footer-actions"] .primary').click()
         await expect(page.locator('.k-modal-dialog.modal-dialog')).toBeVisible()
         await page.locator('.k-prompt-action-buttons .primary').click()
       }
@@ -94,7 +94,7 @@ test.describe('consumer plugins', () => {
     await page.locator('#config-second').fill('30')
     await withNavigation(
       page,
-      async () => await page.locator('.entity-form .primary').click()
+      async () => await page.locator('.entity-form [data-testid="form-footer-actions"] .primary').click()
     )
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
 
@@ -108,7 +108,7 @@ test.describe('consumer plugins', () => {
     await expect(page.locator('.k-select-item')).toContainText(mockConsumerName)
     await page.click('.k-select-item')
     await page.click(consumerListPage.$.submitButton)
-    await withNavigation(page, async () => await page.click('.k-modal .k-button.primary'))
+    await withNavigation(page, async () => await page.click('.k-modal .k-modal-footer .k-button.primary'))
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Consumer')
   })
 
@@ -123,7 +123,7 @@ test.describe('consumer plugins', () => {
     await page.waitForSelector('.entity-form')
     await page.click('.selection-group .Global-check')
     await page.click(consumerListPage.$.submitButton)
-    await withNavigation(page, async () => await page.click('.k-modal .k-button.primary'))
+    await withNavigation(page, async () => await page.click('.k-modal .k-modal-footer .k-button.primary'))
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
   })
 })

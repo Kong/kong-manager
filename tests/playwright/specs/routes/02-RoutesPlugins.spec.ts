@@ -71,7 +71,7 @@ test.describe('routes plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.plugin-form .primary').click()
+      async () => await page.locator('.plugin-form [data-testid="form-footer-actions"] .primary').click()
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
@@ -144,7 +144,7 @@ test.describe('routes plugins', () => {
     await expect(page.locator('.k-select-item')).toContainText(mockRouteName)
     await page.click('.k-select-item')
     await page.click(routeListPage.$.submitButton)
-    await withNavigation(page, () => page.click('.k-modal .k-button.primary'))
+    await withNavigation(page, () => page.click('.k-modal .k-modal-footer .k-button.primary'))
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Route')
   })
 
@@ -156,7 +156,7 @@ test.describe('routes plugins', () => {
     await page.waitForSelector('.entity-form')
     await page.click('.selection-group .Global-check')
     await page.click(routeListPage.$.submitButton)
-    await withNavigation(page, () => page.click('.k-modal .k-button.primary'))
+    await withNavigation(page, () => page.click('.k-modal .k-modal-footer .k-button.primary'))
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
   })
 })
