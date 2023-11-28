@@ -1,18 +1,21 @@
 import { computed } from 'vue'
-import { useRoute, useRouter, type RouteLocationRaw, type MatcherLocationAsPath } from 'vue-router'
+import { useRouter } from 'vue-router'
+import type { RouteLocationRaw } from 'vue-router'
+
+import { useURLFromRouteQuery } from './useRedirect'
 
 export const useFormRedirectOnCancel = (fallback: RouteLocationRaw) => {
-  const route = useRoute()
   const router = useRouter()
-  const redirectPath = computed(() => route.query.redirect)
+  const redirectRouteLocation = useURLFromRouteQuery('redirect')
+
   const routeOnCancel = computed(() => {
-    if (redirectPath.value) {
-      return { path: redirectPath.value } as MatcherLocationAsPath
+    if (redirectRouteLocation.value) {
+      return redirectRouteLocation.value
     }
 
     const previousPath = router.options?.history?.state?.back
-    if (previousPath) {
-      return { path: previousPath } as MatcherLocationAsPath
+    if (typeof previousPath === 'string') {
+      return router.resolve(previousPath)
     }
 
     return fallback
@@ -22,13 +25,14 @@ export const useFormRedirectOnCancel = (fallback: RouteLocationRaw) => {
 }
 
 export const useFormRedirectOnUpdate = (fallback: RouteLocationRaw) => {
-  const route = useRoute()
-  const redirectPath = computed(() => route.query.redirect)
+  const redirectRouteLocation = useURLFromRouteQuery('redirect')
 
   const routeOnUpdate = computed(() => {
-    const link = redirectPath.value || route.query.returnLink || route.query.redirect
+    if (redirectRouteLocation.value) {
+      return redirectRouteLocation.value
+    }
 
-    return link ? ({ path: link } as MatcherLocationAsPath) : fallback
+    return fallback
   })
 
   return routeOnUpdate.value

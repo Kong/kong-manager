@@ -342,7 +342,7 @@ export default {
       if (this.onFormCancel) {
         this.onFormCancel()
       } else if (this.redirectPath) {
-        this.$router.push({ path: this.redirectPath })
+        this.$router.push(this.redirectPath)
       } else if (this.$router.previous) {
         this.$router.push({ ...this.$router.previous })
       } else {

@@ -113,11 +113,6 @@ export default {
       type: String,
       default: null,
     },
-
-    returnLinkPath: {
-      type: String,
-      default: null,
-    },
     useKonnectSchema: {
       type: Boolean,
       default: false,
@@ -298,10 +293,6 @@ export default {
         return this.redirectPath
       }
 
-      if (this.returnLinkPath) {
-        return this.returnLinkPath
-      }
-
       const entityId = this.resourceEndpoint.match(new RegExp(uuidRegEx))
 
       if (entityId && this.$route.query.entity_id) {
@@ -309,7 +300,7 @@ export default {
         return `/${this.resourceEndpoint.split('/')[0]}/${entityId}`
       }
 
-      return this.$route.query.returnLink
+      return null
     },
 
     docsLink () {
@@ -440,9 +431,7 @@ export default {
   methods: {
     onCancel () {
       if (this.redirectPath) {
-        this.$router.push({ path: this.redirectPath })
-      } else if (this.returnLinkPath) {
-        this.$router.push({ path: this.returnLinkPath })
+        this.$router.push(this.redirectPath)
       } else if (this.$router.previous) {
         this.$router.push({ ...this.$router.previous })
       } else {
@@ -489,7 +478,7 @@ export default {
           }
 
           this.returnLink
-            ? this.$router.push({ path: this.returnLink })
+            ? this.$router.push(this.returnLink)
             : redirectOnResponseStatus(this.$router, 201, { name: 'plugin-list' })(res)
 
           return res.data
@@ -536,7 +525,7 @@ export default {
           }
 
           this.returnLink
-            ? this.$router.push({ path: this.returnLink })
+            ? this.$router.push(this.returnLink)
             : redirectOnResponseStatus(this.$router, 200, { name: 'plugin-detail', params: { id: this.id } })(res)
 
           return res.data
