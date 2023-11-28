@@ -89,7 +89,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.plugin-form .primary').click()
+      async () => await page.locator('.plugin-form [data-testid="form-footer-actions"] .primary').click()
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
@@ -199,7 +199,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.plugin-form .primary').click()
+      async () => await page.locator('.plugin-form [data-testid="form-footer-actions"] .primary').click()
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
@@ -228,7 +228,7 @@ test.describe('plugins', () => {
     await expect(page.locator('.autosuggest #consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
     await withNavigation(
       page,
-      async () => await page.locator('.plugin-form .primary').click()
+      async () => await page.locator('.plugin-form [data-testid="form-footer-actions"] .primary').click()
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Datadog')
@@ -307,7 +307,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.plugin-form .primary').click()
+      async () => await page.locator('.plugin-form [data-testid="form-footer-actions"] .primary').click()
     )
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
 

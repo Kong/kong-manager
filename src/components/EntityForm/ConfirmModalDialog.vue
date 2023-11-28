@@ -27,7 +27,7 @@
       </template>
       <template #action-buttons>
         <KButton
-          appearance="outline"
+          appearance="secondary"
           @click="cancel"
         >
           {{ dismissText }}
@@ -39,13 +39,7 @@
           class="actionButton"
           @click="ok"
         >
-          <template #icon>
-            <KIcon
-              v-if="isLoading"
-              icon="spinner"
-              size="16"
-            />
-          </template>
+          <ProgressIcon v-if="isLoading" />
           {{ proceedText }}
         </KButton>
       </template>
@@ -54,10 +48,12 @@
 </template>
 
 <script>
+import { ProgressIcon } from '@kong/icons'
 import { capitalize } from './helpers'
 
 export default {
   name: 'ConfirmDialog',
+  components: { ProgressIcon },
   inheritAttrs: false,
   props: {
     action: {

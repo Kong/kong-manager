@@ -56,19 +56,15 @@
         data-testid="form-footer-action-submit"
         @click="confirm"
       >
-        <template #icon>
-          <KIcon
-            v-if="pending && !isModalOpen"
-            icon="spinner"
-            size="16"
-          />
-        </template>
+        <ProgressIcon
+          v-if="pending && !isModalOpen"
+        />
         {{ isModalOpen ? buttonText : confirmButtonText }}
       </KButton>
 
       <KButton
         data-testid="form-footer-action-cancel"
-        appearance="outline"
+        appearance="secondary"
         @click="cancel"
       >
         Cancel
@@ -93,6 +89,7 @@
 </template>
 
 <script>
+import { ProgressIcon } from '@kong/icons'
 import { customFields, getSharedFormName, sharedForms } from '@kong-ui-public/forms'
 import ConfirmModalDialog from './ConfirmModalDialog.vue'
 import EntityMixin from './mixins/EntityMixin'
@@ -105,7 +102,7 @@ const toaster = useToaster()
 export default {
   name: 'EntityForm',
 
-  components: { ConfirmModalDialog, ...sharedForms },
+  components: { ProgressIcon, ConfirmModalDialog, ...sharedForms },
 
   mixins: [EntityMixin, RedirectMixin],
 

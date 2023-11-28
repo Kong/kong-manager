@@ -42,18 +42,14 @@
         class="button-confirm"
         @click="confirm"
       >
-        <template #icon>
-          <KIcon
-            v-if="isModalOpen ? false : currentState === 'submitting'"
-            icon="spinner"
-            size="16"
-          />
-        </template>
+        <ProgressIcon
+          v-if="isModalOpen ? false : currentState === 'submitting'"
+        />
         {{ isModalOpen ? buttonText : confirmButtonText }}
       </KButton>
 
       <KButton
-        appearance="outline"
+        appearance="secondary"
         data-testid="form-footer-action-cancel"
         @click="cancel"
       >
@@ -79,6 +75,7 @@
 </template>
 
 <script>
+import { ProgressIcon } from '@kong/icons'
 import ConfirmModalDialog from './ConfirmModalDialog.vue'
 import EntityMixin from './mixins/EntityMixin'
 import RedirectMixin from './mixins/RedirectMixin'
@@ -96,7 +93,7 @@ import { customFields } from '@kong-ui-public/forms'
 export default {
   name: 'NativeEntityForm',
 
-  components: { ConfirmModalDialog },
+  components: { ProgressIcon, ConfirmModalDialog },
 
   mixins: [EntityMixin, RedirectMixin],
 

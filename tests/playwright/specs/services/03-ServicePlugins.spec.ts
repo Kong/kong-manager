@@ -132,7 +132,7 @@ test.describe('service plugins', () => {
     await expect(page.locator('.k-select-item')).toContainText('test_service')
     await page.click('.k-select-item')
     await page.click(serviceListPage.$.submitButton)
-    await withNavigation(page, () => page.click('.k-modal .k-button.primary'))
+    await withNavigation(page, () => page.click('.k-modal .k-modal-footer .k-button.primary'))
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Service')
   })
 
@@ -142,7 +142,7 @@ test.describe('service plugins', () => {
     await page.waitForSelector('.entity-form')
     await page.click('.selection-group .Global-check')
     await page.click(serviceListPage.$.submitButton)
-    await withNavigation(page, () => page.click('.k-modal .k-button.primary'))
+    await withNavigation(page, () => page.click('.k-modal .k-modal-footer .k-button.primary'))
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
   })
 })
