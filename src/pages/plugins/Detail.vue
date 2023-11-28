@@ -52,9 +52,15 @@ const entityType = computed(() => {
     return undefined
   }
 
-  return `${(route.query?.entity_type as string).split('_')[0]}s`
+  return `${(route.query.entity_type as string).split('_')[0]}s`
 })
-const entityId = computed(() => route.query?.entity_id)
+const entityId = computed(() => {
+  if (!route.query?.entity_id) {
+    return undefined
+  }
+
+  return route.query.entity_id as string
+})
 
 const pluginDetailConfig = reactive({
   ...useDetailGeneralConfig(),

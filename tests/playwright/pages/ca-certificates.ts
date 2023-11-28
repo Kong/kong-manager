@@ -3,7 +3,7 @@ import { POM } from '.'
 
 export class CACertificateListPage extends POM {
   public $ = {
-    ...super.$,
+    ...POM.$,
   }
 
   constructor (page: Page) {

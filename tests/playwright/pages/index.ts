@@ -2,16 +2,14 @@ import type { Page } from '@playwright/test'
 
 // Page Object Model
 export class POM {
-  public $
+  public static $ = {
+    success: '.k-alert.success',
+    submitButton: '[data-testid="form-footer-actions"] .k-button.primary',
+  }
 
   constructor (public readonly page: Page, public readonly url: string) { }
 
   async goto () {
     return this.page.goto(this.url)
   }
-}
-
-POM.prototype.$ = {
-  success: '.k-alert.success',
-  submitButton: '[data-testid="form-footer-actions"] .k-button.primary',
 }

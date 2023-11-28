@@ -3,7 +3,7 @@ import { POM } from '.'
 
 export class RouteListPage extends POM {
   public $ = {
-    ...super.$,
+    ...POM.$,
   }
 
   constructor (page: Page) {

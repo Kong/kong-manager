@@ -18,6 +18,6 @@ export const createKongResource = async (endpoint: string, payload: PayloadType)
   try {
     return await axios(options)
   } catch (err) {
-    handleRequestError('createKongResource', err as AxiosError<object>, options)
+    handleRequestError('createKongResource', err as AxiosError<object>)
   }
 }
