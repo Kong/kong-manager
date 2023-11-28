@@ -8,11 +8,10 @@ import { switchDetailTab } from '@pw/commands/switchDetailTab'
 import { waitAndDismissToasts } from '@pw/commands/waitAndDismissToast'
 import { withNavigation } from '@pw/commands/withNavigation'
 import { KeySetListPage } from '@pw/pages/key-sets'
+import { mockJwk } from '@pw/fixtures/jwk'
 
 const mockName = 'ks12'
 const mockJwName = 'jwk-key'
-const mockJwKid = 'jwk'
-const mockJwk = '{"kty":"EC", "crv":"P-256", "x":"f83OJ3D2xF1Bg8vub9tLe1gHMzV76e8Tus9uPHvRVEU", "y":"x_FEzRu9m36HLN_tue659LNpXW6pCyStikYjKIWI5a0", "kid":"jwk" }'
 
 const test = baseTest()
 
@@ -43,9 +42,9 @@ test.describe('key-set keys tab', () => {
       page,
       formData: {
         'key-form-name': mockJwName,
-        'key-form-id': mockJwKid,
+        'key-form-id': mockJwk.kid,
         'key-format-container': 'jwk',
-        'key-form-jwk': mockJwk,
+        'key-form-jwk': mockJwk.jwk,
       },
       method: 'fill',
       withAction: 'submit',

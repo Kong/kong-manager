@@ -1,5 +1,5 @@
 import config from '@pw-config'
-import type { AxiosError, AxiosRequestConfig } from 'axios'
+import type { AxiosError } from 'axios'
 import bmp from 'bmp-js'
 import fs from 'fs'
 import path from 'path'
@@ -19,8 +19,8 @@ export const getMessageFromError = function (error: AxiosError<{ message?: strin
   return error.message || 'There was an error'
 }
 
-export const handleRequestError = (from: string, err: AxiosError<{ message?: string }>, options: AxiosRequestConfig, expose = true) => {
-  console.error(`${from}:\t`, options.method, options.url, getMessageFromError(err))
+export const handleRequestError = (from: string, err: AxiosError<{ message?: string }>, expose = true) => {
+  console.error(`[error] ${from}:`, err.config.method, err.config.url, getMessageFromError(err))
   if (expose) {
     throw err
   }

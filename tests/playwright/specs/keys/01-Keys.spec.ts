@@ -7,13 +7,12 @@ import { fillEntityForm } from '@pw/commands/fillEntityForm'
 import { waitAndDismissToasts } from '@pw/commands/waitAndDismissToast'
 import { withNavigation } from '@pw/commands/withNavigation'
 import pem from '@pw/fixtures/pem'
+import { mockJwk } from '@pw/fixtures/jwk'
 import { KeyListPage } from '@pw/pages/keys'
 
 const mockJwName = 'jwk-key'
-const mockJwKid = 'jwk'
 const mockPemName = 'pem-key'
 const mockPemKid = 'pemkid'
-const mockJwk = '{"kty":"EC", "crv":"P-256", "x":"f83OJ3D2xF1Bg8vub9tLe1gHMzV76e8Tus9uPHvRVEU", "y":"x_FEzRu9m36HLN_tue659LNpXW6pCyStikYjKIWI5a0", "kid":"jwk" }'
 const mockTags = 'ktags'
 const mockKeySetName = 'test-keyset'
 
@@ -44,9 +43,9 @@ test.describe('keys', () => {
       page,
       formData: {
         'key-form-name': mockJwName,
-        'key-form-id': mockJwKid,
+        'key-form-id': mockJwk.kid,
         'key-format-container': 'jwk',
-        'key-form-jwk': mockJwk,
+        'key-form-jwk': mockJwk.jwk,
       },
       method: 'fill',
       withAction: 'cancel',
@@ -62,9 +61,9 @@ test.describe('keys', () => {
       page,
       formData: {
         'key-form-name': mockJwName,
-        'key-form-id': mockJwKid,
+        'key-form-id': mockJwk.kid,
         'key-format-container': 'jwk',
-        'key-form-jwk': mockJwk,
+        'key-form-jwk': mockJwk.jwk,
       },
       method: 'fill',
       withAction: 'submit',
@@ -73,7 +72,7 @@ test.describe('keys', () => {
 
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('.k-table [data-testid="name"]')).toContainText('-')
-    await expect(page.locator('.k-table [data-testid="kid"]')).toContainText(mockJwKid)
+    await expect(page.locator('.k-table [data-testid="kid"]')).toContainText(mockJwk.kid)
     await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText('-')
   })
 
@@ -82,7 +81,7 @@ test.describe('keys', () => {
 
     await expect(page.locator('.page-header .title')).toHaveText(`Key: ${mockJwName}`)
     await expect(page.locator('[data-testid="name-plain-text"]')).toHaveText(mockJwName)
-    await expect(page.locator('[data-testid="kid-plain-text"]')).toHaveText(mockJwKid)
+    await expect(page.locator('[data-testid="kid-plain-text"]')).toHaveText(mockJwk.kid)
     await expect(page.locator('[data-testid="tags-badge-tags"]')).toHaveText('')
   })
 
@@ -241,7 +240,7 @@ test.describe('keys', () => {
         'key-form-name': mockPemName,
         'key-form-id': 'notJwk',
         'key-format-container': 'jwk',
-        'key-form-jwk': mockJwk,
+        'key-form-jwk': mockJwk.jwk,
       },
       method: 'fill',
       withAction: 'submit',

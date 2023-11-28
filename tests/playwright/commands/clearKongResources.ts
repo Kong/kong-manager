@@ -31,13 +31,12 @@ export const clearKongResources = async (endpoint: string, clearOptions: ClearKo
     headers: {},
   }
   const tasks: (() => AxiosPromise)[] = []
-  const deleteResponses: AxiosResponse[] = []
 
   try {
     const items: ItemProps[] = []
     let next = kongUrl + endpoint
 
-    for (;;) {
+    while (true) {
       const res: AxiosResponse<ResponseProps> = await axios({ ...options, url: next })
 
       if (Array.isArray(res.data.data)) {
@@ -74,8 +73,10 @@ export const clearKongResources = async (endpoint: string, clearOptions: ClearKo
     })
   } catch (err) {
     if (ignoreNotFound && axios.isAxiosError(err) && err.response?.status === 404) return
-    handleRequestError('clearKongResources', err as AxiosError<object>, options, throwOnError)
+    handleRequestError('clearKongResources', err as AxiosError<object>, throwOnError)
   }
+
+  let deletedCount = 0
 
   try {
     await Promise.all(
@@ -84,9 +85,8 @@ export const clearKongResources = async (endpoint: string, clearOptions: ClearKo
 
         while ((task = tasks.shift())) {
           try {
-            const resp = await task()
-
-            deleteResponses.push(resp)
+            await task()
+            deletedCount++
           } catch (e) {
             if (ignoreNotFound && axios.isAxiosError(e) && e.response?.status === 404) {
               continue
@@ -97,8 +97,8 @@ export const clearKongResources = async (endpoint: string, clearOptions: ClearKo
         }
       })
     )
-    console.log(`${deleteResponses.length} ${endpoint} have been deleted`)
+    console.log(`${deletedCount} resources on ${endpoint} have been deleted`)
   } catch (err) {
-    handleRequestError('clearKongResources', err as AxiosError<object>, options, throwOnError)
+    handleRequestError('clearKongResources', err as AxiosError<object>, throwOnError)
   }
 }

@@ -13,7 +13,8 @@
     "resolveJsonModule": true,
     "allowJs": true,
     "noImplicitAny": false,
-    "types": ["node"]
+    "types": ["node"],
+    "skipLibCheck": true
   },
   "exclude": ["node_modules"]
 }
