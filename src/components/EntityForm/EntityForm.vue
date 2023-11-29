@@ -351,7 +351,6 @@ export default {
     },
 
     submit () {
-      const entityDisplay = this.entityName.toLowerCase()
       const action = this.isEditing ? 'updated' : 'created'
 
       this.pending = true
@@ -366,7 +365,7 @@ export default {
       }
 
       this.onSubmit(this.getModel())
-        .then(data => this.handleSubmit(entityDisplay, action, data))
+        .then(data => this.handleSubmit(this.entityName, action, data))
         .catch(this.handleError)
     },
 
@@ -469,7 +468,7 @@ export default {
         pickReadableField(this.formModel, this.entity) || 'undefined'
 
       !this.preventNotify && this.notify({
-        message: `${nameDisplay} ${entity} successfully ${action}!`,
+        message: `${entity} "${nameDisplay}" successfully ${action}!`,
         type: 'success',
       })
     },

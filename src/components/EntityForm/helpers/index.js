@@ -55,23 +55,17 @@ export const pickReadableField = (item, typeHint) => {
   switch (typeHint) {
     case 'services':
     case 'routes':
-    case 'plugins':
     case 'upstreams':
     case 'snis':
-    case 'vaults':
     case 'keys':
     case 'key-sets':
-    case 'applications':
       preferred = item.name
+      break
+    case 'plugins':
+      preferred = item.instance_name || item.name
       break
     case 'targets':
       preferred = item.target
-      break
-    case 'developers':
-      preferred = item.email
-      break
-    case 'document_objects':
-      preferred = item.path
       break
     case 'consumers':
       preferred = item.username || item.custom_id
@@ -80,9 +74,11 @@ export const pickReadableField = (item, typeHint) => {
     case 'ca_certificates':
       preferred = item.id
       break
+    case 'vaults':
+      preferred = item.prefix || item.name
+      break
     default:
       preferred = item.name || item.username || item.email || item.group || item.key ||
-        (item.application && pickReadableField(item.application, 'applications')) ||
         item.path || item.target
       break
   }
