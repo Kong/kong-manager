@@ -20,7 +20,18 @@ module.exports = {
   plugins: [
     '@typescript-eslint',
     'vuejs-accessibility',
+    'import',
   ],
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['@', './src'],
+        ],
+        extensions: ['.js', '.ts', '.vue'],
+      },
+    },
+  },
   // add your custom rules here
   rules: {
     // allow paren-less arrow functions
@@ -53,6 +64,7 @@ module.exports = {
     'indent': ['error', 2, { offsetTernaryExpressions: true, SwitchCase: 1 }],
     // disable this rule since it may conflict with 'export default' in vue single file component
     'import/first': 'off',
+    'import/extensions': ['error', 'ignorePackages', { ts: 'never', js: 'never', vue: 'always' }],
     // disable this rule since it may conflict with some unit tests
     'prefer-promise-reject-errors': 'off',
     // trailing comma is beneficial for git diff
@@ -94,6 +106,7 @@ module.exports = {
     'func-call-spacing': 'off',
     '@typescript-eslint/func-call-spacing': 'error',
 
+    // vue
     'vue/no-deprecated-dollar-listeners-api': 'error',
     'vue/no-deprecated-events-api': 'error',
     'vue/no-deprecated-v-on-native-modifier': 'error',
