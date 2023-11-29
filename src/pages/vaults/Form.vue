@@ -62,7 +62,7 @@ const handleUpdate = (entity) => {
     appearance: 'success',
     message: t(
       isEditing.value ? 'entities.vault.updated' : 'entities.vault.created',
-      { name: entity.name ?? entity.id },
+      { name: entity.prefix ?? entity.name ?? entity.id },
     ),
   })
 }
