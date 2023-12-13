@@ -5,54 +5,51 @@
       :key="infoItem.title"
       :title="infoItem.title"
     >
-      <template #body>
-        <ul class="info-list">
-          <li
-            v-for="item in infoItem.items"
-            :key="item.label"
-            class="info-item"
+      <ul class="info-list">
+        <li
+          v-for="item in infoItem.items"
+          :key="item.label"
+          class="info-item"
+        >
+          <label>{{ item.label }}</label>
+          <KBadge
+            max-width="300px"
+            :tooltip="String(item.value)"
+            truncation-tooltip
           >
-            <label>{{ item.label }}</label>
-            <KBadge
-              max-width="300px"
-              :truncation-tooltip="String(item.value)"
-            >
-              {{ item.value }}
-            </KBadge>
-          </li>
-        </ul>
-      </template>
+            {{ item.value }}
+          </KBadge>
+        </li>
+      </ul>
     </KCard>
   </section>
   <KCard
     title="Resources"
     class="resource-card"
   >
-    <template #body>
-      <ul class="resource-list">
-        <li
-          v-for="resource in resources"
-          :key="resource.title"
-          class="resource-item"
+    <ul class="resource-list">
+      <li
+        v-for="resource in resources"
+        :key="resource.title"
+        class="resource-item"
+      >
+        <a
+          class="resource-link"
+          :href="resource.link"
+          rel="noopener"
+          target="_blank"
         >
-          <a
-            class="resource-link"
-            :href="resource.link"
-            rel="noopener"
-            target="_blank"
-          >
-            <component
-              :is="resource.icon"
-              :color="KUI_COLOR_TEXT_PRIMARY_STRONG"
-            />
-            <div class="resource-info">
-              <span class="resource-title">{{ resource.title }}</span>
-              <span class="resource-description">{{ resource.description }}</span>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </template>
+          <component
+            :is="resource.icon"
+            :color="KUI_COLOR_TEXT_PRIMARY_STRONG"
+          />
+          <div class="resource-info">
+            <span class="resource-title">{{ resource.title }}</span>
+            <span class="resource-description">{{ resource.description }}</span>
+          </div>
+        </a>
+      </li>
+    </ul>
   </KCard>
   <KonnectCTA />
 </template>
@@ -238,14 +235,10 @@ $card-spacing: 32px;
 .resource-card {
   padding: 0;
   margin-bottom: $card-spacing;
+  gap: 0;
 
-  :deep(.k-card-header) {
+  :deep(.card-header) {
     padding: $kui-space-80;
-    margin-bottom: 0!important;
-  }
-
-  :deep(.k-card-title) {
-    margin-bottom: 0!important;
   }
 }
 

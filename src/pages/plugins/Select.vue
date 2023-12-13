@@ -245,7 +245,7 @@ export default {
 }
 
 .plugins-shell {
-  :deep(.kong-card) {
+  :deep(.k-card) {
     padding: 0;
     margin: 0;
     text-align: center;
@@ -254,7 +254,7 @@ export default {
     flex: 1 0 0%;
   }
 
-  :deep(.k-card-body) {
+  :deep(.card-body) {
     flex-direction: column;
     display: flex;
     flex: 1;

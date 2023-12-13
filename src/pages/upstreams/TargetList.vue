@@ -190,9 +190,3 @@ const makeUnhealthyAction = async (item: EntityRow) => {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-:deep(.kong-ui-entities-target-form .kong-card) {
-  border: none;
-}
-</style>

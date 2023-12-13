@@ -83,16 +83,16 @@ test.describe('services', () => {
   })
 
   test('status badge in list item should work', async ({ page }) => {
-    const statusBadge = page.locator('.kong-ui-entities-gateway-services-list tr [data-testid="enabled"] .content-wrapper')
+    const statusBadge = page.locator('.kong-ui-entities-gateway-services-list tr [data-testid="enabled"] .content-wrapper .k-input-switch')
 
-    await expect(statusBadge.locator('span')).toHaveText('Enabled')
+    await expect(statusBadge).toHaveText('Enabled')
     await statusBadge.locator('.switch-control').click()
 
     await page
       .locator('.modal-dialog')
       .locator('.k-button.k-prompt-proceed').click()
 
-    await expect(statusBadge.locator('span')).toHaveText('Disabled')
+    await expect(statusBadge).toHaveText('Disabled')
 
     // reset service status to 'enabled'
     await statusBadge.locator('.switch-control').click()
@@ -385,7 +385,7 @@ test.describe('services', () => {
         withAction: 'submit',
       })
     )
-    await expect(page.locator('[data-testid="tags-badge-tags"] .k-badge-text .k-badge-text')).toHaveText(['tag1', 'tag2', 'tag3'])
+    await expect(page.locator('[data-testid="tags-badge-tags"] .badge-content-wrapper')).toHaveText(['tag1', 'tag2', 'tag3'])
 
     // update the tag
     await withNavigation(page, () => clickHeaderAction(page, 'edit'))
@@ -399,7 +399,7 @@ test.describe('services', () => {
         withAction: 'submit',
       })
     )
-    await expect(page.locator('[data-testid="tags-badge-tags"] .k-badge-text .k-badge-text')).toHaveText(['tag11', 'tag12', 'tag13'])
+    await expect(page.locator('[data-testid="tags-badge-tags"] .badge-content-wrapper')).toHaveText(['tag11', 'tag12', 'tag13'])
 
     await deleteKongResource('/services', service.id)
   })

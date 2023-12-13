@@ -2,31 +2,27 @@
   <KCard
     :data-testid="plugin.name"
     :disabled="!plugin.available || plugin.disabledMessage"
-    border-variant="noBorder"
-    has-hover
   >
-    <template #body>
-      <div class="card-content">
-        <h4 class="card-title">
-          {{ plugin.name }}
-        </h4>
-        <PluginIcon
-          :name="plugin.id"
-          :alt="plugin.name"
-          class="card-icon"
-          :size="55"
-        />
-        <p
-          v-if="plugin.description"
-          class="card-text"
-        >
-          {{ plugin.description }}
-        </p>
-      </div>
-      <div class="card-footer">
-        Enable
-      </div>
-    </template>
+    <div class="card-content">
+      <h4 class="card-title">
+        {{ plugin.name }}
+      </h4>
+      <PluginIcon
+        :name="plugin.id"
+        :alt="plugin.name"
+        class="card-icon"
+        :size="55"
+      />
+      <p
+        v-if="plugin.description"
+        class="card-text"
+      >
+        {{ plugin.description }}
+      </p>
+    </div>
+    <div class="card-footer">
+      Enable
+    </div>
   </KCard>
 </template>
 
@@ -85,9 +81,6 @@ export default {
     font-size: $kui-font-size-30;
     border: 1px solid $kui-color-border-primary-weak;
     background-color: $kui-color-background-primary-weakest
-  }
-  .k-card-content {
-    flex: 1;
   }
 }
 

@@ -5,5 +5,5 @@ export const clickConfigurationCopy = async (pageOrLocator: Page | Locator, enti
   const configCardLocator = pageOrLocator.locator(`.kong-ui-${entity}-entity-config-card`)
 
   await selectOption(configCardLocator.locator('.config-card-actions'), 'json')
-  await configCardLocator.getByTestId('k-code-block-copy-button').click()
+  await configCardLocator.locator('#config-card-codeblock [data-testid="k-code-block-copy-button"]').click()
 }

@@ -66,7 +66,7 @@ test.describe('upstreams', () => {
 
     await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).not.toBeVisible()
     await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).not.toBeVisible()
-    await page.locator('.active-health-switch').click()
+    await page.locator('.active-health-switch .switch-control-wrapper').click()
     await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).toBeVisible()
     await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).not.toBeVisible()
 
@@ -92,8 +92,8 @@ test.describe('upstreams', () => {
 
     await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).toBeVisible()
     await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).not.toBeVisible()
-    await page.locator('.active-health-switch').click()
-    await page.locator('.passive-health-switch').click()
+    await page.locator('.active-health-switch .switch-control-wrapper').click()
+    await page.locator('.passive-health-switch .switch-control-wrapper').click()
     await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).not.toBeVisible()
     await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).toBeVisible()
 
@@ -119,7 +119,7 @@ test.describe('upstreams', () => {
 
     await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).not.toBeVisible()
     await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).toBeVisible()
-    await page.locator('.active-health-switch').click()
+    await page.locator('.active-health-switch .switch-control-wrapper').click()
     await expect(page.locator('.kong-ui-entities-upstreams-active-healthcheck')).toBeVisible()
     await expect(page.locator('.kong-ui-entities-upstreams-passive-healthcheck')).toBeVisible()
 
