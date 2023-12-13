@@ -385,7 +385,7 @@ test.describe('services', () => {
         withAction: 'submit',
       })
     )
-    await expect(page.locator('[data-testid="tags-badge-tags"] .k-badge-text .k-badge-text')).toHaveText(['tag1', 'tag2', 'tag3'])
+    await expect(page.locator('[data-testid="tags-badge-tags"] .badge-content-wrapper')).toHaveText(['tag1', 'tag2', 'tag3'])
 
     // update the tag
     await withNavigation(page, () => clickHeaderAction(page, 'edit'))
@@ -399,7 +399,7 @@ test.describe('services', () => {
         withAction: 'submit',
       })
     )
-    await expect(page.locator('[data-testid="tags-badge-tags"] .k-badge-text .k-badge-text')).toHaveText(['tag11', 'tag12', 'tag13'])
+    await expect(page.locator('[data-testid="tags-badge-tags"] .badge-content-wrapper')).toHaveText(['tag11', 'tag12', 'tag13'])
 
     await deleteKongResource('/services', service.id)
   })
