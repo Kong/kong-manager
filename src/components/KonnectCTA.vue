@@ -1,66 +1,64 @@
 <template>
   <KCard>
-    <template #body>
-      <div class="konnect-container">
-        <div class="konnect-content">
-          <p class="konnect-title">
-            <img
-              class="konnect-kong"
-              src="@/assets/kong-text-black.svg?external"
-              alt="Kong"
-            >
-            <span class="konnect-gradient">
-              {{ t('konnect-cta.name') }}
-            </span>
-          </p>
-          <p class="konnect-description">
-            {{ t('konnect-cta.description') }}
-          </p>
-          <ul class="konnect-list">
-            <li
-              v-for="item in listItems"
-              :key="item.text"
-              class="konnect-item"
-            >
-              <img
-                :src="getIconPath(item.icon)"
-                alt=""
-                class="konnect-icon"
-              >
-              <span class="konnect-item-description">
-                {{ item.text }}
-              </span>
-            </li>
-          </ul>
-          <div class="konnect-footer">
-            <KButton
-              appearance="primary"
-              :to="link"
-              rel="noopener"
-              target="_blank"
-            >
-              {{ t('konnect-cta.get.started') }}
-            </KButton>
-            <span class="konnect-footer-description">
-              {{ t('konnect-cta.footer.description') }}
-            </span>
-          </div>
-        </div>
-        <a
-          :href="link"
-          rel="noopener"
-          target="_blank"
-          class="konnect-preview"
-        >
+    <div class="konnect-container">
+      <div class="konnect-content">
+        <p class="konnect-title">
           <img
-            class="konnect-preview-screenshot"
-            src="@/assets/konnect-preview.png?external"
-            alt="konnect-preview"
+            class="konnect-kong"
+            src="@/assets/kong-text-black.svg?external"
+            alt="Kong"
           >
-          <span class="konnect-preview-start">{{ t('konnect-cta.get.started') }}</span>
-        </a>
+          <span class="konnect-gradient">
+            {{ t('konnect-cta.name') }}
+          </span>
+        </p>
+        <p class="konnect-description">
+          {{ t('konnect-cta.description') }}
+        </p>
+        <ul class="konnect-list">
+          <li
+            v-for="item in listItems"
+            :key="item.text"
+            class="konnect-item"
+          >
+            <img
+              :src="getIconPath(item.icon)"
+              alt=""
+              class="konnect-icon"
+            >
+            <span class="konnect-item-description">
+              {{ item.text }}
+            </span>
+          </li>
+        </ul>
+        <div class="konnect-footer">
+          <KButton
+            appearance="primary"
+            :to="link"
+            rel="noopener"
+            target="_blank"
+          >
+            {{ t('konnect-cta.get.started') }}
+          </KButton>
+          <span class="konnect-footer-description">
+            {{ t('konnect-cta.footer.description') }}
+          </span>
+        </div>
       </div>
-    </template>
+      <a
+        :href="link"
+        rel="noopener"
+        target="_blank"
+        class="konnect-preview"
+      >
+        <img
+          class="konnect-preview-screenshot"
+          src="@/assets/konnect-preview.png?external"
+          alt="konnect-preview"
+        >
+        <span class="konnect-preview-start">{{ t('konnect-cta.get.started') }}</span>
+      </a>
+    </div>
   </KCard>
 </template>
 

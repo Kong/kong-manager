@@ -69,8 +69,8 @@ test.describe('service plugins', () => {
 
   test('status label in list item should work', async ({ page }) => {
     const row = page.locator('.kong-ui-entities-plugins-list tr[data-testid="basic-auth"]')
-    const statusLabel = row.locator('.k-switch .toggle-label')
-    const statusSwitch = row.locator('.k-switch .switch-control')
+    const statusLabel = row.locator('.k-input-switch .toggle-label')
+    const statusSwitch = row.locator('.k-input-switch .switch-control')
 
     await expect(statusLabel).toHaveText('Enabled')
     await statusSwitch.click()

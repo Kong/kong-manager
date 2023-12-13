@@ -492,7 +492,7 @@ test.describe('upstreams', () => {
     await update_upstream(
       page, upstreamListPage,
       async () => {
-        await page.locator('.active-health-switch').click({ timeout: 10000 })
+        await page.locator('.active-health-switch .switch-control-wrapper').click({ timeout: 10000 })
       },
       {},
       async () => {
@@ -509,7 +509,7 @@ test.describe('upstreams', () => {
     await update_upstream(
       page, upstreamListPage,
       async () => {
-        await page.locator('.passive-health-switch').click({ timeout: 10000 })
+        await page.locator('.passive-health-switch .switch-control-wrapper').click({ timeout: 10000 })
       },
       {},
       async () => {
@@ -526,7 +526,7 @@ test.describe('upstreams', () => {
     await update_upstream(
       page, upstreamListPage,
       async () => {
-        await page.locator('.active-health-switch').click({ timeout: 10000 })
+        await page.locator('.active-health-switch .switch-control-wrapper').click({ timeout: 10000 })
       },
       {},
       async () => {
@@ -543,7 +543,7 @@ test.describe('upstreams', () => {
     await update_upstream(
       page, upstreamListPage,
       async () => {
-        await page.locator('.passive-health-switch').click({ timeout: 10000 })
+        await page.locator('.passive-health-switch .switch-control-wrapper').click({ timeout: 10000 })
       },
       {},
       async () => {
@@ -573,8 +573,8 @@ test.describe('upstreams', () => {
       page, upstreamListPage,
       async () => {
         await selectOption(page.locator('.k-select.name-select'), service_host2.id)
-        await page.locator('.active-health-switch').click({ timeout: 10000 })
-        await page.locator('.passive-health-switch').click({ timeout: 10000 })
+        await page.locator('.active-health-switch .switch-control-wrapper').click({ timeout: 10000 })
+        await page.locator('.passive-health-switch .switch-control-wrapper').click({ timeout: 10000 })
       },
       {},
       async () => {
@@ -640,8 +640,8 @@ test.describe('upstreams', () => {
         page, upstreamListPage,
         async () => {
           await selectOption(page.locator('.k-select.name-select'), service_host2.id)
-          await page.locator('.active-health-switch').click({ timeout: 10000 })
-          await page.locator('.passive-health-switch').click({ timeout: 10000 })
+          await page.locator('.active-health-switch .switch-control-wrapper').click({ timeout: 10000 })
+          await page.locator('.passive-health-switch .switch-control-wrapper').click({ timeout: 10000 })
           await selectOption(page.locator('.k-select.active-healthcheck-type-select'), check_type.protocol)
 
           if (check_type.ssl) {
@@ -678,8 +678,8 @@ test.describe('upstreams', () => {
       page, upstreamListPage,
       async () => {
         await selectOption(page.locator('.k-select.name-select'), service_host2.id)
-        await page.locator('.active-health-switch').click({ timeout: 10000 })
-        await page.locator('.passive-health-switch').click({ timeout: 10000 })
+        await page.locator('.active-health-switch .switch-control-wrapper').click({ timeout: 10000 })
+        await page.locator('.passive-health-switch .switch-control-wrapper').click({ timeout: 10000 })
         await selectOption(page.locator('.k-select.active-healthcheck-type-select'), 'tcp')
         await selectOption(page.locator('.k-select.passive-healthcheck-type-select'), 'tcp')
         await expect(page.getByTestId('active-healthcheck-http-path')).toHaveCount(0)
