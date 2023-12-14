@@ -109,7 +109,7 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
 :deep(.kong-ui-app-layout-content-inner) {
   position: relative;
   min-height: 100%;
-  padding-bottom: 80px!important;
+  padding: 32px 40px 80px !important;
 }
 
 // TODO: remove this when we upgrade to Kongponents v9

@@ -225,7 +225,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     name: 'plugin-select',
     path: '/plugins/select',
-    component: () => import('@/pages/plugins/SelectNew.vue'),
+    component: () => import('@/pages/plugins/Select.vue'),
     meta: {
       entity: 'plugin',
       title: 'Select Plugin',
