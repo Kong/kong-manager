@@ -43,7 +43,7 @@ const config = reactive({
   getCreateRoute: (plugin: string) => ({
     name: 'plugin-create',
     params: {
-      plugin,
+      pluginType: plugin,
     },
     query: route.query,
   }),

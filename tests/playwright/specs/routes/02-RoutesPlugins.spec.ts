@@ -63,7 +63,7 @@ test.describe('routes plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.click('a.plugin-card[title="Basic Authentication"]')
+      async () => await page.getByTestId('basic-auth-card').click()
     )
 
     await expect(page.locator('.autosuggest #route-id')).toBeVisible()

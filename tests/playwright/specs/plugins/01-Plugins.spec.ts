@@ -4,6 +4,7 @@ import { autocompleteDeleteModal } from '@pw/commands/autocompleteDeleteModal'
 import { clearKongResources } from '@pw/commands/clearKongResources'
 import { clickEntityListAction } from '@pw/commands/clickEntityListAction'
 import { createKongResource } from '@pw/commands/createKongResource'
+import { expandPlugins } from '@pw/commands/expandPlugins'
 import { fillEntityForm } from '@pw/commands/fillEntityForm'
 import { switchDetailTab } from '@pw/commands/switchDetailTab'
 import { waitAndDismissToasts } from '@pw/commands/waitAndDismissToast'
@@ -76,9 +77,10 @@ test.describe('plugins', () => {
       async () => await page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
     )
 
+    await expandPlugins(page)
     await withNavigation(
       page,
-      async () => await page.click('a.plugin-card[title="Basic Authentication"]')
+      async () => await page.getByTestId('basic-auth-card').click()
     )
 
     await expect(page.locator('.autosuggest #service-id')).toBeVisible()
@@ -105,7 +107,7 @@ test.describe('plugins', () => {
       async () => await page.click('.kong-ui-entities-plugins-list [data-testid="toolbar-add-plugin"]')
     )
 
-    const pluginIcon = page.locator('.plugin-card [data-testid="Basic Authentication"] img.card-icon')
+    const pluginIcon = page.locator('.plugin-card-content [data-testid="Basic Authentication"] img.plugin-card-icon')
 
     await expect(pluginIcon).toBeVisible()
 
@@ -191,7 +193,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.click('a.plugin-card[title="Basic Authentication"]')
+      async () => await page.getByTestId('basic-auth-card').click()
     )
 
     await expect(page.locator('.autosuggest #route-id')).toBeVisible()
@@ -222,7 +224,7 @@ test.describe('plugins', () => {
     )
     await withNavigation(
       page,
-      async () => await page.locator('a.plugin-card[title="Datadog"]').click()
+      async () => await page.getByTestId('datadog-card').click()
     )
     await expect(page.locator('.autosuggest #consumer-id')).toBeVisible()
     await expect(page.locator('.autosuggest #consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
@@ -297,7 +299,7 @@ test.describe('plugins', () => {
     )
     await withNavigation(
       page,
-      async () => await page.click('a.plugin-card[title="Basic Authentication"]')
+      async () => await page.getByTestId('basic-auth-card').click()
     )
 
     await page.click('.plugin-protocols-select .k-multiselect-trigger')
@@ -399,19 +401,19 @@ test.describe('plugins', () => {
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="toolbar-add-plugin"]').click())
     await expect(filterInput).toBeVisible()
     await filterInput.fill('traf')
-    await expect(page.locator('.plugins-shell h5')).toHaveCount(1)
-    await expect(page.locator('.plugins-shell h5')).toContainText('Traffic Control')
+    await expect(page.getByTestId('k-collapse-title')).toHaveCount(1)
+    await expect(page.getByTestId('k-collapse-title')).toContainText('Traffic Control')
 
     await filterInput.fill('bas')
-    await expect(page.locator('.plugins-shell h5')).toHaveCount(1)
-    await expect(page.locator('.plugins-shell h5')).toContainText('Authentication')
-    await expect(page.locator('.plugin-card')).toHaveCount(1)
-    await expect(page.locator('.plugin-card h4')).toContainText('Basic Authentication')
+    await expect(page.getByTestId('k-collapse-title')).toHaveCount(1)
+    await expect(page.getByTestId('k-collapse-title')).toContainText('Authentication')
+    await expect(page.locator('.plugin-card-content')).toHaveCount(1)
+    await expect(page.locator('.plugin-card-content .card-title')).toContainText('Basic Authentication')
 
     await filterInput.fill('sad')
-    await expect(page.locator('[data-testid="no-results"]')).toBeVisible()
-    await expect(page.locator('.plugins-shell h5')).not.toBeVisible()
-    await expect(page.locator('.plugins-shell > section h4')).toContainText('No results found')
+    await expect(page.getByTestId('plugins-empty-state')).toBeVisible()
+    await expect(page.getByTestId('k-collapse-title')).not.toBeVisible()
+    await expect(page.locator('[data-testid="plugins-empty-state"] .k-empty-state-message')).toContainText('No results found')
   })
 
   test('for plugin "key-auth", the default array field should have value', async ({ page, pluginListPage }) => {
@@ -526,7 +528,7 @@ test.describe('plugins', () => {
 
     await pluginListPage.goto()
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
-    await page.locator('a.plugin-card[title="Basic Authentication"]').click()
+    await page.getByTestId('basic-auth-card').click()
     await page.waitForSelector('.entity-form')
     await expect(page.locator('#service-id')).not.toBeVisible()
 
@@ -573,7 +575,7 @@ test.describe('plugins', () => {
 
     // create a scoped plugin
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
-    await page.locator('a.plugin-card[title="Basic Authentication"]').click()
+    await page.getByTestId('basic-auth-card').click()
     await page.waitForSelector('.entity-form')
     await page.click('.selection-group .Scoped-check')
     await page.click('#service-id')
