@@ -3,6 +3,7 @@ import baseTest from '@pw/base-test'
 import { clearKongResources } from '@pw/commands/clearKongResources'
 import { clickEntityListAction } from '@pw/commands/clickEntityListAction'
 import { createKongResource } from '@pw/commands/createKongResource'
+import { expandPlugins } from '@pw/commands/expandPlugins'
 import { switchDetailTab } from '@pw/commands/switchDetailTab'
 import { withNavigation } from '@pw/commands/withNavigation'
 import { ConsumerListPage } from '@pw/pages/consumers'
@@ -40,9 +41,10 @@ test.describe('consumer plugins', () => {
       page,
       async () => await page.locator('.empty-state-content .primary').click()
     )
+    await expandPlugins(page)
     await withNavigation(
       page,
-      async () => await page.locator('a.plugin-card[title="Datadog"]').click()
+      async () => await page.getByTestId('datadog-card').click()
     )
     await expect(page.locator('.autosuggest #consumer-id')).toBeVisible()
     await expect(page.locator('.autosuggest #consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))

@@ -4,6 +4,7 @@ import { autocompleteDeleteModal } from '@pw/commands/autocompleteDeleteModal'
 import { clearKongResources } from '@pw/commands/clearKongResources'
 import { clickEntityListAction } from '@pw/commands/clickEntityListAction'
 import { createKongResource } from '@pw/commands/createKongResource'
+import { expandPlugins } from '@pw/commands/expandPlugins'
 import { fillEntityForm } from '@pw/commands/fillEntityForm'
 import { switchDetailTab } from '@pw/commands/switchDetailTab'
 import { waitAndDismissToasts } from '@pw/commands/waitAndDismissToast'
@@ -44,7 +45,8 @@ test.describe('service plugins', () => {
     await withNavigation(page, () =>
       page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
     )
-    await page.locator('a[href*="/plugins/hmac-auth"]').click()
+    await expandPlugins(page)
+    await page.getByTestId('hmac-auth-card').click()
     await expect(page.locator('.autosuggest #service-id')).toHaveValue(new RegExp(`${testService?.name}\\s*-\\s*${testService?.id}`))
   })
 
@@ -57,7 +59,7 @@ test.describe('service plugins', () => {
       page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
     )
     await withNavigation(page, () =>
-      page.locator('a[title="Basic Authentication"]').click()
+      page.getByTestId('basic-auth-card').click()
     )
 
     await fillEntityForm({ page })
@@ -117,7 +119,8 @@ test.describe('service plugins', () => {
     // create a global plugin
     await pluginListPage.goto()
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
-    await page.locator('[data-testid="Key Authentication"]').click()
+    await expandPlugins(page)
+    await page.getByTestId('key-auth-card').click()
     await page.waitForSelector('.entity-form')
     await withNavigation(page, async () => await page.click(serviceListPage.$.submitButton))
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
