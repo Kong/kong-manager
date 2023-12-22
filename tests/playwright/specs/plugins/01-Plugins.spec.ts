@@ -107,7 +107,7 @@ test.describe('plugins', () => {
       async () => await page.click('.kong-ui-entities-plugins-list [data-testid="toolbar-add-plugin"]')
     )
 
-    const pluginIcon = page.locator('.plugin-card-content [data-testid="Basic Authentication"] img.plugin-card-icon')
+    const pluginIcon = page.locator('.plugin-select-card [data-testid="Basic Authentication"] img.plugin-card-icon')
 
     await expect(pluginIcon).toBeVisible()
 
@@ -407,8 +407,8 @@ test.describe('plugins', () => {
     await filterInput.fill('bas')
     await expect(page.getByTestId('k-collapse-title')).toHaveCount(1)
     await expect(page.getByTestId('k-collapse-title')).toContainText('Authentication')
-    await expect(page.locator('.plugin-card-content')).toHaveCount(1)
-    await expect(page.locator('.plugin-card-content .card-title')).toContainText('Basic Authentication')
+    await expect(page.locator('.plugin-select-card')).toHaveCount(1)
+    await expect(page.locator('.plugin-select-card .plugin-card-title')).toContainText('Basic Authentication')
 
     await filterInput.fill('sad')
     await expect(page.getByTestId('plugins-empty-state')).toBeVisible()
