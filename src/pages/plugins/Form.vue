@@ -1,5 +1,8 @@
 <template>
-  <PageHeader :title="pageTitle">
+  <PageHeader
+    class="plugin-form-header"
+    :title="pageTitle"
+  >
     <KExternalLink :href="docsLink">
       View documentation
     </KExternalLink>
@@ -114,3 +117,9 @@ const onSave = (plugin) => {
   router.go(-1)
 }
 </script>
+
+<style scoped lang="scss">
+.plugin-form-header {
+  margin-bottom: $kui-space-50;
+}
+</style>

@@ -91,7 +91,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.plugin-form [data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click()
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
@@ -201,7 +201,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.plugin-form [data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click()
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
@@ -230,7 +230,7 @@ test.describe('plugins', () => {
     await expect(page.locator('.autosuggest #consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
     await withNavigation(
       page,
-      async () => await page.locator('.plugin-form [data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click()
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Datadog')
@@ -309,7 +309,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.plugin-form [data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click()
     )
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
 
@@ -375,7 +375,7 @@ test.describe('plugins', () => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     await expect(getPropertyValue(page, 'instance_name')).toContainText('')
     await withNavigation(page, async () => await page.getByTestId('header-edit-button').click())
-    await expect(page.locator('.entity-form #instance_name')).toHaveValue('')
+    await expect(page.locator('#instance_name')).toHaveValue('')
   })
 
   test('supports instance_name param', async ({ page, pluginListPage }) => {
@@ -392,7 +392,7 @@ test.describe('plugins', () => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     await expect(getPropertyValue(page, 'instance_name')).toContainText(mockInstanceName)
     await withNavigation(page, async () => await page.getByTestId('header-edit-button').click())
-    await expect(page.locator('.entity-form #instance_name')).toHaveValue(mockInstanceName)
+    await expect(page.locator('#instance_name')).toHaveValue(mockInstanceName)
   })
 
   test('filter should work in plugin select page', async ({ page }) => {
@@ -422,7 +422,7 @@ test.describe('plugins', () => {
 
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
     await page.locator('[data-testid="Key Authentication"]').click()
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.waitForSelector('[data-testid="config-key_names-item-0"]')
     await expect(page.locator('[data-testid="config-key_names-item-0"] input')).toHaveValue('apikey')
   })
@@ -453,7 +453,7 @@ test.describe('plugins', () => {
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
     await page.locator('[data-testid="IP Restriction"]').click()
 
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await expect(page.locator('#service-id')).not.toBeVisible()
     await expect(page.locator('#route-id')).not.toBeVisible()
     await expect(page.locator('#consumer-id')).not.toBeVisible()
@@ -496,7 +496,7 @@ test.describe('plugins', () => {
     )
 
     await clickEntityListAction(page, 'edit')
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
 
     await expect(page.locator('#service-id')).toBeVisible()
     await expect(page.locator('#route-id')).toBeVisible()
@@ -529,7 +529,7 @@ test.describe('plugins', () => {
     await pluginListPage.goto()
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
     await page.getByTestId('basic-auth-card').click()
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await expect(page.locator('#service-id')).not.toBeVisible()
 
     // click scoped & select a service
@@ -556,7 +556,7 @@ test.describe('plugins', () => {
     // verify the created plugin is global
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
     await clickEntityListAction(page, 'edit')
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await expect(page.locator('#service-id')).not.toBeVisible()
     await page.click('.selection-group .Scoped-check')
     await expect(page.locator('#service-id')).toHaveValue('')
@@ -576,7 +576,7 @@ test.describe('plugins', () => {
     // create a scoped plugin
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
     await page.getByTestId('basic-auth-card').click()
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Scoped-check')
     await page.click('#service-id')
     await page.fill('#service-id', 'test_service')

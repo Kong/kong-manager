@@ -1,5 +1,8 @@
 <template>
-  <PageHeader :title="title" />
+  <PageHeader
+    class="credential-form-header"
+    :title="title"
+  />
   <PluginForm
     :config="config"
     :plugin-type="credentialType"
@@ -71,3 +74,9 @@ const onSave = () => {
   }
 }
 </script>
+
+<style scoped lang="scss">
+.credential-form-header {
+  margin-bottom: $kui-space-50;
+}
+</style>

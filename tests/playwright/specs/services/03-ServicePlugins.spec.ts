@@ -86,7 +86,7 @@ test.describe('service plugins', () => {
 
   test("edit action should bring the user to the plugin's edit page", async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
-    await page.waitForSelector('.plugin-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
   })
 
   test('cancel button on the edit page should bring the user back to the plugin tab', async ({ page }) => {
@@ -121,13 +121,13 @@ test.describe('service plugins', () => {
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
     await expandPlugins(page)
     await page.getByTestId('key-auth-card').click()
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await withNavigation(page, async () => await page.click(serviceListPage.$.submitButton))
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
 
     // Update plugin and scope it to service
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Scoped-check')
     await page.click('#service-id')
     await page.fill('#service-id', 'test_service')
@@ -142,7 +142,7 @@ test.describe('service plugins', () => {
   test('change scope from scoped to global', async ({ page, serviceListPage }) => {
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Service')
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Global-check')
     await page.click(serviceListPage.$.submitButton)
     await withNavigation(page, () => page.click('.k-modal .k-modal-footer .k-button.primary'))

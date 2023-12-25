@@ -71,7 +71,7 @@ test.describe('routes plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.plugin-form [data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click()
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
@@ -130,13 +130,13 @@ test.describe('routes plugins', () => {
     await pluginListPage.goto()
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
     await page.locator('[data-testid="Key Authentication"]').click()
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await withNavigation(page, async () => await page.click(routeListPage.$.submitButton))
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
 
     // Update plugin and scope it to consumer
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Scoped-check')
     await page.click('#route-id')
     await page.fill('#route-id', mockRouteName)
@@ -153,7 +153,7 @@ test.describe('routes plugins', () => {
     await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Route')
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Global-check')
     await page.click(routeListPage.$.submitButton)
     await withNavigation(page, () => page.click('.k-modal .k-modal-footer .k-button.primary'))

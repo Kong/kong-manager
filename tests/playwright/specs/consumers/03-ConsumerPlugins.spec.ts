@@ -50,7 +50,7 @@ test.describe('consumer plugins', () => {
     await expect(page.locator('.autosuggest #consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
     await withNavigation(
       page,
-      async () => await page.locator('.entity-form [data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click()
     )
   })
 
@@ -62,7 +62,7 @@ test.describe('consumer plugins', () => {
     await withNavigation(
       page,
       async () => {
-        await page.locator('.entity-form [data-testid="form-actions"] .primary').click()
+        await page.locator('[data-testid="form-actions"] .primary').click()
         await expect(page.locator('.k-modal-dialog.modal-dialog')).toBeVisible()
         await page.locator('.k-prompt-action-buttons .primary').click()
       }
@@ -73,7 +73,7 @@ test.describe('consumer plugins', () => {
     await page.locator('#tags').fill(`${mockTag}${mockTag}`)
     await withNavigation(
       page,
-      async () => await page.locator('.entity-form [data-testid="form-footer-action-cancel"]').click()
+      async () => await page.locator('[data-testid="form-footer-action-cancel"]').click()
     )
     await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
   })
@@ -92,17 +92,17 @@ test.describe('consumer plugins', () => {
     await pluginListPage.goto()
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
     await page.locator('[data-testid="Rate Limiting"]').click()
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.locator('#config-second').fill('30')
     await withNavigation(
       page,
-      async () => await page.locator('.entity-form [data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click()
     )
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
 
     // Update plugin and scope it to consumer
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Scoped-check')
     await page.click('#consumer-id')
     await page.fill('#consumer-id', mockConsumerName)
@@ -122,7 +122,7 @@ test.describe('consumer plugins', () => {
     await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Consumer')
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
-    await page.waitForSelector('.entity-form')
+    await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Global-check')
     await page.click(consumerListPage.$.submitButton)
     await withNavigation(page, async () => await page.click('.k-modal .k-modal-footer .k-button.primary'))
