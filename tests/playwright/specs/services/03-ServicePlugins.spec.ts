@@ -63,7 +63,7 @@ test.describe('service plugins', () => {
     )
 
     await fillEntityForm({ page })
-    await withNavigation(page, () => page.getByTestId('form-footer-actions').locator('.k-button.primary').click())
+    await withNavigation(page, () => page.getByTestId('form-actions').locator('.k-button.primary').click())
     await waitAndDismissToasts(page)
 
     await page.waitForSelector('.kong-ui-entities-plugins-list')
@@ -92,7 +92,7 @@ test.describe('service plugins', () => {
   test('cancel button on the edit page should bring the user back to the plugin tab', async ({ page }) => {
     await withNavigation(page, () =>
       page
-        .locator('[data-testid="form-footer-actions"]')
+        .locator('[data-testid="form-actions"]')
         .locator('[data-testid="form-footer-action-cancel"]')
         .click()
     )

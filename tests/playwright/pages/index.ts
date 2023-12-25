@@ -4,7 +4,7 @@ import type { Page } from '@playwright/test'
 export class POM {
   public static $ = {
     success: '.k-alert.success',
-    submitButton: '[data-testid="form-footer-actions"] .k-button.primary',
+    submitButton: '[data-testid="form-actions"] .k-button.primary',
   }
 
   constructor (public readonly page: Page, public readonly url: string) { }

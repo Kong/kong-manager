@@ -50,7 +50,7 @@ test.describe('consumer plugins', () => {
     await expect(page.locator('.autosuggest #consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
     await withNavigation(
       page,
-      async () => await page.locator('.entity-form [data-testid="form-footer-actions"] .primary').click()
+      async () => await page.locator('.entity-form [data-testid="form-actions"] .primary').click()
     )
   })
 
@@ -62,7 +62,7 @@ test.describe('consumer plugins', () => {
     await withNavigation(
       page,
       async () => {
-        await page.locator('.entity-form [data-testid="form-footer-actions"] .primary').click()
+        await page.locator('.entity-form [data-testid="form-actions"] .primary').click()
         await expect(page.locator('.k-modal-dialog.modal-dialog')).toBeVisible()
         await page.locator('.k-prompt-action-buttons .primary').click()
       }
@@ -96,7 +96,7 @@ test.describe('consumer plugins', () => {
     await page.locator('#config-second').fill('30')
     await withNavigation(
       page,
-      async () => await page.locator('.entity-form [data-testid="form-footer-actions"] .primary').click()
+      async () => await page.locator('.entity-form [data-testid="form-actions"] .primary').click()
     )
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
 
