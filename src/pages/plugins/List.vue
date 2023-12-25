@@ -55,11 +55,11 @@ const entityType = computed(() => route.meta?.scopedIn as ScopedEntityType)
 const scopedQuery = computed(() => {
   switch (entityType.value) {
     case 'services':
-      return { entity_type: 'service_id', entity_id: route.params?.id }
+      return { serviceId: route.params?.id }
     case 'routes':
-      return { entity_type: 'route_id', entity_id: route.params?.id }
+      return { routeId: route.params?.id }
     case 'consumers':
-      return { entity_type: 'consumer_id', entity_id: route.params?.id }
+      return { consumerId: route.params?.id }
     default:
       return {}
   }

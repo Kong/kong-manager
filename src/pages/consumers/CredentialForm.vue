@@ -1,47 +1,59 @@
 <template>
   <PageHeader :title="title" />
-  <NativeEntityForm
-    :is-editing="isEditing"
-    :show-confirmation-dialog="isEditing"
-    :prevent-submission-before-change="isEditing"
-    :resource-endpoint="resourceEndpoint"
-    :schema="credentialPlugin.schema"
-    :schema-endpoint="credentialPlugin.schemaEndpoint"
-    :button-text="buttonText"
-    :on-load="fetchRecord"
-    :on-submit="onSubmit"
+  <PluginForm
+    :config="config"
+    :plugin-type="credentialType"
+    :plugin-id="credentialId"
+    credential
+    @error:fetch-schema="onFetchSchemaError"
+    @update="onSave"
   />
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import type { AxiosError } from 'axios'
+import { computed, reactive, toRefs } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import NativeEntityForm from '@/components/EntityForm/NativeEntityForm.vue'
+import { PluginForm } from '@kong-ui-public/entities-plugins'
+import { useURLFromRouteQuery } from '@/composables/useRedirect'
+import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useI18n } from '@/composables/useI18n'
 import { useToaster } from '@/composables/useToaster'
-import { apiService } from '@/services/apiService'
-import CredentialPlugins from './CredentialPlugins'
 
 const route = useRoute()
 const router = useRouter()
 const { t } = useI18n()
 const toaster = useToaster()
+const redirectPath = useURLFromRouteQuery('redirect')
 
-const consumerId = computed(() => route.params?.id as string)
-const pluginType = computed(() => route.params?.pluginType as string)
+const scopedEntityId = computed(() => route.params.id as string)
+const credentialType = computed(() => route.params.pluginType as string)
 const credentialId = computed(() => route.params?.credentialId as string)
-const credentialPlugin = computed(() => CredentialPlugins[pluginType.value] ?? {})
+
 const isEditing = computed(() => !!credentialId.value)
-const buttonText = computed(() => isEditing.value ? t('global.buttons.save') : t('global.buttons.create'))
-const resourceEndpoint = computed(() => `consumers/${consumerId.value}${credentialPlugin.value.endpoint ?? ''}`)
 const title = computed(
   () => isEditing.value
-    ? t('entities.consumer-credential.edit.form.title', { type: pluginType.value })
-    : t('entities.consumer-credential.create.form.title', { type: pluginType.value })
+    ? t('entities.consumer-credential.edit.form.title', { type: credentialType.value })
+    : t('entities.consumer-credential.create.form.title', { type: credentialType.value })
 )
 
-const onSuccess = () => {
-  router.push(route.query.redirect as string ?? { name: 'consumer-detail-credentials' })
+const cancelRoute = computed(() => {
+  return redirectPath.value ?? { name: 'consumer-detail-credentials' }
+})
+
+const config = reactive({
+  ...toRefs(useFormGeneralConfig()),
+  cancelRoute,
+  entityId: scopedEntityId,
+})
+
+const onFetchSchemaError = (err: AxiosError) => {
+  if (err.response?.status === 404) {
+    router.replace({ name: 'not-found' })
+  }
+}
+
+const onSave = () => {
   if (isEditing.value) {
     toaster.open({
       appearance: 'success',
@@ -53,27 +65,9 @@ const onSuccess = () => {
       message: t('entities.consumer-credential.created'),
     })
   }
-}
 
-const fetchRecord = () => {
-  if (isEditing.value) {
-    return apiService.findRecord(resourceEndpoint.value, credentialId.value)
+  if (redirectPath.value) {
+    router.push(redirectPath.value ?? { name: 'consumer-detail-credentials' })
   }
-}
-
-const createRecord = async (model) => {
-  return apiService
-    .post(resourceEndpoint.value, model)
-    .then(onSuccess)
-}
-
-const updateRecord = async (model) => {
-  return apiService
-    .patch(`${resourceEndpoint.value}/${credentialId.value}`, model)
-    .then(onSuccess)
-}
-
-const onSubmit = (model) => {
-  return isEditing.value ? updateRecord(model) : createRecord(model)
 }
 </script>

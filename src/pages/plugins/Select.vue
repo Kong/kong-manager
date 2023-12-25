@@ -17,29 +17,31 @@ defineOptions({
 
 const route = useRoute()
 
-const entityType = computed(() => {
-  const entityTypeInRoute = route.query.entity_type ?? ''
-
-  switch (entityTypeInRoute) {
-    case 'service_id':
-      return 'services'
-    case 'route_id':
-      return 'routes'
-    case 'consumer_id':
-      return 'consumers'
-    case 'consumer_group_id':
-      return 'consumer_groups'
-    default:
-      return undefined
+const entityScope = computed(() => {
+  if (route.query.serviceId) {
+    return {
+      id: route.query.serviceId as string,
+      typeLiteral: 'services',
+    } as const
+  } else if (route.query.routeId) {
+    return {
+      id: route.query.routeId as string,
+      typeLiteral: 'routes',
+    } as const
+  } else if (route.query.consumerId) {
+    return {
+      id: route.query.consumerId as string,
+      typeLiteral: 'consumers',
+    } as const
   }
-})
 
-const entityId = computed(() => (route.query.entity_id ?? '') as string)
+  return null
+})
 
 const config = reactive({
   ...toRefs(useBaseGeneralConfig()),
-  entityType,
-  entityId,
+  entityType: computed(() => entityScope.value?.typeLiteral),
+  entityId: computed(() => entityScope.value?.id),
   getCreateRoute: (plugin: string) => ({
     name: 'plugin-create',
     params: {
