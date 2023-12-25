@@ -59,11 +59,12 @@
 </template>
 
 <script setup lang="ts">
-import { onBeforeMount, ref, computed } from 'vue'
+import { onBeforeMount, computed } from 'vue'
 import { config as gatewayConfig } from 'config'
 import KonnectCTA from '@/components/KonnectCTA.vue'
 import { useAxios } from '@/composables/useAxios'
 import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
+import { useInfoStore } from '@/stores/info'
 import { useI18n } from '@/composables/useI18n'
 import { formatVersion } from '@/utils'
 
@@ -74,10 +75,14 @@ defineOptions({
 const { axiosInstance } = useAxios()
 const adminApiUrl = useAdminApiUrl()
 const { t } = useI18n()
+const infoStore = useInfoStore()
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const config = ref<Record<string, any>>({})
-const version = computed(() => gatewayConfig.GATEWAY_VERSION ? `${formatVersion(gatewayConfig.GATEWAY_VERSION)}.x` : 'latest')
+const config = computed(() => ({
+  ...infoStore.infoConfig,
+  kongVersion: infoStore.kongVersion,
+  hostname: infoStore.info.hostname,
+}))
+const version = computed(() => config.value.kongVersion ? `${formatVersion(config.value.kongVersion)}.x` : 'latest')
 const info = computed(() => {
   return [
     {
@@ -89,7 +94,7 @@ const info = computed(() => {
         },
         {
           label: t('overview.info.gateway.version'),
-          value: gatewayConfig.GATEWAY_VERSION,
+          value: config.value.kongVersion,
         },
       ],
     },

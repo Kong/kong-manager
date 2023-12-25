@@ -52,12 +52,8 @@ export const config = {
     return `${window.location.protocol}//${window.location.hostname}:${port}`
   },
 
-  get GATEWAY_VERSION () {
-    return getConfig<string | null>('KONG_VERSION', null)
-  },
-
   get GATEWAY_EDITION () {
-    return getConfig<GatewayEdition | null>('KONG_EDITION', null)
+    return getConfig<GatewayEdition | null>('KONG_EDITION', 'community')
   },
 
   get ANONYMOUS_REPORTS () {
