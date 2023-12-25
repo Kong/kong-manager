@@ -93,7 +93,7 @@ test.describe('service plugins', () => {
     await withNavigation(page, () =>
       page
         .locator('[data-testid="form-actions"]')
-        .locator('[data-testid="form-footer-action-cancel"]')
+        .locator('[data-testid="form-cancel"]')
         .click()
     )
     await page.waitForSelector('.kong-ui-entities-plugins-list')

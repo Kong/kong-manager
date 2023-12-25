@@ -90,7 +90,6 @@ test.describe('routes plugins', () => {
             tags: mockTag,
           },
           withAction: 'submit',
-          handleModal: true,
         }),
     )
     await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)

@@ -268,7 +268,6 @@ test.describe('plugins', () => {
       await fillEntityForm({
         page,
         withAction: 'submit',
-        handleModal: true,
       }))
 
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
@@ -329,7 +328,6 @@ test.describe('plugins', () => {
             tags: mockTag,
           },
           withAction: 'submit',
-          handleModal: true,
         })
     )
 
@@ -594,7 +592,6 @@ test.describe('plugins', () => {
     await withNavigation(page, async () => await fillEntityForm({
       page,
       withAction: 'submit',
-      handleModal: true,
     }))
 
     // it should back to global

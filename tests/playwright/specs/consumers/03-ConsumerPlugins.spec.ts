@@ -61,11 +61,7 @@ test.describe('consumer plugins', () => {
     await page.locator('#tags').fill(mockTag)
     await withNavigation(
       page,
-      async () => {
-        await page.locator('[data-testid="form-actions"] .primary').click()
-        await expect(page.locator('.k-modal-dialog.modal-dialog')).toBeVisible()
-        await page.locator('.k-prompt-action-buttons .primary').click()
-      }
+      () => page.locator('[data-testid="form-actions"] .primary').click(),
     )
     await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
 
@@ -73,7 +69,7 @@ test.describe('consumer plugins', () => {
     await page.locator('#tags').fill(`${mockTag}${mockTag}`)
     await withNavigation(
       page,
-      async () => await page.locator('[data-testid="form-footer-action-cancel"]').click()
+      async () => await page.locator('[data-testid="form-cancel"]').click()
     )
     await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
   })
