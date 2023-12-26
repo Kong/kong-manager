@@ -59,10 +59,6 @@ select.form-control,
   }
 }
 
-.form-group.required > label:after {
-  display: none;
-}
-
 .form-group.optional > label,
 .form-group.semi-optional > label {
   position: relative;
@@ -132,11 +128,6 @@ select.form-control,
 ========================================================================== */
 .form-group input[type="radio"] {
   margin-right: 0.5rem;
-}
-
-.form-group.required input[type="checkbox"],
-.form-group [required="required"] {
-  box-shadow: none;
 }
 
 /*

@@ -14,17 +14,16 @@
       class="button-edit"
       entity="plugin"
       :route-options="{
-        query: {
-          entity_type: route.query?.entity_type,
-          entity_id: route.query?.entity_id,
-        },
+        query: entityScope ? {
+          [entityScope.keyInQuery]: entityScope.id,
+        } : undefined,
       }"
     />
   </PageHeader>
   <PluginConfigCard
     :config="pluginDetailConfig"
-    :scoped-entity-type="entityType"
-    :scoped-entity-id="entityId"
+    :scoped-entity-type="entityScope?.typeLiteral"
+    :scoped-entity-id="entityScope?.id"
     @copy:success="onCopySuccess"
   />
 </template>
@@ -47,19 +46,28 @@ const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
 const pluginType = computed(() => (route.params.pluginType ?? '') as string)
-const entityType = computed(() => {
-  if (!route.query?.entity_type) {
-    return undefined
+const entityScope = computed(() => {
+  if (route.query.serviceId) {
+    return {
+      id: route.query.serviceId as string,
+      typeLiteral: 'services',
+      keyInQuery: 'serviceId',
+    }
+  } else if (route.query.routeId) {
+    return {
+      id: route.query.routeId as string,
+      typeLiteral: 'routes',
+      keyInQuery: 'routeId',
+    }
+  } else if (route.query.consumerId) {
+    return {
+      id: route.query.consumerId as string,
+      typeLiteral: 'consumers',
+      keyInQuery: 'consumerId',
+    }
   }
 
-  return `${(route.query.entity_type as string).split('_')[0]}s`
-})
-const entityId = computed(() => {
-  if (!route.query?.entity_id) {
-    return undefined
-  }
-
-  return route.query.entity_id as string
+  return null
 })
 
 const pluginDetailConfig = reactive({

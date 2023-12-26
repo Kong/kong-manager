@@ -42,7 +42,7 @@ test.describe('consumer credentials', () => {
     await basicAuthLocator.locator('[data-testid="new-basic-auth-credential"]').click()
     await page.locator('#username').fill(mockCredential)
     await page.locator('#password').fill(mockCredentialPassword)
-    await page.locator('[data-testid="form-footer-actions"] .primary').click()
+    await page.locator('[data-testid="form-actions"] .primary').click()
     await expect(basicAuthLocator.locator('table [data-testid="username"]')).toContainText(mockCredential)
   })
 
