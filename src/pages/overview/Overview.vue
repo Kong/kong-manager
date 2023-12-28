@@ -60,7 +60,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { config as gatewayConfig } from 'config'
 import KonnectCTA from '@/components/KonnectCTA.vue'
 import { useI18n } from '@/composables/useI18n'
 import { useInfoStore } from '@/stores/info'
@@ -76,9 +75,11 @@ const infoStore = useInfoStore()
 
 const config = computed(() => ({
   ...infoStore.infoConfig,
+  kongVersion: infoStore.kongVersion,
+  kongEdition: infoStore.kongEdition,
   hostname: infoStore.info.hostname,
 }))
-const version = computed(() => gatewayConfig.GATEWAY_VERSION ? `${formatVersion(gatewayConfig.GATEWAY_VERSION)}.x` : 'latest')
+const version = computed(() => config.value.kongVersion ? `${formatVersion(config.value.kongVersion)}.x` : 'latest')
 const info = computed(() => {
   const guiListeners = config.value.admin_gui_listeners
   const nonSslGuiListener = guiListeners?.find?.(listener => !listener.ssl)
@@ -93,11 +94,11 @@ const info = computed(() => {
       items: [
         {
           label: t('overview.info.gateway.edition'),
-          value: gatewayConfig.GATEWAY_EDITION,
+          value: config.value.kongEdition,
         },
         {
           label: t('overview.info.gateway.version'),
-          value: gatewayConfig.GATEWAY_VERSION,
+          value: config.value.kongVersion,
         },
       ],
     },
