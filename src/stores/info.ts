@@ -13,11 +13,13 @@ export const useInfoStore = defineStore('info', {
 
   getters: {
     kongVersion: state => state.info.version,
+    kongEdition: state => state.info.edition,
     infoConfig: (state) => {
       const config = state.info.configuration || {}
       if (!config?.node) {
         config.node = {}
         config.node.version = state.info.version
+        config.node.edition = state.info.edition
         config.node.tagline = state.info.tagline
         config.node.hostname = state.info.hostname
         config.node.lua_version = state.info.lua_version

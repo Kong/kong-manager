@@ -25,7 +25,6 @@
 <script setup lang="ts">
 import { computed, onBeforeMount, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { config } from 'config'
 import { pluginMeta } from '@/pages/plugins/PluginMeta'
 import { useI18n } from '@/composables/useI18n'
 import { useInfoStore } from '@/stores/info'
@@ -44,7 +43,7 @@ const credentialPlugins = [
   'hmac-auth',
   'jwt',
   'key-auth',
-  ...(config.GATEWAY_EDITION === 'community' ? [] : ['key-auth-enc']),
+  ...(infoStore.kongEdition === 'community' ? [] : ['key-auth-enc']),
   'oauth2',
 ]
   .filter(plugin => !!pluginMeta[plugin])
