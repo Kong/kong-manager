@@ -5,7 +5,7 @@ on:
     branches:
       - release/3.5.x
     tags-ignore:
-      - nightly
+      - nightly-3.5.x
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -81,11 +81,11 @@ jobs:
         run: bash .ci/release-non-nightly.sh
 
       - name: Release nightly
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/release/3.5.x'
         timeout-minutes: 5
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPOSITORY: ${{ github.repository }}
-          RELEASE_TAG_NAME: nightly
+          RELEASE_TAG_NAME: nightly-3.5.x
           RELEASE_TARGET: ${{ github.sha }}
         run: bash .ci/release-nightly.sh
