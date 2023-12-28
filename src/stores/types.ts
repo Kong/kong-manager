@@ -1,3 +1,5 @@
+import type { GatewayEdition } from '@/config'
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type AnyObject = Record<string, any>
 
@@ -9,6 +11,7 @@ export interface Info {
       lua_version?: string
       tagline?: string
       version?: string
+      edition?: GatewayEdition
     }
     role?: 'traditional' | 'control_plane' | 'data_plane'
     admin_listen?: string[]
@@ -20,7 +23,8 @@ export interface Info {
     pg_ssl?: boolean
   } & AnyObject
   license?: AnyObject
-  version?: string
+  version?: string,
+  edition?: GatewayEdition,
   timers?: AnyObject
   plugins?: AnyObject
   hostname?: string

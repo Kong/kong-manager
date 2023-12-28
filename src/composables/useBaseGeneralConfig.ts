@@ -10,7 +10,7 @@ export const useBaseGeneralConfig = () => {
     app: 'kongManager' as const,
     workspace: '',
     gatewayInfo: {
-      edition: config.GATEWAY_EDITION,
+      edition: infoStore.kongEdition,
       version: infoStore.kongVersion,
     },
     apiBaseUrl: config.ADMIN_API_URL,

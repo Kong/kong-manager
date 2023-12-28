@@ -62,7 +62,6 @@ import {
   PlugIcon,
   KongIcon,
 } from '@kong/icons'
-import { config as gatewayConfig } from 'config'
 import KonnectCTA from '@/components/KonnectCTA.vue'
 import { useI18n } from '@/composables/useI18n'
 import { useInfoStore } from '@/stores/info'
@@ -79,6 +78,7 @@ const infoStore = useInfoStore()
 const config = computed(() => ({
   ...infoStore.infoConfig,
   kongVersion: infoStore.kongVersion,
+  kongEdition: infoStore.kongEdition,
   hostname: infoStore.info.hostname,
 }))
 const version = computed(() => config.value.kongVersion ? `${formatVersion(config.value.kongVersion)}.x` : 'latest')
@@ -96,7 +96,7 @@ const info = computed(() => {
       items: [
         {
           label: t('overview.info.gateway.edition'),
-          value: gatewayConfig.GATEWAY_EDITION,
+          value: config.value.kongEdition,
         },
         {
           label: t('overview.info.gateway.version'),

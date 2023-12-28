@@ -1,5 +1,5 @@
 import { formatVersion } from '@/utils'
-import { config, type GatewayEdition } from 'config'
+import { type GatewayEdition } from 'config'
 import { EntityType } from '@/types'
 import { computed } from 'vue'
 import { useInfoStore } from '@/stores/info'
@@ -21,7 +21,7 @@ const getVersionInPath = (edition: GatewayEdition) => {
 }
 
 export const useDocsLink = (entityType: EntityType) => {
-  const edition = config.GATEWAY_EDITION ?? 'community'
+  const edition = infoStore.kongEdition ?? 'community'
   const versionInPath = getVersionInPath(edition)
   const docsBase = `https://docs.konghq.com/gateway/api/admin-${edition === 'enterprise' ? 'ee' : 'oss'}/${versionInPath}/#/`
 
