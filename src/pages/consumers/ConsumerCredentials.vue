@@ -25,7 +25,7 @@
 <script setup lang="ts">
 import { computed, onBeforeMount, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { config } from 'config'
+import { useInfoStore } from '@/stores/info'
 import { pluginMeta } from '@/pages/plugins/PluginMeta'
 import { useAxios } from '@/composables/useAxios'
 import { useAdminApiUrl } from '@/composables/useAdminApiUrl'
@@ -36,6 +36,7 @@ const router = useRouter()
 const { axiosInstance } = useAxios()
 const adminApiUrl = useAdminApiUrl()
 const { t } = useI18n()
+const infoStore = useInfoStore()
 
 const enabledPlugins = ref<string[]>([])
 const enabledPluginsFetched = ref(false)
@@ -46,7 +47,7 @@ const credentialPlugins = [
   'hmac-auth',
   'jwt',
   'key-auth',
-  ...(config.GATEWAY_EDITION === 'community' ? [] : ['key-auth-enc']),
+  ...(infoStore.kongEdition === 'community' ? [] : ['key-auth-enc']),
   'oauth2',
 ]
   .filter(plugin => !!pluginMeta[plugin])

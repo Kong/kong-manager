@@ -1,16 +1,18 @@
 import { reactive } from 'vue'
 import { config } from 'config'
+import { useInfoStore } from '@/stores/info'
 import type { KongManagerBaseEntityConfig } from '@kong-ui/entities-shared'
-import { useAdminApiUrl } from './useAdminApiUrl'
+
+const infoStore = useInfoStore()
 
 export const useDetailGeneralConfig = () => {
   return reactive({
     app: 'kongManager' as const,
     workspace: '',
     gatewayInfo: {
-      edition: config.GATEWAY_EDITION,
-      version: config.GATEWAY_VERSION,
+      edition: infoStore.kongEdition,
+      version: infoStore.kongVersion,
     },
-    apiBaseUrl: useAdminApiUrl(),
+    apiBaseUrl: config.ADMIN_API_URL,
   } as Pick<KongManagerBaseEntityConfig, 'app' | 'workspace' | 'gatewayInfo' | 'apiBaseUrl'>)
 }
