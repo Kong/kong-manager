@@ -3,15 +3,17 @@ version: "3.9"
 services:
   # nosemgrep: yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service
   kong-test-image:
-    image: ${GATEWAY_TEST_IMAGE}
+    # Using a empty string as the fallback makes this env optional but still fails if not set when used
+    image: "${GATEWAY_TEST_IMAGE:- }"
     security_opt:
       - no-new-privileges:true
     build:
-      context: ${GITHUB_WORKSPACE:-..} # MUST BE the project root (.. here)
+      context: ${GITHUB_WORKSPACE:-..} # MUST BE the project root (should be .. here as we're in ./.ci/)
       dockerfile: .ci/Dockerfile.test-image # relative to the build context
       args:
-        GATEWAY_IMAGE: ${GATEWAY_IMAGE:-kong/kong:nightly-ubuntu}
-        KONG_MANAGER_BUILD_SHA1: ${KONG_MANAGER_BUILD_SHA1:-null}
+        # Using a empty string as the fallback makes this env optional but still fails if not set when used
+        GATEWAY_IMAGE: "${GATEWAY_IMAGE:- }"
+        KONG_MANAGER_BUILD_SHA1: "${KONG_MANAGER_BUILD_SHA1:-null}"
 
   # nosemgrep: yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service
   kong-db:
@@ -34,7 +36,8 @@ services:
   # nosemgrep: yaml.docker-compose.security.writable-filesystem-service.writable-filesystem-service
   kong:
     &kong
-    image: "${GATEWAY_IMAGE:-kong/kong:nightly-ubuntu}"
+    # Using a empty string as the fallback makes this env optional but still fails if not set when used
+    image: "${GATEWAY_IMAGE:- }"
     security_opt:
       - no-new-privileges:true
     hostname: kong

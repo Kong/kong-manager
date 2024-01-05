@@ -22,8 +22,6 @@ jobs:
     uses: ./.github/workflows/.reusable_test_image.yml
     needs: build
     secrets: inherit
-    with:
-      gateway-image: kong/kong:nightly-ubuntu
 
   build-and-push-test-image-ee:
     name: Build and Push Test Image to GHCR - EE
@@ -31,15 +29,14 @@ jobs:
     needs: build
     secrets: inherit
     with:
-      gateway-image: kong/kong-gateway-internal:nightly-ubuntu
-      image-name: kong-manager-ee
+      enterprise: true
 
   e2e-tests-oss:
     name: E2E Tests - OSS
     needs: build-and-push-test-image-oss
     uses: ./.github/workflows/.reusable_e2e_tests_oss.yml
     with:
-      gateway-image: ${{ needs.build-and-push-test-image-oss.outputs.gateway-test-image }}
+      gateway-image: ${{ needs.build-and-push-test-image-oss.outputs.image }}
     secrets: inherit
 
   e2e-tests-ee:
@@ -47,7 +44,7 @@ jobs:
     needs: build-and-push-test-image-ee
     uses: ./.github/workflows/.reusable_e2e_tests_ee.yml
     with:
-      gateway-image: ${{ needs.build-and-push-test-image-ee.outputs.gateway-test-image }}
+      gateway-image: ${{ needs.build-and-push-test-image-ee.outputs.image }}
     secrets: inherit
 
   release:

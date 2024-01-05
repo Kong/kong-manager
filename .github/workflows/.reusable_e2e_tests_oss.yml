@@ -10,13 +10,11 @@ on:
         default: http://localhost:8002
       gateway-image:
         type: string
-        default: kong/kong:nightly-ubuntu
       retries:
         type: number
         default: 0
 
 env:
-  GATEWAY_IMAGE: ${{ inputs.gateway-image }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN_PRIVATE_READ }}
 
 jobs:
@@ -75,15 +73,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Select Gateway image
+        id: select-gateway-image
+        uses: ./.github/actions/select-gateway-image
+        with:
+          current-image: ${{ inputs.gateway-image }}
+
       - name: Start Kong
         timeout-minutes: 10
         working-directory: ${{ github.workspace }}
+        env:
+          GATEWAY_IMAGE: ${{ inputs.gateway-image }}
         run: |
-          echo "Using image: $GATEWAY_IMAGE"
-          docker_compose_exit_code=0
-          docker compose -f .ci/docker-compose.yml up -d kong --wait || docker_compose_exit_code=$?
+          _compose_exit=0
+          docker compose -f .ci/docker-compose.yml up -d kong --wait || _compose_exit=$?
           docker compose -f .ci/docker-compose.yml logs
-          exit $compose_exit
+          exit $_compose_exit
 
       - name: Run E2E tests - OSS
         timeout-minutes: 10
