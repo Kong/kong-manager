@@ -1,7 +1,6 @@
 name: Build & Release
 
 on:
-  pull_request: # FIXME REVERTME
   push:
     branches:
       - main
@@ -69,7 +68,7 @@ jobs:
         run: mv ./assets.tar.gz ./release.tar.gz
 
       - name: Release non-nightly
-        if: false && startsWith(github.ref, 'refs/tags/')
+        if: startsWith(github.ref, 'refs/tags/')
         timeout-minutes: 5
         env:
           GH_TOKEN: ${{ github.token }}
@@ -79,7 +78,7 @@ jobs:
         run: bash .ci/release-non-nightly.sh
 
       - name: Release nightly
-        if: false && github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         timeout-minutes: 5
         env:
           GH_TOKEN: ${{ github.token }}
