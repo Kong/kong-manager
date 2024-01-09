@@ -1,0 +1,37 @@
+name: Select Gateway image
+description:
+
+inputs:
+  current-image:
+    description: If this optional input is not empty, the action will select the provided image.
+  enterprise:
+    description: Whether or not to use enterprise Gateway images.
+    default: 'false' # a string instead of a boolean
+
+outputs:
+  image:
+    value: ${{ steps.select-image.outputs.image }}
+
+runs:
+  using: composite
+  steps:
+    - name: Select image
+      id: select-image
+      shell: bash
+      env:
+        DEFAULT_GATEWAY_IMAGE: |-
+          ${{ format('{0}', inputs.enterprise) == 'true' && 'kong/kong-gateway-internal:nightly-ubuntu' || 'kong/kong:nightly-ubuntu' }}
+      run: |
+        GATEWAY_IMAGE="${{ inputs.current-image }}"
+
+        if [[ -z "${{ env.DEFAULT_GATEWAY_IMAGE }}" ]]; then
+          echo "fatal: DEFAULT_GATEWAY_IMAGE is not set."
+          exit 1
+        fi
+
+        if [[ -z "$GATEWAY_IMAGE" ]]; then
+          GATEWAY_IMAGE="${{ env.DEFAULT_GATEWAY_IMAGE }}"
+        fi
+
+        echo "image=$GATEWAY_IMAGE" >> $GITHUB_OUTPUT
+        echo "Selected Gateway image: $GATEWAY_IMAGE"

@@ -1,7 +1,6 @@
 # This is a reusable workflow
 
 # This workflow builds the test image for testing purposes and pushes it to ghcr.io
-# The test images are built with `kong/kong:nightly-ubuntu` (as default) as the base image
 
 name: Build and Push Test Image to GHCR
 
@@ -11,19 +10,14 @@ on:
       gateway-image:
         description: Name of the Gateway image (base) to use
         type: string
-        default: kong/kong:nightly-ubuntu
-      image-name:
-        description: Name of the Gateway test image being built
-        type: string
-        default: kong-manager
+      enterprise:
+        description: Whether or not to use enterprise Gateway images
+        type: boolean
+        default: false
     outputs:
-      gateway-test-image:
+      image:
         description: Name of the Gateway test image being built
-        value: ${{ jobs.build-and-push-test-image.outputs.image-name }}
-
-env:
-  GATEWAY_IMAGE: ${{ inputs.gateway-image }} # Important for the "Build image" step. Do not delete.
-  GATEWAY_TEST_IMAGE: ghcr.io/kong/${{ inputs.image-name }}:${{ github.sha }}
+        value: ${{ jobs.build-and-push-test-image.outputs.image }}
 
 jobs:
   build-and-push-test-image:
@@ -33,7 +27,7 @@ jobs:
       contents: read
       packages: write
     outputs:
-      image-name: ${{ env.GATEWAY_TEST_IMAGE }}
+      image: ${{ steps.build-and-push.outputs.image }}
 
     steps:
       - name: Checkout source code
@@ -48,14 +42,15 @@ jobs:
       - name: Unpack assets
         run: tar xzvf ./assets.tar.gz
 
-      - name: Set KONG_MANAGER_BUILD_SHA1
-        run: |
-          KONG_MANAGER_BUILD_SHA1=$(cat dist/build.sha1)
-          echo "KONG_MANAGER_BUILD_SHA1=${KONG_MANAGER_BUILD_SHA1}" >> $GITHUB_ENV
-          echo "KONG_MANAGER_BUILD_SHA1 = ${KONG_MANAGER_BUILD_SHA1}"
+      - name: Select Gateway image
+        id: select-gateway-image
+        uses: ./.github/actions/select-gateway-image
+        with:
+          current-image: ${{ inputs.gateway-image }}
+          enterprise: ${{ format('{0}', inputs.enterprise) }} # ensure it is a string
 
       - name: Log in to Docker Hub
-        if: ${{ inputs.image-name == 'kong-manager-ee' }}
+        if: ${{ format('{0}', inputs.enterprise) == 'true' }}
         timeout-minutes: 1
         uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc # v2.2.0
         with:
@@ -70,10 +65,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build image
-        run: |
-          docker compose -f .ci/docker-compose.yml build kong-test-image
+      - name: Build and push image
+        id: build-and-push
+        env:
+          GATEWAY_IMAGE: ${{ steps.select-gateway-image.outputs.image }}
+          GATEWAY_TEST_IMAGE: |-
+            ghcr.io/kong/${{ format('{0}', inputs.enterprise) == 'true' && 'kong-admin-kong-ee' || 'kong-manager' }}:${{ github.sha }}
 
-      - name: Push image
         run: |
+          export KONG_MANAGER_BUILD_SHA1=$(cat dist/build.sha1)
+          docker compose -f .ci/docker-compose.yml build kong-test-image
           docker compose -f .ci/docker-compose.yml push kong-test-image
+          echo "image=$GATEWAY_TEST_IMAGE" >> $GITHUB_OUTPUT
