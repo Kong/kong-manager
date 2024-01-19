@@ -9,7 +9,7 @@
   <KTabs
     :model-value="initialHash"
     :tabs="tabs"
-    @changed="onTabChange"
+    @change="onTabChange"
   >
     <template #configuration>
       <UpstreamsConfigCard

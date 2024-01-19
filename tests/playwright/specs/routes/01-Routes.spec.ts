@@ -40,10 +40,10 @@ const selectProtocols = async (page: Page, protocol: string) => {
   const locator = page.locator('.k-select').filter({ hasText: 'Protocols' })
 
   await expect(locator.locator('[data-testid="route-form-protocols"]')).toBeVisible()
-  await locator.locator('.k-input-wrapper.k-select-input').click()
+  await locator.locator('.k-input-wrapper.select-input').click()
 
-  await expect(locator.locator('.k-popover-content .k-select-list')).toBeVisible()
-  await locator.locator(`[data-testid="k-select-item-${protocol}"]`).click()
+  await expect(locator.locator('.k-popover-content .select-items-container')).toBeVisible()
+  await locator.locator(`[data-testid="select-item-${protocol}"]`).click()
 }
 
 test.describe('routes', () => {
@@ -598,7 +598,7 @@ test.describe('routes', () => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'edit'))
 
     await expect(page.locator('[data-testid="route-form-service-id"]')).toBeVisible()
-    await page.locator('.kong-icon.kong-icon-clear').click()
+    await page.locator('.kui-icon.close-icon').click()
 
     await withNavigation(page, () =>
       fillEntityForm({

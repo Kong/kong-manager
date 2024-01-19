@@ -55,7 +55,7 @@ test.describe('snis', () => {
     await expect(page.locator('[data-testid="sni-form-certificate-id"]')).toBeVisible()
     await (await page.waitForSelector('[data-testid="sni-form-certificate-id"]')).click()
     await page.locator('[data-testid="sni-form-certificate-id"]').fill(certificate.id)
-    await (await page.waitForSelector(`[data-testid="k-select-item-${certificate.id}"]`)).click()
+    await (await page.waitForSelector(`[data-testid="select-item-${certificate.id}"]`)).click()
 
     await expect(page.locator('[data-testid="form-submit"]')).toBeDisabled()
   })
@@ -69,7 +69,7 @@ test.describe('snis', () => {
     await expect(page.locator('[data-testid="sni-form-certificate-id"]')).toBeVisible()
     await (await page.waitForSelector('[data-testid="sni-form-certificate-id"]')).click()
     await page.locator('[data-testid="sni-form-certificate-id"]').fill(certificate.id)
-    await (await page.waitForSelector(`[data-testid="k-select-item-${certificate.id}"]`)).click()
+    await (await page.waitForSelector(`[data-testid="select-item-${certificate.id}"]`)).click()
     await fillEntityForm({
       page,
       formData: {

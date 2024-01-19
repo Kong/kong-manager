@@ -242,7 +242,7 @@ test.describe('services', () => {
 
       await page.getByTestId('gateway-service-protocol-radio').click()
       await page.getByTestId('gateway-service-protocol-select').click({ force: true })
-      await page.locator(`.k-select-item[data-testid="k-select-item-${protocol}"]`).click()
+      await page.locator(`.select-item[data-testid="select-item-${protocol}"]`).click()
       if (['grpc', 'grpcs', 'tcp', 'tls'].includes(protocol)) {
         await expect(page.getByTestId('gateway-service-path-input')).not.toBeVisible()
       }
