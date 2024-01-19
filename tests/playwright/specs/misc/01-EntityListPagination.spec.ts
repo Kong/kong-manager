@@ -35,7 +35,7 @@ test.describe('entity list pagination', () => {
   test('should persist page size', async ({ page }) => {
     const pageSizeSelect = page.locator('[data-testid="page-size-dropdown"]')
 
-    await pageSizeSelect.locator('[data-testid="k-select-input"] > button').click()
+    await pageSizeSelect.locator('[data-testid="select-input"] > button').click()
     await pageSizeSelect.locator('button[value="100"]').click()
 
     expect(await pageSizeSelect.innerText(), 'should have page size of 100').toContain('100 items per page')

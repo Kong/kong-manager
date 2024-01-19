@@ -6,5 +6,5 @@ export const selectService = async (page: Page, serviceId: string) => {
 
   await expect(locator.locator('[data-testid="route-form-service-id"]')).toBeVisible()
   await locator.locator('[data-testid="route-form-service-id"]').click()
-  await locator.locator(`[data-testid="k-select-item-${serviceId}"]`).click()
+  await locator.locator(`[data-testid="select-item-${serviceId}"]`).click()
 }
