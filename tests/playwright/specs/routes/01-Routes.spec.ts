@@ -598,7 +598,7 @@ test.describe('routes', () => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'edit'))
 
     await expect(page.locator('[data-testid="route-form-service-id"]')).toBeVisible()
-    await page.locator('.kong-icon.kong-icon-clear').click()
+    await page.locator('.kui-icon.close-icon').click()
 
     await withNavigation(page, () =>
       fillEntityForm({

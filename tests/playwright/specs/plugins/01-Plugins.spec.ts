@@ -461,7 +461,7 @@ test.describe('plugins', () => {
     await page.click('#service-id')
     await page.fill('#service-id', 'test_service')
     await page.waitForTimeout(300)
-    selectItem = page.locator('[data-testid="selected-item"]').nth(0).locator('.select-item')
+    page.locator('[data-testid="select-wrapper"]').nth(0).locator('.select-item')
     await expect(selectItem).toContainText(`${service?.data.name}`)
     await expect(selectItem).toContainText(`${service?.data.id}`)
     await selectItem.click()
@@ -470,7 +470,7 @@ test.describe('plugins', () => {
     await page.click('#route-id')
     await page.fill('#route-id', 'test_route')
     await page.waitForTimeout(300)
-    selectItem = page.locator('[data-testid="selected-item"]').nth(1).locator('.select-item')
+    page.locator('[data-testid="select-wrapper"]').nth(1).locator('.select-item')
     await expect(selectItem).toContainText(`${route?.data.name}`)
     await expect(selectItem).toContainText(`${route?.data.id}`)
     await selectItem.click()
@@ -479,7 +479,7 @@ test.describe('plugins', () => {
     await page.click('#consumer-id')
     await page.fill('#consumer-id', 'test_consumer')
     await page.waitForTimeout(300)
-    selectItem = page.locator('[data-testid="selected-item"]').nth(2).locator('.select-item')
+    page.locator('[data-testid="select-wrapper"]').nth(2).locator('.select-item')
     await expect(selectItem).toContainText(`${consumer?.data.username}`)
     await expect(selectItem).toContainText(`${consumer?.data.id}`)
     await selectItem.click()
@@ -588,7 +588,7 @@ test.describe('plugins', () => {
 
     // delete service id and submit
     await clickEntityListAction(page, 'edit')
-    await page.locator('[data-testid="selected-item"]').nth(0).locator('.kong-icon-clear').click()
+    await page.locator('[data-testid="select-wrapper"]').nth(0).locator('.close-icon').click()
     await withNavigation(page, async () => await fillEntityForm({
       page,
       withAction: 'submit',

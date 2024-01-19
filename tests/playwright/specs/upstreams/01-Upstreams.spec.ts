@@ -89,7 +89,7 @@ test.describe('upstreams', () => {
     await selectOption(page.locator('.k-select.name-select'), service_host1.id)
     // hash-fallback is disabled when hash-on is none
     await selectOption(page.locator('.k-select.hash-on-select'), 'none')
-    await expect(page.locator('.k-select.hash-fallback-select [data-testid="select-input"]')).toHaveClass(/disabled/)
+    await expect(page.locator('.k-select.hash-fallback-select [data-testid="select-input"]')).toBeDisabled()
     await fillEntityForm({
       page,
       formData: {},
@@ -455,7 +455,7 @@ test.describe('upstreams', () => {
         await expect(page.getByTestId(`upstreams-form-hash-on-cookie`)).toBeVisible()
         await page.getByTestId(`upstreams-form-hash-on-cookie`).fill('cookie')
 
-        await expect(page.locator('.k-select.hash-fallback-select [data-testid="select-input"]')).toHaveClass(/disabled/)
+        await expect(page.locator('.k-select.hash-fallback-select [data-testid="select-input"]')).toBeDisabled()
       },
       {},
       async () => {
@@ -560,10 +560,14 @@ test.describe('upstreams', () => {
   const select_statuses = async (page, selector, statuses) => {
     const locator = page.locator(selector)
 
+    // open dropdown
+    await locator.locator('.multiselect-trigger').click({ position: { x: 1, y: 1 } })
     for (let index = 0, len = statuses.length; index < len; index++) {
-      await locator.locator('.k-input-wrapper.multiselect-input').click()
       await locator.locator(`.multiselect-item[data-testid="multiselect-item-${statuses[index]}"]`).click()
     }
+
+    // close dropdown
+    await locator.locator('.multiselect-trigger .selection-badges-container').click({ position: { x: 1, y: 1 } })
   }
 
   test(`upstream update - successful updates 'health check'`, async ({ page, upstreamListPage }) => {
