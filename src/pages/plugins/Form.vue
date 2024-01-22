@@ -77,6 +77,7 @@ const config = reactive({
   cancelRoute,
   entityId: computed(() => entityScope.value?.id ?? ''),
   entityType: computed(() => entityScope.value?.typeLiteral),
+  disableConsumerGroupScope: true,
 })
 
 const onFetchSchemaError = (err: AxiosError) => {
