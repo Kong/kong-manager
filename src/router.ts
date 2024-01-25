@@ -385,6 +385,34 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
+
+  {
+    name: 'asset-list',
+    path: '/assets',
+    component: () => import('@/pages/assets/List.vue'),
+    meta: {
+      entity: 'asset',
+      title: 'Assets',
+    },
+  },
+  {
+    name: 'asset-create',
+    path: '/assets/create',
+    component: () => import('@/pages/assets/Form.vue'),
+    meta: {
+      entity: 'asset',
+      title: 'Create Asset',
+    },
+  },
+  {
+    name: 'asset-edit',
+    path: '/assets/:id/edit',
+    component: () => import('@/pages/snis/Form.vue'),
+    meta: {
+      entity: 'asset',
+      title: 'Edit Asset',
+    },
+  },
 ]
 
 type EntityNameDefinition = { key: string, keyPlural?: string, capitalizedName?: string, capitalizedNamePlural?: string }

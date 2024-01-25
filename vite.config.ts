@@ -44,6 +44,18 @@ export default defineConfig({
       '/kconfig.js': process.env.KONG_GUI_URL || 'http://127.0.0.1:8002',
     },
     port: 8080,
+    watch: {
+      ignored: [
+        '!**/node_modules/@kong-ui-public/entities-assets/**',
+        '!**/node_modules/@kong-ui-public/entities-plugins/**',
+      ],
+    },
+  },
+  optimizeDeps: {
+    exclude: [
+      '@kong-ui-public/entities-assets',
+      '@kong-ui-public/entities-plugins',
+    ],
   },
   css: {
     preprocessorOptions: {

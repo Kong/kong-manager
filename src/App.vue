@@ -96,6 +96,12 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
     key: 'Key Sets',
     active: route.meta?.entity === 'key-set',
   },
+  {
+    name: 'Assets',
+    to: { name: 'asset-list' },
+    key: 'Assets',
+    active: route.meta?.entity === 'asset',
+  },
 ])
 </script>
 

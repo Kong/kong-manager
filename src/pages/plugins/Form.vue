@@ -77,6 +77,7 @@ const config = reactive({
   cancelRoute,
   entityId: computed(() => entityScope.value?.id ?? ''),
   entityType: computed(() => entityScope.value?.typeLiteral),
+  assetId: computed(() => route.query.assetId as string),
   disableConsumerGroupScope: true,
 })
 
