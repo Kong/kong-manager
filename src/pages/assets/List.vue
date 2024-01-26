@@ -49,13 +49,20 @@ const filterSchema: FilterSchema = {
 const assetListConfig = reactive({
   ...useListGeneralConfig(),
   createRoute: { name: 'asset-create' },
-  getViewRoute: (_: string) => ({ name: 'asset-list' }),
+  getViewRoute: (id: string) => ({ name: 'asset-detail', params: { id } }),
   getEditRoute: (id: string) => ({
     name: 'asset-edit',
     params: { id },
     query: createRedirectRouteQuery(),
   }),
-  getCreatePluginRoute: (id: string) => ({ name: 'plugin-select', query: { assetId: id } }),
+  getCreatePluginRoute: (id: string, pluginName: string) => ({
+    name: 'plugin-create',
+    params: { pluginType: pluginName },
+    query: {
+      assetId: id,
+      ...createRedirectRouteQuery('/plugins'),
+    },
+  }),
   filterSchema,
 })
 

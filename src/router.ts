@@ -407,10 +407,19 @@ const routes: Array<RouteRecordRaw> = [
   {
     name: 'asset-edit',
     path: '/assets/:id/edit',
-    component: () => import('@/pages/snis/Form.vue'),
+    component: () => import('@/pages/assets/Form.vue'),
     meta: {
       entity: 'asset',
       title: 'Edit Asset',
+    },
+  },
+  {
+    name: 'asset-detail',
+    path: '/assets/:id',
+    component: () => import('@/pages/assets/Detail.vue'),
+    meta: {
+      entity: 'asset',
+      title: 'View Asset',
     },
   },
 ]
