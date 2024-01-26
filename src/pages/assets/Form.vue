@@ -4,6 +4,7 @@
   />
   <AssetForm
     :config="assetFormConfig"
+    :asset-id="id"
     @update="handleUpdate"
   />
 </template>
