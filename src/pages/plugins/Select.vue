@@ -2,13 +2,14 @@
   <PluginSelect
     :config="config"
     available-on-server
+    @plugin-clicked="handlePluginClick"
   />
 </template>
 
 <script setup lang="ts">
 import { computed, reactive, toRefs } from 'vue'
-import { useRoute } from 'vue-router'
-import { PluginSelect } from '@kong-ui-public/entities-plugins'
+import { useRoute, useRouter } from 'vue-router'
+import { PluginSelect, type PluginType } from '@kong-ui-public/entities-plugins'
 import { useBaseGeneralConfig } from '@/composables/useBaseGeneralConfig'
 import { useListRedirect } from '@/composables/useListRedirect'
 
@@ -17,6 +18,7 @@ defineOptions({
 })
 
 const { createRedirectRouteQuery } = useListRedirect()
+const router = useRouter()
 const route = useRoute()
 
 const entityScope = computed(() => {
@@ -54,4 +56,16 @@ const config = reactive({
     query: route.query,
   }),
 })
+
+const handlePluginClick = (plugin: PluginType) => {
+  if (plugin.id === 'custom-plugin-create') {
+    return
+  }
+
+  router.push({
+    name: 'plugin-create',
+    params: { pluginType: plugin.id },
+    query: { assetId: plugin.assetId },
+  })
+}
 </script>
