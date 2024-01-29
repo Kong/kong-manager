@@ -10,11 +10,13 @@ import { computed, reactive, toRefs } from 'vue'
 import { useRoute } from 'vue-router'
 import { PluginSelect } from '@kong-ui-public/entities-plugins'
 import { useBaseGeneralConfig } from '@/composables/useBaseGeneralConfig'
+import { useListRedirect } from '@/composables/useListRedirect'
 
 defineOptions({
   name: 'PluginSelect',
 })
 
+const { createRedirectRouteQuery } = useListRedirect()
 const route = useRoute()
 
 const entityScope = computed(() => {
@@ -42,6 +44,8 @@ const config = reactive({
   ...toRefs(useBaseGeneralConfig()),
   entityType: computed(() => entityScope.value?.typeLiteral),
   entityId: computed(() => entityScope.value?.id),
+  enableStreamingPlugins: true,
+  createCustomRoute: { name: 'asset-create', query: createRedirectRouteQuery('/plugins/select') },
   getCreateRoute: (plugin: string) => ({
     name: 'plugin-create',
     params: {
