@@ -71,7 +71,7 @@ test.describe('key-set keys tab', () => {
     await switchDetailTab(page, 'keys')
     await clickEntityListAction(page, 'delete')
     await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
-    await page.locator('.kong-ui-entity-delete-modal .[data-testid="modal-action-button"]').click()
+    await page.locator('.kong-ui-entity-delete-modal [data-testid="modal-action-button"]').click()
     await waitAndDismissToasts(page)
     await expect(page.locator('.k-table-empty-state')).toBeVisible()
   })

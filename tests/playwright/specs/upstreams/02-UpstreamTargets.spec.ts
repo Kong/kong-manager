@@ -36,7 +36,7 @@ test.describe('upstreams', () => {
     await page.locator('.empty-state-content .primary').click()
     await page.waitForSelector('.kong-ui-entities-target-form')
     await page.locator('[data-testid="target-form-target"]').type(mockTarget)
-    await page.locator('.k-prompt .[data-testid="modal-action-button"]').click()
+    await page.locator('.k-prompt [data-testid="modal-action-button"]').click()
     await expect(page.locator('.kong-ui-entities-targets-list')).toContainText(mockTarget)
   })
 
@@ -46,7 +46,7 @@ test.describe('upstreams', () => {
     await page.locator('.toolbar-container .primary').click()
     await page.waitForSelector('.kong-ui-entities-target-form')
     await page.locator('[data-testid="target-form-target"]').type('123')
-    await page.locator('.k-prompt .[data-testid="modal-action-button"]').click()
+    await page.locator('.k-prompt [data-testid="modal-action-button"]').click()
     await expect(page.locator('.kong-ui-entities-target-form [data-testid="form-error"]')).toBeVisible()
     await expect(page.locator('.kong-ui-entities-target-form [data-testid="form-error"]')).toHaveText(`schema violation (target: Invalid target ('123'); not a valid hostname or ip address)`)
   })

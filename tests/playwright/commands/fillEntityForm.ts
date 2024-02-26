@@ -66,6 +66,6 @@ export const fillEntityForm = async (params: Params) => {
     .click()
 
   if (handleModal) {
-    await page.locator('.modal-dialog .modal-footer .k-button.primary').click()
+    await page.locator('.modal-container .modal-footer .k-button.primary').click()
   }
 }

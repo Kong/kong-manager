@@ -5,15 +5,16 @@ export const autocompleteDeleteModal = async (page: Page) => {
   await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
 
   if (await page.locator('.kong-ui-entity-delete-modal .prompt-confirmation-text span').isVisible()) {
-    const name = await page
+    const name = (await page
       .locator('.kong-ui-entity-delete-modal .prompt-confirmation-text span')
-      .textContent()
+      .textContent())
+      ?.slice(1, -1) // Remove quotes
 
     await page
       .locator('.kong-ui-entity-delete-modal')
       .locator('[data-testid="confirmation-input"]')
-      .type(name ?? '')
+      .fill(name ?? '')
   }
 
-  await page.locator('.kong-ui-entity-delete-modal .[data-testid="modal-action-button"]').click()
+  await page.locator('.kong-ui-entity-delete-modal [data-testid="modal-action-button"]').click()
 }

@@ -290,7 +290,7 @@ test.describe('routes', () => {
   test(`delete the route "${mockRouteName}"`, async ({ page }) => {
     await clickEntityListAction(page, 'delete')
 
-    await expect(page.locator('.kong-ui-entity-delete-modal .modal-dialog')).toBeVisible()
+    await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
     await autocompleteDeleteModal(page)
     await waitAndDismissToasts(page)
   })

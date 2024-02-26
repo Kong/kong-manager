@@ -107,8 +107,8 @@ test.describe('certificates', () => {
 
   test('delete a certificate', async ({ page }) => {
     await clickEntityListAction(page, 'delete')
-    await expect(page.locator('.kong-ui-entity-delete-modal .modal-dialog')).toBeVisible()
-    await page.locator('.kong-ui-entity-delete-modal .[data-testid="modal-action-button"]').click()
+    await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
+    await page.locator('.kong-ui-entity-delete-modal [data-testid="modal-action-button"]').click()
     await waitAndDismissToasts(page)
   })
 

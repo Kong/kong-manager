@@ -51,7 +51,7 @@ test.describe('consumer credentials', () => {
     await switchDetailTab(page, 'credentials')
     await clickEntityListAction(page, 'delete')
     await expect(page.locator('.modal-container')).toBeVisible()
-    await page.locator('.k-prompt-action-buttons .danger').click()
+    await page.locator('.modal-footer .footer-actions .danger').click()
     const basicAuthLocator = page.locator('.credential-list-wrapper').filter({ hasText: 'Basic Authentication' })
 
     await expect(basicAuthLocator.locator('.empty-state-content .primary')).toContainText('New Basic Auth Credential')

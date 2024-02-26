@@ -89,8 +89,8 @@ test.describe('services', () => {
     await statusBadge.locator('.switch-control').click()
 
     await page
-      .locator('.modal-dialog')
-      .locator('.k-button.[data-testid="modal-action-button"]').click()
+      .locator('.modal-container')
+      .locator('.k-button[data-testid="modal-action-button"]').click()
 
     await expect(statusBadge).toHaveText('Disabled')
 
@@ -98,8 +98,8 @@ test.describe('services', () => {
     await statusBadge.locator('.switch-control').click()
 
     await page
-      .locator('.modal-dialog')
-      .locator('.k-button.[data-testid="modal-action-button"]').click()
+      .locator('.modal-container')
+      .locator('.k-button[data-testid="modal-action-button"]').click()
   })
 
   test('back button on the detail page should bring the user back to the list page', async ({ page }) => {

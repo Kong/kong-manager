@@ -79,7 +79,7 @@ test.describe('service plugins', () => {
 
     await page
       .locator('.modal-container')
-      .locator('.k-button.[data-testid="modal-action-button"]').click()
+      .locator('.k-button[data-testid="modal-action-button"]').click()
 
     await expect(statusLabel).toHaveText('Disabled')
   })

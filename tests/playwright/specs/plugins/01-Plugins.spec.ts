@@ -162,7 +162,7 @@ test.describe('plugins', () => {
 
     await page
       .locator('.modal-container')
-      .locator('.k-button.[data-testid="modal-action-button"]').click()
+      .locator('.k-button[data-testid="modal-action-button"]').click()
 
     await waitAndDismissToasts(page)
     await expect(statusLabel).toHaveText('Disabled')
