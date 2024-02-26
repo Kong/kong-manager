@@ -1,6 +1,6 @@
 <template>
   <footer class="make-wish-wrapper">
-    <KTooltip :label="t('wish.tooltip')">
+    <KTooltip :text="t('wish.tooltip')">
       <a :href="mailToUrl">
         <img
           src="@/assets/icon-stardust.svg?external"

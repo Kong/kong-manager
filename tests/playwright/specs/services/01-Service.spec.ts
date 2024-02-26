@@ -90,7 +90,7 @@ test.describe('services', () => {
 
     await page
       .locator('.modal-dialog')
-      .locator('.k-button.k-prompt-proceed').click()
+      .locator('.k-button.[data-testid="modal-action-button"]').click()
 
     await expect(statusBadge).toHaveText('Disabled')
 
@@ -99,7 +99,7 @@ test.describe('services', () => {
 
     await page
       .locator('.modal-dialog')
-      .locator('.k-button.k-prompt-proceed').click()
+      .locator('.k-button.[data-testid="modal-action-button"]').click()
   })
 
   test('back button on the detail page should bring the user back to the list page', async ({ page }) => {

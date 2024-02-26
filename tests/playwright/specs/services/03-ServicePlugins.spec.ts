@@ -78,8 +78,8 @@ test.describe('service plugins', () => {
     await statusSwitch.click()
 
     await page
-      .locator('.k-modal-dialog')
-      .locator('.k-button.k-prompt-proceed').click()
+      .locator('.modal-container')
+      .locator('.k-button.[data-testid="modal-action-button"]').click()
 
     await expect(statusLabel).toHaveText('Disabled')
   })

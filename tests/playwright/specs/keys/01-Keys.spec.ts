@@ -207,8 +207,8 @@ test.describe('keys', () => {
 
   test('delete a key', async ({ page }) => {
     await clickEntityListAction(page, 'delete')
-    await expect(page.locator('.kong-ui-entity-delete-modal .k-modal-dialog')).toBeVisible()
-    await page.locator('.kong-ui-entity-delete-modal .k-prompt-proceed').click()
+    await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
+    await page.locator('.kong-ui-entity-delete-modal .[data-testid="modal-action-button"]').click()
     await waitAndDismissToasts(page)
     await expect(page.locator('.k-table-empty-state')).toBeVisible()
   })
