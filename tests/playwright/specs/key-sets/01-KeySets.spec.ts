@@ -89,7 +89,7 @@ test.describe('keySets', () => {
 
   test('delete a key set', async ({ page }) => {
     await clickEntityListAction(page, 'delete')
-    await expect(page.locator('.kong-ui-entity-delete-modal .k-modal-dialog')).toBeVisible()
+    await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
     await autocompleteDeleteModal(page)
     await waitAndDismissToasts(page)
     await expect(page.locator('.k-table-empty-state')).toBeVisible()
