@@ -112,8 +112,8 @@ test.describe('snis', () => {
 
   test('delete an sni', async ({ page }) => {
     await clickEntityListAction(page, 'delete')
-    await expect(page.locator('.kong-ui-entity-delete-modal .modal-dialog')).toBeVisible()
-    await page.locator('.k-prompt-action-buttons .danger').click()
+    await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
+    await page.locator('.modal-footer .footer-actions .danger').click()
     await expectEmptyEntityList(page, 'snis', 'Configure a New SNI')
   })
 })

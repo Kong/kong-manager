@@ -161,8 +161,8 @@ test.describe('plugins', () => {
     await statusSwitch.click()
 
     await page
-      .locator('.k-modal-dialog')
-      .locator('.k-button.k-prompt-proceed').click()
+      .locator('.modal-container')
+      .locator('.k-button[data-testid="modal-action-button"]').click()
 
     await waitAndDismissToasts(page)
     await expect(statusLabel).toHaveText('Disabled')
@@ -355,7 +355,7 @@ test.describe('plugins', () => {
 
   test('delete the plugin', async ({ page }) => {
     await clickEntityListAction(page, 'delete')
-    await expect(page.locator('.kong-ui-entity-delete-modal .k-modal-dialog')).toBeVisible()
+    await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
     await autocompleteDeleteModal(page)
     await waitAndDismissToasts(page)
   })
