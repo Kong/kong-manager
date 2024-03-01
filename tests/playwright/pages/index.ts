@@ -3,7 +3,7 @@ import type { Page } from '@playwright/test'
 // Page Object Model
 export class POM {
   public static $ = {
-    success: '.k-alert.success',
+    success: '.toaster.success',
     submitButton: '[data-testid="form-actions"] .k-button.primary',
   }
 
