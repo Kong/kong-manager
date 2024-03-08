@@ -5,6 +5,5 @@ import { useBaseGeneralConfig } from './useBaseGeneralConfig'
 export const useDetailGeneralConfig = () => {
   return reactive({
     ...toRefs(useBaseGeneralConfig()),
-    jsonYamlEnabled: true,
-  }) as Pick<KongManagerBaseEntityConfig, 'app' | 'workspace' | 'gatewayInfo' | 'apiBaseUrl' | 'jsonYamlEnabled'>
+  }) as Pick<KongManagerBaseEntityConfig, 'app' | 'workspace' | 'gatewayInfo' | 'apiBaseUrl'>
 }
