@@ -15,7 +15,6 @@
       <GatewayServiceConfigCard
         :config="serviceDetailConfig"
         @fetch:success="onFetchSuccess"
-        @copy:success="onCopySuccess"
       />
     </template>
     <template #routes>
@@ -32,7 +31,6 @@ import { computed, reactive, ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { GatewayServiceConfigCard } from '@kong-ui-public/entities-gateway-services'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
-import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useTabs } from '@/composables/useTabs'
 import { apiService } from '@/services/apiService'
@@ -67,14 +65,6 @@ const serviceDetailConfig = reactive({
   ...useDetailGeneralConfig(),
   entityId: id.value,
 })
-
-const { onCopySuccess: openToaster } = useCopyEventHandlers()
-
-const onCopySuccess = () => {
-  openToaster({
-    message: t('global.copied'),
-  })
-}
 
 const onFetchSuccess = (entity) => {
   titleName.value = entity.name ?? entity.id

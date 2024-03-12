@@ -10,7 +10,6 @@
     :config="keyDetailConfig"
     :key-set-id="keySetId"
     @fetch:success="onFetchSuccess"
-    @copy:success="onCopySuccess"
     @navigation-click="onNavigationClick"
   />
 </template>
@@ -20,7 +19,6 @@ import { computed, reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { KeyConfigCard } from '@kong-ui-public/entities-keys'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
-import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 
 defineOptions({
@@ -40,14 +38,6 @@ const keyDetailConfig = reactive({
   ...useDetailGeneralConfig(),
   entityId: id.value,
 })
-
-const { onCopySuccess: openToaster } = useCopyEventHandlers()
-
-const onCopySuccess = () => {
-  openToaster({
-    message: t('global.copied'),
-  })
-}
 
 const onNavigationClick = (id: string) => {
   router.push({

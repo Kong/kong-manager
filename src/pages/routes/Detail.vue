@@ -18,7 +18,6 @@
         :service-id="serviceId"
         @navigation-click="onNavigationClick"
         @fetch:success="onFetchSuccess"
-        @copy:success="onCopySuccess"
       />
     </template>
     <template #plugins>
@@ -32,7 +31,6 @@ import { computed, reactive, ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { RouteConfigCard } from '@kong-ui-public/entities-routes'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
-import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useTabs } from '@/composables/useTabs'
 import { useListRedirect } from '@/composables/useListRedirect'
@@ -67,14 +65,6 @@ const routeDetailConfig = reactive({
   ...useDetailGeneralConfig(),
   entityId: id.value,
 })
-
-const { onCopySuccess: openToaster } = useCopyEventHandlers()
-
-const onCopySuccess = () => {
-  openToaster({
-    message: t('global.copied'),
-  })
-}
 
 const onFetchSuccess = (entity) => {
   titleName.value = entity.name ?? entity.id

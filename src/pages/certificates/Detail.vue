@@ -9,12 +9,10 @@
   <CertificateConfigCard
     :config="certificateDetailConfig"
     @fetch:success="onFetchSuccess"
-    @copy:success="onCopySuccess"
   />
 </template>
 
 <script setup lang="ts">
-import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
 import { useI18n } from '@/composables/useI18n'
 import { CertificateConfigCard } from '@kong-ui-public/entities-certificates'
@@ -36,14 +34,6 @@ const certificateDetailConfig = reactive({
   ...useDetailGeneralConfig(),
   entityId: id.value,
 })
-
-const { onCopySuccess: openToaster } = useCopyEventHandlers()
-
-const onCopySuccess = () => {
-  openToaster({
-    message: t('global.copied'),
-  })
-}
 
 const onFetchSuccess = (entity) => {
   titleId.value = entity.id
