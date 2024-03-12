@@ -15,7 +15,6 @@
       <UpstreamsConfigCard
         :config="upstreamDetailConfig"
         @fetch:success="onFetchSuccess"
-        @copy:success="onCopySuccess"
       />
     </template>
     <template #targets>
@@ -29,7 +28,6 @@ import { computed, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { UpstreamsConfigCard } from '@kong-ui-public/entities-upstreams-targets'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
-import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useTabs } from '@/composables/useTabs'
 
@@ -59,14 +57,6 @@ const upstreamDetailConfig = reactive({
   ...useDetailGeneralConfig(),
   entityId: id.value,
 })
-
-const { onCopySuccess: openToaster } = useCopyEventHandlers()
-
-const onCopySuccess = () => {
-  openToaster({
-    message: t('global.copied'),
-  })
-}
 
 const onFetchSuccess = (entity) => {
   titleName.value = entity.name ?? entity.id

@@ -24,7 +24,6 @@
     :config="pluginDetailConfig"
     :scoped-entity-type="entityScope?.typeLiteral"
     :scoped-entity-id="entityScope?.id"
-    @copy:success="onCopySuccess"
   />
 </template>
 
@@ -33,8 +32,6 @@ import { computed, reactive } from 'vue'
 import { useRoute } from 'vue-router'
 import { PluginConfigCard, PluginIcon } from '@kong-ui-public/entities-plugins'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
-import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
-import { useI18n } from '@/composables/useI18n'
 import { pluginMeta } from '@/pages/plugins/PluginMeta'
 
 defineOptions({
@@ -42,7 +39,6 @@ defineOptions({
 })
 
 const route = useRoute()
-const { t } = useI18n()
 
 const id = computed(() => (route.params.id as string) ?? '')
 const pluginType = computed(() => (route.params.pluginType ?? '') as string)
@@ -75,14 +71,6 @@ const pluginDetailConfig = reactive({
   entityId: id.value,
   pluginType: pluginType.value,
 })
-
-const { onCopySuccess: openToaster } = useCopyEventHandlers()
-
-const onCopySuccess = () => {
-  openToaster({
-    message: t('global.copied'),
-  })
-}
 </script>
 
 <style scoped lang="scss">

@@ -15,7 +15,6 @@
       <KeySetConfigCard
         :config="keySetDetailConfig"
         @fetch:success="onFetchSuccess"
-        @copy:success="onCopySuccess"
       />
     </template>
     <template #keys>
@@ -29,7 +28,6 @@ import { computed, reactive, ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { KeySetConfigCard } from '@kong-ui-public/entities-key-sets'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
-import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useTabs } from '@/composables/useTabs'
 import { apiService } from '@/services/apiService'
@@ -59,14 +57,6 @@ const keySetDetailConfig = reactive({
   ...useDetailGeneralConfig(),
   entityId: id.value,
 })
-
-const { onCopySuccess: openToaster } = useCopyEventHandlers()
-
-const onCopySuccess = () => {
-  openToaster({
-    message: t('global.copied'),
-  })
-}
 
 const onFetchSuccess = (entity) => {
   titleName.value = entity.name ?? entity.id

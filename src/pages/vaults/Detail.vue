@@ -9,7 +9,6 @@
   <VaultConfigCard
     :config="vaultDetailConfig"
     @fetch:success="onFetchSuccess"
-    @copy:success="onCopySuccess"
   />
 </template>
 
@@ -18,7 +17,6 @@ import { computed, reactive, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { VaultConfigCard } from '@kong-ui-public/entities-vaults'
 import { useDetailGeneralConfig } from '@/composables/useDetailGeneralConfig'
-import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 
 defineOptions({
@@ -36,14 +34,6 @@ const vaultDetailConfig = reactive({
   ...useDetailGeneralConfig(),
   entityId: id.value,
 })
-
-const { onCopySuccess: openToaster } = useCopyEventHandlers()
-
-const onCopySuccess = () => {
-  openToaster({
-    message: t('global.copied'),
-  })
-}
 
 const onFetchSuccess = (entity) => {
   titleName.value = entity.name ?? entity.id
