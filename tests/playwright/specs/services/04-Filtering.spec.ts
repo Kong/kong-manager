@@ -57,6 +57,6 @@ test.describe('Filtering', () => {
     await inputWrapper.click()
     await inputWrapper.locator('input').type('foo')
 
-    await expect(page.locator('.empty-state-title .k-empty-state-title-header')).toHaveText('No results found')
+    await expect(page.locator('.empty-state-title')).toHaveText('No results found')
   })
 })

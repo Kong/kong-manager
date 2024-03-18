@@ -34,12 +34,12 @@ test.describe('consumer plugins', () => {
 
   test('install a plugin from the Plugins tab', async ({ page }) => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    const uuid = await page.locator('.uuid-container').innerText()
+    const uuid = await page.locator('.copy-container').innerText()
 
     await switchDetailTab(page, 'plugins')
     await withNavigation(
       page,
-      async () => await page.locator('.empty-state-content .primary').click()
+      async () => await page.locator('.empty-state-action .primary').click()
     )
     await expandPlugins(page)
     await withNavigation(

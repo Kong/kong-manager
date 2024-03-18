@@ -1,6 +1,5 @@
 import type { App } from 'vue'
 import Kongponents from '@kong/kongponents'
-import CopyUuid from '@kong-ui-public/copy-uuid'
 import { FORMS_API_KEY, VueFormGenerator } from '@kong-ui-public/forms'
 import PageHeader from '@/components/PageHeader.vue'
 import HeaderBackButton from '@/components/HeaderBackButton.vue'
@@ -10,7 +9,6 @@ import { apiService } from './services/apiService'
 
 export const registerGlobalComponents = (app: App) => {
   app.use(Kongponents)
-  app.use(CopyUuid)
   app.component('VueFormGenerator', VueFormGenerator)
   app.provide(FORMS_API_KEY, {
     getOne: (entity: string, id: string) => {

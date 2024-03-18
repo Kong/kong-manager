@@ -112,8 +112,8 @@ test.describe('upstreams', () => {
       withAction: 'submit',
     })
 
-    await expect(page.locator('.k-alert-msg-text')).toBeVisible()
-    await expect(page.locator('.k-alert-msg-text')).toHaveText(`UNIQUE violation detected on '{name="${upstream_host1}"}'`)
+    await expect(page.locator('.alert-content')).toBeVisible()
+    await expect(page.locator('.alert-content')).toHaveText(`UNIQUE violation detected on '{name="${upstream_host1}"}'`)
   })
 
   test('view upstream detail page', async ({ page }) => {
@@ -123,7 +123,7 @@ test.describe('upstreams', () => {
     // switch targets tab
     await switchDetailTab(page, 'targets')
     await expect(page.locator('.kong-ui-entities-targets-list .k-table-empty-state .primary')).toBeVisible()
-    await expect(page.locator('.kong-ui-entities-targets-list .k-table-empty-state .k-empty-state-title-header')).toHaveText('Configure a New Target')
+    await expect(page.locator('.kong-ui-entities-targets-list .k-table-empty-state .empty-state-title')).toHaveText('Configure a New Target')
   })
 
   test('submit/cancel upstream editing', async ({ page }) => {
@@ -430,14 +430,14 @@ test.describe('upstreams', () => {
         },
         {},
         async () => {
-          await expect(page.locator('.k-alert-msg-text')).toBeVisible()
+          await expect(page.locator('.alert-content')).toBeVisible()
 
           if (fallback.fill) {
-            await expect(page.locator('.k-alert-msg-text')).toHaveText(`schema violation (values of these fields must be distinct: 'hash_on_${fallback.type}', 'hash_fallback_${fallback.type}')`)
+            await expect(page.locator('.alert-content')).toHaveText(`schema violation (values of these fields must be distinct: 'hash_on_${fallback.type}', 'hash_fallback_${fallback.type}')`)
           } else {
             const expect_hashs = full_hashs[fallback.type]
 
-            await expect(page.locator('.k-alert-msg-text')).toHaveText(`2 schema violations (failed conditional validation given value of field 'hash_on'; hash_fallback: expected one of: ${expect_hashs.join(', ')})`)
+            await expect(page.locator('.alert-content')).toHaveText(`2 schema violations (failed conditional validation given value of field 'hash_on'; hash_fallback: expected one of: ${expect_hashs.join(', ')})`)
           }
         },
         false

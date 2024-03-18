@@ -54,6 +54,6 @@ test.describe('consumer credentials', () => {
     await page.locator('.modal-footer .footer-actions .danger').click()
     const basicAuthLocator = page.locator('.credential-list-wrapper').filter({ hasText: 'Basic Authentication' })
 
-    await expect(basicAuthLocator.locator('.empty-state-content .primary')).toContainText('New Basic Auth Credential')
+    await expect(basicAuthLocator.locator('.empty-state-action .primary')).toContainText('New Basic Auth Credential')
   })
 })

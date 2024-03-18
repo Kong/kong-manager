@@ -33,7 +33,7 @@ test.describe('upstreams', () => {
   test('create a target successful', async ({ page }) => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'targets')
-    await page.locator('.empty-state-content .primary').click()
+    await page.locator('.empty-state-action .primary').click()
     await page.waitForSelector('.kong-ui-entities-target-form')
     await page.locator('[data-testid="target-form-target"]').type(mockTarget)
     await page.locator('.k-prompt [data-testid="modal-action-button"]').click()

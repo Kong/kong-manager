@@ -121,7 +121,7 @@ test.describe('routes', () => {
       withAction: 'submit',
     })
     await expect(page.locator('[data-testid="form-error"]')).toBeVisible()
-    await expect(page.locator('[data-testid="form-error"] .k-alert-msg')).toHaveText(`schema violation (paths.1: should start with: / (fixed path) or ~/ (regex path))`)
+    await expect(page.locator('[data-testid="form-error"] .alert-message')).toHaveText(`schema violation (paths.1: should start with: / (fixed path) or ~/ (regex path))`)
   })
 
   test('route create - can open/close advanced fields', async ({ page }) => {

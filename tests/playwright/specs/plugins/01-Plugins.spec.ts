@@ -54,7 +54,7 @@ test.describe('plugins', () => {
   })
 
   test('plugin list should be empty now', async ({ page }) => {
-    const emptyState = page.locator('.kong-ui-entities-plugins-list .empty-state-wrapper')
+    const emptyState = page.locator('.kong-ui-entities-plugins-list .k-empty-state')
 
     await expect(emptyState).toBeVisible()
     await expect(emptyState).toContainText('Configure a New Plugin')
@@ -68,7 +68,7 @@ test.describe('plugins', () => {
 
     await serviceListPage.goto()
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    const uuid = await page.locator('.uuid-container').innerText()
+    const uuid = await page.locator('.copy-container').innerText()
 
     await switchDetailTab(page, 'plugins')
 
@@ -182,7 +182,7 @@ test.describe('plugins', () => {
 
     await routeListPage.goto()
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    const uuid = await page.locator('.uuid-container').innerText()
+    const uuid = await page.locator('.copy-container').innerText()
 
     await switchDetailTab(page, 'plugins')
 
@@ -215,12 +215,12 @@ test.describe('plugins', () => {
     await consumerListPage.goto()
 
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    const uuid = await page.locator('.uuid-container').innerText()
+    const uuid = await page.locator('.copy-container').innerText()
 
     await switchDetailTab(page, 'plugins')
     await withNavigation(
       page,
-      async () => await page.locator('.empty-state-content .primary').click()
+      async () => await page.locator('.empty-state-action .primary').click()
     )
     await withNavigation(
       page,
@@ -294,7 +294,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.empty-state-content .primary').click()
+      async () => await page.locator('.empty-state-action .primary').click()
     )
     await withNavigation(
       page,
@@ -411,7 +411,7 @@ test.describe('plugins', () => {
     await filterInput.fill('sad')
     await expect(page.getByTestId('plugins-empty-state')).toBeVisible()
     await expect(page.getByTestId('k-collapse-title')).not.toBeVisible()
-    await expect(page.locator('[data-testid="plugins-empty-state"] .k-empty-state-message')).toContainText('No results found')
+    await expect(page.locator('[data-testid="plugins-empty-state"] .empty-state-message')).toContainText('No results found')
   })
 
   test('for plugin "key-auth", the default array field should have value', async ({ page, pluginListPage }) => {

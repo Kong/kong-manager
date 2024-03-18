@@ -52,7 +52,7 @@ test.describe('routes plugins', () => {
   test(`install a plugin for the route "${mockRouteName} from the plugins tab"`, async ({ page }) => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
 
-    const uuid = await page.locator('.uuid-container').innerText()
+    const uuid = await page.locator('.copy-container').innerText()
 
     await switchDetailTab(page, 'plugins')
 

@@ -19,8 +19,8 @@ test.describe('not found', () => {
 
   const expectConfigCardNotFound = async (page: Page, url: string, expectedMessage = 'Not found') => {
     await page.goto(url)
-    await expect(page.locator('.empty-state-wrapper.is-error')).toBeVisible()
-    await expect(page.locator('.empty-state-wrapper.is-error').locator('.empty-state-content'))
+    await expect(page.locator('.k-empty-state.error')).toBeVisible()
+    await expect(page.locator('.k-empty-state.error').locator('.empty-state-content'))
       .toContainText(expectedMessage, { ignoreCase: true })
   }
 

@@ -36,7 +36,7 @@ test.describe('upstreams filter', () => {
   test('displays error if no results for upstream', async ({ page }) => {
     await expect(page.locator('.kong-ui-entity-filter-input')).toBeVisible()
     await page.fill('[data-testid="search-input"]', 'foo')
-    await expect(page.locator('.empty-state-title .k-empty-state-title-header')).toHaveText('No results found')
+    await expect(page.locator('.empty-state-title')).toHaveText('No results found')
     // clear the filter
     await page.locator('[data-testid="clear"]').click()
     await expect(page.locator('.kong-ui-entities-upstreams-list tr [data-testid="upstreamA"]')).toBeVisible()

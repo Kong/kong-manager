@@ -54,7 +54,7 @@ test.describe('service plugins', () => {
     await serviceListPage.goto()
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'plugins')
-    await page.waitForSelector('.kong-ui-entities-plugins-list .empty-state-wrapper')
+    await page.waitForSelector('.kong-ui-entities-plugins-list .k-empty-state')
     await withNavigation(page, () =>
       page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
     )

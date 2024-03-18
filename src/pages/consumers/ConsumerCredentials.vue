@@ -8,13 +8,13 @@
   />
   <KEmptyState
     v-if="enabledPluginsFetched && !hasEnabledPlugins"
-    :handle-click="navigateToPluginSelection"
-    :cta-text="t('entities.consumer-credential.empty.button')"
+    :action-button-text="t('entities.consumer-credential.empty.button')"
+    @click-action="navigateToPluginSelection"
   >
     <template #title>
       {{ t('entities.consumer-credential.empty.title') }}
     </template>
-    <template #message>
+    <template #default>
       {{ t('entities.consumer-credential.empty.message', {
         plugins: credentialPlugins.map(p => p.title).join(', '),
       }) }}
