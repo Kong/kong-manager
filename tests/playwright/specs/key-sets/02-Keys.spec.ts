@@ -36,7 +36,7 @@ test.describe('key-set keys tab', () => {
   test(`create key "${mockJwName}" from the Keys tab `, async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'keys')
-    await withNavigation(page, () => page.locator('.k-empty-state-cta [data-testid="new-key"]').click())
+    await withNavigation(page, () => page.locator('.empty-state-action [data-testid="new-key"]').click())
 
     withNavigation(page, () => fillEntityForm({
       page,

@@ -195,7 +195,7 @@ test.describe('services', () => {
     await clickEntityListAction(page, 'view')
     const serviceId = (await page
       .locator('[data-testid="id-property-value"]')
-      .locator('.uuid-container')
+      .locator('.copy-container')
       .textContent() ?? '').trim()
 
     await waitAndDismissToasts(page)
@@ -257,7 +257,7 @@ test.describe('services', () => {
       await clickEntityListAction(page, 'view')
       const serviceId = (await page
         .locator('[data-testid="id-property-value"]')
-        .locator('.uuid-container')
+        .locator('.copy-container')
         .textContent() ?? '').trim()
 
       await waitAndDismissToasts(page)
@@ -345,7 +345,7 @@ test.describe('services', () => {
     await clickEntityListAction(page, 'view')
     const serviceId = (await page
       .locator('[data-testid="id-property-value"]')
-      .locator('.uuid-container')
+      .locator('.copy-container')
       .textContent() ?? '').trim()
 
     await waitAndDismissToasts(page)

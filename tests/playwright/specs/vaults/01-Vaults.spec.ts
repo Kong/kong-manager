@@ -109,7 +109,7 @@ test.describe('vaults', () => {
       },
       withAction: 'submit',
     })
-    await expect(page.locator('[data-testid="form-error"] .k-alert-msg')).toBeVisible()
-    await expect(page.locator('[data-testid="form-error"] .k-alert-msg')).toContainText('schema violation (prefix: must not be one of: env)')
+    await expect(page.locator('[data-testid="form-error"] .alert-message')).toBeVisible()
+    await expect(page.locator('[data-testid="form-error"] .alert-message')).toContainText('schema violation (prefix: must not be one of: env)')
   })
 })

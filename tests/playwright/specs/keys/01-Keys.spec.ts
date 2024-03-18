@@ -245,7 +245,7 @@ test.describe('keys', () => {
       method: 'fill',
       withAction: 'submit',
     })
-    await expect(page.locator('[data-testid="form-error"] .k-alert-msg-text'))
+    await expect(page.locator('[data-testid="form-error"] .alert-content'))
       .toHaveText('schema violation (kid in jwk.kid must be equal to keys.kid)')
   })
 
@@ -263,7 +263,7 @@ test.describe('keys', () => {
       method: 'fill',
       withAction: 'submit',
     })
-    await expect(page.locator('[data-testid="form-error"] .k-alert-msg-text'))
+    await expect(page.locator('[data-testid="form-error"] .alert-content'))
       .toHaveText(`UNIQUE violation detected on '{name="pem-key"}'`)
   })
 })

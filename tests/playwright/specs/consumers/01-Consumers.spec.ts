@@ -32,7 +32,7 @@ test.describe('consumers', () => {
   })
 
   test('consumer list - empty', async ({ page }) => {
-    await expect(page.locator('.empty-state-wrapper')).toContainText('Configure a New Consumer')
+    await expect(page.locator('.k-empty-state')).toContainText('Configure a New Consumer')
   })
 
   test('consumer create from - entrance and exit', async ({ page }) => {
@@ -187,7 +187,7 @@ test.describe('consumers', () => {
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await page.waitForSelector('.kong-ui-consumer-entity-config-card')
     await switchDetailTab(page, 'credentials')
-    await withNavigation(page, () => page.locator('.empty-state-wrapper button').click())
+    await withNavigation(page, () => page.locator('.k-empty-state button').click())
     await withNavigation(page, () => page.locator('[data-testid="Key Authentication"]').click())
     await page.waitForSelector('#config-key_names')
     await page.click(consumerListPage.$.submitButton)
@@ -210,8 +210,7 @@ test.describe('consumers', () => {
     await page.fill('#key', 'my-second-api-key')
     await page.click(consumerListPage.$.submitButton)
     await page.waitForSelector(consumerListPage.$.success)
-    await expect(keyAuthLocator.locator('[data-testid="copy-id"][title="my-api-key"]')).toBeVisible()
-    await expect(keyAuthLocator.locator('[data-testid="copy-id"][title="my-second-api-key"]')).toBeVisible()
+    expect(await keyAuthLocator.locator('table tbody tr').count()).toBe(2)
   })
 
   test('consumer create - success2', async ({ page }) => {

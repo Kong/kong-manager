@@ -1,6 +1,5 @@
 import '@material-design-icons/font'
 import '@kong-ui-public/app-layout/dist/style.css'
-import '@kong-ui-public/copy-uuid/dist/style.css'
 import '@kong-ui-public/entities-certificates/dist/style.css'
 import '@kong-ui-public/entities-consumer-credentials/dist/style.css'
 import '@kong-ui-public/entities-consumers/dist/style.css'
