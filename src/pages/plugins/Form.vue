@@ -78,6 +78,7 @@ const config = reactive({
   entityId: computed(() => entityScope.value?.id ?? ''),
   entityType: computed(() => entityScope.value?.typeLiteral),
   disableConsumerGroupScope: true,
+  groupFields: true,
 })
 
 const onFetchSchemaError = (err: AxiosError) => {

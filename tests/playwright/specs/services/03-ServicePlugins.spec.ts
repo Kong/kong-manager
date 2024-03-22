@@ -4,7 +4,6 @@ import { autocompleteDeleteModal } from '@pw/commands/autocompleteDeleteModal'
 import { clearKongResources } from '@pw/commands/clearKongResources'
 import { clickEntityListAction } from '@pw/commands/clickEntityListAction'
 import { createKongResource } from '@pw/commands/createKongResource'
-import { expandPlugins } from '@pw/commands/expandPlugins'
 import { fillEntityForm } from '@pw/commands/fillEntityForm'
 import { switchDetailTab } from '@pw/commands/switchDetailTab'
 import { waitAndDismissToasts } from '@pw/commands/waitAndDismissToast'
@@ -45,7 +44,6 @@ test.describe('service plugins', () => {
     await withNavigation(page, () =>
       page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
     )
-    await expandPlugins(page)
     await page.getByTestId('hmac-auth-card').click()
     await expect(page.locator('.autosuggest #service-id')).toHaveValue(new RegExp(`${testService?.name}\\s*-\\s*${testService?.id}`))
   })
@@ -119,7 +117,6 @@ test.describe('service plugins', () => {
     // create a global plugin
     await pluginListPage.goto()
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
-    await expandPlugins(page)
     await page.getByTestId('key-auth-card').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await withNavigation(page, async () => await page.click(serviceListPage.$.submitButton))

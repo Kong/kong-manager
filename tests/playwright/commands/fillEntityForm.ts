@@ -1,5 +1,5 @@
 import type { Page } from '@playwright/test'
-
+import { expandAdvancedFields } from './expandAdvancedFields'
 import { selectOption } from './selectOption'
 
 interface Params {
@@ -30,6 +30,10 @@ export const fillEntityForm = async (params: Params) => {
     method = 'type',
     handleModal,
   } = params
+
+  if (await page.locator('.kong-ui-entities-plugin-form').isVisible()) {
+    await expandAdvancedFields(page)
+  }
 
   for (const [key, value] of Object.entries(formData)) {
     // for select

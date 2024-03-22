@@ -4,7 +4,7 @@ import { autocompleteDeleteModal } from '@pw/commands/autocompleteDeleteModal'
 import { clearKongResources } from '@pw/commands/clearKongResources'
 import { clickEntityListAction } from '@pw/commands/clickEntityListAction'
 import { createKongResource } from '@pw/commands/createKongResource'
-import { expandPlugins } from '@pw/commands/expandPlugins'
+import { expandAdvancedFields } from '@pw/commands/expandAdvancedFields'
 import { fillEntityForm } from '@pw/commands/fillEntityForm'
 import { switchDetailTab } from '@pw/commands/switchDetailTab'
 import { waitAndDismissToasts } from '@pw/commands/waitAndDismissToast'
@@ -77,7 +77,6 @@ test.describe('plugins', () => {
       async () => await page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
     )
 
-    await expandPlugins(page)
     await withNavigation(
       page,
       async () => await page.getByTestId('basic-auth-card').click()
@@ -86,6 +85,7 @@ test.describe('plugins', () => {
     await expect(page.locator('.autosuggest #service-id')).toBeVisible()
     await expect(page.locator('.autosuggest #service-id')).toHaveValue(new RegExp(`${mockServiceName}\\s*-\\s*${uuid}`))
 
+    await expandAdvancedFields(page)
     await page.locator('#config-anonymous').type('anon')
     await page.locator('#config-hide_credentials').check()
 

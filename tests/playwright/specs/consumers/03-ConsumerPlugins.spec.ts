@@ -3,7 +3,7 @@ import baseTest from '@pw/base-test'
 import { clearKongResources } from '@pw/commands/clearKongResources'
 import { clickEntityListAction } from '@pw/commands/clickEntityListAction'
 import { createKongResource } from '@pw/commands/createKongResource'
-import { expandPlugins } from '@pw/commands/expandPlugins'
+import { expandAdvancedFields } from '@pw/commands/expandAdvancedFields'
 import { switchDetailTab } from '@pw/commands/switchDetailTab'
 import { withNavigation } from '@pw/commands/withNavigation'
 import { ConsumerListPage } from '@pw/pages/consumers'
@@ -41,7 +41,6 @@ test.describe('consumer plugins', () => {
       page,
       async () => await page.locator('.empty-state-action .primary').click()
     )
-    await expandPlugins(page)
     await withNavigation(
       page,
       async () => await page.getByTestId('datadog-card').click()
@@ -89,6 +88,7 @@ test.describe('consumer plugins', () => {
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
     await page.locator('[data-testid="Rate Limiting"]').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
+    await expandAdvancedFields(page)
     await page.locator('#config-second').fill('30')
     await withNavigation(
       page,

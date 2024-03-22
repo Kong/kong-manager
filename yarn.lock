@@ -342,10 +342,10 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@kong-ui-public/app-layout@^4.0.15":
-  version "4.0.15"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/app-layout/-/app-layout-4.0.15.tgz#442bec55cb6727a268015d021c1b7a24c23284b6"
-  integrity sha512-EAQ6s6LOpbqmjyRDjsIV8jcBlMw/B9n+0bMvqwfQeVdprxafOLAKsrKQlPuUvGpSQbWZochMpV/DqgViSeEb5A==
+"@kong-ui-public/app-layout@^4.0.16":
+  version "4.0.16"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/app-layout/-/app-layout-4.0.16.tgz#6676dc92c977e2ccacf6367f587b4d94c78412ce"
+  integrity sha512-5AICSUqMdvr1bDrsUBuBcIgc/l3+JlBQRyqMlMag8XOGohbAAfwENT5zEq53VieX8WjUEn+1T3nX2Fq3l+QZDQ==
   dependencies:
     "@kong/icons" "^1.8.14"
     focus-trap "^7.5.4"
@@ -359,129 +359,129 @@
   dependencies:
     date-fns "^2.30.0"
 
-"@kong-ui-public/entities-certificates@^2.4.5":
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-certificates/-/entities-certificates-2.4.5.tgz#562080089d198ac6fff813438597d57c8f6bf3ec"
-  integrity sha512-8FOd9F4EPhe0ZmzV+VS+iwVVuT2CD2L7Esj7hcRN8YEJym8qtm8BaFa0sth4MFJBzJ3AKZlXmfzNQuPGwEH62A==
+"@kong-ui-public/entities-certificates@^2.5.4":
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-certificates/-/entities-certificates-2.5.4.tgz#1f9e5ba96e23da174951f1319d0b23c57c028cd8"
+  integrity sha512-Fqnuf144iYiNdXmsdwTvcz/s5kBgglmTPo5rESwP9EBxEdyQ2yszOulAZ5Z+RAJsW/8R7DF3T9+/aLFmywDqwg==
   dependencies:
-    "@kong-ui-public/entities-shared" "^2.10.5"
+    "@kong-ui-public/entities-shared" "^2.12.3"
     "@peculiar/x509" "^1.9.7"
 
-"@kong-ui-public/entities-consumer-credentials@^2.1.74":
-  version "2.1.74"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-consumer-credentials/-/entities-consumer-credentials-2.1.74.tgz#2c880131406969ed195fcd9f4ae39c1a9d5c3105"
-  integrity sha512-448PFinKYzZEFctUWCZFQndQQDh1mEippVdLKnIuWQ7pcErqkWJge5MaS36yqS/ebqAcBRjw8rO3mIkAUZ8/+Q==
+"@kong-ui-public/entities-consumer-credentials@^2.1.79":
+  version "2.1.79"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-consumer-credentials/-/entities-consumer-credentials-2.1.79.tgz#1897ef560a710a34186f9543c2101395bda875f2"
+  integrity sha512-Lm4nubgyLJb9TuAnel101sm0nNstuIYlia8bH1Suca5YM2w9V5AHeM0mB4fcTj7f/xsnrrREyQKnzmaFRSrUIQ==
   dependencies:
-    "@kong-ui-public/entities-shared" "^2.10.5"
+    "@kong-ui-public/entities-shared" "^2.12.3"
 
-"@kong-ui-public/entities-consumer-groups@^2.5.5":
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-consumer-groups/-/entities-consumer-groups-2.5.5.tgz#15a18c3d7634172c47917ac352a054c4e6105c8c"
-  integrity sha512-RmlbFU0mDgxUU7Lk3O0AuiVXFMmW6Q5tiyd80zYe8r+az3XVp+pvMfDHKWtUfKWKRbyuYUrKiFaOvkkWK41jVA==
+"@kong-ui-public/entities-consumer-groups@^2.6.4":
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-consumer-groups/-/entities-consumer-groups-2.6.4.tgz#f2b033081c55ef6b91fe2ae24afd112f699d7561"
+  integrity sha512-K+y2NtMhWapukpwl5oqP5Rw5Rv3ELYkZL+da4knZKR96r1DCer1+1lIv3N+J6/MQDEhdAWPUHPskikYkw5cbsQ==
   dependencies:
-    "@kong-ui-public/entities-shared" "^2.10.5"
+    "@kong-ui-public/entities-shared" "^2.12.3"
 
-"@kong-ui-public/entities-consumers@^2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-consumers/-/entities-consumers-2.6.5.tgz#af547fa6db78d499ea82a58cf89e5ade553df112"
-  integrity sha512-FaEAUgVvxZ77OgPStJFTYP+8MMy/5pVtVOlqXM/UnDvtJmtVq1qQWYqn12w5dDFHJDlU9tSsUBhxWEwS21zjww==
+"@kong-ui-public/entities-consumers@^2.7.4":
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-consumers/-/entities-consumers-2.7.4.tgz#666b265497d19ebd34b15b38ccc5a8082b9a5d37"
+  integrity sha512-cFTyPmVqihSR8bGhnUqbrq+gLo/A3CAUDMGkLfwfnHoDZ+cxliBMQV6+PyEOFf7aHdHLiEncIcD2dlbXawCoWw==
   dependencies:
-    "@kong-ui-public/entities-shared" "^2.10.5"
+    "@kong-ui-public/entities-shared" "^2.12.3"
 
-"@kong-ui-public/entities-gateway-services@^2.6.5":
-  version "2.6.5"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-gateway-services/-/entities-gateway-services-2.6.5.tgz#3760aabe76c2b5e8f11c7a5b495f9f217420f35c"
-  integrity sha512-pbWJ8/OoAtIvX9ZJA2KKR+ARlpPU/mhIeMDMmk9/ZnMPajYE9BHX4UETxQhcoCvC7E3HNN275dYVZ24K4YLKBg==
+"@kong-ui-public/entities-gateway-services@^2.7.4":
+  version "2.7.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-gateway-services/-/entities-gateway-services-2.7.4.tgz#c0cb4d32d65243134671f24bbf527e43a37faf79"
+  integrity sha512-7x9HjFO1Fd6f01iRf3YMYiHRthCO5XbRgjqy/LhDIth6N8mBGKMN+RNtZRg5aLhV947edOx4+Ta4vEeTv8ja6Q==
   dependencies:
-    "@kong-ui-public/entities-shared" "^2.10.5"
+    "@kong-ui-public/entities-shared" "^2.12.3"
 
-"@kong-ui-public/entities-key-sets@^2.4.5":
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-key-sets/-/entities-key-sets-2.4.5.tgz#3101ecb1087901a129c7b9dcabf23c9663570efb"
-  integrity sha512-D9EYLLLd3EK5QB7je8SztZtv6XygWfPjuwymnCR1Ic7h3TGlQcCrHhGx8u0gS/EBFs7behpznH9Xa2bniUgONA==
+"@kong-ui-public/entities-key-sets@^2.5.4":
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-key-sets/-/entities-key-sets-2.5.4.tgz#e2eace78663a6c6954eb3c5aa0d610525aaf353f"
+  integrity sha512-voSLwQ7M8Dj/C2vxHAy4OzkNFr/I2jOoXjyQWiFJVCA5Cn2IgzrgZDxhIVRVZ6JYhF67vm/cfcLFc9bu6aErrw==
   dependencies:
-    "@kong-ui-public/entities-shared" "^2.10.5"
+    "@kong-ui-public/entities-shared" "^2.12.3"
 
-"@kong-ui-public/entities-keys@^2.4.5":
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-keys/-/entities-keys-2.4.5.tgz#14841555f68a69f249da33dd3a051cfced6f03e0"
-  integrity sha512-InA8xdfz3n388B52LLKJAbf7n6g4FX3+XqgYml0CiVaxLEdZH8N+XdTLG1aXdvbL+ahQvC7AmLoqOk05sH3AyQ==
+"@kong-ui-public/entities-keys@^2.5.4":
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-keys/-/entities-keys-2.5.4.tgz#9be8ad5afe9ccb1e963ca44ca7fcb14055bdc513"
+  integrity sha512-j9rWbS8JWiKG2FUjsUXTEUlqEXIEZSKgLm4Z5craA82YXthdYGcL//oZYXj5l3NnCNlz4ThuZN7Q+SnnWID5aA==
   dependencies:
-    "@kong-ui-public/entities-shared" "^2.10.5"
+    "@kong-ui-public/entities-shared" "^2.12.3"
 
-"@kong-ui-public/entities-plugins@^2.14.1":
-  version "2.14.1"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-plugins/-/entities-plugins-2.14.1.tgz#1cff3d4041fd5aab05198bfd1c6fd6c6a170c166"
-  integrity sha512-g8dGfEA4B3CEPPrZWnxtinfHfWXs6eUjNOFCeCh1n0TGGh69r4QWP/suD2viDWFGN+SGfAWe8cOHFoiaxIRqrg==
+"@kong-ui-public/entities-plugins@^2.16.4":
+  version "2.16.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-plugins/-/entities-plugins-2.16.4.tgz#8be853acc1baf36a635e3ffc0339f5f5b98a561a"
+  integrity sha512-gxuR9KnYD7xzGPUY4OgfkdTiZ2glQvp++T2+LeH6xn1weDnW9S0Y2wpO80qOTU0VhoZ+G5DxiGOXfFakBYf6KA==
   dependencies:
-    "@kong-ui-public/entities-consumer-groups" "^2.5.5"
-    "@kong-ui-public/entities-consumers" "^2.6.5"
-    "@kong-ui-public/entities-gateway-services" "^2.6.5"
-    "@kong-ui-public/entities-routes" "^2.5.5"
-    "@kong-ui-public/entities-shared" "^2.10.5"
-    "@kong-ui-public/forms" "^2.2.0"
+    "@kong-ui-public/entities-consumer-groups" "^2.6.4"
+    "@kong-ui-public/entities-consumers" "^2.7.4"
+    "@kong-ui-public/entities-gateway-services" "^2.7.4"
+    "@kong-ui-public/entities-routes" "^2.6.4"
+    "@kong-ui-public/entities-shared" "^2.12.3"
+    "@kong-ui-public/forms" "^2.2.2"
     "@kong/icons" "^1.8.14"
-    marked "^12.0.0"
+    marked "^12.0.1"
 
-"@kong-ui-public/entities-routes@^2.4.2", "@kong-ui-public/entities-routes@^2.5.5":
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-routes/-/entities-routes-2.5.5.tgz#8f24376f9aa1e0fa18d1076f7746d9dcdf0ef667"
-  integrity sha512-I04bDNlTFLygDBarj6/n3W7+Wnponz++tPaSADCvTD+73Hfz7lbmIxykPXGfVjd+yx8EGml4ZcEMe7zCTTVCNw==
+"@kong-ui-public/entities-routes@^2.4.2", "@kong-ui-public/entities-routes@^2.6.4":
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-routes/-/entities-routes-2.6.4.tgz#1bfd312d47aa75a474a8f5c7e8d0dcb34f9bb288"
+  integrity sha512-PHE7sPpxpZOn1EBcl+IQXuws0zgbbt4XNc1xkwuYr02FhWB/kj12Wr/yZeRBuT1bK+uSwUmt8Q9HWkkIMN4eNA==
   dependencies:
-    "@kong-ui-public/entities-shared" "^2.10.5"
+    "@kong-ui-public/entities-shared" "^2.12.3"
 
-"@kong-ui-public/entities-shared@^2.10.5", "@kong-ui-public/entities-shared@^2.5.2":
-  version "2.10.5"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-shared/-/entities-shared-2.10.5.tgz#c959e6dc807efe393533c60e75962220fef7f71c"
-  integrity sha512-zd15GPwt6NnYjaJYKyGY0BxaS5Bx59JuchdK6XYbg9j8+ifKk1wi5rmidGdg1O9G6jTqX3u1MAH24s2xiH5Gsw==
+"@kong-ui-public/entities-shared@^2.12.3", "@kong-ui-public/entities-shared@^2.5.2":
+  version "2.12.3"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-shared/-/entities-shared-2.12.3.tgz#a044c9846f6d43de8234dd460cbecb9efd7fabfb"
+  integrity sha512-kLKcieocSu877ktSXtVTXCKx86KrLO5vY98qluUckSPHNd8MtwPSKDonsyPDUW+CCZ0ymIajSzC6PwsdS78GEg==
   dependencies:
     "@kong-ui-public/core" "^1.5.7"
     "@kong/icons" "^1.8.14"
     compare-versions "^6.1.0"
 
-"@kong-ui-public/entities-snis@^2.4.5":
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-snis/-/entities-snis-2.4.5.tgz#c939d0a95245432dce5ff4fd1943add1732b9df3"
-  integrity sha512-buG/qBM9bW9wDkjsctx79pSMkCVvvc63yUU1d8YQHhbMMkkGO5m07Fuu0dw0WRW2HTVPptPTnBWGOEo8W6LIHg==
+"@kong-ui-public/entities-snis@^2.5.4":
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-snis/-/entities-snis-2.5.4.tgz#7eb0f461072daed62606fbb7652cad22a34b2b64"
+  integrity sha512-Yu2d6NnlzCkxsx0OWiKP4DFLtd9dmRIr2JBTNL8yABWksyesJ88WS3C1zvgGlXdIFWhcuYFQ32ocmJOlnLEUWg==
   dependencies:
-    "@kong-ui-public/entities-shared" "^2.10.5"
+    "@kong-ui-public/entities-shared" "^2.12.3"
 
-"@kong-ui-public/entities-upstreams-targets@^2.4.5":
-  version "2.4.5"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-upstreams-targets/-/entities-upstreams-targets-2.4.5.tgz#105c68c4e29eec16189fb9ef1ac572c570570490"
-  integrity sha512-vcT/5g3ju+t3k+S1DNxnpkSL+Vg7Ji8kBFXXWjs2Q3yDbgZEstogcOFKsxcdcd094wK6jQQUS1N51Vo8t5Z/yg==
+"@kong-ui-public/entities-upstreams-targets@^2.5.4":
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-upstreams-targets/-/entities-upstreams-targets-2.5.4.tgz#f6bb7a9dfcc159ba31196ead1c22d58fb317d85f"
+  integrity sha512-JHn4JgGuJxlCou2Ia2VD/sv7D7u72zezujYgdb9RxD6P84cWMrG9BnMqEPxSBEd/pmBiKDL4srK19zRmnn8J+Q==
   dependencies:
-    "@kong-ui-public/entities-shared" "^2.10.5"
+    "@kong-ui-public/entities-shared" "^2.12.3"
 
-"@kong-ui-public/entities-vaults@^2.5.5":
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-vaults/-/entities-vaults-2.5.5.tgz#921a2f891ecef2e281e6217b9e5d3b38410b201b"
-  integrity sha512-nhTcdFpUzN1SiPqlvoY460jpaunHQ7KWYsGqh2iU07A35GVwyLY+/pkfK5g/Qa7QSnZlIQQk0lKBoCiR9soBBg==
+"@kong-ui-public/entities-vaults@^2.6.4":
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-vaults/-/entities-vaults-2.6.4.tgz#b72d0ece693bd87e29cb4bc3305e173bce382cff"
+  integrity sha512-6OL7BI67MSjDDJ4aaeiaP7V3nb8sjd/kJWTMsRlKIz6/gfVvSKPavDSVARQ1CNEpZHxo7kghD20d+sO0xebnnw==
   dependencies:
-    "@kong-ui-public/entities-shared" "^2.10.5"
+    "@kong-ui-public/entities-shared" "^2.12.3"
 
-"@kong-ui-public/forms@^2.1.28", "@kong-ui-public/forms@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/forms/-/forms-2.2.0.tgz#4ba38ef6c71493c5b4554ee2f0525510dad64a55"
-  integrity sha512-caHkA7AT1+E4wpTDVklDtZimBHtPEdOaHTCB8R4XBegs9bX5ZiOd7b0+gru0uT07A/TRhBIrQkQh6W3J3PKlug==
+"@kong-ui-public/forms@^2.1.28", "@kong-ui-public/forms@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/forms/-/forms-2.2.2.tgz#a1223328e278dbeeb204f5d29b42ebc487692caf"
+  integrity sha512-M+h+Fn2MKgAUimQb6V+a3hEq7TLgkJbVX3ARmE3Z/Q0hA6mfn+qSIa3ZIi+sGTLzJ2PwiitWpyxkO4VcRdWrEg==
   dependencies:
     "@kong/icons" "^1.8.14"
     fecha "^4.2.3"
     lodash "^4.17.21"
 
-"@kong-ui-public/i18n@^2.1.3":
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/i18n/-/i18n-2.1.3.tgz#69274abb275c612f999f6e0944da11c341fdc347"
-  integrity sha512-KPEzrVsfTjAGTZ2kcPK+b+hRwDlLjeY4Ys6VnTn+qYEYJjiPEjKansw5zJk33c8R4CTM4a7Zf5DPg1zaWjmNoQ==
+"@kong-ui-public/i18n@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/i18n/-/i18n-2.1.4.tgz#14358c953511da14ca59c0475a7c6f8706abf1e7"
+  integrity sha512-fueflh8p98qLITjfqzRoIDXhqTWv5GEiFduSxs5p2f5J1bIeczRTwG3T3k86KI8HwbiU3jG2r5+rZ6d/WFPHYg==
   dependencies:
     "@formatjs/intl" "^2.10.0"
     flat "^6.0.1"
     intl-messageformat "^10.5.11"
 
-"@kong-ui-public/misc-widgets@^2.0.29":
-  version "2.0.29"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/misc-widgets/-/misc-widgets-2.0.29.tgz#caa9a3f4d7323861264f8714aa39a48e85771b5d"
-  integrity sha512-JOgSwubOLurQoWwiJoodN94q098MGmRxRYwcbO9fiJY0nCc6Puq38I0TLVV20K01fjSYzKkTkSlg6xjygygzHA==
+"@kong-ui-public/misc-widgets@^2.0.31":
+  version "2.0.31"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/misc-widgets/-/misc-widgets-2.0.31.tgz#4c0f843c502b4afe227bcd527aed7c98c73b51d3"
+  integrity sha512-0MS0V0P/kqWzI53/FhCBNrg7dnC0qLffHG07qrBqW5wCRwoGXvUnGhwwLiaOOajwElSOXUlShYNIykiHGQNv7Q==
 
 "@kong/design-tokens@^1.12.10":
   version "1.12.10"
@@ -493,15 +493,15 @@
   resolved "https://registry.yarnpkg.com/@kong/icons/-/icons-1.8.14.tgz#3219563df669b8bb3e260df12ac211a5072938e6"
   integrity sha512-nJUTtLpqelKCTY8lS8VByWaHYUq1CuB5cBUX/q2FEDu5o6IKH/B7fEDQpb/pB1lLRYTqZXneHR/lGYjxy4u8eQ==
 
-"@kong/kongponents@^9.0.0-alpha.115":
-  version "9.0.0-alpha.115"
-  resolved "https://registry.yarnpkg.com/@kong/kongponents/-/kongponents-9.0.0-alpha.115.tgz#ac2e2c26e98cb37fe79300f9d037eb9cd4bf25e5"
-  integrity sha512-PvDKSw7KpFsra3lopllCIqjzOCDMlRRdfeI902VJodgSTnQPRRhcqyUnRbfhbVs47MVRP7Ja6RYNYKa8HZyWcg==
+"@kong/kongponents@9.0.0-alpha.120":
+  version "9.0.0-alpha.120"
+  resolved "https://registry.yarnpkg.com/@kong/kongponents/-/kongponents-9.0.0-alpha.120.tgz#fa24ed96f2e11e0a09fc76403b57183bd589709a"
+  integrity sha512-MSm0gUeN/wnMgpn34nsakODkDow2SY7vDZgc33mpemqvXP6MPbqgxXIdAlfToTdd++I2oDQ5AdQyv2Y3AX1tcQ==
   dependencies:
     "@kong/icons" "^1.8.14"
     "@popperjs/core" "^2.11.8"
     date-fns "^2.30.0"
-    date-fns-tz "^2.0.0"
+    date-fns-tz "^2.0.1"
     focus-trap "^7.5.4"
     focus-trap-vue "^4.0.3"
     popper.js "^1.16.1"
@@ -1567,6 +1567,11 @@ date-fns-tz@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/date-fns-tz/-/date-fns-tz-2.0.0.tgz#1b14c386cb8bc16fc56fe333d4fc34ae1d1099d5"
   integrity sha512-OAtcLdB9vxSXTWHdT8b398ARImVwQMyjfYGkKD2zaGpHseG2UPHbHjXELReErZFxWdSLph3c2zOaaTyHfOhERQ==
+
+date-fns-tz@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/date-fns-tz/-/date-fns-tz-2.0.1.tgz#0a9b2099031c0d74120b45de9fd23192e48ea495"
+  integrity sha512-fJCG3Pwx8HUoLhkepdsP7Z5RsucUi+ZBOxyM5d0ZZ6c4SdYustq0VMmOu6Wf7bli+yS/Jwp91TOCqn9jMcVrUA==
 
 date-fns@^2.16.1, date-fns@^2.30.0:
   version "2.30.0"
@@ -3082,10 +3087,10 @@ map-obj@^4.1.0:
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-4.3.0.tgz#9304f906e93faae70880da102a9f1df0ea8bb05a"
   integrity sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==
 
-marked@^12.0.0:
-  version "12.0.0"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-12.0.0.tgz#051ea8c8c7f65148a63003df1499515a2c6de716"
-  integrity sha512-Vkwtq9rLqXryZnWaQc86+FHLC6tr/fycMfYAhiOIXkrNmeGAyhSxjqu0Rs1i0bBqw5u0S7+lV9fdH2ZSVaoa0w==
+marked@^12.0.1:
+  version "12.0.1"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-12.0.1.tgz#8ab1eb15560c7cbe3b011074845d7ca6c4d392b0"
+  integrity sha512-Y1/V2yafOcOdWQCX0XpAKXzDakPOpn6U0YLxTJs3cww6VxOzZV1BTOOYWLvH3gX38cq+iLwljHHTnMtlDfg01Q==
 
 marked@^5.1.0:
   version "5.1.0"
