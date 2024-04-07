@@ -57,6 +57,7 @@ test.describe('consumer plugins', () => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'plugins')
     await clickEntityListAction(page, 'edit')
+    await expandAdvancedFields(page)
     await page.locator('#tags').fill(mockTag)
     await withNavigation(
       page,
@@ -65,6 +66,7 @@ test.describe('consumer plugins', () => {
     await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
 
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
+    await expandAdvancedFields(page)
     await page.locator('#tags').fill(`${mockTag}${mockTag}`)
     await withNavigation(
       page,
