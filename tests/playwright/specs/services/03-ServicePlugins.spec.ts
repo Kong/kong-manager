@@ -69,17 +69,17 @@ test.describe('service plugins', () => {
 
   test('status label in list item should work', async ({ page }) => {
     const row = page.locator('.kong-ui-entities-plugins-list tr[data-testid="basic-auth"]')
-    const statusLabel = row.locator('.k-input-switch .toggle-label')
+    const statusInput = row.locator('.k-input-switch input')
     const statusSwitch = row.locator('.k-input-switch .switch-control')
 
-    await expect(statusLabel).toHaveText('Enabled')
+    await expect(statusInput).toBeChecked()
     await statusSwitch.click()
 
     await page
       .locator('.modal-container')
       .locator('.k-button[data-testid="modal-action-button"]').click()
 
-    await expect(statusLabel).toHaveText('Disabled')
+    await expect(statusInput).not.toBeChecked()
   })
 
   test("edit action should bring the user to the plugin's edit page", async ({ page }) => {

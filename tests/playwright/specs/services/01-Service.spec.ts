@@ -83,16 +83,18 @@ test.describe('services', () => {
   })
 
   test('status badge in list item should work', async ({ page }) => {
-    const statusBadge = page.locator('.kong-ui-entities-gateway-services-list tr [data-testid="enabled"] .content-wrapper .k-input-switch')
+    const row = page.locator('.kong-ui-entities-gateway-services-list tr')
+    const statusBadge = row.locator('[data-testid="enabled"] .content-wrapper .k-input-switch')
+    const statusInput = row.locator('input')
 
-    await expect(statusBadge).toHaveText('Enabled')
+    await expect(statusInput).toBeChecked()
     await statusBadge.locator('.switch-control').click()
 
     await page
       .locator('.modal-container')
       .locator('.k-button[data-testid="modal-action-button"]').click()
 
-    await expect(statusBadge).toHaveText('Disabled')
+    await expect(statusInput).not.toBeChecked()
 
     // reset service status to 'enabled'
     await statusBadge.locator('.switch-control').click()
