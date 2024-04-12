@@ -154,10 +154,10 @@ test.describe('plugins', () => {
 
   test('status switch in list item should work', async ({ page }) => {
     const row = page.locator('.kong-ui-entities-plugins-list tr[data-testid="basic-auth"]')
-    const statusLabel = row.locator('.k-input-switch .toggle-label')
+    const statusInput = row.locator('.k-input-switch input')
     const statusSwitch = row.locator('.k-input-switch .switch-control')
 
-    await expect(statusLabel).toHaveText('Enabled')
+    await expect(statusInput).toBeChecked()
     await statusSwitch.click()
 
     await page
@@ -165,7 +165,7 @@ test.describe('plugins', () => {
       .locator('.k-button[data-testid="modal-action-button"]').click()
 
     await waitAndDismissToasts(page)
-    await expect(statusLabel).toHaveText('Disabled')
+    await expect(statusInput).not.toBeChecked()
   })
 
   test('install a plugin when the scope is "route"', async ({ page, routeListPage }) => {
