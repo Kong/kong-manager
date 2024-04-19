@@ -112,8 +112,8 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
   padding: 32px 40px 80px !important;
 }
 
-// TODO: remove this when we upgrade to Kongponents v9
-:deep(.k-code-block.theme-dark pre) {
-  background-color: $kui-color-background-neutral-strongest!important;
+:deep(.json-content.k-code-block) {
+  border-top-left-radius: $kui-border-radius-0 !important;
+  border-top-right-radius: $kui-border-radius-0 !important;
 }
 </style>

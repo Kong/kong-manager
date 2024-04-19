@@ -130,20 +130,19 @@ test.describe('routes', () => {
     )
 
     // default the advanced field status
-    await expect(page.locator('[data-testid="k-collapse-trigger-content"] .kong-icon-chevronRight')).toBeVisible()
-    await expect(page.locator('[data-testid="k-collapse-hidden-content"]')).toHaveAttribute('style', 'display: none;')
+    await expect(page.locator('[data-testid="collapse-trigger-content"] .chevron-right-icon')).toBeVisible()
+    await expect(page.locator('[data-testid="collapse-trigger-content"] .chevron-right-icon')).not.toHaveClass(/collapse-expanded/)
+    await expect(page.locator('[data-testid="collapse-hidden-content"]')).toHaveAttribute('style', 'display: none;')
 
     // open the advanced field
-    await page.locator('[data-testid="k-collapse-trigger-label"]').click()
-    await expect(page.locator('[data-testid="k-collapse-trigger-content"] .kong-icon-chevronDown')).toBeVisible()
-    await expect(page.locator('[data-testid="k-collapse-trigger-content"] .kong-icon-chevronRight')).not.toBeVisible()
-    await expect(page.locator('[data-testid="k-collapse-hidden-content"]')).toHaveAttribute('style', '')
+    await page.locator('[data-testid="collapse-trigger-label"]').click()
+    await expect(page.locator('[data-testid="collapse-trigger-content"] .chevron-right-icon')).toHaveClass(/collapse-expanded/)
+    await expect(page.locator('[data-testid="collapse-hidden-content"]')).toHaveAttribute('style', '')
 
     // hide the advanced field
-    await page.locator('[data-testid="k-collapse-trigger-label"]').click()
-    await expect(page.locator('[data-testid="k-collapse-trigger-content"] .kong-icon-chevronDown')).not.toBeVisible()
-    await expect(page.locator('[data-testid="k-collapse-trigger-content"] .kong-icon-chevronRight')).toBeVisible()
-    await expect(page.locator('[data-testid="k-collapse-hidden-content"]')).toHaveAttribute('style', 'display: none;')
+    await page.locator('[data-testid="collapse-trigger-label"]').click()
+    await expect(page.locator('[data-testid="collapse-trigger-content"] .chevron-right-icon')).not.toHaveClass(/collapse-expanded/)
+    await expect(page.locator('[data-testid="collapse-hidden-content"]')).toHaveAttribute('style', 'display: none;')
   })
 
   const testProtocols = [
@@ -375,11 +374,11 @@ test.describe('routes', () => {
           await fillArrayField(page, 'snis', ['snis'])
         }
 
-        await expect(page.locator('[data-testid="k-collapse-trigger-content"] .kong-icon-chevronRight')).toBeVisible()
-        await expect(page.locator('[data-testid="k-collapse-hidden-content"]')).toHaveAttribute('style', 'display: none;')
+        await expect(page.locator('[data-testid="collapse-trigger-content"] .chevron-right-icon')).not.toHaveClass(/collapse-expanded/)
+        await expect(page.locator('[data-testid="collapse-hidden-content"]')).toHaveAttribute('style', 'display: none;')
 
         // open the advanced field
-        await page.locator('[data-testid="k-collapse-trigger-label"]').click()
+        await page.locator('[data-testid="collapse-trigger-label"]').click()
         if (!isStripPath) {
           await page.getByTestId('route-form-strip-path').click()
         }
@@ -412,11 +411,11 @@ test.describe('routes', () => {
         await fillArrayField(page, 'hosts', ['google.com'])
         await expect(page.getByTestId('routing-rule-methods')).toHaveCount(0)
 
-        await expect(page.locator('[data-testid="k-collapse-trigger-content"] .kong-icon-chevronRight')).toBeVisible()
-        await expect(page.locator('[data-testid="k-collapse-hidden-content"]')).toHaveAttribute('style', 'display: none;')
+        await expect(page.locator('[data-testid="collapse-trigger-content"] .chevron-right-icon')).not.toHaveClass(/collapse-expanded/)
+        await expect(page.locator('[data-testid="collapse-hidden-content"]')).toHaveAttribute('style', 'display: none;')
 
         // open the advanced field
-        await page.locator('[data-testid="k-collapse-trigger-label"]').click()
+        await page.locator('[data-testid="collapse-trigger-label"]').click()
 
         await expect(page.getByTestId('route-form-strip-path')).not.toBeVisible()
       }, data,

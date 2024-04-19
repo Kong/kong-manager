@@ -6,9 +6,13 @@ export const expandAdvancedFields = async (page: Page) => {
     .locator('.entity-form > .vue-form-generator > fieldset')
     .or(page.locator('.entity-form .k-tabs')) // for oidc plugin
     .waitFor({ state: 'attached' })
-  const advancedFieldsExpandTrigger = page.locator('.k-collapse.nested-collapse .k-collapse-trigger-chevron.kong-icon-chevronRight')
+  const advancedFieldsExpandTrigger = page.locator('.k-collapse.nested-collapse .collapse-trigger-icon.chevron-right-icon')
 
   if (await advancedFieldsExpandTrigger.isVisible()) {
-    await advancedFieldsExpandTrigger.click()
+    const classes = await advancedFieldsExpandTrigger.getAttribute('class') ?? ''
+
+    if (!classes.includes('collapse-expanded')) {
+      await advancedFieldsExpandTrigger.click()
+    }
   }
 }
