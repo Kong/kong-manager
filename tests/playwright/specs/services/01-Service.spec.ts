@@ -209,8 +209,8 @@ test.describe('services', () => {
       page.locator('.toolbar-button-container .primary').click()
     )
 
-    await expect(page.getByTestId('k-collapse-trigger-content')).toBeVisible()
-    await page.getByTestId('k-collapse-trigger-content').click()
+    await expect(page.getByTestId('collapse-trigger-content')).toBeVisible()
+    await page.getByTestId('collapse-trigger-content').click()
 
     await fillEntityForm({
       page,
@@ -278,7 +278,7 @@ test.describe('services', () => {
       page.locator('.k-table-empty-state .primary').click()
     )
 
-    await page.getByTestId('k-collapse-trigger-content').click()
+    await page.getByTestId('collapse-trigger-content').click()
 
     await withNavigation(page, () => fillEntityForm({
       page,
@@ -296,7 +296,7 @@ test.describe('services', () => {
     await expect(page.locator('[data-testid="tls_verify-property-value"]')).toHaveText('Use default system setting')
 
     await withNavigation(page, () => clickHeaderAction(page, 'edit'))
-    await page.getByTestId('k-collapse-trigger-content').click()
+    await page.getByTestId('collapse-trigger-content').click()
 
     await expect(page.getByTestId('gateway-service-tls-verify-checkbox')).not.toBeChecked()
     await page.getByTestId('gateway-service-tls-verify-checkbox').click()
@@ -306,7 +306,7 @@ test.describe('services', () => {
     await waitAndDismissToasts(page)
 
     await withNavigation(page, () => clickHeaderAction(page, 'edit'))
-    await page.getByTestId('k-collapse-trigger-content').click()
+    await page.getByTestId('collapse-trigger-content').click()
 
     await expect(page.getByTestId('gateway-service-tls-verify-false-option')).toBeChecked()
     await page.getByTestId('gateway-service-tls-verify-true-option').click()
@@ -315,7 +315,7 @@ test.describe('services', () => {
     await waitAndDismissToasts(page)
 
     await withNavigation(page, () => clickHeaderAction(page, 'edit'))
-    await page.getByTestId('k-collapse-trigger-content').click()
+    await page.getByTestId('collapse-trigger-content').click()
 
     await expect(page.getByTestId('gateway-service-tls-verify-true-option')).toBeChecked()
   })
@@ -331,7 +331,7 @@ test.describe('services', () => {
       page.locator('.toolbar-button-container .primary').click()
     )
 
-    await page.getByTestId('k-collapse-trigger-content').click()
+    await page.getByTestId('collapse-trigger-content').click()
 
     await withNavigation(page, () =>
       fillEntityForm({

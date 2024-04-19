@@ -399,18 +399,18 @@ test.describe('plugins', () => {
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="toolbar-add-plugin"]').click())
     await expect(filterInput).toBeVisible()
     await filterInput.fill('traf')
-    await expect(page.getByTestId('k-collapse-title')).toHaveCount(1)
-    await expect(page.getByTestId('k-collapse-title')).toContainText('Traffic Control')
+    await expect(page.getByTestId('collapse-title')).toHaveCount(1)
+    await expect(page.getByTestId('collapse-title')).toContainText('Traffic Control')
 
     await filterInput.fill('bas')
-    await expect(page.getByTestId('k-collapse-title')).toHaveCount(1)
-    await expect(page.getByTestId('k-collapse-title')).toContainText('Authentication')
+    await expect(page.getByTestId('collapse-title')).toHaveCount(1)
+    await expect(page.getByTestId('collapse-title')).toContainText('Authentication')
     await expect(page.locator('.plugin-select-card')).toHaveCount(1)
     await expect(page.locator('.plugin-select-card .plugin-card-title')).toContainText('Basic Authentication')
 
     await filterInput.fill('sad')
     await expect(page.getByTestId('plugins-empty-state')).toBeVisible()
-    await expect(page.getByTestId('k-collapse-title')).not.toBeVisible()
+    await expect(page.getByTestId('collapse-title')).not.toBeVisible()
     await expect(page.locator('[data-testid="plugins-empty-state"] .empty-state-message')).toContainText('No results found')
   })
 
