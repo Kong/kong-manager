@@ -20,5 +20,5 @@ jobs:
         run: |
           id
           mkdir -p ./hybrid
-          chown a+w ./hybrid
+          chmod a+w ./hybrid
           docker compose -f .ci/docker-compose.yml up kong-gen-cert
