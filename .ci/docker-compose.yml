@@ -57,6 +57,7 @@ services:
         condition: service_healthy
 
   kong-gen-cert:
+    user: runner:docker
     # Using a empty string as the fallback makes this env optional but still fails if not set when used
     image: "kong/kong:nightly-ubuntu"
     security_opt:
