@@ -1,0 +1,23 @@
+name: Test Container Perm
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+
+jobs:
+  test-container-perm:
+    name: Test Container Perm
+    runs-on: ubuntu-latest
+    secrets: inherit
+    steps:
+      - name: Test Container Perm
+        timeout-minutes: 10
+        working-directory: ${{ github.workspace }}
+        env:
+          GATEWAY_IMAGE: ${{ inputs.gateway-image }}
+        run: |
+          id
+          docker compose -f .ci/docker-compose.yml up kong-gen-cert
