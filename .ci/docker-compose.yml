@@ -65,4 +65,4 @@ services:
     command: >-
       sh -c "id && kong hybrid gen_cert /usr/local/kong/hybrid/cluster.crt /usr/local/kong/hybrid/cluster.key"
     volumes:
-      - "${GITHUB_WORKSPACE:-.}/hybrid:/usr/local/kong/hybrid:z"
+      - "${GITHUB_WORKSPACE:-.}/hybrid:/usr/local/kong/hybrid"
