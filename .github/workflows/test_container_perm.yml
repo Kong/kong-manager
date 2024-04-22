@@ -19,6 +19,6 @@ jobs:
         working-directory: ${{ github.workspace }}
         run: |
           id
-          mkdir -p hybrid
-          stat hybrid
+          mkdir -p ./hybrid
+          chown a+w ./hybrid
           docker compose -f .ci/docker-compose.yml up kong-gen-cert
