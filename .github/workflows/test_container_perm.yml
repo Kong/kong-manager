@@ -20,3 +20,4 @@ jobs:
         run: |
           id
           docker compose -f .ci/docker-compose.yml up kong-gen-cert
+          stat ./hybrid
