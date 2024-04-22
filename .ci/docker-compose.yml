@@ -62,6 +62,6 @@ services:
     security_opt:
       - no-new-privileges:true
     command: >-
-      sh -c "id && stat /tmp/hybrid && /tmp/hybrid && kong hybrid gen_cert /tmp/hybrid/cluster.crt /tmp/hybrid/cluster.key"
+      sh -c "id && stat /tmp/hybrid && kong hybrid gen_cert /tmp/hybrid/cluster.crt /tmp/hybrid/cluster.key"
     volumes:
       - "${GITHUB_WORKSPACE:-.}/hybrid:/tmp/hybrid:rw"
