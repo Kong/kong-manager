@@ -423,7 +423,7 @@
     "@kong/icons" "^1.9.1"
     marked "^12.0.1"
 
-"@kong-ui-public/entities-routes@^3.0.0", "@kong-ui-public/entities-routes@^3.1.5":
+"@kong-ui-public/entities-routes@^3.1.5":
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-routes/-/entities-routes-3.1.5.tgz#1d335025bc88d352b8b729d7ec26d6886c4515d9"
   integrity sha512-6cH3hUnqmM5wN35lDgtvwsyT1qyDBSI683N1+ktL2ZzBlQPUCtg6Y4XUUwLTK90jMyufVqFrcrr+LyBYgIyi5Q==
@@ -435,7 +435,7 @@
     "@kong-ui-public/expressions" "^0.2.1"
     monaco-editor "0.21.3"
 
-"@kong-ui-public/entities-shared@^3.0.0", "@kong-ui-public/entities-shared@^3.1.1":
+"@kong-ui-public/entities-shared@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-shared/-/entities-shared-3.1.1.tgz#a33ef11b884bc76218284f599e397e0478ef9a05"
   integrity sha512-YzfMAcXpSD+Eiix9NnUmJQBEJHm/7DTD2v2sOacKbrg00gK4dGgcWcB86FA5b6xi9IkhB3pVFFEO/uykZ/e70Q==
@@ -509,7 +509,12 @@
   resolved "https://registry.yarnpkg.com/@kong/design-tokens/-/design-tokens-1.12.11.tgz#4d491e198a8401252966abba0cc6185025e7c4c0"
   integrity sha512-+zgR6Ti4Joj85yD/KJzE3ja6Y0khxh9vapNnkOyGtLAUnCLstkH7WfLLhM22Qi7K5q/J2R1kWuR3X+XMp6U2mQ==
 
-"@kong/icons@^1.8.8", "@kong/icons@^1.9.0", "@kong/icons@^1.9.1":
+"@kong/icons@^1.8.8", "@kong/icons@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@kong/icons/-/icons-1.9.0.tgz#40391a01ccd95ff2053c962fb5e88d616bb90640"
+  integrity sha512-fA3gXZrPjhI6gV2ISV10kKG0Y6gsW+ps31ionv/09a7BY+z4K9XqNbRRzUkqZgCoTTCnf3MWYum/CRpzaYcctg==
+
+"@kong/icons@^1.9.1":
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/@kong/icons/-/icons-1.9.1.tgz#3947e3019710d306865eef19aef3ec6c89c5a5b6"
   integrity sha512-8V21s7OEXcGAWDfPlcidjLlvAemz1KxgkpNSCWC9BCMGnmYRV/1hF7hzC0Dbjz6Q5uP3jnukI+e2bkKKrxANMQ==
@@ -4439,6 +4444,11 @@ vite-plugin-html@^3.2.0:
     html-minifier-terser "^6.1.0"
     node-html-parser "^5.3.3"
     pathe "^0.2.0"
+
+vite-plugin-monaco-editor@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vite-plugin-monaco-editor/-/vite-plugin-monaco-editor-1.1.0.tgz#a6238c2e13d5e98dd54a1bc51f6f189325219de3"
+  integrity sha512-IvtUqZotrRoVqwT0PBBDIZPNraya3BxN/bfcNfnxZ5rkJiGcNtO5eAOWWSgT7zullIAEqQwxMU83yL9J5k7gww==
 
 vite@^4.3.9:
   version "4.3.9"

@@ -10,3 +10,15 @@ export class RouteListPage extends POM {
     super(page, '/routes')
   }
 }
+
+export class RouteCreatePage extends POM {
+  public $ = {
+    ...POM.$,
+  }
+
+  constructor (page: Page, options: { serviceId?: string } = {}) {
+    const { serviceId = '' } = options
+
+    super(page, `/routes/create?serviceId=${serviceId}`)
+  }
+}

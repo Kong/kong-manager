@@ -34,6 +34,10 @@ jobs:
           - services
           - snis
           - upstreams
+        router-flavor: [traditional_compatible]
+        include:
+          - suite: routes-expressions
+            router-flavor: expressions
       fail-fast: false
     name: ${{ matrix.suite }}
     runs-on: ${{ vars.RUNS_ON }}
@@ -84,6 +88,7 @@ jobs:
         working-directory: ${{ github.workspace }}
         env:
           GATEWAY_IMAGE: ${{ inputs.gateway-image }}
+          KONG_ROUTER_FLAVOR: ${{ matrix.router-flavor }}
         run: |
           _compose_exit=0
           docker compose -f .ci/docker-compose.yml up -d kong --wait || _compose_exit=$?
