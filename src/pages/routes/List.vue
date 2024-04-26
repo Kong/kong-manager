@@ -19,6 +19,7 @@
     :can-delete="canDelete"
     :can-edit="canEdit"
     :can-retrieve="canRetrieve"
+    :has-expression-column="supportExpressions"
     @copy:success="onCopySuccess"
     @copy:error="onCopyError"
     @delete:success="onDeleteSuccess"
@@ -37,6 +38,8 @@ import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 import { useDocsLink } from '@/composables/useDocsLink'
 import { EntityType } from '@/types'
+import { useInfoStore } from '@/stores/info'
+import { storeToRefs } from 'pinia'
 
 defineOptions({ name: 'RouteList' })
 
@@ -45,6 +48,10 @@ const route = useRoute()
 const { t } = useI18n()
 const docsLink = useDocsLink(EntityType.Route)
 const { createRedirectRouteQuery } = useListRedirect()
+
+const infoStore = useInfoStore()
+const { infoConfig } = storeToRefs(infoStore)
+const supportExpressions = computed(() => infoConfig.value.router_flavor === 'expressions')
 
 const serviceId = computed(() => (route.params?.id ?? '') as string)
 const cacheIdentifier = computed(() => `routes-${serviceId.value}`)
