@@ -16,12 +16,16 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import { storeToRefs } from 'pinia'
 import { AppLayout, type SidebarPrimaryItem } from '@kong-ui-public/app-layout'
 import { GithubStar } from '@kong-ui-public/misc-widgets'
+import { useInfoStore } from '@/stores/info'
 import NavbarLogo from '@/components/NavbarLogo.vue'
 import MakeAWish from '@/components/MakeAWish.vue'
 
 const route = useRoute()
+const infoStore = useInfoStore()
+const { isHybridMode } = storeToRefs(infoStore)
 
 const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
   {
@@ -96,6 +100,18 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
     key: 'Key Sets',
     active: route.meta?.entity === 'key-set',
   },
+  ...(
+    isHybridMode.value
+      ? [
+          {
+            name: 'Data Plane Nodes',
+            to: { name: 'data-plane-nodes' },
+            key: 'Data Plane Nodes',
+            active: route.meta?.entity === 'data-plane-node',
+          },
+        ]
+      : []
+  ),
 ])
 </script>
 

@@ -25,15 +25,16 @@ jobs:
           - consumers
           - certificates
           - ca-certificates
-          - misc
-          - vaults
+          - data-plane-nodes
           - keys
           - key-sets
+          - misc
           - plugins
           - routes
           - services
           - snis
           - upstreams
+          - vaults
         router-flavor: [traditional_compatible]
         include:
           - suite: routes-expressions
@@ -83,7 +84,8 @@ jobs:
         with:
           current-image: ${{ inputs.gateway-image }}
 
-      - name: Start Kong
+      - name: Start Kong traditional
+        if: ${{ matrix.suite != 'data-plane-nodes' }}
         timeout-minutes: 10
         working-directory: ${{ github.workspace }}
         env:
@@ -92,6 +94,21 @@ jobs:
         run: |
           _compose_exit=0
           docker compose -f .ci/docker-compose.yml up -d kong --wait || _compose_exit=$?
+          docker compose -f .ci/docker-compose.yml logs
+          exit $_compose_exit
+
+      - name: Start Kong hybrid
+        if: ${{ matrix.suite == 'data-plane-nodes' }}
+        timeout-minutes: 10
+        working-directory: ${{ github.workspace }}
+        env:
+          GATEWAY_IMAGE: ${{ inputs.gateway-image }}
+        run: |
+          mkdir -p hybrid
+          chmod a+w ./hybrid
+          docker compose -f .ci/docker-compose.yml up kong-gen-cert
+          _compose_exit=0
+          docker compose -f .ci/docker-compose.yml up -d kong-hybrid-dp --scale kong-hybrid-dp=3 --wait || _compose_exit=$?
           docker compose -f .ci/docker-compose.yml logs
           exit $_compose_exit
 

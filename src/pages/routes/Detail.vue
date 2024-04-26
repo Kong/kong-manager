@@ -81,7 +81,10 @@ const onNavigationClick = (id: string) => {
 onMounted(async () => {
   // If the page is not loaded from the configuration tab, we need to fetch the route name
   if (route.name !== 'route-detail') {
-    const { data } = await apiService.findRecord('routes', id.value)
+    const { data } = await apiService.findRecord<{ name: string, id: string }>(
+      'routes',
+      id.value,
+    )
 
     titleName.value = data.name ?? data.id
   }

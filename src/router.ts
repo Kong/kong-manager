@@ -385,6 +385,17 @@ const routes: Array<RouteRecordRaw> = [
       },
     ],
   },
+
+  // Data plane nodes pages
+  {
+    name: 'data-plane-nodes',
+    path: '/data-plane-nodes',
+    component: () => import('@/pages/data-plane-nodes/List.vue'),
+    meta: {
+      entity: 'data-plane-node',
+      title: 'Data Plane Nodes',
+    },
+  },
 ]
 
 type EntityNameDefinition = { key: string, keyPlural?: string, capitalizedName?: string, capitalizedNamePlural?: string }

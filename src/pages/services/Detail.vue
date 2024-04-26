@@ -73,7 +73,10 @@ const onFetchSuccess = (entity) => {
 onMounted(async () => {
   // If the page is not loaded from the configuration tab, we need to fetch the service name
   if (route.name !== 'service-detail') {
-    const { data } = await apiService.findRecord('services', id.value)
+    const { data } = await apiService.findRecord<{ name: string, id: string }>(
+      'services',
+      id.value,
+    )
 
     titleName.value = data.name ?? data.id
   }

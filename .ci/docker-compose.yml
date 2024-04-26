@@ -56,3 +56,45 @@ services:
       &kong-depends_on
       kong-db:
         condition: service_healthy
+
+  kong-gen-cert:
+    # Using a empty string as the fallback makes this env optional but still fails if not set when used
+    image: "${GATEWAY_IMAGE:- }"
+    security_opt:
+      - no-new-privileges:true
+    command: >-
+      sh -c "kong hybrid gen_cert /tmp/hybrid/cluster.crt /tmp/hybrid/cluster.key"
+    volumes:
+      - "${GITHUB_WORKSPACE:-.}/hybrid:/tmp/hybrid:z"
+
+  kong-hybrid-cp:
+    <<: *kong
+    command: >-
+      sh -c "kong migrations bootstrap && kong migrations up && kong migrations finish && kong start"
+    ports:
+      - "8001-8006:8001-8006"
+    environment:
+      <<: *kong-environment
+      KONG_PG_DATABASE: kong
+      KONG_ROLE: control_plane
+      KONG_CLUSTER_CERT: /tmp/hybrid/cluster.crt
+      KONG_CLUSTER_CERT_KEY: /tmp/hybrid/cluster.key
+    volumes:
+      - "${GITHUB_WORKSPACE:-.}/hybrid:/tmp/hybrid"
+
+  kong-hybrid-dp:
+    <<: *kong
+    hostname: "" # no hostname for data planes
+    ports: [] # no ports for data planes
+    command: sh -c "kong start"
+    environment:
+      KONG_DATABASE: off
+      KONG_ROLE: data_plane
+      KONG_CLUSTER_CERT: /tmp/hybrid/cluster.crt
+      KONG_CLUSTER_CERT_KEY: /tmp/hybrid/cluster.key
+      KONG_CLUSTER_CONTROL_PLANE: kong-hybrid-cp:8005
+      KONG_CLUSTER_TELEMETRY_ENDPOINT: kong-hybrid-cp:8006
+    volumes:
+      - "${GITHUB_WORKSPACE:-.}/hybrid:/tmp/hybrid"
+    depends_on:
+      - kong-hybrid-cp # so that we can start the control plane by scaling the data planes
