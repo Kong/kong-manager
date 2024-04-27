@@ -73,7 +73,10 @@ const onFetchSuccess = (entity) => {
 onMounted(async () => {
   // If the page is not loaded from the configuration tab, we need to fetch the consumer username
   if (route.name !== 'consumer-detail') {
-    const { data } = await apiService.findRecord('consumers', id.value)
+    const { data } = await apiService.findRecord<{ username: string, custom_id: string }>(
+      'consumers',
+      id.value,
+    )
 
     titleName.value = data.username ?? data.custom_id
   }

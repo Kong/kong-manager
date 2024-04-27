@@ -65,7 +65,10 @@ const onFetchSuccess = (entity) => {
 onMounted(async () => {
   // If the page is not loaded from the configuration tab, we need to fetch the key set name
   if (route.name !== 'key-set-detail') {
-    const { data } = await apiService.findRecord('key-sets', id.value)
+    const { data } = await apiService.findRecord<{ name: string, id: string }>(
+      'key-sets',
+      id.value,
+    )
 
     titleName.value = data.name ?? data.id
   }

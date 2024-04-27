@@ -205,6 +205,39 @@
       "detail.title": "Key Set: {name}",
       "create.form.title": "New Key Set",
       "edit.form.title": "Edit Key Set"
+    },
+    "dp-nodes": {
+      "list.title": "Data Plane Nodes",
+      "copy.id": "Copy ID",
+      "copy.success": "Copied {id} to clipboard",
+      "not.applicable": "N/A",
+      "headers": {
+        "hostname": "Hostname",
+        "version": "Version",
+        "last.seen": "Last Seen",
+        "sync.status": "Sync Status",
+        "cert.expires.at": "Cert Expires At",
+        "log.level": "Log Level",
+        "labels": "Labels"
+      },
+      "empty": {
+        "title": "No Data Plane Nodes",
+        "message": "There is no Data Plane Node connected to this Control Plane"
+      },
+      "error": {
+        "title": "Data Plane Nodes could not be retrieved",
+        "fetch.fail": "Failed to fetch data planes",
+        "copy.fail": "Failed to copy to clipboard",
+        "get.log.level.fail": "Failed to fetch log level of node {id}"
+      },
+      "bulk.actions": {
+        "placeholder": "{count}Bulk Actions",
+        "change.log.level": "Change Log Level"
+      },
+      "tooltips": {
+        "revert": "Log level is scheduled to revert to {level} at {time}",
+        "not.supported": "Log leveling is not supported for this DP node."
+      }
     }
   },
   "wish": {

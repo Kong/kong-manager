@@ -20,12 +20,12 @@ class ApiService {
   }
 
   // entity-specific methods
-  findAll (entity: string, params: Pick<AxiosRequestConfig, 'params'> = {}) {
-    return this.instance.get(`${adminApiUrl}/${entity}`, { params })
+  findAll<T> (entity: string, params: Record<string, unknown>) {
+    return this.instance.get<T>(`${adminApiUrl}/${entity}`, { params })
   }
 
-  findRecord (entity: string, id: string) {
-    return this.instance.get(`${adminApiUrl}/${entity}/${id}`)
+  findRecord<T> (entity: string, id: string) {
+    return this.instance.get<T>(`${adminApiUrl}/${entity}/${id}`)
   }
 
   createRecord (entity: string, data: Record<string, unknown>) {
@@ -41,8 +41,8 @@ class ApiService {
   }
 
   // generic methods
-  get (url = '', config: AxiosRequestConfig = {}) {
-    return this.instance.get(`${adminApiUrl}/${url}`, config)
+  get<T> (url = '', config: AxiosRequestConfig = {}) {
+    return this.instance.get<T>(`${adminApiUrl}/${url}`, config)
   }
 
   post (url = '', data?: Record<string, unknown>, config: AxiosRequestConfig = {}) {

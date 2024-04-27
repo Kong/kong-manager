@@ -388,6 +388,14 @@
   dependencies:
     "@kong-ui-public/entities-shared" "^3.1.1"
 
+"@kong-ui-public/entities-data-plane-nodes@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-data-plane-nodes/-/entities-data-plane-nodes-0.1.1.tgz#eb817a88fe6697ecf87453988da93cc4813df7e8"
+  integrity sha512-qtkDiMUqeMWAGjTtso6EhC+7bME+J20XFHfdPDLo7uXIML118HMhBkcnDhUJDfQZM4ndr9f/Ty3twZwyTk76TA==
+  dependencies:
+    "@kong-ui-public/entities-shared" "^3.1.1"
+    "@kong/icons" "^1.9.0"
+
 "@kong-ui-public/entities-gateway-services@^3.0.12":
   version "3.0.12"
   resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-gateway-services/-/entities-gateway-services-3.0.12.tgz#bdca4f2d6c84e816667a9d4ef6118274af57d545"
@@ -1605,6 +1613,11 @@ date-fns@^2.16.1, date-fns@^2.30.0:
   integrity sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==
   dependencies:
     "@babel/runtime" "^7.21.0"
+
+dayjs@^1.11.10:
+  version "1.11.10"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.10.tgz#68acea85317a6e164457d6d6947564029a6a16a0"
+  integrity sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==
 
 de-indent@^1.0.2:
   version "1.0.2"
