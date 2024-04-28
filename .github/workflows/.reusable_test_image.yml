@@ -65,6 +65,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Pull and inspect base image
+        timeout-minutes: 5
+        run: |
+          docker pull ${{ steps.select-gateway-image.outputs.image }}
+          docker inspect ${{ steps.select-gateway-image.outputs.image }}
+
       - name: Build and push image
         id: build-and-push
         env:
