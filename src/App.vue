@@ -103,12 +103,12 @@ const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
   ...(
     isHybridMode.value
       ? [
-          {
-            name: 'Data Plane Nodes',
-            to: { name: 'data-plane-nodes' },
-            key: 'Data Plane Nodes',
-            active: route.meta?.entity === 'data-plane-node',
-          },
+          // {
+          //   name: 'Data Plane Nodes',
+          //   to: { name: 'data-plane-nodes' },
+          //   key: 'Data Plane Nodes',
+          //   active: route.meta?.entity === 'data-plane-node',
+          // },
         ]
       : []
   ),
