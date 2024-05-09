@@ -51,6 +51,9 @@ export default defineConfig({
     },
     port: 8080,
   },
+  preview: {
+    port: 8080,
+  },
   css: {
     preprocessorOptions: {
       scss: {
