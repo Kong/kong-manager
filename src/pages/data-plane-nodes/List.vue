@@ -347,6 +347,8 @@ const getNodeLogLevel = async (id: string) => {
       appearance: 'danger',
       message: t('entities.dp-nodes.error.get.log.level.fail', { id: target?.hostname ?? id }),
     })
+
+    throw err
   }
 }
 
