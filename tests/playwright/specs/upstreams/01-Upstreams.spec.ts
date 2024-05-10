@@ -83,7 +83,7 @@ test.describe('upstreams', () => {
   test('create an upstream', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.kong-ui-entities-upstreams-list .k-table-empty-state .primary').click()
+      async () => await page.locator('.kong-ui-entities-upstreams-list .table-empty-state .primary').click()
     )
 
     await selectOption(page.locator('.k-select.name-select'), service_host1.id)
@@ -122,8 +122,8 @@ test.describe('upstreams', () => {
 
     // switch targets tab
     await switchDetailTab(page, 'targets')
-    await expect(page.locator('.kong-ui-entities-targets-list .k-table-empty-state .primary')).toBeVisible()
-    await expect(page.locator('.kong-ui-entities-targets-list .k-table-empty-state .empty-state-title')).toHaveText('Configure a New Target')
+    await expect(page.locator('.kong-ui-entities-targets-list .table-empty-state .primary')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-targets-list .table-empty-state .empty-state-title')).toHaveText('Configure a New Target')
   })
 
   test('submit/cancel upstream editing', async ({ page }) => {
@@ -139,7 +139,7 @@ test.describe('upstreams', () => {
           withAction: 'submit',
         })
     )
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
 
     await clickEntityListAction(page, 'edit')
     await withNavigation(
@@ -153,7 +153,7 @@ test.describe('upstreams', () => {
           withAction: 'cancel',
         })
     )
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
 
   test('delete an upstream', async ({ page }) => {
@@ -171,7 +171,7 @@ test.describe('upstreams', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.kong-ui-entities-upstreams-list .k-table-empty-state .primary').click()
+      async () => await page.locator('.kong-ui-entities-upstreams-list .table-empty-state .primary').click()
     )
 
     await selectOption(page.locator('.k-select.name-select'), service_host1.id)
@@ -210,7 +210,7 @@ test.describe('upstreams', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.k-table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click()
     )
 
     await init()

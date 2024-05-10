@@ -11,8 +11,8 @@
         :error-state-message="errorMessage"
         :error-state-title="t('entities.dp-nodes.error.title')"
         :fetcher="fetcher"
-        :has-error="!!errorMessage"
-        pagination-type="offset"
+        :error="!!errorMessage"
+        pagination-offset
       >
         <template #toolbar>
           <KDropdown v-if="visibleNodes.length">

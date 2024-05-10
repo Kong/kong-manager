@@ -26,7 +26,7 @@ test.describe('data plane nodes', () => {
     ]
 
     headers.forEach(async (header: string) => {
-      await expect(table.getByTestId(`k-table-header-${header}`)).toBeVisible()
+      await expect(table.getByTestId(`table-header-${header}`)).toBeVisible()
     })
   })
 
@@ -69,8 +69,8 @@ test.describe('data plane nodes', () => {
     const globalCheckbox = table.locator('thead input[type="checkbox"]')
 
     await globalCheckbox.check()
-    await page.locator('.k-table-toolbar .dropdown-trigger').click()
-    await page.locator('.k-table-toolbar [data-testid="dropdown-item-change-log-level"]').click()
+    await page.locator('.table-toolbar .dropdown-trigger').click()
+    await page.locator('.table-toolbar [data-testid="dropdown-item-change-log-level"]').click()
 
     await expect(page.locator('.k-modal .modal-title')).toContainText('3 Nodes')
     await page.locator('.log-level-select input').click()

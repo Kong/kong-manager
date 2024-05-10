@@ -30,7 +30,7 @@ test.describe('vaults', () => {
   test('create a vault successful', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.k-table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click()
     )
 
     await expect(page.locator('.vault-form-provider-cards-container')).toBeVisible()
@@ -67,7 +67,7 @@ test.describe('vaults', () => {
           withAction: 'submit',
         })
     )
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
 
   test('cancel vault editing', async ({ page }) => {
@@ -83,7 +83,7 @@ test.describe('vaults', () => {
           withAction: 'cancel',
         })
     )
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
 
   test('delete a vault', async ({ page }) => {
@@ -96,7 +96,7 @@ test.describe('vaults', () => {
   test('create a vault failure when prefix is "env"', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.k-table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click()
     )
 
     await expect(page.locator('.vault-form-provider-cards-container')).toBeVisible()

@@ -52,7 +52,7 @@ test.describe('key-set keys tab', () => {
 
     await waitAndDismissToasts(page)
 
-    await expect(page.locator('.k-table [data-testid="name"]')).toContainText(mockJwName)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockJwName)
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
   })
 
@@ -73,6 +73,6 @@ test.describe('key-set keys tab', () => {
     await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
     await page.locator('.kong-ui-entity-delete-modal [data-testid="modal-action-button"]').click()
     await waitAndDismissToasts(page)
-    await expect(page.locator('.k-table-empty-state')).toBeVisible()
+    await expect(page.locator('.table-empty-state')).toBeVisible()
   })
 })

@@ -49,7 +49,7 @@ test.describe('snis', () => {
   test('create an sni - fail', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.k-table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click()
     )
 
     await expect(page.locator('[data-testid="sni-form-certificate-id"]')).toBeVisible()
@@ -63,7 +63,7 @@ test.describe('snis', () => {
   test('create an sni', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.k-table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click()
     )
 
     await expect(page.locator('[data-testid="sni-form-certificate-id"]')).toBeVisible()
@@ -93,7 +93,7 @@ test.describe('snis', () => {
           withAction: 'submit',
         })
     )
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
 
     await clickEntityListAction(page, 'edit')
     await withNavigation(
@@ -107,7 +107,7 @@ test.describe('snis', () => {
           withAction: 'cancel',
         })
     )
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
 
   test('delete an sni', async ({ page }) => {

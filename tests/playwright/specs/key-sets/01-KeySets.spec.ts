@@ -27,14 +27,14 @@ test.describe('keySets', () => {
   })
 
   test('cancel the creation of a key set', async ({ page }) => {
-    await expect(page.locator('.k-table-empty-state')).toBeVisible()
-    await withNavigation(page, () => page.locator('.k-table-empty-state .primary').click())
+    await expect(page.locator('.table-empty-state')).toBeVisible()
+    await withNavigation(page, () => page.locator('.table-empty-state .primary').click())
     await withNavigation(page, () => page.locator('.form-actions [data-testid="form-cancel"]').click())
-    await expect(page.locator('.k-table-empty-state')).toBeVisible()
+    await expect(page.locator('.table-empty-state')).toBeVisible()
   })
 
   test('create a key set', async ({ page }) => {
-    await withNavigation(page, () => page.locator('.k-table-empty-state .primary').click())
+    await withNavigation(page, () => page.locator('.table-empty-state .primary').click())
     await withNavigation(page, () => fillEntityForm({
       page,
       formData: {
@@ -45,7 +45,7 @@ test.describe('keySets', () => {
     }))
     await waitAndDismissToasts(page)
 
-    await expect(page.locator('.k-table [data-testid="name"]')).toContainText(mockName)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockName)
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
   })
 
@@ -66,8 +66,8 @@ test.describe('keySets', () => {
       withAction: 'submit',
     }))
 
-    await expect(page.locator('.k-table [data-testid="name"]')).toContainText(mockName)
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTags)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockName)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTags)
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
   })
 
@@ -82,8 +82,8 @@ test.describe('keySets', () => {
       withAction: 'cancel',
     }))
 
-    await expect(page.locator('.k-table [data-testid="name"]')).toContainText(mockName)
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTags)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockName)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTags)
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
   })
 
@@ -92,6 +92,6 @@ test.describe('keySets', () => {
     await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
     await autocompleteDeleteModal(page)
     await waitAndDismissToasts(page)
-    await expect(page.locator('.k-table-empty-state')).toBeVisible()
+    await expect(page.locator('.table-empty-state')).toBeVisible()
   })
 })

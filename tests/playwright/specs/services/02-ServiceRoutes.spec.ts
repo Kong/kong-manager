@@ -50,9 +50,9 @@ test.describe('service routes', () => {
   test('service route create - cancel button', async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'routes')
-    await page.waitForSelector('.kong-ui-entities-routes-list .k-table-empty-state')
+    await page.waitForSelector('.kong-ui-entities-routes-list .table-empty-state')
     await withNavigation(page, () =>
-      page.locator('.kong-ui-entities-routes-list .k-table-empty-state .primary').click()
+      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
     )
 
     await expect(page.locator('.kong-ui-entities-route-form')).toBeVisible()
@@ -64,9 +64,9 @@ test.describe('service routes', () => {
   test('create an service-associated route with empty methods - save button is disabled', async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'routes')
-    await page.waitForSelector('.kong-ui-entities-routes-list .k-table-empty-state')
+    await page.waitForSelector('.kong-ui-entities-routes-list .table-empty-state')
     await withNavigation(page, () =>
-      page.locator('.kong-ui-entities-routes-list .k-table-empty-state .primary').click()
+      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
     )
 
     await expect(page.locator('[data-testid="form-submit"]')).toBeDisabled()
@@ -75,9 +75,9 @@ test.describe('service routes', () => {
   test('create an service-associated route via tab', async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'routes')
-    await page.waitForSelector('.kong-ui-entities-routes-list .k-table-empty-state')
+    await page.waitForSelector('.kong-ui-entities-routes-list .table-empty-state')
     await withNavigation(page, () =>
-      page.locator('.kong-ui-entities-routes-list .k-table-empty-state .primary').click()
+      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
     )
 
     await selectMethods(page, ['GET'])
@@ -98,9 +98,9 @@ test.describe('service routes', () => {
   test('create an service-associated route with empty name', async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'routes')
-    await page.waitForSelector('.kong-ui-entities-routes-list .k-table-empty-state')
+    await page.waitForSelector('.kong-ui-entities-routes-list .table-empty-state')
     await withNavigation(page, () =>
-      page.locator('.kong-ui-entities-routes-list .k-table-empty-state .primary').click()
+      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
     )
 
     await selectMethods(page, ['GET'])
@@ -121,9 +121,9 @@ test.describe('service routes', () => {
   test('update route of a service via the route detail page, redirect back to the route detail page', async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'routes')
-    await page.waitForSelector('.kong-ui-entities-routes-list .k-table-empty-state')
+    await page.waitForSelector('.kong-ui-entities-routes-list .table-empty-state')
     await withNavigation(page, () =>
-      page.locator('.kong-ui-entities-routes-list .k-table-empty-state .primary').click()
+      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
     )
 
     await selectMethods(page, ['GET'])

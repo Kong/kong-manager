@@ -47,7 +47,7 @@ test.describe('services', () => {
 
   test('service create - cancel button', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.k-table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click()
     )
     await page.getByTestId('form-cancel').click()
     await expectEmptyEntityList(page, 'gateway-services', 'Configure a New Gateway Service')
@@ -55,7 +55,7 @@ test.describe('services', () => {
 
   test('service create - fail with required field', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.k-table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click()
     )
     await fillEntityForm({
       page,
@@ -66,7 +66,7 @@ test.describe('services', () => {
 
   test('service create - successful create', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.k-table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click()
     )
     await withNavigation(page, () =>
       fillEntityForm({
@@ -275,7 +275,7 @@ test.describe('services', () => {
 
     await serviceListPage.goto()
     await withNavigation(page, () =>
-      page.locator('.k-table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click()
     )
 
     await page.getByTestId('collapse-trigger-content').click()

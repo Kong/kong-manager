@@ -37,7 +37,7 @@ test.describe('keys', () => {
   })
 
   test('cancel a create behavior', async ({ page }) => {
-    await withNavigation(page, () => page.locator('.k-table-empty-state .primary').click())
+    await withNavigation(page, () => page.locator('.table-empty-state .primary').click())
 
     await withNavigation(page, () => fillEntityForm({
       page,
@@ -51,11 +51,11 @@ test.describe('keys', () => {
       withAction: 'cancel',
     }))
 
-    await expect(page.locator('.k-table-empty-state')).toBeVisible()
+    await expect(page.locator('.table-empty-state')).toBeVisible()
   })
 
   test('create a jwk key with required fields only', async ({ page }) => {
-    await withNavigation(page, () => page.locator('.k-table-empty-state .primary').click())
+    await withNavigation(page, () => page.locator('.table-empty-state .primary').click())
 
     await withNavigation(page, () => fillEntityForm({
       page,
@@ -71,9 +71,9 @@ test.describe('keys', () => {
     await waitAndDismissToasts(page)
 
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
-    await expect(page.locator('.k-table [data-testid="name"]')).toContainText('-')
-    await expect(page.locator('.k-table [data-testid="kid"]')).toContainText(mockJwk.kid)
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText('-')
+    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText('-')
+    await expect(page.locator('.k-table .table-wrapper [data-testid="kid"]')).toContainText(mockJwk.kid)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText('-')
   })
 
   test('view keys detail page - 1', async ({ page }) => {
@@ -112,9 +112,9 @@ test.describe('keys', () => {
 
     await waitAndDismissToasts(page)
 
-    await expect(page.locator('.k-table [data-testid="kid"]')).toContainText(mockPemKid)
-    await expect(page.locator('.k-table [data-testid="name"]')).toContainText(mockPemName)
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTags)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="kid"]')).toContainText(mockPemKid)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockPemName)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTags)
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
   })
 
@@ -140,9 +140,9 @@ test.describe('keys', () => {
 
     await waitAndDismissToasts(page)
 
-    await expect(page.locator('.k-table [data-testid="name"]')).toContainText('-')
-    await expect(page.locator('.k-table [data-testid="kid"]')).toContainText(mockPemKid)
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText('-')
+    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText('-')
+    await expect(page.locator('.k-table .table-wrapper [data-testid="kid"]')).toContainText(mockPemKid)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText('-')
   })
 
   test('view keys detail page - 3', async ({ page }) => {
@@ -200,9 +200,9 @@ test.describe('keys', () => {
       method: 'fill',
       withAction: 'cancel',
     }))
-    await expect(page.locator('.k-table [data-testid="name"]')).toContainText('-')
-    await expect(page.locator('.k-table [data-testid="kid"]')).toContainText(mockPemKid)
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText('-')
+    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText('-')
+    await expect(page.locator('.k-table .table-wrapper [data-testid="kid"]')).toContainText(mockPemKid)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText('-')
   })
 
   test('delete a key', async ({ page }) => {
@@ -210,7 +210,7 @@ test.describe('keys', () => {
     await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
     await page.locator('.kong-ui-entity-delete-modal [data-testid="modal-action-button"]').click()
     await waitAndDismissToasts(page)
-    await expect(page.locator('.k-table-empty-state')).toBeVisible()
+    await expect(page.locator('.table-empty-state')).toBeVisible()
   })
 
   test('create a key with pem', async ({ page }) => {
@@ -228,7 +228,7 @@ test.describe('keys', () => {
       withAction: 'submit',
     }))
     await waitAndDismissToasts(page)
-    await expect(page.locator('.k-table [data-testid="name"]')).toContainText(mockPemName)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockPemName)
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
   })
 
