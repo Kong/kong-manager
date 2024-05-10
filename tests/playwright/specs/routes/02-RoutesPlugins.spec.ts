@@ -92,7 +92,7 @@ test.describe('routes plugins', () => {
           withAction: 'submit',
         }),
     )
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
 
     await clickEntityListAction(page, 'edit')
     await withNavigation(
@@ -106,7 +106,7 @@ test.describe('routes plugins', () => {
           withAction: 'cancel',
         })
     )
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
 
   test('change scope from global to scoped', async ({ page, pluginListPage, routeListPage }) => {

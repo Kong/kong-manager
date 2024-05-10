@@ -63,7 +63,7 @@ test.describe('consumer plugins', () => {
       page,
       () => page.locator('[data-testid="form-actions"] .primary').click(),
     )
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
 
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await expandAdvancedFields(page)
@@ -72,7 +72,7 @@ test.describe('consumer plugins', () => {
       page,
       async () => await page.locator('[data-testid="form-cancel"]').click()
     )
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
 
   test('change scope from global to scoped', async ({ page }) => {

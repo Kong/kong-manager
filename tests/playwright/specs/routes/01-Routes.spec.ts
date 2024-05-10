@@ -83,7 +83,7 @@ test.describe('routes', () => {
 
   test('route create - cancel button', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.k-table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click()
     )
     await page.locator('[data-testid="form-cancel"]').click()
     await expectEmptyEntityList(page, 'routes', 'Configure a New Route')
@@ -91,7 +91,7 @@ test.describe('routes', () => {
 
   test('route create - save button is disabled', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.k-table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click()
     )
 
     await expect(page.locator('[data-testid="form-submit"]')).toBeDisabled()
@@ -99,7 +99,7 @@ test.describe('routes', () => {
 
   test('route create - cannot be submit if only protocol is clicked', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.k-table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click()
     )
 
     await page.locator('[data-testid="route-form-protocols"]').fill('http')
@@ -108,7 +108,7 @@ test.describe('routes', () => {
 
   test('route create - fail with invalid paths', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.k-table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click()
     )
 
     await fillArrayField(page, 'paths', ['kong(-ee){0,1}.com'], true)
@@ -126,7 +126,7 @@ test.describe('routes', () => {
 
   test('route create - can open/close advanced fields', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.k-table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click()
     )
 
     // default the advanced field status
@@ -160,7 +160,7 @@ test.describe('routes', () => {
     for (const protocol of protocols) {
       test(`route create - sni field appears and hide correctly with protocols (${protocol})`, async ({ page }) => {
         await withNavigation(page, () =>
-          page.locator('.k-table-empty-state .primary').click()
+          page.locator('.table-empty-state .primary').click()
         )
 
         await selectProtocols(page, `${protocol}`)
@@ -176,7 +176,7 @@ test.describe('routes', () => {
   test(`route create - successful create`, async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.kong-ui-entities-routes-list .k-table-empty-state .primary').click()
+      async () => await page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
     )
 
     await page.waitForSelector('.k-breadcrumbs', { state: 'hidden' })
@@ -263,10 +263,10 @@ test.describe('routes', () => {
         })
       })
 
-    await expect(page.locator('.k-table [data-testid="tags"]')).toHaveText(mockTag)
-    await expect(page.locator('.k-table [data-testid="paths"]')).toContainText(mockPaths[0])
-    await expect(page.locator('.k-table [data-testid="paths"]')).toContainText(mockPaths[1])
-    await expect(page.locator('.k-table [data-testid="paths"] .k-badge')).toHaveCount(mockPaths.length)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table .table-wrapper [data-testid="paths"]')).toContainText(mockPaths[0])
+    await expect(page.locator('.k-table .table-wrapper [data-testid="paths"]')).toContainText(mockPaths[1])
+    await expect(page.locator('.k-table .table-wrapper [data-testid="paths"] .k-badge')).toHaveCount(mockPaths.length)
   })
 
   test('route update changing protocols from http to grpc - successful', async ({ page }) => {
@@ -335,7 +335,7 @@ test.describe('routes', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.k-table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click()
     )
 
     await init()
@@ -573,7 +573,7 @@ test.describe('routes', () => {
     await page.goto('/services')
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'routes')
-    await page.click('.kong-ui-entities-routes-list .k-table-empty-state .primary')
+    await page.click('.kong-ui-entities-routes-list .table-empty-state .primary')
     await expect(page.locator('[data-testid="route-form-service-id"]')).not.toBeVisible()
   })
 

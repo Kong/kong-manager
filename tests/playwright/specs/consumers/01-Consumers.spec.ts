@@ -37,7 +37,7 @@ test.describe('consumers', () => {
 
   test('consumer create from - entrance and exit', async ({ page }) => {
     // from create button in empty placeholder
-    await withNavigation(page, () => page.click('.k-table-empty-state .primary'))
+    await withNavigation(page, () => page.click('.table-empty-state .primary'))
     await page.waitForSelector('.kong-ui-entities-consumer-form')
 
     // exit from cancel button
@@ -46,13 +46,13 @@ test.describe('consumers', () => {
   })
 
   test('consumer create - save button is disabled', async ({ page }) => {
-    await withNavigation(page, () => page.click('.k-table-empty-state .primary'))
+    await withNavigation(page, () => page.click('.table-empty-state .primary'))
     await page.waitForSelector('.kong-ui-entities-consumer-form')
     await expect(page.getByTestId('form-submit')).toBeDisabled()
   })
 
   test('consumer create - success', async ({ page }) => {
-    await withNavigation(page, () => page.click('.k-table-empty-state .primary'))
+    await withNavigation(page, () => page.click('.table-empty-state .primary'))
     await page.waitForSelector('.kong-ui-entities-consumer-form')
 
     await fillEntityForm({

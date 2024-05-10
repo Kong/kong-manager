@@ -432,7 +432,7 @@
     lodash-es "^4.17.21"
     marked "^12.0.2"
 
-"@kong-ui-public/entities-routes@^3.1.5", "@kong-ui-public/entities-routes@^3.2.0":
+"@kong-ui-public/entities-routes@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-routes/-/entities-routes-3.2.0.tgz#848696036ec5ce3b13d263182c359872eb2f8110"
   integrity sha512-G/aqddzDeBdwpDLPSaKwPxq/L27PCnOEfNWUGyv4wr+hol9U0eGANG39ZZAuJ0E0cB7UNw6GUTofHq3sOdCGCA==
@@ -444,7 +444,7 @@
     "@kong-ui-public/expressions" "^0.2.5"
     monaco-editor "0.21.3"
 
-"@kong-ui-public/entities-shared@^3.1.1", "@kong-ui-public/entities-shared@^3.2.0":
+"@kong-ui-public/entities-shared@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-shared/-/entities-shared-3.2.0.tgz#7eec44257ea1c78c2972d289c6129203b9ce1c9b"
   integrity sha512-T1huzAbceX9Fg3kR0wt2hC9cLKJ50EtHma2l6U2gX3qqqiAP/VPCMu0t77L7E4wwcmGMZN9OeYGlxLs6YOY97g==
@@ -481,7 +481,7 @@
   dependencies:
     "@kong-ui-public/core" "^1.6.0"
 
-"@kong-ui-public/forms@3", "@kong-ui-public/forms@^3.1.5":
+"@kong-ui-public/forms@^3.1.5":
   version "3.1.5"
   resolved "https://registry.yarnpkg.com/@kong-ui-public/forms/-/forms-3.1.5.tgz#ef51317901005ee535b9a231da5e81b1016dad7f"
   integrity sha512-NqGh9ZHavqLR0fd+32CHRL3JT+igAru+GeqNCIo3RSLgZoouUbTSTJcyo926Zu/QeGO39IGal18yUhNiHKg7qA==
@@ -509,17 +509,17 @@
   resolved "https://registry.yarnpkg.com/@kong/design-tokens/-/design-tokens-1.12.11.tgz#4d491e198a8401252966abba0cc6185025e7c4c0"
   integrity sha512-+zgR6Ti4Joj85yD/KJzE3ja6Y0khxh9vapNnkOyGtLAUnCLstkH7WfLLhM22Qi7K5q/J2R1kWuR3X+XMp6U2mQ==
 
-"@kong/icons@^1.8.8", "@kong/icons@^1.9.0", "@kong/icons@^1.9.1":
+"@kong/icons@^1.9.1":
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/@kong/icons/-/icons-1.9.1.tgz#3947e3019710d306865eef19aef3ec6c89c5a5b6"
   integrity sha512-8V21s7OEXcGAWDfPlcidjLlvAemz1KxgkpNSCWC9BCMGnmYRV/1hF7hzC0Dbjz6Q5uP3jnukI+e2bkKKrxANMQ==
 
-"@kong/kongponents@^9.0.0-alpha.146":
-  version "9.0.0-alpha.146"
-  resolved "https://registry.yarnpkg.com/@kong/kongponents/-/kongponents-9.0.0-alpha.146.tgz#6f1fbb9f86047d0a8ddbb9ea3551693ec103d052"
-  integrity sha512-ATnmEAyHog8ApChPUsIJvomrQvR7V07AQoKhXt/IEr7mpw8vmd24CFxZI6BIQUjjTubaN/PAuBp05nNXSr1TTg==
+"@kong/kongponents@^9.0.0-alpha.154":
+  version "9.0.0-alpha.154"
+  resolved "https://registry.yarnpkg.com/@kong/kongponents/-/kongponents-9.0.0-alpha.154.tgz#f0c767ee4abdb3a4a769ffa64bb0f906662c4b59"
+  integrity sha512-yz1Cw4NdXhq26NtWHKGPpTy2nFX0dRhZP7RbgjpP/ETMBYDYMFF/KvQvtQzBtm3Q/P/1jFPDKH6UzbMxuJ2E8w==
   dependencies:
-    "@kong/icons" "^1.9.0"
+    "@kong/icons" "^1.9.1"
     "@popperjs/core" "^2.11.8"
     date-fns "^2.30.0"
     date-fns-tz "^2.0.1"
