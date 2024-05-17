@@ -129,14 +129,11 @@
         <template #actions="{ row }">
           <KDropdown :kpop-attributes="{ placement: 'bottomEnd' }">
             <KButton
+              appearance="tertiary"
               class="actions-trigger"
               size="small"
             >
-              <KIcon
-                :color="KUI_COLOR_TEXT_NEUTRAL_STRONGER"
-                icon="more"
-                size="16"
-              />
+              <MoreIcon />
             </KButton>
             <template #items>
               <KClipboardProvider v-slot="{ copyToClipboard }">
@@ -167,12 +164,11 @@
 import type { AxiosError } from 'axios'
 import { computed, ref, watch } from 'vue'
 import {
-  KUI_COLOR_TEXT_NEUTRAL_STRONGER,
   KUI_COLOR_TEXT_NEUTRAL,
   KUI_ICON_SIZE_30,
   KUI_COLOR_BACKGROUND_NEUTRAL,
 } from '@kong/design-tokens'
-import { ProgressIcon, InfoIcon, ChevronDownIcon } from '@kong/icons'
+import { ProgressIcon, InfoIcon, ChevronDownIcon, MoreIcon } from '@kong/icons'
 import type { FetcherParams } from '@kong-ui-public/entities-shared'
 import { ChangeLogLevelModal, LogLevel, composables } from '@kong-ui-public/entities-data-plane-nodes'
 import { capitalize, formatDate } from '@/utils'

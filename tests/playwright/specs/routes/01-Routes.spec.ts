@@ -42,7 +42,7 @@ const selectProtocols = async (page: Page, protocol: string) => {
   await expect(locator.locator('[data-testid="route-form-protocols"]')).toBeVisible()
   await locator.locator('.k-input-wrapper.select-input').click()
 
-  await expect(locator.locator('.k-popover-content .select-items-container')).toBeVisible()
+  await expect(locator.locator('.popover-content .select-items-container')).toBeVisible()
   await locator.locator(`[data-testid="select-item-${protocol}"]`).click()
 }
 
