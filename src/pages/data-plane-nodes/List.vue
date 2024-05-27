@@ -131,6 +131,7 @@
             <KButton
               appearance="tertiary"
               class="actions-trigger"
+              icon
               size="small"
             >
               <MoreIcon />

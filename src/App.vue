@@ -10,6 +10,8 @@
     </template>
     <router-view />
     <MakeAWish />
+    <!--Empty element just for Teleport, KHCP-11277-->
+    <div id="kong-ui-app-page-header-action-button" />
   </AppLayout>
 </template>
 
