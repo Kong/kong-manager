@@ -710,7 +710,7 @@ test.describe('upstreams', () => {
     await create_upstream(
       page, upstreamListPage,
       async () => {
-        await page.click('.k-select.name-select .k-input-wrapper.select-input')
+        await page.click('.k-select.name-select .k-input.select-input')
         await page.locator('.k-select.name-select input').type(newName)
         await page.getByTestId('select-add-item').click()
       },
