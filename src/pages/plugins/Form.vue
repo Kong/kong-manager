@@ -78,7 +78,7 @@ const config = reactive({
   entityId: computed(() => entityScope.value?.id ?? ''),
   entityType: computed(() => entityScope.value?.typeLiteral),
   disableConsumerGroupScope: true,
-  groupFields: true,
+  useHorizontalRadiosForPluginScoping: true,
 })
 
 const onFetchSchemaError = (err: AxiosError) => {
