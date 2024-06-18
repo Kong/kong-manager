@@ -33,8 +33,8 @@ const mailToUrl = computed(() => `mailto:wish@konghq.com?subject=${t('wish.subje
   left: 0;
   right: 0;
 
-  [role="button"] {
-    cursor: default;
+  :deep(.popover-trigger-wrapper) {
+    display: block !important;
   }
 
   a {

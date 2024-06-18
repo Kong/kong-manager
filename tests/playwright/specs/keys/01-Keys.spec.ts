@@ -160,8 +160,8 @@ test.describe('keys', () => {
 
     await selectInput.fill('')
     await selectInput.type('test')
-    await expect(selectRoot.locator('.k-popover.select-popover')).toBeVisible()
-    await expect(selectRoot.locator('.k-popover.select-popover')).toContainText(mockKeySetName)
+    await expect(selectRoot.locator('.popover.select-popover')).toBeVisible()
+    await expect(selectRoot.locator('.popover.select-popover')).toContainText(mockKeySetName)
   })
 
   test('keyset in form should be able to auto complete by inputting partial id', async ({ page }) => {
@@ -172,8 +172,8 @@ test.describe('keys', () => {
 
     await selectInput.fill('')
     await selectInput.type(testKeySet?.id ?? 'NULL_JUST_PLACEHOLDER')
-    await expect(selectRoot.locator('.k-popover.select-popover')).toBeVisible()
-    await expect(selectRoot.locator('.k-popover.select-popover')).toContainText(mockKeySetName)
+    await expect(selectRoot.locator('.popover.select-popover')).toBeVisible()
+    await expect(selectRoot.locator('.popover.select-popover')).toContainText(mockKeySetName)
   })
 
   test('keyset in form should not able to auto complete by inputting random characters', async ({ page }) => {
@@ -184,8 +184,8 @@ test.describe('keys', () => {
 
     await selectInput.fill('')
     await selectInput.type('foooooobarrrrrr')
-    await expect(selectRoot.locator('.k-popover.select-popover')).toBeVisible()
-    await expect(selectRoot.locator('.k-popover.select-popover')).not.toContainText(mockKeySetName)
+    await expect(selectRoot.locator('.popover.select-popover')).toBeVisible()
+    await expect(selectRoot.locator('.popover.select-popover')).not.toContainText(mockKeySetName)
   })
 
   test('edit should be cancelable', async ({ page }) => {
