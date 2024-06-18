@@ -66,8 +66,8 @@ test.describe('routes plugins', () => {
       async () => await page.getByTestId('basic-auth-card').click()
     )
 
-    await expect(page.locator('.autosuggest #route-id')).toBeVisible()
-    await expect(page.locator('.autosuggest #route-id')).toHaveValue(new RegExp(`${mockRouteName}\\s*-\\s*${uuid}`))
+    await expect(page.locator('.autosuggest input#route-id')).toBeVisible()
+    await expect(page.locator('.autosuggest input#route-id')).toHaveValue(new RegExp(`${mockRouteName}\\s*-\\s*${uuid}`))
 
     await withNavigation(
       page,
@@ -137,8 +137,8 @@ test.describe('routes plugins', () => {
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Scoped-check')
-    await page.click('#route-id')
-    await page.fill('#route-id', mockRouteName)
+    await page.click('input#route-id')
+    await page.fill('input#route-id', mockRouteName)
     await page.waitForTimeout(300)
     await expect(page.locator('.select-item')).toContainText(mockRouteName)
     await page.click('.select-item')

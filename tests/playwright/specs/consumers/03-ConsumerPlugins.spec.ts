@@ -45,8 +45,8 @@ test.describe('consumer plugins', () => {
       page,
       async () => await page.getByTestId('datadog-card').click()
     )
-    await expect(page.locator('.autosuggest #consumer-id')).toBeVisible()
-    await expect(page.locator('.autosuggest #consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
+    await expect(page.locator('.autosuggest input#consumer-id')).toBeVisible()
+    await expect(page.locator('.autosuggest input#consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
     await withNavigation(
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click()
@@ -102,8 +102,8 @@ test.describe('consumer plugins', () => {
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Scoped-check')
-    await page.click('#consumer-id')
-    await page.fill('#consumer-id', mockConsumerName)
+    await page.click('input#consumer-id')
+    await page.fill('input#consumer-id', mockConsumerName)
     await page.waitForTimeout(300)
     await expect(page.locator('.select-item')).toContainText(mockConsumerName)
     await page.click('.select-item')

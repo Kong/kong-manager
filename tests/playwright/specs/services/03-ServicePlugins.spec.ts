@@ -45,7 +45,7 @@ test.describe('service plugins', () => {
       page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
     )
     await page.getByTestId('hmac-auth-card').click()
-    await expect(page.locator('.autosuggest #service-id')).toHaveValue(new RegExp(`${testService?.name}\\s*-\\s*${testService?.id}`))
+    await expect(page.locator('.autosuggest input#service-id')).toHaveValue(new RegExp(`${testService?.name}\\s*-\\s*${testService?.id}`))
   })
 
   test('create an service-associated plugin via tab', async ({ page, serviceListPage }) => {
@@ -126,8 +126,8 @@ test.describe('service plugins', () => {
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Scoped-check')
-    await page.click('#service-id')
-    await page.fill('#service-id', 'test_service')
+    await page.click('input#service-id')
+    await page.fill('input#service-id', 'test_service')
     await page.waitForTimeout(300)
     await expect(page.locator('.select-item')).toContainText('test_service')
     await page.click('.select-item')

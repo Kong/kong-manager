@@ -127,7 +127,7 @@
         </template>
 
         <template #actions="{ row }">
-          <KDropdown :kpop-attributes="{ placement: 'bottomEnd' }">
+          <KDropdown :kpop-attributes="{ placement: 'bottom-end' }">
             <KButton
               appearance="tertiary"
               class="actions-trigger"
