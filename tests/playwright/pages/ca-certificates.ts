@@ -6,7 +6,7 @@ export class CACertificateListPage extends POM {
     ...POM.$,
   }
 
-  constructor (page: Page) {
+  constructor(page: Page) {
     super(page, '/ca-certificates')
   }
 }

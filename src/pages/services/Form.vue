@@ -33,13 +33,13 @@ const isEditing = computed(() => !!id.value)
 const routeOnCancel = useFormRedirectOnCancel(
   isEditing.value
     ? { name: 'service-detail', params: { id: id.value } }
-    : { name: 'service-list' }
+    : { name: 'service-list' },
 )
 
 const routeOnUpdate = useFormRedirectOnUpdate(
   isEditing.value
     ? { name: 'service-detail', params: { id: id.value } }
-    : { name: 'service-list' }
+    : { name: 'service-list' },
 )
 
 const serviceFormConfig = reactive({

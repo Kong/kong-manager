@@ -34,13 +34,13 @@ const isEditing = computed(() => !!id.value)
 const routeOnCancel = useFormRedirectOnCancel(
   isEditing.value
     ? { name: 'vault-detail', params: { id: id.value } }
-    : { name: 'vault-list' }
+    : { name: 'vault-list' },
 )
 
 const routeOnUpdate = useFormRedirectOnUpdate(
   isEditing.value
     ? { name: 'vault-detail', params: { id: id.value } }
-    : { name: 'vault-list' }
+    : { name: 'vault-list' },
 )
 
 const vaultFormConfig = reactive({

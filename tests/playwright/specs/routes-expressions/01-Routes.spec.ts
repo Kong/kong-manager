@@ -18,7 +18,7 @@ test.describe('route creation page', () => {
 
     expect(
       kongInfoRes?.data?.configuration?.router_flavor,
-      'this test group should only be performed against Gateway with router_flavor = expressions'
+      'this test group should only be performed against Gateway with router_flavor = expressions',
     ).toEqual('expressions')
 
     await clearKongResources('/routes')

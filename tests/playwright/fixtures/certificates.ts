@@ -1,18 +1,18 @@
 interface Certificate {
-    cert: string;
-    key: string;
-    subject: string;
-    issuer: string;
-    notAfterFormattedUTC: RegExp;
-    subjectAltNameFormatted: string;
-    keyUsages: string[ ];
+  cert: string;
+  key: string;
+  subject: string;
+  issuer: string;
+  notAfterFormattedUTC: RegExp;
+  subjectAltNameFormatted: string;
+  keyUsages: string[ ];
 }
 
 interface CACertificate {
-    cert: string;
-    issuer: string;
-    notAfterFormattedUTC: RegExp;
-    keyUsages: string[ ];
+  cert: string;
+  issuer: string;
+  notAfterFormattedUTC: RegExp;
+  keyUsages: string[ ];
 }
 
 const certLegacy: Certificate = {

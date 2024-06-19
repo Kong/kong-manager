@@ -44,7 +44,7 @@ const infoStore = useInfoStore()
 
 const { isHybridMode } = storeToRefs(infoStore)
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 const upstream = ref<any>()
 
 const upstreamId = computed(() => (route.params.id as string) ?? '')
@@ -101,8 +101,8 @@ const canMarkHealthyUnhealthy = computed(
   () => (
     (a, b) => async () => a && b
   )(
-    !isHybridMode.value, isUpstreamUsingHealthchecks.value
-  )
+    !isHybridMode.value, isUpstreamUsingHealthchecks.value,
+  ),
 )
 
 const targetListConfig = reactive({

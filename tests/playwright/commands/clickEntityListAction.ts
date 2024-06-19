@@ -3,7 +3,7 @@ import type { Locator, Page } from '@playwright/test'
 export const clickEntityListAction = async (
   pageOrLocator: Page | Locator,
   action: string,
-  nth = 1
+  nth = 1,
 ) => {
   const row = pageOrLocator
     .locator('.k-table')

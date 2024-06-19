@@ -58,12 +58,12 @@ test.describe('routes plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
+      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]'),
     )
 
     await withNavigation(
       page,
-      async () => await page.getByTestId('basic-auth-card').click()
+      async () => await page.getByTestId('basic-auth-card').click(),
     )
 
     await expect(page.locator('.autosuggest input#route-id')).toBeVisible()
@@ -71,7 +71,7 @@ test.describe('routes plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('[data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
@@ -104,7 +104,7 @@ test.describe('routes plugins', () => {
             tags: `${mockTag}${mockTag}`,
           },
           withAction: 'cancel',
-        })
+        }),
     )
     await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })

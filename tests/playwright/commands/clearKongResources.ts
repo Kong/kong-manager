@@ -43,9 +43,9 @@ export const clearKongResources = async (endpoint: string, clearOptions: ClearKo
         items.push(...res.data.data)
       }
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
       if ((res.data as any)?.next) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
         next = kongUrl + (res.data as any)?.next
       } else {
         break
@@ -81,7 +81,7 @@ export const clearKongResources = async (endpoint: string, clearOptions: ClearKo
   try {
     await Promise.all(
       Array.from({ length: WORKER_COUNT }).map(async () => {
-        let task: (() => AxiosPromise)|undefined
+        let task: (() => AxiosPromise) | undefined
 
         while ((task = tasks.shift())) {
           try {
@@ -95,7 +95,7 @@ export const clearKongResources = async (endpoint: string, clearOptions: ClearKo
             throw e
           }
         }
-      })
+      }),
     )
     console.log(`${deletedCount} resources on ${endpoint} have been deleted`)
   } catch (err) {

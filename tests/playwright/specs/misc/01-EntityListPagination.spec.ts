@@ -13,8 +13,8 @@ test.describe('entity list pagination', () => {
       Array(50).fill(0).map((_, i) =>
         createKongResource('/consumers', {
           username: `consumer-${i.toString().padStart(3, '0')}`,
-        })
-      )
+        }),
+      ),
     )
   })
 

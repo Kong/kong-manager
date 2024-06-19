@@ -74,12 +74,12 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
+      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]'),
     )
 
     await withNavigation(
       page,
-      async () => await page.getByTestId('basic-auth-card').click()
+      async () => await page.getByTestId('basic-auth-card').click(),
     )
 
     await expect(page.locator('.autosuggest input#service-id')).toBeVisible()
@@ -91,7 +91,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('[data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
@@ -104,7 +104,7 @@ test.describe('plugins', () => {
   test('plugin icons - plugin select', async ({ browserName, page }) => {
     await withNavigation(
       page,
-      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="toolbar-add-plugin"]')
+      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="toolbar-add-plugin"]'),
     )
 
     const pluginIcon = page.locator('.plugin-select-card [data-testid="Basic Authentication"] img.plugin-card-icon')
@@ -188,12 +188,12 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
+      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]'),
     )
 
     await withNavigation(
       page,
-      async () => await page.getByTestId('basic-auth-card').click()
+      async () => await page.getByTestId('basic-auth-card').click(),
     )
 
     await expect(page.locator('.autosuggest input#route-id')).toBeVisible()
@@ -201,7 +201,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('[data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
@@ -220,17 +220,17 @@ test.describe('plugins', () => {
     await switchDetailTab(page, 'plugins')
     await withNavigation(
       page,
-      async () => await page.locator('.empty-state-action .primary').click()
+      async () => await page.locator('.empty-state-action .primary').click(),
     )
     await withNavigation(
       page,
-      async () => await page.getByTestId('datadog-card').click()
+      async () => await page.getByTestId('datadog-card').click(),
     )
     await expect(page.locator('.autosuggest input#consumer-id')).toBeVisible()
     await expect(page.locator('.autosuggest input#consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
     await withNavigation(
       page,
-      async () => await page.locator('[data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
     await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Datadog')
@@ -294,11 +294,11 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.empty-state-action .primary').click()
+      async () => await page.locator('.empty-state-action .primary').click(),
     )
     await withNavigation(
       page,
-      async () => await page.getByTestId('basic-auth-card').click()
+      async () => await page.getByTestId('basic-auth-card').click(),
     )
 
     await page.click('.plugin-protocols-select .multiselect-trigger')
@@ -308,7 +308,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('[data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
 
@@ -328,7 +328,7 @@ test.describe('plugins', () => {
             tags: mockTag,
           },
           withAction: 'submit',
-        })
+        }),
     )
 
     let row = page.locator('.kong-ui-entities-plugins-list').locator('tr').nth(1)
@@ -345,7 +345,7 @@ test.describe('plugins', () => {
             tags: `${mockTag}${mockTag}`,
           },
           withAction: 'cancel',
-        })
+        }),
     )
 
     row = page.locator('.kong-ui-entities-plugins-list').locator('tr').nth(1)
@@ -490,7 +490,7 @@ test.describe('plugins', () => {
         page,
         formData: { 'config-allow': ['0.0.0.0/32'] },
         withAction: 'submit',
-      })
+      }),
     )
 
     await clickEntityListAction(page, 'edit')
@@ -548,7 +548,7 @@ test.describe('plugins', () => {
       await fillEntityForm({
         page,
         withAction: 'submit',
-      })
+      }),
     )
 
     // verify the created plugin is global

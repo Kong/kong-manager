@@ -83,7 +83,7 @@ test.describe('routes', () => {
 
   test('route create - cancel button', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click(),
     )
     await page.locator('[data-testid="form-cancel"]').click()
     await expectEmptyEntityList(page, 'routes', 'Configure a New Route')
@@ -91,7 +91,7 @@ test.describe('routes', () => {
 
   test('route create - save button is disabled', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click(),
     )
 
     await expect(page.locator('[data-testid="form-submit"]')).toBeDisabled()
@@ -99,7 +99,7 @@ test.describe('routes', () => {
 
   test('route create - cannot be submit if only protocol is clicked', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click(),
     )
 
     await page.locator('[data-testid="route-form-protocols"]').fill('http')
@@ -108,7 +108,7 @@ test.describe('routes', () => {
 
   test('route create - fail with invalid paths', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click(),
     )
 
     await fillArrayField(page, 'paths', ['kong(-ee){0,1}.com'], true)
@@ -121,12 +121,12 @@ test.describe('routes', () => {
       withAction: 'submit',
     })
     await expect(page.locator('[data-testid="form-error"]')).toBeVisible()
-    await expect(page.locator('[data-testid="form-error"] .alert-message')).toHaveText(`schema violation (paths.1: should start with: / (fixed path) or ~/ (regex path))`)
+    await expect(page.locator('[data-testid="form-error"] .alert-message')).toHaveText('schema violation (paths.1: should start with: / (fixed path) or ~/ (regex path))')
   })
 
   test('route create - can open/close advanced fields', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click(),
     )
 
     // default the advanced field status
@@ -160,7 +160,7 @@ test.describe('routes', () => {
     for (const protocol of protocols) {
       test(`route create - sni field appears and hide correctly with protocols (${protocol})`, async ({ page }) => {
         await withNavigation(page, () =>
-          page.locator('.table-empty-state .primary').click()
+          page.locator('.table-empty-state .primary').click(),
         )
 
         await selectProtocols(page, `${protocol}`)
@@ -173,10 +173,10 @@ test.describe('routes', () => {
     }
   }
 
-  test(`route create - successful create`, async ({ page }) => {
+  test('route create - successful create', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
+      async () => await page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click(),
     )
 
     await page.waitForSelector('.k-breadcrumbs', { state: 'hidden' })
@@ -241,7 +241,7 @@ test.describe('routes', () => {
             'route-form-tags': mockTag,
           },
           withAction: 'cancel',
-        })
+        }),
     )
 
     await expect(page.locator('.entity-record [data-testid="tags"] .k-badge')).toHaveCount(0)
@@ -281,7 +281,7 @@ test.describe('routes', () => {
           formData: {},
           withAction: 'submit',
         })
-      }
+      },
     )
     await waitAndDismissToasts(page)
   })
@@ -335,7 +335,7 @@ test.describe('routes', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click(),
     )
 
     await init()
@@ -355,7 +355,7 @@ test.describe('routes', () => {
     await clearKongResources('/routes')
   }
 
-  test(`route create - successful with "http", "https"`, async ({ page }) => {
+  test('route create - successful with "http", "https"', async ({ page }) => {
     const protocols = ['http', 'https', 'http,https']
     const data = {
       'route-form-name': `route_name_${Date.now()}`,
@@ -391,7 +391,7 @@ test.describe('routes', () => {
     }
   })
 
-  test(`route create - successful with "grpc", "grpcs"`, async ({ page }) => {
+  test('route create - successful with "grpc", "grpcs"', async ({ page }) => {
     const protocols = ['grpc', 'grpcs', 'grpc,grpcs']
     const data = {
       'route-form-name': `route_name_${Date.now()}`,
@@ -427,7 +427,7 @@ test.describe('routes', () => {
     }
   })
 
-  test(`route create - successful with "tls", "tcp"`, async ({ page }) => {
+  test('route create - successful with "tls", "tcp"', async ({ page }) => {
     const protocols = ['tcp', 'tls', 'tcp,tls,udp']
     const data = {
       'route-form-name': `route_name_${Date.now()}`,
@@ -466,7 +466,7 @@ test.describe('routes', () => {
     }
   })
 
-  test(`route create changing protocols from tcp to http - successful`, async ({ page }) => {
+  test('route create changing protocols from tcp to http - successful', async ({ page }) => {
     const data = {
       'route-form-name': `route_name_${Date.now()}`,
       'route-form-tags': 'tag1,tag2',
@@ -500,7 +500,7 @@ test.describe('routes', () => {
     })
   })
 
-  test(`route create with http protocol by default - successful`, async ({ page }) => {
+  test('route create with http protocol by default - successful', async ({ page }) => {
     const data = {
       'route-form-name': `route_name_${Date.now()}`,
       'route-form-tags': 'tag1,tag2',
@@ -515,7 +515,7 @@ test.describe('routes', () => {
     })
   })
 
-  test(`route create with https protocol if selected - successful`, async ({ page }) => {
+  test('route create with https protocol if selected - successful', async ({ page }) => {
     const data = {
       'route-form-name': `route_name_${Date.now()}`,
       'route-form-tags': 'tag1,tag2',
@@ -531,7 +531,7 @@ test.describe('routes', () => {
     })
   })
 
-  test(`route create - with valid regex paths - successful`, async ({ page }) => {
+  test('route create - with valid regex paths - successful', async ({ page }) => {
     const data = {
       'route-form-name': `route_name_${Date.now()}`,
       'route-form-tags': 'tag1,tag2',
@@ -603,7 +603,7 @@ test.describe('routes', () => {
       fillEntityForm({
         page,
         withAction: 'submit',
-      })
+      }),
     )
 
     await page.goto(`/routes/${route?.data.id}`)

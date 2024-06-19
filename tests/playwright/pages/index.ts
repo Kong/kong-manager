@@ -7,9 +7,9 @@ export class POM {
     submitButton: '[data-testid="form-actions"] .k-button.primary',
   }
 
-  constructor (public readonly page: Page, public readonly url: string) { }
+  constructor(public readonly page: Page, public readonly url: string) { }
 
-  async goto () {
+  async goto() {
     return this.page.goto(this.url)
   }
 }

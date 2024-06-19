@@ -1,6 +1,6 @@
 // List of disallowed utility classes that are exported from Kongponents
 // These classes **must not** be used in this repository
-module.exports = [
+export default [
   'type-xxxl',
   'type-xxl',
   'type-xl',

@@ -21,23 +21,23 @@ const getConfig = <T>(key: string, defaultValue: T): T => {
 
 export const config = {
 
-  get ADMIN_GUI_URL () {
+  get ADMIN_GUI_URL() {
     return getConfig<string | null>('ADMIN_GUI_URL', null)
   },
 
-  get ADMIN_GUI_PATH () {
+  get ADMIN_GUI_PATH() {
     return getConfig<string>('ADMIN_GUI_PATH', '/')
   },
 
-  get ADMIN_API_PORT () {
+  get ADMIN_API_PORT() {
     return getConfig<number>('ADMIN_API_PORT', 8001)
   },
 
-  get ADMIN_API_SSL_PORT () {
+  get ADMIN_API_SSL_PORT() {
     return getConfig<number>('ADMIN_API_SSL_PORT', 8444)
   },
 
-  get ADMIN_API_URL () {
+  get ADMIN_API_URL() {
     const ADMIN_API_URL = getConfig<string | null>('ADMIN_API_URL', null)
     if (ADMIN_API_URL) {
       return /^(https?:)?\/\//.test(ADMIN_API_URL)
@@ -52,7 +52,7 @@ export const config = {
     return `${window.location.protocol}//${window.location.hostname}:${port}`
   },
 
-  get ANONYMOUS_REPORTS () {
+  get ANONYMOUS_REPORTS() {
     return getConfig('ANONYMOUS_REPORTS', false)
   },
 }

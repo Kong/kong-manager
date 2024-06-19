@@ -30,7 +30,7 @@ test.describe('vaults', () => {
   test('create a vault successful', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click(),
     )
 
     await expect(page.locator('.vault-form-provider-cards-container')).toBeVisible()
@@ -65,7 +65,7 @@ test.describe('vaults', () => {
             'vault-form-tags': mockTag,
           },
           withAction: 'submit',
-        })
+        }),
     )
     await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
@@ -81,7 +81,7 @@ test.describe('vaults', () => {
             'vault-form-tags': `${mockTag}${mockTag}`,
           },
           withAction: 'cancel',
-        })
+        }),
     )
     await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
@@ -96,7 +96,7 @@ test.describe('vaults', () => {
   test('create a vault failure when prefix is "env"', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click(),
     )
 
     await expect(page.locator('.vault-form-provider-cards-container')).toBeVisible()

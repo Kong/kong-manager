@@ -6,7 +6,7 @@ export class ServiceListPage extends POM {
     ...POM.$,
   }
 
-  constructor (page: Page) {
+  constructor(page: Page) {
     super(page, '/services')
   }
 }

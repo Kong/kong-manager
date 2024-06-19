@@ -141,32 +141,32 @@ const info = computed(() => {
     ...(
       config.value.database === 'postgres'
         ? [
-            {
-              title: t('overview.info.datastore.title'),
-              items: [
-                {
-                  label: t('overview.info.datastore.type'),
-                  value: config.value.database,
-                },
-                {
-                  label: t('overview.info.datastore.user'),
-                  value: config.value.pg_user,
-                },
-                {
-                  label: t('overview.info.datastore.host'),
-                  value: config.value.pg_host,
-                },
-                {
-                  label: t('overview.info.datastore.port'),
-                  value: config.value.pg_port,
-                },
-                {
-                  label: t('overview.info.datastore.ssl'),
-                  value: config.value.pg_ssl,
-                },
-              ],
-            },
-          ]
+          {
+            title: t('overview.info.datastore.title'),
+            items: [
+              {
+                label: t('overview.info.datastore.type'),
+                value: config.value.database,
+              },
+              {
+                label: t('overview.info.datastore.user'),
+                value: config.value.pg_user,
+              },
+              {
+                label: t('overview.info.datastore.host'),
+                value: config.value.pg_host,
+              },
+              {
+                label: t('overview.info.datastore.port'),
+                value: config.value.pg_port,
+              },
+              {
+                label: t('overview.info.datastore.ssl'),
+                value: config.value.pg_ssl,
+              },
+            ],
+          },
+        ]
         : []
     ),
   ]

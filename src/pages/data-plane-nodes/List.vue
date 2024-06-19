@@ -171,7 +171,8 @@ import {
 } from '@kong/design-tokens'
 import { ProgressIcon, InfoIcon, ChevronDownIcon, MoreIcon } from '@kong/icons'
 import type { FetcherParams } from '@kong-ui-public/entities-shared'
-import { ChangeLogLevelModal, LogLevel, composables } from '@kong-ui-public/entities-data-plane-nodes'
+import type { LogLevel } from '@kong-ui-public/entities-data-plane-nodes'
+import { ChangeLogLevelModal, composables } from '@kong-ui-public/entities-data-plane-nodes'
 import { capitalize, formatDate } from '@/utils'
 import { apiService } from '@/services/apiService'
 import { useI18n } from '@/composables/useI18n'
@@ -274,10 +275,10 @@ const fetcher = async (props: FetcherParams) => {
       data: visibleNodes.value,
       ...(data.offset
         ? {
-            pagination: {
-              offset: data.offset,
-            },
-          }
+          pagination: {
+            offset: data.offset,
+          },
+        }
         : null),
     }
   } catch (err) {
