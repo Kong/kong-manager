@@ -83,7 +83,7 @@ test.describe('upstreams', () => {
   test('create an upstream', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.kong-ui-entities-upstreams-list .table-empty-state .primary').click()
+      async () => await page.locator('.kong-ui-entities-upstreams-list .table-empty-state .primary').click(),
     )
 
     await selectOption(page.locator('.k-select.name-select'), service_host1.id)
@@ -101,7 +101,7 @@ test.describe('upstreams', () => {
   test('upstream create - failure with the same upstream host', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.getByTestId('toolbar-add-upstream').click()
+      async () => await page.getByTestId('toolbar-add-upstream').click(),
     )
 
     await selectOption(page.locator('.k-select.name-select'), service_host1.id)
@@ -137,7 +137,7 @@ test.describe('upstreams', () => {
             'upstreams-form-tags': mockTag,
           },
           withAction: 'submit',
-        })
+        }),
     )
     await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
 
@@ -151,7 +151,7 @@ test.describe('upstreams', () => {
             'upstreams-form-tags': `${mockTag}${mockTag}`,
           },
           withAction: 'cancel',
-        })
+        }),
     )
     await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
@@ -171,7 +171,7 @@ test.describe('upstreams', () => {
 
     await withNavigation(
       page,
-      async () => await page.locator('.kong-ui-entities-upstreams-list .table-empty-state .primary').click()
+      async () => await page.locator('.kong-ui-entities-upstreams-list .table-empty-state .primary').click(),
     )
 
     await selectOption(page.locator('.k-select.name-select'), service_host1.id)
@@ -203,14 +203,14 @@ test.describe('upstreams', () => {
     }
   })
 
-  // eslint-disable-next-line max-params
+
   const create_upstream = async (page, upstreamListPage, init, data, verify, is_success = true) => {
     await clearKongResources('/upstreams')
     await upstreamListPage.goto()
 
     await withNavigation(
       page,
-      async () => await page.locator('.table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click(),
     )
 
     await init()
@@ -230,7 +230,7 @@ test.describe('upstreams', () => {
     await verify()
   }
 
-  // eslint-disable-next-line max-params
+
   const update_upstream = async (page, upstreamListPage, init, data, verify, is_success = true) => {
     await upstreamListPage.goto()
 
@@ -274,7 +274,7 @@ test.describe('upstreams', () => {
         async () => {
           await expect(getPropertyValue(page, 'name')).toHaveText(upstream_host2)
           await expect(getPropertyValue(page, 'algorithm')).toHaveText(algorithm.expect)
-        }
+        },
       )
     })
   }
@@ -305,7 +305,7 @@ test.describe('upstreams', () => {
           const hash_on = algorithm.hash ? 'ip' : 'none'
 
           await expect(getPropertyValue(page, 'hash_on')).toHaveText(hash_on)
-        }
+        },
       )
     })
   }
@@ -331,7 +331,7 @@ test.describe('upstreams', () => {
           if (entity.fill) {
             await expect(getPropertyValue(page, `hash_on_${entity.type}`)).toHaveText(entity.type)
           }
-        }
+        },
       )
     })
   }
@@ -385,7 +385,7 @@ test.describe('upstreams', () => {
 
               await expect(getPropertyValue(page, testid)).toHaveText(fallback.type)
             }
-          }
+          },
         )
       })
     }
@@ -440,7 +440,7 @@ test.describe('upstreams', () => {
             await expect(page.locator('.alert-content')).toHaveText(`2 schema violations (failed conditional validation given value of field 'hash_on'; hash_fallback: expected one of: ${expect_hashs.join(', ')})`)
           }
         },
-        false
+        false,
       )
     })
   }
@@ -452,8 +452,8 @@ test.describe('upstreams', () => {
         await selectOption(page.locator('.k-select.name-select'), service_host2.id)
         // set hash-on
         await selectOption(page.locator('.k-select.hash-on-select'), 'cookie')
-        await expect(page.getByTestId(`upstreams-form-hash-on-cookie`)).toBeVisible()
-        await page.getByTestId(`upstreams-form-hash-on-cookie`).fill('cookie')
+        await expect(page.getByTestId('upstreams-form-hash-on-cookie')).toBeVisible()
+        await page.getByTestId('upstreams-form-hash-on-cookie').fill('cookie')
 
         await expect(page.locator('.k-select.hash-fallback-select [data-testid="select-input"]')).toBeDisabled()
       },
@@ -464,11 +464,11 @@ test.describe('upstreams', () => {
         await expect(getPropertyValue(page, 'hash_on')).toHaveText('cookie')
         await expect(getPropertyValue(page, 'hash_on_cookie')).toHaveText('cookie')
         await expect(getPropertyValue(page, 'hash_on_cookie_path')).toHaveText('/')
-      }
+      },
     )
   })
 
-  test(`upstream create - successful enbale/disbale active or passive health check`, async ({ page, upstreamListPage }) => {
+  test('upstream create - successful enbale/disbale active or passive health check', async ({ page, upstreamListPage }) => {
     test.slow()
     // create a new upstream
     await create_upstream(
@@ -485,7 +485,7 @@ test.describe('upstreams', () => {
 
         expect(JSON.parse(passive)).toEqual(JSON.parse('{"type": "http", "healthy": {"successes": 0, "http_statuses": [200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 300, 301, 302, 303, 304, 305, 306, 307, 308]}, "unhealthy": {"http_statuses": [429, 500, 503], "tcp_failures": 0, "timeouts": 0, "http_failures": 0}}'))
         expect(JSON.parse(active)).toEqual(JSON.parse('{"concurrency": 10, "healthy": {"interval": 0, "http_statuses": [200, 302], "successes": 0}, "unhealthy": {"interval": 0, "tcp_failures": 0, "timeouts": 0, "http_failures": 0, "http_statuses": [429, 404, 500, 501, 502, 503, 504, 505]}, "headers": null, "type": "http", "https_sni": null, "https_verify_certificate": true, "http_path": "/", "timeout": 1}'))
-      }
+      },
     )
 
     // enable active health check
@@ -502,7 +502,7 @@ test.describe('upstreams', () => {
 
         expect(JSON.parse(passive)).toEqual(JSON.parse('{"type": "http", "healthy": {"successes": 0, "http_statuses": [200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 300, 301, 302, 303, 304, 305, 306, 307, 308]}, "unhealthy": {"http_statuses": [429, 500, 503], "tcp_failures": 0, "timeouts": 0, "http_failures": 0}}'))
         expect(JSON.parse(active)).toEqual(JSON.parse('{"concurrency": 10, "healthy": {"interval": 5, "http_statuses": [200, 302], "successes": 5}, "unhealthy": {"interval": 5, "tcp_failures": 0, "timeouts": 0, "http_failures": 5, "http_statuses": [429, 404, 500, 501, 502, 503, 504, 505]}, "headers": {}, "type": "http", "https_sni": null, "https_verify_certificate": true, "http_path": "/", "timeout": 1}'))
-      }
+      },
     )
 
     // enable passive health check
@@ -519,7 +519,7 @@ test.describe('upstreams', () => {
 
         expect(JSON.parse(passive)).toEqual(JSON.parse('{"type": "http", "healthy": {"successes": 80, "http_statuses": [200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 300, 301, 302, 303, 304, 305, 306, 307, 308]}, "unhealthy": {"http_statuses": [429, 500, 503], "tcp_failures": 0, "timeouts": 5, "http_failures": 5}}'))
         expect(JSON.parse(active)).toEqual(JSON.parse('{"concurrency": 10, "healthy": {"interval": 5, "http_statuses": [200, 302], "successes": 5}, "unhealthy": {"interval": 5, "tcp_failures": 0, "timeouts": 0, "http_failures": 5, "http_statuses": [429, 404, 500, 501, 502, 503, 504, 505]}, "headers": {}, "type": "http", "https_sni": null, "https_verify_certificate": true, "http_path": "/", "timeout": 1}'))
-      }
+      },
     )
 
     // disable active health check
@@ -536,7 +536,7 @@ test.describe('upstreams', () => {
 
         expect(JSON.parse(passive)).toEqual(JSON.parse('{"type": "http", "healthy": {"successes": 80, "http_statuses": [200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 300, 301, 302, 303, 304, 305, 306, 307, 308]}, "unhealthy": {"http_statuses": [429, 500, 503], "tcp_failures": 0, "timeouts": 5, "http_failures": 5}}'))
         expect(JSON.parse(active)).toEqual(JSON.parse('{"concurrency": 10, "healthy": {"interval": 0, "http_statuses": [200, 302], "successes": 5}, "unhealthy": {"interval": 0, "tcp_failures": 0, "timeouts": 0, "http_failures": 5, "http_statuses": [429, 404, 500, 501, 502, 503, 504, 505]}, "headers": {}, "type": "http", "https_sni": null, "https_verify_certificate": true, "http_path": "/", "timeout": 1}'))
-      }
+      },
     )
 
     // disable passive health check
@@ -553,7 +553,7 @@ test.describe('upstreams', () => {
 
         expect(JSON.parse(passive)).toEqual(JSON.parse('{"type": "http", "healthy": {"successes": 0, "http_statuses": [200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 300, 301, 302, 303, 304, 305, 306, 307, 308]}, "unhealthy": {"http_statuses": [429, 500, 503], "tcp_failures": 0, "timeouts": 0, "http_failures": 0}}'))
         expect(JSON.parse(active)).toEqual(JSON.parse('{"concurrency": 10, "healthy": {"interval": 0, "http_statuses": [200, 302], "successes": 5}, "unhealthy": {"interval": 0, "tcp_failures": 0, "timeouts": 0, "http_failures": 5, "http_statuses": [429, 404, 500, 501, 502, 503, 504, 505]}, "headers": {}, "type": "http", "https_sni": null, "https_verify_certificate": true, "http_path": "/", "timeout": 1}'))
-      }
+      },
     )
   })
 
@@ -589,7 +589,7 @@ test.describe('upstreams', () => {
 
         expect(JSON.parse(passive)).toEqual(JSON.parse('{"type": "http", "healthy": {"successes": 80, "http_statuses": [200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 300, 301, 302, 303, 304, 305, 306, 307, 308]}, "unhealthy": {"http_statuses": [429, 500, 503], "tcp_failures": 0, "timeouts": 5, "http_failures": 5}}'))
         expect(JSON.parse(active)).toEqual(JSON.parse('{"concurrency": 10, "healthy": {"interval": 5, "http_statuses": [200, 302], "successes": 5}, "unhealthy": {"interval": 5, "tcp_failures": 0, "timeouts": 0, "http_failures": 5, "http_statuses": [429, 404, 500, 501, 502, 503, 504, 505]}, "headers": {}, "type": "http", "https_sni": null, "https_verify_certificate": true, "http_path": "/", "timeout": 1}'))
-      }
+      },
     )
 
     await update_upstream(
@@ -630,7 +630,7 @@ test.describe('upstreams', () => {
 
         expect(JSON.parse(passive)).toEqual(JSON.parse('{ "healthy": { "successes": 8, "http_statuses": [ 200 ] }, "type": "http", "unhealthy": { "timeouts": 10, "http_failures": 10, "http_statuses": [ 429, 500, 503, 100, 101 ], "tcp_failures": 0 } }'))
         expect(JSON.parse(active)).toEqual(JSON.parse('{ "headers": { "h1": [ "v1", "v2" ] }, "http_path": "/path", "https_sni": null, "concurrency": 15, "type": "http", "https_verify_certificate": true, "healthy": { "http_statuses": [ 200, 302, 100, 103 ], "successes": 10, "interval": 10 }, "unhealthy": { "timeouts": 10, "http_failures": 10, "http_statuses": [ 404, 429, 500, 501, 502, 503, 504, 505, 100, 101 ], "interval": 10, "tcp_failures": 0 }, "timeout": 5 }'))
-      }
+      },
     )
   })
 
@@ -672,7 +672,7 @@ test.describe('upstreams', () => {
             expect(JSON.parse(passive)).toEqual(JSON.parse('{ "healthy": { "successes": 80, "http_statuses": [ 200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 300, 301, 302, 303, 304, 305, 306, 307, 308 ] }, "type": "http", "unhealthy": { "timeouts": 5, "http_failures": 5, "http_statuses": [ 429, 500, 503 ], "tcp_failures": 0 } }'))
             expect(JSON.parse(active)).toEqual(JSON.parse(`{ "headers": {}, "http_path": "/", "https_sni": null, "concurrency": 10, "type": "${check_type.protocol}", "https_verify_certificate": true, "healthy": { "http_statuses": [ 200, 302 ], "successes": 5, "interval": 5 }, "unhealthy": { "timeouts": 0, "http_failures": 5, "http_statuses": [ 429, 404, 500, 501, 502, 503, 504, 505 ], "interval": 5, "tcp_failures": 0 }, "timeout": 1 }`))
           }
-        }
+        },
       )
     })
   }
@@ -700,7 +700,7 @@ test.describe('upstreams', () => {
 
         expect(JSON.parse(passive)).toEqual(JSON.parse('{ "healthy": { "successes": 80, "http_statuses": [ 200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 300, 301, 302, 303, 304, 305, 306, 307, 308 ] }, "type": "tcp", "unhealthy": { "timeouts": 5, "http_failures": 0, "http_statuses": [ 429, 500, 503 ], "tcp_failures": 10 } }'))
         expect(JSON.parse(active)).toEqual(JSON.parse('{ "headers": {}, "http_path": "/", "https_sni": null, "concurrency": 10, "type": "tcp", "https_verify_certificate": true, "healthy": { "http_statuses": [ 200, 302 ], "successes": 5, "interval": 5 }, "unhealthy": { "timeouts": 0, "http_failures": 0, "http_statuses": [ 429, 404, 500, 501, 502, 503, 504, 505 ], "interval": 5, "tcp_failures": 6 }, "timeout": 1 }'))
-      }
+      },
     )
   })
 
@@ -719,7 +719,7 @@ test.describe('upstreams', () => {
         await expect(getPropertyValue(page, 'name')).toHaveText(newName)
         await page.getByTestId('header-edit-button').click()
         await expect(page.locator('.k-select.name-select input')).toHaveValue(newName)
-      }
+      },
     )
   })
 })

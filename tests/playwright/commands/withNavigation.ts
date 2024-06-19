@@ -7,7 +7,7 @@ const consumeNavigationStack = async (
   timeout = 10,
   waitOptions?: {
     timeout?: number
-    waitUntil?: 'load'|'domcontentloaded'|'networkidle'|'commit'
+    waitUntil?: 'load' | 'domcontentloaded' | 'networkidle' | 'commit'
   },
 ): Promise<Array<Response | null>> => {
   let all_cleared = false
@@ -24,7 +24,7 @@ const consumeNavigationStack = async (
   await new Promise((resolve) => setTimeout(resolve, firstWait))
   resetTimer()
 
-  // eslint-disable-next-line no-unmodified-loop-condition
+
   while (!all_cleared) {
     const result = await page.waitForNavigation(waitOptions).catch(() => false as const)
 
@@ -42,13 +42,13 @@ const waitForNavigationImpl = async <T>(
   action: () => Promise<T>,
   options?: {
     timeout?: number
-    waitUntil?: 'load'|'domcontentloaded'|'networkidle'|'commit'
+    waitUntil?: 'load' | 'domcontentloaded' | 'networkidle' | 'commit'
   },
 ): Promise<T> => {
   // check potential existing navigation stack
   const stack = await consumeNavigationStack(page, 10, 1, { timeout: 10 })
   if (stack.length) {
-    // eslint-disable-next-line no-console
+
     console.warn('withNavigation: navigation stack is not empty')
   }
 
@@ -70,7 +70,7 @@ export const withNavigation = async <T>(
   options?: {
     allowSameURL?: boolean
     timeout?: number
-    waitUntil?: 'load'|'domcontentloaded'|'networkidle'|'commit'
+    waitUntil?: 'load' | 'domcontentloaded' | 'networkidle' | 'commit'
   },
 ): Promise<T> => {
   const { allowSameURL, ...waitOptions } = options ?? {}

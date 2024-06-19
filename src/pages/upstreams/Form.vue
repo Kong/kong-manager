@@ -33,13 +33,13 @@ const isEditing = computed(() => !!id.value)
 const routeOnCancel = useFormRedirectOnCancel(
   isEditing.value
     ? { name: 'upstream-detail', params: { id: id.value } }
-    : { name: 'upstream-list' }
+    : { name: 'upstream-list' },
 )
 
 const routeOnUpdate = useFormRedirectOnUpdate(
   isEditing.value
     ? { name: 'upstream-detail', params: { id: id.value } }
-    : { name: 'upstream-list' }
+    : { name: 'upstream-list' },
 )
 
 const upstreamFormConfig = reactive({

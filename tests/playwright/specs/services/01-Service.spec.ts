@@ -47,7 +47,7 @@ test.describe('services', () => {
 
   test('service create - cancel button', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click(),
     )
     await page.getByTestId('form-cancel').click()
     await expectEmptyEntityList(page, 'gateway-services', 'Configure a New Gateway Service')
@@ -55,7 +55,7 @@ test.describe('services', () => {
 
   test('service create - fail with required field', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click(),
     )
     await fillEntityForm({
       page,
@@ -66,7 +66,7 @@ test.describe('services', () => {
 
   test('service create - successful create', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click(),
     )
     await withNavigation(page, () =>
       fillEntityForm({
@@ -76,7 +76,7 @@ test.describe('services', () => {
           'gateway-service-url-input': testService.url,
         },
         withAction: 'submit',
-      })
+      }),
     )
     await clickEntityListAction(page, 'view')
     await waitAndDismissToasts(page)
@@ -110,7 +110,7 @@ test.describe('services', () => {
       page
         .locator('.page-header')
         .locator('[type="button"]:has-text("Back")')
-        .click()
+        .click(),
     )
     await page.waitForSelector('.kong-ui-entities-gateway-services-list')
   })
@@ -135,7 +135,7 @@ test.describe('services', () => {
 
   test('service create - fail with duplicate name', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.toolbar-button-container .primary').click()
+      page.locator('.toolbar-button-container .primary').click(),
     )
     await fillEntityForm({
       page,
@@ -152,7 +152,7 @@ test.describe('services', () => {
 
   test('service create - fail & fix with invalid info', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.toolbar-button-container .primary').click()
+      page.locator('.toolbar-button-container .primary').click(),
     )
     await fillEntityForm({
       page,
@@ -175,7 +175,7 @@ test.describe('services', () => {
           'gateway-service-url-input': 'http://fixedurl.com',
         },
         withAction: 'submit',
-      })
+      }),
     )
     await waitAndDismissToasts(page)
     await deleteKongResource('/services', 'fixed.service')
@@ -183,7 +183,7 @@ test.describe('services', () => {
 
   test('service create - success without name set', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.toolbar-button-container .primary').click()
+      page.locator('.toolbar-button-container .primary').click(),
     )
     await withNavigation(page, () =>
       fillEntityForm({
@@ -192,7 +192,7 @@ test.describe('services', () => {
           'gateway-service-url-input': 'http://mockbin.org:80',
         },
         withAction: 'submit',
-      })
+      }),
     )
     await clickEntityListAction(page, 'view')
     const serviceId = (await page
@@ -206,7 +206,7 @@ test.describe('services', () => {
 
   test('service create - fail with illegal optional field', async ({ page }) => {
     await withNavigation(page, () =>
-      page.locator('.toolbar-button-container .primary').click()
+      page.locator('.toolbar-button-container .primary').click(),
     )
 
     await expect(page.getByTestId('collapse-trigger-content')).toBeVisible()
@@ -231,7 +231,7 @@ test.describe('services', () => {
   for (const protocol of protocols) {
     test(`service create - successful with current selected radio group (${protocol})`, async ({ page }) => {
       await withNavigation(page, () =>
-        page.locator('.toolbar-button-container .primary').click()
+        page.locator('.toolbar-button-container .primary').click(),
       )
       const data = {
         'gateway-service-name-input': `test_protocol_${protocol}`,
@@ -254,7 +254,7 @@ test.describe('services', () => {
           page,
           formData: data,
           withAction: 'submit',
-        })
+        }),
       )
       await clickEntityListAction(page, 'view')
       const serviceId = (await page
@@ -275,7 +275,7 @@ test.describe('services', () => {
 
     await serviceListPage.goto()
     await withNavigation(page, () =>
-      page.locator('.table-empty-state .primary').click()
+      page.locator('.table-empty-state .primary').click(),
     )
 
     await page.getByTestId('collapse-trigger-content').click()
@@ -328,7 +328,7 @@ test.describe('services', () => {
 
     await serviceListPage.goto()
     await withNavigation(page, () =>
-      page.locator('.toolbar-button-container .primary').click()
+      page.locator('.toolbar-button-container .primary').click(),
     )
 
     await page.getByTestId('collapse-trigger-content').click()
@@ -342,7 +342,7 @@ test.describe('services', () => {
           'gateway-service-clientCert-input': certificate.id,
         },
         withAction: 'submit',
-      })
+      }),
     )
     await clickEntityListAction(page, 'view')
     const serviceId = (await page
@@ -385,7 +385,7 @@ test.describe('services', () => {
           'gateway-service-tags-input': 'tag1,tag2,tag3',
         },
         withAction: 'submit',
-      })
+      }),
     )
     await expect(page.locator('[data-testid="tags-badge-tags"] .badge-content-wrapper')).toHaveText(['tag1', 'tag2', 'tag3'])
 
@@ -399,7 +399,7 @@ test.describe('services', () => {
         },
         method: 'fill',
         withAction: 'submit',
-      })
+      }),
     )
     await expect(page.locator('[data-testid="tags-badge-tags"] .badge-content-wrapper')).toHaveText(['tag11', 'tag12', 'tag13'])
 

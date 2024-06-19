@@ -6,7 +6,7 @@ export class RouteListPage extends POM {
     ...POM.$,
   }
 
-  constructor (page: Page) {
+  constructor(page: Page) {
     super(page, '/routes')
   }
 }
@@ -16,7 +16,7 @@ export class RouteCreatePage extends POM {
     ...POM.$,
   }
 
-  constructor (page: Page, options: { serviceId?: string } = {}) {
+  constructor(page: Page, options: { serviceId?: string } = {}) {
     const { serviceId = '' } = options
 
     super(page, `/routes/create?serviceId=${serviceId}`)

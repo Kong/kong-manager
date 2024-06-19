@@ -6,7 +6,7 @@ export class DataPlaneNodesPage extends POM {
     ...POM.$,
   }
 
-  constructor (page: Page) {
+  constructor(page: Page) {
     super(page, '/data-plane-nodes')
   }
 }

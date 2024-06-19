@@ -20,7 +20,7 @@ const test = baseTest().extend<{
 })
 
 test.describe('snis', () => {
-  let certificate: { id: string}
+  let certificate: { id: string }
 
   test.beforeAll(async () => {
     await clearKongResources('/snis')
@@ -49,7 +49,7 @@ test.describe('snis', () => {
   test('create an sni - fail', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click(),
     )
 
     await expect(page.locator('[data-testid="sni-form-certificate-id"]')).toBeVisible()
@@ -63,7 +63,7 @@ test.describe('snis', () => {
   test('create an sni', async ({ page }) => {
     await withNavigation(
       page,
-      async () => await page.locator('.table-empty-state .primary').click()
+      async () => await page.locator('.table-empty-state .primary').click(),
     )
 
     await expect(page.locator('[data-testid="sni-form-certificate-id"]')).toBeVisible()
@@ -91,7 +91,7 @@ test.describe('snis', () => {
             'sni-form-tags': mockTag,
           },
           withAction: 'submit',
-        })
+        }),
     )
     await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
 
@@ -105,7 +105,7 @@ test.describe('snis', () => {
             'sni-form-tags': `${mockTag}${mockTag}`,
           },
           withAction: 'cancel',
-        })
+        }),
     )
     await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })

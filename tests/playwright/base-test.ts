@@ -34,9 +34,9 @@ const baseTest = (sharedState: SharedState | null = {}) => {
       let page: Page
       if (sharedState?.page === undefined || sharedState?.page === null) {
         page = new Proxy<Page>(await context.newPage(), {
-          get (target, prop: keyof Page) {
+          get(target, prop: keyof Page) {
             if (prop === 'goto') {
-              return function (...args: Parameters<Page['goto']>) {
+              return function(...args: Parameters<Page['goto']>) {
                 const [url, ...restArgs] = args
                 let targetURL: string
 

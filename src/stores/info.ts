@@ -37,7 +37,7 @@ export const useInfoStore = defineStore('info', {
   },
 
   actions: {
-    async getInfo (payload: AnyObject = { silent: true, force: false }) {
+    async getInfo(payload: AnyObject = { silent: true, force: false }) {
       const { silent = true, force = false } = payload
 
       // Return the info if it's already loaded unless force is true

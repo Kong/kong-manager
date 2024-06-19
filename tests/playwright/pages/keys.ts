@@ -6,7 +6,7 @@ export class KeyListPage extends POM {
     ...POM.$,
   }
 
-  constructor (page: Page) {
+  constructor(page: Page) {
     super(page, '/keys')
   }
 }

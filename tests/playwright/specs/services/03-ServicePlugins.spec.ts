@@ -42,7 +42,7 @@ test.describe('service plugins', () => {
   test('service plugin has service id prefilled', async ({ page }) => {
     await page.goto(`/services/${testService?.id}/plugins`)
     await withNavigation(page, () =>
-      page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
+      page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]'),
     )
     await page.getByTestId('hmac-auth-card').click()
     await expect(page.locator('.autosuggest input#service-id')).toHaveValue(new RegExp(`${testService?.name}\\s*-\\s*${testService?.id}`))
@@ -54,10 +54,10 @@ test.describe('service plugins', () => {
     await switchDetailTab(page, 'plugins')
     await page.waitForSelector('.kong-ui-entities-plugins-list .k-empty-state')
     await withNavigation(page, () =>
-      page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]')
+      page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]'),
     )
     await withNavigation(page, () =>
-      page.getByTestId('basic-auth-card').click()
+      page.getByTestId('basic-auth-card').click(),
     )
 
     await fillEntityForm({ page })
@@ -92,7 +92,7 @@ test.describe('service plugins', () => {
       page
         .locator('[data-testid="form-actions"]')
         .locator('[data-testid="form-cancel"]')
-        .click()
+        .click(),
     )
     await page.waitForSelector('.kong-ui-entities-plugins-list')
   })

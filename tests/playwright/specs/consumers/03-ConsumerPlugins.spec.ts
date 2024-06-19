@@ -39,17 +39,17 @@ test.describe('consumer plugins', () => {
     await switchDetailTab(page, 'plugins')
     await withNavigation(
       page,
-      async () => await page.locator('.empty-state-action .primary').click()
+      async () => await page.locator('.empty-state-action .primary').click(),
     )
     await withNavigation(
       page,
-      async () => await page.getByTestId('datadog-card').click()
+      async () => await page.getByTestId('datadog-card').click(),
     )
     await expect(page.locator('.autosuggest input#consumer-id')).toBeVisible()
     await expect(page.locator('.autosuggest input#consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
     await withNavigation(
       page,
-      async () => await page.locator('[data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
   })
 
@@ -70,7 +70,7 @@ test.describe('consumer plugins', () => {
     await page.locator('#tags').fill(`${mockTag}${mockTag}`)
     await withNavigation(
       page,
-      async () => await page.locator('[data-testid="form-cancel"]').click()
+      async () => await page.locator('[data-testid="form-cancel"]').click(),
     )
     await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
@@ -94,7 +94,7 @@ test.describe('consumer plugins', () => {
     await page.locator('#config-second').fill('30')
     await withNavigation(
       page,
-      async () => await page.locator('[data-testid="form-actions"] .primary').click()
+      async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
 

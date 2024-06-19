@@ -33,13 +33,13 @@ const isEditing = computed(() => !!id.value)
 const routeOnCancel = useFormRedirectOnCancel(
   isEditing.value
     ? { name: 'ca-certificate-detail', params: { id: id.value } }
-    : { name: 'ca-certificate-list' }
+    : { name: 'ca-certificate-list' },
 )
 
 const routeOnUpdate = useFormRedirectOnUpdate(
   isEditing.value
     ? { name: 'ca-certificate-detail', params: { id: id.value } }
-    : { name: 'ca-certificate-list' }
+    : { name: 'ca-certificate-list' },
 )
 
 const caCertificateFormConfig = reactive({

@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-export const getMessageFromError = function (error: AxiosError<{ message?: string }>) {
+export const getMessageFromError = function(error: AxiosError<{ message?: string }>) {
   if (error?.response?.data) {
     if (error.response.data.message) {
       return error.response.data.message
@@ -36,8 +36,8 @@ export const getBasePath = () => {
   return pathname.endsWith('/') ? pathname : `${pathname}/`
 }
 
-export const generateBitMap = function (name: string, width: number, height: number) {
-  const dir = path.resolve(__dirname, `../../tmp`)
+export const generateBitMap = function(name: string, width: number, height: number) {
+  const dir = path.resolve(__dirname, '../../tmp')
   const fd = `${dir}/${name}`
   const rawData = bmp.encode({ data: {}, width, height })
 

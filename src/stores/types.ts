@@ -1,6 +1,6 @@
 import type { GatewayEdition } from '@/config'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export type AnyObject = Record<string, any>
 
 export interface Info {

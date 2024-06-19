@@ -52,7 +52,7 @@ test.describe('service routes', () => {
     await switchDetailTab(page, 'routes')
     await page.waitForSelector('.kong-ui-entities-routes-list .table-empty-state')
     await withNavigation(page, () =>
-      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
+      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click(),
     )
 
     await expect(page.locator('.kong-ui-entities-route-form')).toBeVisible()
@@ -66,7 +66,7 @@ test.describe('service routes', () => {
     await switchDetailTab(page, 'routes')
     await page.waitForSelector('.kong-ui-entities-routes-list .table-empty-state')
     await withNavigation(page, () =>
-      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
+      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click(),
     )
 
     await expect(page.locator('[data-testid="form-submit"]')).toBeDisabled()
@@ -77,7 +77,7 @@ test.describe('service routes', () => {
     await switchDetailTab(page, 'routes')
     await page.waitForSelector('.kong-ui-entities-routes-list .table-empty-state')
     await withNavigation(page, () =>
-      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
+      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click(),
     )
 
     await selectMethods(page, ['GET'])
@@ -86,7 +86,7 @@ test.describe('service routes', () => {
         page,
         formData: testRoute,
         withAction: 'submit',
-      })
+      }),
     )
     await waitAndDismissToasts(page)
 
@@ -100,7 +100,7 @@ test.describe('service routes', () => {
     await switchDetailTab(page, 'routes')
     await page.waitForSelector('.kong-ui-entities-routes-list .table-empty-state')
     await withNavigation(page, () =>
-      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
+      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click(),
     )
 
     await selectMethods(page, ['GET'])
@@ -109,7 +109,7 @@ test.describe('service routes', () => {
         page,
         formData: {},
         withAction: 'submit',
-      })
+      }),
     )
     await waitAndDismissToasts(page)
 
@@ -123,7 +123,7 @@ test.describe('service routes', () => {
     await switchDetailTab(page, 'routes')
     await page.waitForSelector('.kong-ui-entities-routes-list .table-empty-state')
     await withNavigation(page, () =>
-      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click()
+      page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click(),
     )
 
     await selectMethods(page, ['GET'])
@@ -132,7 +132,7 @@ test.describe('service routes', () => {
         page,
         formData: {},
         withAction: 'submit',
-      })
+      }),
     )
     await waitAndDismissToasts(page)
 
@@ -144,7 +144,7 @@ test.describe('service routes', () => {
           'route-form-name': 'test.111',
         },
         withAction: 'submit',
-      })
+      }),
     )
     await page.waitForSelector('.kong-ui-entities-routes-list')
     await expect(page.locator('tr[data-testid="test.111"]')).toBeVisible()

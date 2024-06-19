@@ -37,7 +37,7 @@ const isEditing = computed(() => !!credentialId.value)
 const title = computed(
   () => isEditing.value
     ? t('entities.consumer-credential.edit.form.title', { type: credentialType.value })
-    : t('entities.consumer-credential.create.form.title', { type: credentialType.value })
+    : t('entities.consumer-credential.create.form.title', { type: credentialType.value }),
 )
 
 const cancelRoute = computed(() => {
