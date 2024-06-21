@@ -13,6 +13,6 @@ export const clickEntityListAction = async (
   await row.locator('[data-testid="overflow-actions-button"]').click()
   await row
     .locator('[data-testid="dropdown-list"]')
-    .locator(`[data-testid="action-entity-${action}"] .dropdown-item-trigger`)
+    .locator(`[data-testid="action-entity-${action}"]`)
     .click()
 }
