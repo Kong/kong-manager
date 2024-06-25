@@ -33,8 +33,6 @@ updates:
       - dependency-name: "@kong/*"
       - dependency-name: "@kong-ui-public/*"
       - dependency-name: "@playwright/test"
-    ignore:
-      - dependency-name: "@kong/kongponents"
     groups:
       kong-packages:
         patterns:

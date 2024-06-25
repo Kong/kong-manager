@@ -586,13 +586,18 @@
   resolved "https://registry.yarnpkg.com/@kong/icons/-/icons-1.14.0.tgz#f334ba05f1aad362e515f3e91144f56a13dce09d"
   integrity sha512-eNhWJ9sms1mLMe8emyVh7LxUbekNHJk8aNpqrsuZ7WL1TWErF8pkMECyvIjM8VXr+lsU6itHcZ7KyP+dPgMuPw==
 
-"@kong/kongponents@^9.0.0-alpha.180":
-  version "9.0.0-alpha.180"
-  resolved "https://registry.yarnpkg.com/@kong/kongponents/-/kongponents-9.0.0-alpha.180.tgz#ad815514eebfecccc7adeef04de8801885aae1a1"
-  integrity sha512-NFS8EW/nHaamjOQHvlM2qgxz8aV0zrSseob75fCVMgDZJXmFGJzTu7VImxDjkmqGVDGSlVY04t3/ppi+62oHxg==
+"@kong/icons@^1.14.1":
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/@kong/icons/-/icons-1.14.1.tgz#a6e63e3fc62023a3f19604fb67c4b33415facc1d"
+  integrity sha512-2FbzPWQnHa5URm5jSw/JnRiJUDwVi5oSNLPg22LxckJoQ4wD0Q6i71CCG9I2HJ/Cd95a43eGfm2M9BCAHKPlwg==
+
+"@kong/kongponents@^9.0.4":
+  version "9.0.4"
+  resolved "https://registry.yarnpkg.com/@kong/kongponents/-/kongponents-9.0.4.tgz#8d9e20120b8c85980a98e58f755c90448d527758"
+  integrity sha512-taj02megpZp8cRQ9Se9F4oH2gK3YjuUsdO2aqezD00dyISNsgIHBuF1q09ZstAvuxLpVva0K8749NDtMdi0t2w==
   dependencies:
     "@floating-ui/vue" "^1.0.6"
-    "@kong/icons" "^1.13.0"
+    "@kong/icons" "^1.14.1"
     "@popperjs/core" "^2.11.8"
     date-fns "^2.30.0"
     date-fns-tz "^2.0.1"
