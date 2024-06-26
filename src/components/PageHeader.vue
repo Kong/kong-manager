@@ -46,8 +46,9 @@ const tag = computed(() => `h${props.size}`)
 
 <style lang="scss" scoped>
 .page-header h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
-  color: $kui-color-text-primary-stronger;
+  font-weight: $kui-font-weight-bold;
+  font-size: $kui-font-size-70;
+  color: $kui-color-text;
   .title {
     word-break: break-all;
   }
