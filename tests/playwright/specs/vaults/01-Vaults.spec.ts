@@ -34,7 +34,8 @@ test.describe('vaults', () => {
     )
 
     await expect(page.locator('.vault-form-provider-cards-container')).toBeVisible()
-    await page.click('[data-testid="vault-form-provider-kong"] + label')
+    await page.getByTestId('provider-select').click()
+    await page.click('[data-testid="vault-form-provider-env"]')
     await fillEntityForm({
       page,
       formData: {
@@ -100,7 +101,8 @@ test.describe('vaults', () => {
     )
 
     await expect(page.locator('.vault-form-provider-cards-container')).toBeVisible()
-    await page.click('[data-testid="vault-form-provider-kong"] + label')
+    await page.getByTestId('provider-select').click()
+    await page.click('[data-testid="vault-form-provider-env"]')
     await fillEntityForm({
       page,
       formData: {
