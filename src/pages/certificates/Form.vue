@@ -5,6 +5,7 @@
   <CertificateForm
     :config="certificateFormConfig"
     :certificate-id="id"
+    show-snis-field
     @update="handleUpdate"
   />
 </template>
@@ -44,6 +45,7 @@ const routeOnUpdate = useFormRedirectOnUpdate(
 
 const certificateFormConfig = reactive({
   ...useFormGeneralConfig(),
+  sniListRoute: { name: 'sni-list' },
   cancelRoute: routeOnCancel,
 })
 
