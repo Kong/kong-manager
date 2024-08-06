@@ -503,6 +503,15 @@
     "@kong/icons" "^1.15.1"
     compare-versions "^6.1.0"
 
+"@kong-ui-public/entities-shared@^3.5.4":
+  version "3.5.4"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-shared/-/entities-shared-3.5.4.tgz#d2db5597f9466b415e05bf554bae7f0ba7157ff8"
+  integrity sha512-g35MlsDJPNfEFF8oco8HYykV97G451Bs8JNLX/yV7a/L3qCkq+9yAzsXRU2jZUvVbiEtCYvc1q2O9laiT9uCPw==
+  dependencies:
+    "@kong-ui-public/core" "^1.7.6"
+    "@kong/icons" "^1.15.1"
+    compare-versions "^6.1.0"
+
 "@kong-ui-public/entities-snis@^3.3.11":
   version "3.3.11"
   resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-snis/-/entities-snis-3.3.11.tgz#99fcc55e42a416964f063dc25e87a506c0493a89"
@@ -511,12 +520,12 @@
     "@kong-ui-public/entities-shared" "^3.5.2"
     "@kong/icons" "^1.15.1"
 
-"@kong-ui-public/entities-upstreams-targets@^3.3.12":
-  version "3.3.12"
-  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-upstreams-targets/-/entities-upstreams-targets-3.3.12.tgz#d73575bb8ebe7a4e840aa741d61b67eb89abb988"
-  integrity sha512-vM/VS0ig5rcLTMtaKnwtB9ucNjtbd8UzLc3zrw6LR7yjgRjFOX3uycS91GBp//KsUDFQTtUMXg55iPpR0ixEGg==
+"@kong-ui-public/entities-upstreams-targets@^3.3.15":
+  version "3.3.15"
+  resolved "https://registry.yarnpkg.com/@kong-ui-public/entities-upstreams-targets/-/entities-upstreams-targets-3.3.15.tgz#c88cdc409132ada1b849c23b07c99702cebd0052"
+  integrity sha512-uWBCIHMRzB2pEJHlZAZHeBZD/2hIO4/KHgCApn78SYTlqbPY9Y7leioFiF1+wTtNGeGhCay0dLHZGKiYyBfA2w==
   dependencies:
-    "@kong-ui-public/entities-shared" "^3.5.2"
+    "@kong-ui-public/entities-shared" "^3.5.4"
     "@kong/icons" "^1.15.1"
 
 "@kong-ui-public/entities-vaults@^3.8.3":
