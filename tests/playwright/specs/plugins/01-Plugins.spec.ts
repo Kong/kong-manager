@@ -11,9 +11,10 @@ import { waitAndDismissToasts } from '@pw/commands/waitAndDismissToast'
 import { withNavigation } from '@pw/commands/withNavigation'
 import { getPropertyValue } from '@pw/commands/getPropertyValue'
 import { ConsumerListPage } from '@pw/pages/consumers'
-import { PluginListPage } from '@pw/pages/plugins'
+import { PluginFormPage, PluginListPage } from '@pw/pages/plugins'
 import { RouteListPage } from '@pw/pages/routes'
 import { ServiceListPage } from '@pw/pages/services'
+import { createVaults } from '@pw/helpers/vaults'
 
 const mockConsumerName = 'testUser'
 const mockRouteName = 'testRoute'
@@ -40,6 +41,8 @@ test.describe('plugins', () => {
     await clearKongResources('/services')
     await clearKongResources('/consumers')
     await clearKongResources('/plugins')
+    await clearKongResources('/vaults')
+    await createVaults()
   })
 
   test.beforeEach(async ({ pluginListPage }) => {
@@ -51,6 +54,7 @@ test.describe('plugins', () => {
     await clearKongResources('/services')
     await clearKongResources('/consumers')
     await clearKongResources('/plugins')
+    await clearKongResources('/vaults')
   })
 
   test('plugin list should be empty now', async ({ page }) => {
@@ -58,6 +62,19 @@ test.describe('plugins', () => {
 
     await expect(emptyState).toBeVisible()
     await expect(emptyState).toContainText('Configure a New Plugin')
+  })
+
+  // This step only test for basic functionality of the vault secret picker.
+  // Find more tests in specs-plugins.
+  test.only('should show vault secret picker under eligible fields', async ({ page }) => {
+    const formPage = new PluginFormPage(page, 'http-log')
+
+    await formPage.goto()
+
+    const httpEndpointFormGroup = formPage.locateFormGroup('config-http_endpoint')
+
+    await expect(httpEndpointFormGroup.locator('.vault-secret-picker-provider')).toBeVisible()
+    await formPage.testVaultSecretPicker(httpEndpointFormGroup)
   })
 
   test('install a plugin when the scope is "service"', async ({ page, serviceListPage }) => {

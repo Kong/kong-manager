@@ -11,6 +11,7 @@
     :config="config"
     :plugin-type="pluginType"
     :plugin-id="pluginId"
+    enable-vault-secret-picker
     @error:fetch-schema="onFetchSchemaError"
     @update="onSave"
   />
