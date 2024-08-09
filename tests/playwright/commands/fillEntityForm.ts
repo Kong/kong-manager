@@ -31,6 +31,7 @@ export const fillEntityForm = async (params: Params) => {
     handleModal,
   } = params
 
+  await page.waitForTimeout(1000)
   if (await page.locator('.kong-ui-entities-plugin-form').isVisible()) {
     await expandAdvancedFields(page)
   }
