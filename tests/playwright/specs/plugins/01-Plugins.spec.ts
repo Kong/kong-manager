@@ -68,7 +68,10 @@ test.describe('plugins', () => {
 
     await serviceListPage.goto()
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    const uuid = await page.locator('.copy-container').innerText()
+    const uuid = (await page
+      .locator('[data-testid="id-property-value"]')
+      .locator('.copy-container')
+      .innerText() ?? '').trim()
 
     await switchDetailTab(page, 'plugins')
 
@@ -182,7 +185,10 @@ test.describe('plugins', () => {
 
     await routeListPage.goto()
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    const uuid = await page.locator('.copy-container').innerText()
+    const uuid = (await page
+      .locator('[data-testid="id-property-value"]')
+      .locator('.copy-container')
+      .innerText() ?? '').trim()
 
     await switchDetailTab(page, 'plugins')
 
@@ -215,7 +221,10 @@ test.describe('plugins', () => {
     await consumerListPage.goto()
 
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    const uuid = await page.locator('.copy-container').innerText()
+    const uuid = (await page
+      .locator('[data-testid="id-property-value"]')
+      .locator('.copy-container')
+      .innerText() ?? '').trim()
 
     await switchDetailTab(page, 'plugins')
     await withNavigation(
