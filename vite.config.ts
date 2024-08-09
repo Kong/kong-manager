@@ -36,7 +36,7 @@ export default defineConfig({
     // See: https://github.com/vdesjs/vite-plugin-monaco-editor/issues/21
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     ((monacoEditorPlugin as any).default as typeof monacoEditorPlugin)({
-      languageWorkers: ['editorWorkerService'],
+      languageWorkers: ['editorWorkerService', 'json'],
     }),
     visualizer({
       filename: path.resolve(__dirname, 'bundle-analyzer/stats-treemap.html'),
