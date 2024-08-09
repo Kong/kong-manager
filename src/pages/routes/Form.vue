@@ -5,7 +5,9 @@
     :route-id="id"
     :service-id="serviceId"
     :route-flavors="routeFlavors"
+    :show-expressions-modal-entry="true"
     @update="handleUpdate"
+    @notify="handleNotify"
   />
 </template>
 
@@ -65,6 +67,13 @@ const handleUpdate = (entity) => {
       isEditing.value ? 'entities.route.updated' : 'entities.route.created',
       { name: entity.name ?? entity.id },
     ),
+  })
+}
+
+const handleNotify = (options: { message: string, type: string }) => {
+  toaster.open({
+    appearance: options.type,
+    message: options.message,
   })
 }
 </script>
