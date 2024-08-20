@@ -3,9 +3,9 @@ name: Build & Release
 on:
   push:
     branches:
-      - main
+      - release/3.8.x
     tags-ignore:
-      - nightly
+      - nightly-3.8.x
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -83,6 +83,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPOSITORY: ${{ github.repository }}
-          RELEASE_TAG_NAME: nightly
+          RELEASE_TAG_NAME: nightly-3.8.x
           RELEASE_TARGET: ${{ github.sha }}
         run: bash .ci/release-nightly.sh
