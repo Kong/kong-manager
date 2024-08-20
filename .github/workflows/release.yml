@@ -78,7 +78,7 @@ jobs:
         run: bash .ci/release-non-nightly.sh
 
       - name: Release nightly
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/release/3.8.x'
         timeout-minutes: 5
         env:
           GH_TOKEN: ${{ github.token }}
