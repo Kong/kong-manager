@@ -47,26 +47,26 @@ test.describe('route creation page', () => {
     // traditional tab should be active by default
     await expect(page.locator('#traditional-tab')).toHaveClass(/active/)
     // submit button should be disabled
-    await expect(page.getByTestId('form-submit')).toBeDisabled()
+    await expect(page.getByTestId('route-form-submit')).toBeDisabled()
     // fill in a path
     await page.getByTestId('route-form-paths-input-1').fill('/trad/1')
     // submit button should be enabled
-    await expect(page.getByTestId('form-submit')).toBeEnabled()
+    await expect(page.getByTestId('route-form-submit')).toBeEnabled()
 
     // switch to the expressions tab
     await page.locator('#expressions-tab').click()
     // submit button should be disabled again
-    await expect(page.getByTestId('form-submit')).toBeDisabled()
+    await expect(page.getByTestId('route-form-submit')).toBeDisabled()
 
     // switch back to the traditional tab
     await page.locator('#traditional-tab').click()
     // submit button should be enabled again
-    await expect(page.getByTestId('form-submit')).toBeEnabled()
+    await expect(page.getByTestId('route-form-submit')).toBeEnabled()
 
     // switch back to the expressions tab
     await page.locator('#expressions-tab').click()
     // submit button should be disabled again
-    await expect(page.getByTestId('form-submit')).toBeDisabled()
+    await expect(page.getByTestId('route-form-submit')).toBeDisabled()
 
     // the editor shows invalid because it is empty
     await expect(page.locator('.expression-editor')).toHaveClass(/invalid/)
@@ -79,14 +79,14 @@ test.describe('route creation page', () => {
     // the editor should be no longer invalid
     await expect(page.locator('.expression-editor')).not.toHaveClass(/invalid/)
     // and the submit button should be enabled
-    await expect(page.getByTestId('form-submit')).toBeEnabled()
+    await expect(page.getByTestId('route-form-submit')).toBeEnabled()
 
     // delete the last character
     await page.keyboard.press('Backspace')
     // the editor should be invalid again
     await expect(page.locator('.expression-editor')).toHaveClass(/invalid/)
     // but the submit button is still enabled because we let the server handle uncaught errors
-    await expect(page.getByTestId('form-submit')).toBeEnabled()
+    await expect(page.getByTestId('route-form-submit')).toBeEnabled()
   })
 
   test('view configuration', async ({ page }) => {
@@ -146,7 +146,7 @@ test.describe('route creation page', () => {
 
     await page.getByTestId('route-form-name').fill('trad-1')
     await page.getByTestId('route-form-paths-input-1').fill('/trad/1')
-    const submit = page.getByTestId('form-submit')
+    const submit = page.getByTestId('route-form-submit')
 
     await expect(submit).toBeEnabled()
     await submit.click()
@@ -172,7 +172,7 @@ test.describe('route creation page', () => {
     await editor.click()
     await page.keyboard.type('http.path == "/expr/1"')
 
-    const submit = page.getByTestId('form-submit')
+    const submit = page.getByTestId('route-form-submit')
 
     await expect(submit).toBeEnabled()
     await submit.click()
@@ -202,7 +202,7 @@ test.describe('route creation page', () => {
     // switch back to the traditional tab
     await page.locator('#traditional-tab').click()
 
-    const submit = page.getByTestId('form-submit')
+    const submit = page.getByTestId('route-form-submit')
 
     await expect(submit).toBeEnabled()
     await submit.click()
@@ -237,7 +237,7 @@ test.describe('route creation page', () => {
     // switch to the expressions tab
     await page.locator('#expressions-tab').click()
 
-    const submit = page.getByTestId('form-submit')
+    const submit = page.getByTestId('route-form-submit')
 
     await expect(submit).toBeEnabled()
     await submit.click()
@@ -267,7 +267,7 @@ test.describe('route creation page', () => {
     // the editor shows invalid
     await expect(page.locator('.expression-editor')).toHaveClass(/invalid/)
 
-    const submit = page.getByTestId('form-submit')
+    const submit = page.getByTestId('route-form-submit')
 
     // we can still submit
     await expect(submit).toBeEnabled()

@@ -85,7 +85,7 @@ test.describe('routes', () => {
     await withNavigation(page, () =>
       page.locator('.table-empty-state .primary').click(),
     )
-    await page.locator('[data-testid="form-cancel"]').click()
+    await page.locator('[data-testid="route-form-cancel"]').click()
     await expectEmptyEntityList(page, 'routes', 'Configure a New Route')
   })
 
@@ -94,7 +94,7 @@ test.describe('routes', () => {
       page.locator('.table-empty-state .primary').click(),
     )
 
-    await expect(page.locator('[data-testid="form-submit"]')).toBeDisabled()
+    await expect(page.locator('[data-testid="route-form-submit"]')).toBeDisabled()
   })
 
   test('route create - cannot be submit if only protocol is clicked', async ({ page }) => {
@@ -103,7 +103,7 @@ test.describe('routes', () => {
     )
 
     await page.locator('[data-testid="route-form-protocols"]').fill('http')
-    await expect(page.locator('[data-testid="form-submit"]')).toBeDisabled()
+    await expect(page.locator('[data-testid="route-form-submit"]')).toBeDisabled()
   })
 
   test('route create - fail with invalid paths', async ({ page }) => {

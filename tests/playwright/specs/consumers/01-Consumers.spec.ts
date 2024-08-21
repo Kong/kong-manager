@@ -41,14 +41,14 @@ test.describe('consumers', () => {
     await page.waitForSelector('.kong-ui-entities-consumer-form')
 
     // exit from cancel button
-    await expect(page.locator('[data-testid="form-cancel"]')).toContainText('Cancel')
-    await withNavigation(page, () => page.click('[data-testid="form-cancel"]'))
+    await expect(page.locator('[data-testid="consumer-form-cancel"]')).toContainText('Cancel')
+    await withNavigation(page, () => page.click('[data-testid="consumer-form-cancel"]'))
   })
 
   test('consumer create - save button is disabled', async ({ page }) => {
     await withNavigation(page, () => page.click('.table-empty-state .primary'))
     await page.waitForSelector('.kong-ui-entities-consumer-form')
-    await expect(page.getByTestId('form-submit')).toBeDisabled()
+    await expect(page.getByTestId('consumer-form-submit')).toBeDisabled()
   })
 
   test('consumer create - success', async ({ page }) => {
@@ -79,7 +79,7 @@ test.describe('consumers', () => {
     // enter edit mode then cancel
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-consumer-form')
-    await withNavigation(page, () => page.click('[data-testid="form-cancel"]'))
+    await withNavigation(page, () => page.click('[data-testid="consumer-form-cancel"]'))
     await page.waitForSelector('.kong-ui-entities-consumers-list')
 
     // enter edit mode then modify and save
@@ -161,7 +161,7 @@ test.describe('consumers', () => {
     // enter edit mode then cancel
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-consumer-form')
-    await withNavigation(page, () => page.click('[data-testid="form-cancel"]'))
+    await withNavigation(page, () => page.click('[data-testid="consumer-form-cancel"]'))
     await page.waitForSelector('.kong-ui-entities-consumers-list')
 
     // enter edit mode then modify and save

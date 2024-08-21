@@ -57,7 +57,7 @@ test.describe('snis', () => {
     await page.locator('[data-testid="sni-form-certificate-id"]').fill(certificate.id)
     await (await page.waitForSelector(`[data-testid="select-item-${certificate.id}"]`)).click()
 
-    await expect(page.locator('[data-testid="form-submit"]')).toBeDisabled()
+    await expect(page.locator('[data-testid="sni-form-submit"]')).toBeDisabled()
   })
 
   test('create an sni', async ({ page }) => {
