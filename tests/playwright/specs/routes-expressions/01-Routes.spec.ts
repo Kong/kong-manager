@@ -93,7 +93,7 @@ test.describe('route creation page', () => {
     await page.getByTestId('form-content').isVisible()
 
     // open the slide out
-    await page.getByTestId('form-view-configuration').click()
+    await page.getByTestId('route-form-view-configuration').click()
     await page.locator('#yaml-tab').click()
     const slideOutTabs = page.getByTestId('form-view-configuration-slideout-tabs')
     const configBlock = slideOutTabs.getByTestId('k-code-block').locator('code')
