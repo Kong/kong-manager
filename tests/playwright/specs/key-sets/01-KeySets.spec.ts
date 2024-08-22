@@ -29,7 +29,7 @@ test.describe('keySets', () => {
   test('cancel the creation of a key set', async ({ page }) => {
     await expect(page.locator('.table-empty-state')).toBeVisible()
     await withNavigation(page, () => page.locator('.table-empty-state .primary').click())
-    await withNavigation(page, () => page.locator('.form-actions [data-testid="form-cancel"]').click())
+    await withNavigation(page, () => page.locator('.form-actions [data-testid="set-form-cancel"]').click())
     await expect(page.locator('.table-empty-state')).toBeVisible()
   })
 

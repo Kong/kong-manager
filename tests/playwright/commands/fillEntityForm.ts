@@ -16,7 +16,7 @@ interface Params {
   method?: 'type' | 'fill';
 
   /**
-   * If set to true, the helper assumes that a model will show up after performing the `*-submit` action.
+   * If set to true, the helper assumes that a modal will show up after performing the `*-submit` action.
    * And the primary button on the modal will be clicked.
    */
   handleModal?: boolean;
@@ -62,13 +62,11 @@ export const fillEntityForm = async (params: Params) => {
     }
   }
 
-  if (!withAction) {
-    return
+  if (withAction === 'submit') {
+    await page.getByTestId('form-actions').locator('.k-button.primary').click()
+  } else if (withAction === 'cancel') {
+    await page.getByTestId('form-actions').locator('.k-button.secondary').click()
   }
-
-  await page.getByTestId(`form-${withAction}`)
-    .or(page.getByTestId(`form-footer-action-${withAction}`))
-    .click()
 
   if (handleModal) {
     await page.locator('.modal-container .modal-footer .k-button.primary').click()
