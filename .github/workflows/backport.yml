@@ -22,4 +22,4 @@ jobs:
     steps:
       - uses: tibdex/backport@v2
         with:
-          github_token: ${{ secrets.GATEWAY_BOT_PAT }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
