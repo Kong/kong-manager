@@ -36,7 +36,7 @@ test.describe('certificates', () => {
   test('create a certificate - fail', async ({ page }) => {
     await page.getByTestId('new-certificate').click()
     await page.waitForSelector('.k-breadcrumbs', { state: 'hidden' })
-    await expect(page.getByTestId('certificate-form-submit')).toBeDisabled()
+    await expect(page.getByTestId('certificate-create-form-submit')).toBeDisabled()
   })
 
   test('create a certificate', async ({ page }) => {

@@ -49,7 +49,7 @@ test.describe('services', () => {
     await withNavigation(page, () =>
       page.locator('.table-empty-state .primary').click(),
     )
-    await page.getByTestId('service-form-cancel').click()
+    await page.getByTestId('service-create-form-cancel').click()
     await expectEmptyEntityList(page, 'gateway-services', 'Configure a New Gateway Service')
   })
 
@@ -61,7 +61,7 @@ test.describe('services', () => {
       page,
       formData: { 'gateway-service-name-input': 'mockbin.service' },
     })
-    await expect(page.getByTestId('service-form-submit')).toBeDisabled()
+    await expect(page.getByTestId('service-create-form-submit')).toBeDisabled()
   })
 
   test('service create - successful create', async ({ page }) => {
@@ -301,7 +301,7 @@ test.describe('services', () => {
     await expect(page.getByTestId('gateway-service-tls-verify-checkbox')).not.toBeChecked()
     await page.getByTestId('gateway-service-tls-verify-checkbox').click()
     await page.getByTestId('gateway-service-tls-verify-false-option').click()
-    await withNavigation(page, () => page.getByTestId('service-form-submit').click())
+    await withNavigation(page, () => page.getByTestId('service-edit-form-submit').click())
     await expect(page.locator('[data-testid="tls_verify-property-value"]')).toHaveText('Off')
     await waitAndDismissToasts(page)
 
@@ -310,7 +310,7 @@ test.describe('services', () => {
 
     await expect(page.getByTestId('gateway-service-tls-verify-false-option')).toBeChecked()
     await page.getByTestId('gateway-service-tls-verify-true-option').click()
-    await withNavigation(page, () => page.getByTestId('service-form-submit').click())
+    await withNavigation(page, () => page.getByTestId('service-edit-form-submit').click())
     await expect(page.locator('[data-testid="tls_verify-property-value"]')).toHaveText('On')
     await waitAndDismissToasts(page)
 

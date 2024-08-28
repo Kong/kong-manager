@@ -56,7 +56,7 @@ test.describe('service routes', () => {
     )
 
     await expect(page.locator('.kong-ui-entities-route-form')).toBeVisible()
-    await page.locator('[data-testid="route-form-cancel"]').click()
+    await page.locator('[data-testid="route-create-form-cancel"]').click()
 
     await expectEmptyEntityList(page, 'routes', 'Configure a New Route')
   })
@@ -69,7 +69,7 @@ test.describe('service routes', () => {
       page.locator('.kong-ui-entities-routes-list .table-empty-state .primary').click(),
     )
 
-    await expect(page.locator('[data-testid="route-form-submit"]')).toBeDisabled()
+    await expect(page.locator('[data-testid="route-create-form-submit"]')).toBeDisabled()
   })
 
   test('create an service-associated route via tab', async ({ page }) => {
