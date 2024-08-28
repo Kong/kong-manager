@@ -35,7 +35,7 @@ test.describe('CA certificates', () => {
 
   test('create a CA certificate - fail', async ({ page }) => {
     await page.getByTestId('new-ca-certificate').click()
-    await expect(page.getByTestId('ca_certificate-form-submit')).toBeDisabled()
+    await expect(page.getByTestId('ca_certificate-create-form-submit')).toBeDisabled()
   })
 
   test('create a CA certificate', async ({ page }) => {

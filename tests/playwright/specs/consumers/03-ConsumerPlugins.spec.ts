@@ -70,7 +70,7 @@ test.describe('consumer plugins', () => {
     await page.locator('#tags').fill(`${mockTag}${mockTag}`)
     await withNavigation(
       page,
-      async () => await page.locator('[data-testid="plugin-form-cancel"]').click(),
+      async () => await page.locator('[data-testid="plugin-edit-form-cancel"]').click(),
     )
     await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
