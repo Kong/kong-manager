@@ -52,14 +52,14 @@ In addition, the plugin configuration UI provides instructions for each configur
 
 ## Contributing
 
-Kong Manager OSS is written in JavaScript. It uses Vue for it's UI components, and `yarn` for managing dependencies. To build Kong Manager OSS locally please ensure that you have `node.js 18+` and `yarn` installed.
+Kong Manager OSS is written in JavaScript. It uses Vue for it's UI components, and `pnpm` for managing dependencies. To build Kong Manager OSS locally please ensure that you have `node.js 18+` and `pnpm` installed.
 
 You'll also need a running Kong Gateway instance. See [local testing](#local-testing) for a one-line solution. Alternatively, you can [build Kong Gateway from source](https://github.com/Kong/kong/tree/master/build).
 
 Once Kong Gateway is running, run the following command to start the development server:
 
 ```bash
-yarn && yarn serve
+pnpm && pnpm serve
 ```
 
 Kong Manager OSS is now available at http://localhost:8080

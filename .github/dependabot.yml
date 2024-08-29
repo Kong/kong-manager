@@ -6,11 +6,6 @@
 version: 2
 
 registries:
-  yarn:
-    type: npm-registry
-    url: https://registry.yarnpkg.com
-    token: ${{secrets.NPM_TOKEN_PRIVATE_READ}}
-    replaces-base: true
   npm:
     type: npm-registry
     url: https://registry.npmjs.org
@@ -22,7 +17,6 @@ updates:
     directory: "/"
     registries:
       - npm
-      - yarn
     schedule:
       interval: "weekly"
       day: "friday"
@@ -43,7 +37,6 @@ updates:
     directory: "/tests/playwright"
     registries:
       - npm
-      - yarn
     schedule:
       interval: "weekly"
       day: "friday"

@@ -6,11 +6,11 @@
   "scripts": {
     "serve": "vite",
     "build": "vite build",
-    "install:e2e": "yarn --cwd tests/playwright install",
-    "test:e2e": "yarn --cwd tests/playwright run test",
-    "playwright": "yarn --cwd tests/playwright run playwright",
+    "install:e2e": "pnpm --dir tests/playwright install",
+    "test:e2e": "pnpm --dir tests/playwright run test",
+    "playwright": "pnpm --dir tests/playwright exec playwright",
     "preview": "vite build && vite preview",
-    "lint": "yarn lint:eslint && yarn lint:vue && yarn lint:playwright && yarn lint:style",
+    "lint": "pnpm lint:eslint && pnpm lint:vue && pnpm lint:playwright && pnpm lint:style",
     "lint:eslint": "eslint src tests/playwright",
     "lint:eslint:fix": "eslint --fix src tests/playwright",
     "lint:playwright": "tsc --noEmit --project tests/playwright/tsconfig.json --baseUrl tests/playwright",
@@ -86,5 +86,6 @@
     "> 1%",
     "last 2 versions",
     "not IE <= 11"
-  ]
+  ],
+  "packageManager": "pnpm@9.9.0"
 }
