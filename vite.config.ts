@@ -62,7 +62,6 @@ export default defineConfig({
     },
     postcss: {
       plugins: [
-        // @ts-expect-error vite and autoprefixer are using different versions of PostCSS, where the Plugin type is not compatible
         autoprefixer,
       ],
     },

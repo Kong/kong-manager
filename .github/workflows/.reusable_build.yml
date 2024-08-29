@@ -17,6 +17,8 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2 # version is determined from the packageManager field in package.json by default.
+
       - id: setup-node
         name: Setup Node
         timeout-minutes: 5
@@ -24,16 +26,15 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
+          cache: pnpm
 
       - name: Install dependency
         timeout-minutes: 5
-        run: |
-          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-          yarn install
+        run: pnpm install
 
       - name: Run lint
         timeout-minutes: 10
-        run: yarn lint
+        run: pnpm lint
 
   build-assets:
     name: Build assets
@@ -43,6 +44,8 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2 # version is determined from the packageManager field in package.json by default.
+
       - id: setup-node
         name: Setup Node
         timeout-minutes: 5
@@ -50,19 +53,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
+          cache: pnpm
 
       - name: Install dependencies
         timeout-minutes: 5
-        run: |
-          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-          yarn install
+        run: pnpm install
 
       - name: Build assets
         timeout-minutes: 10
         env:
           NODE_OPTIONS: "--max-old-space-size=8192"
         run: |
-          yarn build
+          pnpm build
           echo "${{ github.sha }}" > dist/build.sha1
 
       - name: Pack assets

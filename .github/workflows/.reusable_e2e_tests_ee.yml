@@ -31,6 +31,8 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2 # version is determined from the packageManager field in package.json by default.
+
       - name: Download assets
         timeout-minutes: 5
         uses: actions/download-artifact@v4
@@ -46,13 +48,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
+          cache: pnpm
 
       - name: Install Playwright
         timeout-minutes: 10
         run: |
-          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-          yarn install:e2e
-          yarn playwright install chromium
+          pnpm install:e2e
+          pnpm playwright install chromium
 
       - name: Log in to GitHub Container Registry
         timeout-minutes: 1
@@ -92,7 +94,7 @@ jobs:
         env:
           KM_TEST_GUI_URL: ${{ inputs.base-url }}
         run: |
-          yarn test:e2e \
+          pnpm test:e2e \
             --pass-with-no-tests \
             --retries ${{ inputs.retries }} \
             --reporter=list \
