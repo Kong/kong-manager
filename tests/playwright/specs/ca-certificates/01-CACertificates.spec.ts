@@ -49,7 +49,7 @@ test.describe('CA certificates', () => {
       withAction: 'submit',
     })
     await waitAndDismissToasts(page)
-    await page.waitForSelector('.kong-ui-ca-certificate-entity-config-card')
+    await expect(page.locator('.kong-ui-ca-certificate-entity-config-card')).toBeVisible()
   })
 
   test('CA certificate list page should show correct issuer and expiry', async ({ page }) => {

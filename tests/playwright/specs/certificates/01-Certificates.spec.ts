@@ -52,6 +52,7 @@ test.describe('certificates', () => {
       withAction: 'submit',
     })
     await waitAndDismissToasts(page)
+    await expect(page.locator('.kong-ui-certificate-entity-config-card')).toBeVisible()
   })
 
   test('submit/cancel certificate editing - from list page', async ({ page }) => {

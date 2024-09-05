@@ -559,6 +559,8 @@ test.describe('plugins', () => {
       }),
     )
 
+    // verify redirect to detail page
+    await expect(page.locator('.kong-ui-entity-plugin-config-card')).toBeVisible()
     // verify the created plugin is global
     await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
