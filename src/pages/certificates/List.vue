@@ -27,7 +27,6 @@ import { CertificateList, type EntityRow } from '@kong-ui-public/entities-certif
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
-import { useListRedirect } from '@/composables/useListRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useDocsLink } from '@/composables/useDocsLink'
 import { EntityType } from '@/types'
@@ -36,7 +35,6 @@ defineOptions({
   name: 'CertificateList',
 })
 
-const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
 const docsLink = useDocsLink(EntityType.Certificate)
@@ -52,7 +50,6 @@ const getViewRoute = (id: string) => {
 const getEditRoute = (id: string) => ({
   name: 'certificate-edit',
   params: { id },
-  query: createRedirectRouteQuery(),
 })
 
 const certificateListConfig = reactive({

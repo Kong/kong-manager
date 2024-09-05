@@ -49,6 +49,7 @@ test.describe('CA certificates', () => {
       withAction: 'submit',
     })
     await waitAndDismissToasts(page)
+    await expect(page.locator('.kong-ui-ca-certificate-entity-config-card')).toBeVisible()
   })
 
   test('CA certificate list page should show correct issuer and expiry', async ({ page }) => {
@@ -76,8 +77,9 @@ test.describe('CA certificates', () => {
       withAction: 'submit',
     })
     await waitAndDismissToasts(page)
-    await expect(page.locator('tr td[data-testid="tags"] .k-badge')).toHaveText(mockTag)
+    await expect(getPropertyValue(page, 'tags')).toHaveText(mockTag)
 
+    await new CACertificateListPage(page).goto()
     await clickEntityListAction(page, 'edit')
     await fillEntityForm({
       page,

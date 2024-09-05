@@ -83,10 +83,10 @@ const filterSchema: FilterSchema = {
 const createRoute = computed(() => {
   return {
     name: 'route-create',
-    query: {
+    query: serviceId.value ? {
       serviceId: serviceId.value,
       ...createRedirectRouteQuery(),
-    },
+    } : {},
   }
 })
 
@@ -104,10 +104,10 @@ const getEditRoute = (id: string) => ({
   params: {
     id,
   },
-  query: {
+  query: serviceId.value ? {
     serviceId: serviceId.value,
     ...createRedirectRouteQuery(),
-  },
+  } : {},
 })
 
 const routeListConfig = reactive({

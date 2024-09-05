@@ -52,6 +52,7 @@ test.describe('certificates', () => {
       withAction: 'submit',
     })
     await waitAndDismissToasts(page)
+    await expect(page.locator('.kong-ui-certificate-entity-config-card')).toBeVisible()
   })
 
   test('submit/cancel certificate editing - from list page', async ({ page }) => {
@@ -65,8 +66,9 @@ test.describe('certificates', () => {
       withAction: 'submit',
     })
     await waitAndDismissToasts(page)
-    await expect(page.locator('tr td[data-testid="tags"] .k-badge')).toHaveText(mockTag)
+    await expect(getPropertyValue(page, 'tags')).toHaveText(mockTag)
 
+    await new CertificateListPage(page).goto()
     await clickEntityListAction(page, 'edit')
     await fillEntityForm({
       page,

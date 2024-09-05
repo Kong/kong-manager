@@ -13,6 +13,7 @@ import { withNavigation } from '@pw/commands/withNavigation'
 import { getPropertyValue } from '@pw/commands/getPropertyValue'
 import certificates from '@pw/fixtures/certificates'
 import { UpstreamListPage } from '@pw/pages/upstreams'
+import { clickHeaderAction } from '@pw/commands/clickHeaderAction'
 
 const mockTag = 'testTag'
 
@@ -96,6 +97,8 @@ test.describe('upstreams', () => {
       withAction: 'submit',
     })
     await waitAndDismissToasts(page)
+    await expect(page.locator('.kong-ui-entity-base-config-card')).toBeVisible()
+    await expect(page.locator('.page-header .title')).toHaveText(`Upstream: ${upstream_host1}`)
   })
 
   test('upstream create - failure with the same upstream host', async ({ page }) => {
@@ -139,9 +142,9 @@ test.describe('upstreams', () => {
           withAction: 'submit',
         }),
     )
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.getByTestId('tags-property-value')).toContainText(mockTag)
 
-    await clickEntityListAction(page, 'edit')
+    await clickHeaderAction(page, 'edit')
     await withNavigation(
       page,
       async () =>
@@ -153,7 +156,7 @@ test.describe('upstreams', () => {
           withAction: 'cancel',
         }),
     )
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.getByTestId('tags-property-value')).toContainText(mockTag)
   })
 
   test('delete an upstream', async ({ page }) => {
@@ -182,6 +185,8 @@ test.describe('upstreams', () => {
       withAction: 'submit',
     })
     await waitAndDismissToasts(page)
+    await expect(page.locator('.page-header .title')).toHaveText(`Upstream: ${upstream_host1}`)
+    await expect(page.getByTestId('client_certificate-property-value')).toContainText(certificate.id)
   })
 
   test('copy id action in list actions should work', async ({ browserName, page, upstreamListPage }) => {
@@ -224,7 +229,6 @@ test.describe('upstreams', () => {
 
     if (is_success) {
       await waitAndDismissToasts(page)
-      await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     }
 
     await verify()
@@ -246,7 +250,6 @@ test.describe('upstreams', () => {
 
     if (is_success) {
       await waitAndDismissToasts(page)
-      await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     }
 
     await verify()

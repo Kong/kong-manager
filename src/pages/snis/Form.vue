@@ -40,7 +40,7 @@ const sniFormConfig = reactive({
 })
 
 const handleUpdate = (entity) => {
-  router.push(routeOnUpdate)
+  router.push(routeOnUpdate!)
   toaster.open({
     appearance: 'success',
     message: t(

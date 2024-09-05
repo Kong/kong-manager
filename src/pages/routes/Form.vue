@@ -46,11 +46,7 @@ const routeOnCancel = useFormRedirectOnCancel(
     : { name: 'route-list' },
 )
 
-const routeOnUpdate = useFormRedirectOnUpdate(
-  isEditing.value
-    ? { name: 'route-detail', params: { id: id.value } }
-    : { name: 'route-list' },
-)
+const routeOnUpdate = useFormRedirectOnUpdate()
 
 const routeFormConfig = reactive({
   ...useFormGeneralConfig(),
@@ -58,7 +54,7 @@ const routeFormConfig = reactive({
 })
 
 const handleUpdate = (entity) => {
-  router.push(routeOnUpdate)
+  router.push(routeOnUpdate || { name: 'route-detail', params: { id: entity.id ?? '' } })
   toaster.open({
     appearance: 'success',
     message: t(

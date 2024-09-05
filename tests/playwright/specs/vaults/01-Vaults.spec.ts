@@ -45,6 +45,10 @@ test.describe('vaults', () => {
       withAction: 'submit',
     })
     await waitAndDismissToasts(page)
+    await expect(page.locator('.kong-ui-vault-entity-config-card')).toBeVisible()
+    await expect(page.locator('[data-testid="name-plain-text"]')).toHaveText(mockVaultName)
+    await expect(page.locator('.config-card-details-basic-props [data-testid="prefix-plain-text"]')).toHaveText(mockPrefix)
+    await expect(page.locator('.config-card-details-advanced-props [data-testid="prefix-plain-text"]')).toHaveText('_ssl')
   })
 
   test('view vaults detail page', async ({ page }) => {
@@ -68,7 +72,7 @@ test.describe('vaults', () => {
           withAction: 'submit',
         }),
     )
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.getByTestId('tags-property-value')).toContainText(mockTag)
   })
 
   test('cancel vault editing', async ({ page }) => {

@@ -151,11 +151,8 @@ test.describe('route creation page', () => {
     await expect(submit).toBeEnabled()
     await submit.click()
 
-    await page.locator('.kong-ui-entities-routes-list').isVisible()
-    const trad1 = page.locator('.kong-ui-entities-routes-list table tr[data-testid="trad-1"]')
-
-    await trad1.isVisible()
-    await expect(trad1.getByTestId('paths')).toContainText('/trad/1')
+    await expect(page.getByTestId('name-property-value')).toContainText('trad-1')
+    await expect(page.getByTestId('paths-property-value')).toContainText('/trad/1')
   })
 
   test('create an expressions route', async ({ page }) => {
@@ -177,11 +174,8 @@ test.describe('route creation page', () => {
     await expect(submit).toBeEnabled()
     await submit.click()
 
-    await page.locator('.kong-ui-entities-routes-list').isVisible()
-    const expr1 = page.locator('.kong-ui-entities-routes-list table tr[data-testid="expr-1"]')
-
-    await expr1.isVisible()
-    await expect(expr1.getByTestId('expression')).toContainText('http.path == "/expr/1"')
+    await expect(page.getByTestId('name-property-value')).toContainText('expr-1')
+    await expect(page.getByTestId('expression-property-value')).toContainText('http.path == "/expr/1"')
   })
 
   test('create a traditional route - also entered expressions', async ({ page }) => {
@@ -208,11 +202,8 @@ test.describe('route creation page', () => {
     await submit.click()
 
     // should still create a traditional route
-    await page.locator('.kong-ui-entities-routes-list').isVisible()
-    const trad2 = page.locator('.kong-ui-entities-routes-list table tr[data-testid="trad-2"]')
-
-    await trad2.isVisible()
-    await expect(trad2.getByTestId('paths')).toContainText('/trad/2')
+    await expect(page.getByTestId('name-property-value')).toContainText('trad-2')
+    await expect(page.getByTestId('paths-property-value')).toContainText('/trad/2')
   })
 
   test('create an expressions route - also entered traditional', async ({ page }) => {
@@ -243,11 +234,8 @@ test.describe('route creation page', () => {
     await submit.click()
 
     // should still create an expression route
-    await page.locator('.kong-ui-entities-routes-list').isVisible()
-    const expr2 = page.locator('.kong-ui-entities-routes-list table tr[data-testid="expr-2"]')
-
-    await expr2.isVisible()
-    await expect(expr2.getByTestId('expression')).toContainText('http.path == "/expr/2"')
+    await expect(page.getByTestId('name-property-value')).toContainText('expr-2')
+    await expect(page.getByTestId('expression-property-value')).toContainText('http.path == "/expr/2"')
   })
 
   test('create an expressions route - negative', async ({ page }) => {

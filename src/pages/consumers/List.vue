@@ -26,7 +26,6 @@ import { computed, reactive } from 'vue'
 import { ConsumerList, type EntityRow } from '@kong-ui-public/entities-consumers'
 import type { FilterSchema } from '@kong-ui-public/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
-import { useListRedirect } from '@/composables/useListRedirect'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
@@ -37,7 +36,6 @@ defineOptions({
   name: 'ConsumerList',
 })
 
-const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
 const docsLink = useDocsLink(EntityType.Consumer)
@@ -55,7 +53,6 @@ const getEditRoute = (id: string) => ({
   params: {
     id,
   },
-  query: createRedirectRouteQuery(),
 })
 
 const filterSchema: FilterSchema = {

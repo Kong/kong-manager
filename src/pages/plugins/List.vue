@@ -70,7 +70,6 @@ const createRoute = computed(() => {
     name: 'plugin-select',
     query: {
       ...scopedQuery.value,
-      ...createRedirectRouteQuery(),
     },
   }
 })
@@ -106,7 +105,7 @@ const getEditRoute = (plugin: EntityRow) => ({
   },
   query: {
     ...scopedQuery.value,
-    ...createRedirectRouteQuery(),
+    ...(route.name !== 'plugin-list' ? createRedirectRouteQuery() : {}),
   },
 })
 

@@ -134,6 +134,7 @@ test.describe('routes plugins', () => {
     await page.locator('[data-testid="Key Authentication"]').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await withNavigation(page, async () => await page.click(routeListPage.$.submitButton))
+    await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
 
     // Update plugin and scope it to consumer
@@ -146,6 +147,7 @@ test.describe('routes plugins', () => {
     await expect(page.locator('.select-item')).toContainText(mockRouteName)
     await page.click('.select-item')
     await withNavigation(page, () => page.click(routeListPage.$.submitButton))
+    await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Route')
   })
 
@@ -157,6 +159,7 @@ test.describe('routes plugins', () => {
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Global-check')
     await withNavigation(page, () => page.click(routeListPage.$.submitButton))
+    await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
   })
 })
