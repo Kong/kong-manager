@@ -60,10 +60,10 @@ const filterSchema = computed<FilterSchema>(() => {
 const createRoute = computed(() => {
   return {
     name: 'key-create',
-    query: {
+    query: keySetId.value ? {
       keySetId: keySetId.value,
       ...createRedirectRouteQuery(),
-    },
+    } : {},
   }
 })
 
@@ -83,10 +83,10 @@ const getEditRoute = computed(() => (id: string) => ({
   params: {
     id,
   },
-  query: {
+  query: keySetId.value ? {
     keySetId: keySetId.value,
     ...createRedirectRouteQuery(),
-  },
+  } : {},
 }))
 
 const keyListConfig = reactive({

@@ -78,8 +78,8 @@ test.describe('services', () => {
         withAction: 'submit',
       }),
     )
-    await clickEntityListAction(page, 'view')
     await waitAndDismissToasts(page)
+    await page.waitForSelector('.kong-ui-gateway-service-entity-config-card')
   })
 
   test('status badge in list item should work', async ({ page }) => {
@@ -194,7 +194,6 @@ test.describe('services', () => {
         withAction: 'submit',
       }),
     )
-    await clickEntityListAction(page, 'view')
     const serviceId = (await page
       .locator('[data-testid="id-property-value"]')
       .locator('.copy-container')
@@ -256,7 +255,6 @@ test.describe('services', () => {
           withAction: 'submit',
         }),
       )
-      await clickEntityListAction(page, 'view')
       const serviceId = (await page
         .locator('[data-testid="id-property-value"]')
         .locator('.copy-container')
@@ -289,8 +287,6 @@ test.describe('services', () => {
       },
       withAction: 'submit',
     }))
-
-    await clickEntityListAction(page, 'view')
 
     await expect(page.locator('[data-testid="ca_certificates-property-value"]')).toContainText(certificate?.data.id)
     await expect(page.locator('[data-testid="tls_verify-property-value"]')).toHaveText('Use default system setting')
@@ -344,7 +340,6 @@ test.describe('services', () => {
         withAction: 'submit',
       }),
     )
-    await clickEntityListAction(page, 'view')
     const serviceId = (await page
       .locator('[data-testid="id-property-value"]')
       .locator('.copy-container')

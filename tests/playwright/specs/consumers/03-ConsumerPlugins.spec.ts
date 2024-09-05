@@ -96,6 +96,7 @@ test.describe('consumer plugins', () => {
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
+    await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
 
     // Update plugin and scope it to consumer
@@ -108,6 +109,7 @@ test.describe('consumer plugins', () => {
     await expect(page.locator('.select-item')).toContainText(mockConsumerName)
     await page.click('.select-item')
     await withNavigation(page, () => page.click(consumerListPage.$.submitButton))
+    await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Consumer')
   })
 
@@ -122,6 +124,7 @@ test.describe('consumer plugins', () => {
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Global-check')
     await withNavigation(page, () => page.click(consumerListPage.$.submitButton))
+    await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
   })
 })

@@ -26,7 +26,6 @@ import { computed, reactive } from 'vue'
 import { KeySetList, type EntityRow } from '@kong-ui-public/entities-key-sets'
 import type { FilterSchema } from '@kong-ui-public/entities-shared'
 import { useListGeneralConfig } from '@/composables/useListGeneralConfig'
-import { useListRedirect } from '@/composables/useListRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useCopyEventHandlers } from '@/composables/useCopyEventHandlers'
 import { useI18n } from '@/composables/useI18n'
@@ -37,7 +36,6 @@ defineOptions({
   name: 'KeySetList',
 })
 
-const { createRedirectRouteQuery } = useListRedirect()
 const toaster = useToaster()
 const { t } = useI18n()
 const docsLink = useDocsLink(EntityType.KeySet)
@@ -64,7 +62,6 @@ const getEditRoute = computed(() => (id: string) => ({
   params: {
     id,
   },
-  query: createRedirectRouteQuery(),
 }))
 
 const keyListConfig = reactive({

@@ -14,7 +14,7 @@ import { computed, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { UpstreamsForm } from '@kong-ui-public/entities-upstreams-targets'
 import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
-import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
+import { useFormRedirectOnCancel } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 
@@ -36,19 +36,13 @@ const routeOnCancel = useFormRedirectOnCancel(
     : { name: 'upstream-list' },
 )
 
-const routeOnUpdate = useFormRedirectOnUpdate(
-  isEditing.value
-    ? { name: 'upstream-detail', params: { id: id.value } }
-    : { name: 'upstream-list' },
-)
-
 const upstreamFormConfig = reactive({
   ...useFormGeneralConfig(),
   cancelRoute: routeOnCancel,
 })
 
 const handleUpdate = (entity) => {
-  router.push(routeOnUpdate)
+  router.push({ name: 'upstream-detail', params: { id: entity.id || id.value } })
   toaster.open({
     appearance: 'success',
     message: t(

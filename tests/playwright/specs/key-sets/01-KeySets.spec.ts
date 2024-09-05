@@ -45,8 +45,8 @@ test.describe('keySets', () => {
     }))
     await waitAndDismissToasts(page)
 
-    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockName)
-    await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
+    await expect(page.locator('.page-header .title')).toHaveText(`Key Set: ${mockName}`)
+    await expect(page.locator('[data-testid="name-plain-text"]')).toHaveText(mockName)
   })
 
   test('view key set detail page', async ({ page }) => {
@@ -66,9 +66,9 @@ test.describe('keySets', () => {
       withAction: 'submit',
     }))
 
-    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockName)
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTags)
-    await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
+    await expect(page.locator('.page-header .title')).toHaveText(`Key Set: ${mockName}`)
+    await expect(page.locator('[data-testid="name-plain-text"]')).toHaveText(mockName)
+    await expect(page.locator('.badge-content-wrapper')).toHaveText(mockTags)
   })
 
   test('cancel key set editing', async ({ page }) => {

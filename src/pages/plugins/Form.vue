@@ -116,7 +116,7 @@ const onSave = (plugin) => {
     return
   }
 
-  router.go(-1)
+  router.push({ name: 'plugin-detail', params: { id: plugin.id } })
 }
 </script>
 

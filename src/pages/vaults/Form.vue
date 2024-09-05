@@ -14,7 +14,7 @@ import { computed, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { VaultForm } from '@kong-ui-public/entities-vaults'
 import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
-import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
+import { useFormRedirectOnCancel } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 import { useGatewayFeatureSupported } from '@/composables/useGatewayFeatureSupported'
@@ -37,12 +37,6 @@ const routeOnCancel = useFormRedirectOnCancel(
     : { name: 'vault-list' },
 )
 
-const routeOnUpdate = useFormRedirectOnUpdate(
-  isEditing.value
-    ? { name: 'vault-detail', params: { id: id.value } }
-    : { name: 'vault-list' },
-)
-
 const vaultFormConfig = reactive({
   ...useFormGeneralConfig(),
   // azure vault is supported in Kong Gateway Enterprise 3.5
@@ -57,7 +51,7 @@ const vaultFormConfig = reactive({
 })
 
 const handleUpdate = (entity) => {
-  router.push(routeOnUpdate)
+  router.push({ name: 'vault-detail', params: { id: entity.id || id.value } })
   toaster.open({
     appearance: 'success',
     message: t(

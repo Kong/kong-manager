@@ -14,7 +14,7 @@ import { computed, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { CACertificateForm } from '@kong-ui-public/entities-certificates'
 import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
-import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
+import { useFormRedirectOnCancel } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 
@@ -36,19 +36,13 @@ const routeOnCancel = useFormRedirectOnCancel(
     : { name: 'ca-certificate-list' },
 )
 
-const routeOnUpdate = useFormRedirectOnUpdate(
-  isEditing.value
-    ? { name: 'ca-certificate-detail', params: { id: id.value } }
-    : { name: 'ca-certificate-list' },
-)
-
 const caCertificateFormConfig = reactive({
   ...useFormGeneralConfig(),
   cancelRoute: routeOnCancel,
 })
 
 const handleUpdate = (entity) => {
-  router.push(routeOnUpdate)
+  router.push({ name: 'ca-certificate-detail', params: { id: entity.id || id.value } })
   toaster.open({
     appearance: 'success',
     message: t(

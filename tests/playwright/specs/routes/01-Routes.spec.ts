@@ -193,6 +193,7 @@ test.describe('routes', () => {
     })
 
     await waitAndDismissToasts(page)
+    await expect(page.getByTestId('name-property-value')).toContainText(mockRouteName)
   })
 
   test('copy id action in list actions should work', async ({ browserName, page, routeListPage }) => {
@@ -263,10 +264,10 @@ test.describe('routes', () => {
         })
       })
 
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
-    await expect(page.locator('.k-table .table-wrapper [data-testid="paths"]')).toContainText(mockPaths[0])
-    await expect(page.locator('.k-table .table-wrapper [data-testid="paths"]')).toContainText(mockPaths[1])
-    await expect(page.locator('.k-table .table-wrapper [data-testid="paths"] .k-badge')).toHaveCount(mockPaths.length)
+    await expect(page.getByTestId('tags-property-value')).toContainText(mockTag)
+    await expect(page.getByTestId('paths-property-value')).toContainText(mockPaths[0])
+    await expect(page.getByTestId('paths-property-value')).toContainText(mockPaths[1])
+    await expect(page.getByTestId('paths-property-value').locator('.badge-styles')).toHaveCount(mockPaths.length)
   })
 
   test('route update changing protocols from http to grpc - successful', async ({ page }) => {
@@ -325,7 +326,6 @@ test.describe('routes', () => {
         withAction: 'submit',
       }))
 
-    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     await expect(page.getByTestId('service-property-value')).toHaveText('service2')
   })
 
@@ -350,7 +350,6 @@ test.describe('routes', () => {
 
     await waitAndDismissToasts(page)
 
-    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     await verify()
     await clearKongResources('/routes')
   }

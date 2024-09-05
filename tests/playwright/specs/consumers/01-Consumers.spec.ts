@@ -66,9 +66,9 @@ test.describe('consumers', () => {
     })
     await waitAndDismissToasts(page)
 
-    await page.waitForSelector('.kong-ui-entities-consumers-list')
-    await expect(page.locator('.kong-ui-entity-base-table td:first-child')).toContainText(`${mockConsumerName}_1`)
-    await expect(page.locator('.kong-ui-entity-base-table td:nth-child(2)')).toContainText(`${mockConsumerId}_1`)
+    await expect(page.locator('.page-header .title')).toHaveText(`Consumer: ${mockConsumerName}_1`)
+    await expect(page.locator('[data-testid="username-property-value"]')).toBeVisible()
+    await expect(page.locator('[data-testid="username-plain-text"]')).toContainText(`${mockConsumerName}_1`)
   })
 
   test('consumer list - has one consumer', async ({ page }) => {
@@ -95,7 +95,7 @@ test.describe('consumers', () => {
     })
 
     await waitAndDismissToasts(page)
-    await page.waitForSelector('.kong-ui-entities-consumers-list')
+    await page.waitForSelector('.kong-ui-consumer-entity-config-card')
   })
 
   test('consumer edit - remove username', async ({ page }) => {
@@ -112,7 +112,7 @@ test.describe('consumers', () => {
     })
 
     await waitAndDismissToasts(page)
-    await page.waitForSelector('.kong-ui-entities-consumers-list')
+    await page.waitForSelector('.kong-ui-consumer-entity-config-card')
   })
 
   test('consumer edit - remove custom_id', async ({ page }) => {
@@ -129,7 +129,7 @@ test.describe('consumers', () => {
     })
 
     await waitAndDismissToasts(page)
-    await page.waitForSelector('.kong-ui-entities-consumers-list')
+    await page.waitForSelector('.kong-ui-consumer-entity-config-card')
   })
 
   test('consumer detail page - render username', async ({ page }) => {
@@ -177,7 +177,7 @@ test.describe('consumers', () => {
     })
 
     await waitAndDismissToasts(page)
-    await page.waitForSelector('.kong-ui-entities-consumers-list')
+    await page.waitForSelector('.kong-ui-consumer-entity-config-card')
   })
 
   test('consumer detail page - enable key auth', async ({ page }) => {
@@ -228,9 +228,10 @@ test.describe('consumers', () => {
     })
     await waitAndDismissToasts(page)
 
-    await page.waitForSelector('.kong-ui-entities-consumers-list')
-    await expect(page.locator('.kong-ui-entity-base-table td:first-child', { hasText: `${mockConsumerName}_2` })).toBeVisible()
-    await expect(page.locator('.kong-ui-entity-base-table td:nth-child(2)', { hasText: `${mockConsumerId}_2` })).toBeVisible()
+    await page.waitForSelector('.kong-ui-consumer-entity-config-card')
+    await expect(page.locator('[data-testid="username-property-value"]')).toBeVisible()
+    await expect(page.locator('[data-testid="username-plain-text"]')).toContainText(`${mockConsumerName}_2`)
+    await expect(page.locator('[data-testid="custom_id-plain-text"]')).toContainText(`${mockConsumerId}_2`)
   })
 
   test('consumer create - success with only username', async ({ page }) => {
@@ -246,8 +247,8 @@ test.describe('consumers', () => {
     })
     await waitAndDismissToasts(page)
 
-    await page.waitForSelector('.kong-ui-entities-consumers-list')
-    await expect(page.locator('.kong-ui-entity-base-table td:first-child', { hasText: `${mockConsumerName}_3` })).toBeVisible()
+    await page.waitForSelector('.kong-ui-consumer-entity-config-card')
+    await expect(page.locator('[data-testid="username-plain-text"]')).toContainText(`${mockConsumerName}_3`)
   })
 
   test('consumer create - success with only custom id', async ({ page }) => {
@@ -263,8 +264,8 @@ test.describe('consumers', () => {
     })
     await waitAndDismissToasts(page)
 
-    await page.waitForSelector('.kong-ui-entities-consumers-list')
-    await expect(page.locator('.kong-ui-entity-base-table td:nth-child(2)', { hasText: `${mockConsumerId}_4` })).toBeVisible()
+    await page.waitForSelector('.kong-ui-consumer-entity-config-card')
+    await expect(page.locator('[data-testid="custom_id-plain-text"]')).toContainText(`${mockConsumerId}_4`)
   })
 
   test('consumer list - has four consumers', async ({ page }) => {

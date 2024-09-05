@@ -14,7 +14,7 @@ import { computed, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { GatewayServiceForm } from '@kong-ui-public/entities-gateway-services'
 import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
-import { useFormRedirectOnCancel, useFormRedirectOnUpdate } from '@/composables/useFormRedirect'
+import { useFormRedirectOnCancel } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'
 import { useI18n } from '@/composables/useI18n'
 
@@ -36,19 +36,13 @@ const routeOnCancel = useFormRedirectOnCancel(
     : { name: 'service-list' },
 )
 
-const routeOnUpdate = useFormRedirectOnUpdate(
-  isEditing.value
-    ? { name: 'service-detail', params: { id: id.value } }
-    : { name: 'service-list' },
-)
-
 const serviceFormConfig = reactive({
   ...useFormGeneralConfig(),
   cancelRoute: routeOnCancel,
 })
 
 const handleUpdate = (entity) => {
-  router.push(routeOnUpdate)
+  router.push({ name: 'service-detail', params: { id: entity.id || id.value } })
   toaster.open({
     appearance: 'success',
     message: t(

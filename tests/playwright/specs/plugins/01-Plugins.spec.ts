@@ -14,6 +14,7 @@ import { ConsumerListPage } from '@pw/pages/consumers'
 import { PluginListPage } from '@pw/pages/plugins'
 import { RouteListPage } from '@pw/pages/routes'
 import { ServiceListPage } from '@pw/pages/services'
+import { clickHeaderAction } from '@pw/commands/clickHeaderAction'
 
 const mockConsumerName = 'testUser'
 const mockRouteName = 'testRoute'
@@ -279,8 +280,6 @@ test.describe('plugins', () => {
         withAction: 'submit',
       }))
 
-    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-
     await expect(getPropertyValue(page, 'consumer')).toContainText(res2?.data.id)
   })
 
@@ -319,14 +318,13 @@ test.describe('plugins', () => {
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
-    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
 
     await expect(page.getByTestId('protocols-property-value')).toContainText('http')
     await expect(page.getByTestId('protocols-property-value')).toContainText('grpc')
     await expect(page.getByTestId('protocols-property-value').locator('.config-badge')).toHaveCount(2)
   })
 
-  test('submit/cancel plugin editing using footer actions', async ({ page }) => {
+  test('submit/cancel plugin editing using footer actions', async ({ page, pluginListPage }) => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'edit'))
     await withNavigation(
       page,
@@ -340,6 +338,7 @@ test.describe('plugins', () => {
         }),
     )
 
+    await pluginListPage.goto()
     let row = page.locator('.kong-ui-entities-plugins-list').locator('tr').nth(1)
 
     await expect(row.locator('[data-testid="tags"]')).toHaveText(mockTag)
@@ -502,7 +501,7 @@ test.describe('plugins', () => {
       }),
     )
 
-    await clickEntityListAction(page, 'edit')
+    await clickHeaderAction(page, 'edit')
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
 
     await expect(page.locator('input#service-id')).toBeVisible()
@@ -561,6 +560,7 @@ test.describe('plugins', () => {
     )
 
     // verify the created plugin is global
+    await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
     await clickEntityListAction(page, 'edit')
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
@@ -596,7 +596,7 @@ test.describe('plugins', () => {
     }))
 
     // delete service id and submit
-    await clickEntityListAction(page, 'edit')
+    await clickHeaderAction(page, 'edit')
     await page.locator('[data-testid="select-wrapper"]').nth(0).locator('.close-icon').click()
     await withNavigation(page, async () => await fillEntityForm({
       page,
@@ -604,6 +604,7 @@ test.describe('plugins', () => {
     }))
 
     // it should back to global
+    await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
   })
 })

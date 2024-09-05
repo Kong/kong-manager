@@ -24,7 +24,7 @@ export const useFormRedirectOnCancel = (fallback: RouteLocationRaw) => {
   return routeOnCancel.value
 }
 
-export const useFormRedirectOnUpdate = (fallback: RouteLocationRaw) => {
+export const useFormRedirectOnUpdate = (fallback?: RouteLocationRaw) => {
   const redirectRouteLocation = useURLFromRouteQuery('redirect')
 
   const routeOnUpdate = computed(() => {

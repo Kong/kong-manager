@@ -65,8 +65,9 @@ test.describe('certificates', () => {
       withAction: 'submit',
     })
     await waitAndDismissToasts(page)
-    await expect(page.locator('tr td[data-testid="tags"] .k-badge')).toHaveText(mockTag)
+    await expect(getPropertyValue(page, 'tags')).toHaveText(mockTag)
 
+    await new CertificateListPage(page).goto()
     await clickEntityListAction(page, 'edit')
     await fillEntityForm({
       page,

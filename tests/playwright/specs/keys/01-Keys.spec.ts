@@ -70,10 +70,9 @@ test.describe('keys', () => {
     }))
     await waitAndDismissToasts(page)
 
-    await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
-    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText('-')
-    await expect(page.locator('.k-table .table-wrapper [data-testid="kid"]')).toContainText(mockJwk.kid)
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText('-')
+    await expect(page.locator('.page-header .title')).toHaveText(`Key: ${mockJwName}`)
+    await expect(page.locator('[data-testid="name-plain-text"]')).toHaveText(mockJwName)
+    await expect(page.locator('[data-testid="kid-plain-text"]')).toHaveText(mockJwk.kid)
   })
 
   test('view keys detail page - 1', async ({ page }) => {
@@ -112,10 +111,9 @@ test.describe('keys', () => {
 
     await waitAndDismissToasts(page)
 
-    await expect(page.locator('.k-table .table-wrapper [data-testid="kid"]')).toContainText(mockPemKid)
-    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockPemName)
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTags)
-    await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
+    await expect(page.locator('[data-testid="kid-plain-text"]')).toContainText(mockPemKid)
+    await expect(page.locator('[data-testid="name-plain-text"]')).toContainText(mockPemName)
+    await expect(page.locator('[data-testid="tags-badge-tags"]')).toHaveText(mockTags)
   })
 
   test('view keys detail page - 2', async ({ page }) => {
@@ -140,9 +138,8 @@ test.describe('keys', () => {
 
     await waitAndDismissToasts(page)
 
-    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText('-')
-    await expect(page.locator('.k-table .table-wrapper [data-testid="kid"]')).toContainText(mockPemKid)
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText('-')
+    await expect(page.locator('[data-testid="name-property-value"]')).toContainText(' – ')
+    await expect(page.locator('[data-testid="kid-plain-text"]')).toContainText(mockPemKid)
   })
 
   test('view keys detail page - 3', async ({ page }) => {
@@ -228,8 +225,7 @@ test.describe('keys', () => {
       withAction: 'submit',
     }))
     await waitAndDismissToasts(page)
-    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockPemName)
-    await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
+    await expect(page.locator('[data-testid="name-plain-text"]')).toHaveText(mockPemName)
   })
 
   test('create a key with different jwk.kid and keys.kid should fail', async ({ page }) => {

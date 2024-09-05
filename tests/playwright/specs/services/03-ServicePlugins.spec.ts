@@ -120,6 +120,7 @@ test.describe('service plugins', () => {
     await page.getByTestId('key-auth-card').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await withNavigation(page, async () => await page.click(serviceListPage.$.submitButton))
+    await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
 
     // Update plugin and scope it to service
@@ -132,15 +133,17 @@ test.describe('service plugins', () => {
     await expect(page.locator('.select-item')).toContainText('test_service')
     await page.click('.select-item')
     await withNavigation(page, () => page.click(serviceListPage.$.submitButton))
+    await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Service')
   })
 
-  test('change scope from scoped to global', async ({ page, serviceListPage }) => {
+  test('change scope from scoped to global', async ({ page, pluginListPage, serviceListPage }) => {
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Service')
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Global-check')
     await withNavigation(page, () => page.click(serviceListPage.$.submitButton))
+    await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
   })
 })

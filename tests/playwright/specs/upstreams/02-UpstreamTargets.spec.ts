@@ -77,8 +77,6 @@ test.describe('upstreams', () => {
     })
     await waitAndDismissToasts(page)
 
-    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-
     await switchDetailTab(page, 'targets')
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
@@ -104,8 +102,6 @@ test.describe('upstreams', () => {
     })
     await waitAndDismissToasts(page)
 
-    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-
     await switchDetailTab(page, 'targets')
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
@@ -129,8 +125,6 @@ test.describe('upstreams', () => {
       withAction: 'submit',
     })
     await waitAndDismissToasts(page)
-
-    await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
 
     await switchDetailTab(page, 'targets')
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
