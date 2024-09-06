@@ -10,61 +10,61 @@ importers:
     dependencies:
       '@kong-ui-public/app-layout':
         specifier: ^4.2.26
-        version: 4.2.26(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        version: 4.2.26(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-certificates':
-        specifier: ^3.5.8
-        version: 3.5.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^3.6.1
+        version: 3.6.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-consumer-credentials':
-        specifier: ^3.2.39
-        version: 3.2.39(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^3.3.0
+        version: 3.3.0(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-consumers':
-        specifier: ^3.4.8
-        version: 3.4.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^3.5.1
+        version: 3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-data-plane-nodes':
-        specifier: ^0.2.38
-        version: 0.2.38(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^0.3.0
+        version: 0.3.0(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-gateway-services':
-        specifier: ^3.6.9
-        version: 3.6.9(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^3.7.1
+        version: 3.7.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-key-sets':
-        specifier: ^3.4.8
-        version: 3.4.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^3.5.1
+        version: 3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-keys':
-        specifier: ^3.4.8
-        version: 3.4.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^3.5.1
+        version: 3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-plugins':
-        specifier: ^8.10.7
-        version: 8.10.7(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(typescript@5.4.5)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^8.11.1
+        version: 8.11.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(typescript@5.4.5)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-routes':
-        specifier: ^3.6.6
-        version: 3.6.10(@kong-ui-public/forms@4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(typescript@5.4.5)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^3.7.1
+        version: 3.7.1(w4nfckgp2pts2y46h237hbjvey)
       '@kong-ui-public/entities-shared':
-        specifier: ^3.7.4
-        version: 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^3.8.0
+        version: 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-snis':
-        specifier: ^3.4.9
-        version: 3.4.9(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^3.5.1
+        version: 3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-upstreams-targets':
-        specifier: ^3.4.8
-        version: 3.4.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^3.5.1
+        version: 3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/entities-vaults':
-        specifier: ^3.10.8
-        version: 3.10.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^3.11.1
+        version: 3.11.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/forms':
         specifier: ^4.5.0
-        version: 4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        version: 4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n':
         specifier: ^2.2.2
         version: 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/misc-widgets':
         specifier: ^2.1.16
-        version: 2.1.16(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        version: 2.1.16(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong/icons':
         specifier: ^1.14.0
         version: 1.15.1(vue@3.4.38(typescript@5.4.5))
       '@kong/kongponents':
-        specifier: ^9.5.1
-        version: 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+        specifier: ^9.5.4
+        version: 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@material-design-icons/font':
         specifier: ^0.14.13
         version: 0.14.13
@@ -196,8 +196,8 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  '@babel/runtime@7.25.4':
-    resolution: {integrity: sha512-DSgLeL/FNcpXuzav5wfYvHCGvynXkJbn3Zvc3823AEe9nPwW9IK4UoCSS5yGymmQzN0pCPvivtgS6/8U2kkm1w==}
+  '@babel/runtime@7.25.6':
+    resolution: {integrity: sha512-VBj9MYyDb9tuLq7yzqjgzt6Q+IBQLrGZfdjOekyEirZPHxXWoTSGUTMrpsfi58Up73d13NfYLv8HT9vmznjzhQ==}
     engines: {node: '>=6.9.0'}
 
   '@babel/types@7.25.6':
@@ -485,127 +485,154 @@ packages:
       swrv: ^1.0.4
       vue: ^3.4.31
 
-  '@kong-ui-public/entities-certificates@3.5.8':
-    resolution: {integrity: sha512-3Mv0Pjr6ihArVo146CTtOpFfGo3x8OR5RsHOayXvaG9XlhXar0Yb7yX4ptxA/A4h8YzTmbf6Qh8Qju/3UpynZQ==}
+  '@kong-ui-public/entities-certificates@3.6.1':
+    resolution: {integrity: sha512-xsMvbfgBp7UYclOIEVzXdrItdr0tjdXVh6weRKLzz2I8q7rlDgZloXNP7FRCGEmCjT60gePCkr3cvq6ZI0dq1w==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-consumer-credentials@3.2.39':
-    resolution: {integrity: sha512-LNl5nwkVgjygFuVz6HiMk0YfSQU1rgzzoS3YTpRgUue7DUGIW09takwDPiZNAqZUXgO81jqxBO5LgpE14tp1ZA==}
+  '@kong-ui-public/entities-consumer-credentials@3.3.0':
+    resolution: {integrity: sha512-byxznKvUil3uoFZUPVHoDhyxTfMcndi5q/pqdDGXDfcibdFCoG5mN/qUc3GkFB2EFAc9kWOMdI07mCRpZnFHPg==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-consumer-groups@3.4.8':
-    resolution: {integrity: sha512-QBc+y+FOpUKkpfxAIPd9PS/gJ2UTx6EeeF8R96jhzZzAmQSLqqAWXUSUzaKQr48OmXNnO25nOrXvb8HTlw3CNg==}
+  '@kong-ui-public/entities-consumer-groups@3.5.1':
+    resolution: {integrity: sha512-m1ZDkD3TPedWqy05Iyk+WI1wk7UsHZ3H5R0wKEu6Vg7TiWF/TVt52MaRn8JOvWgp11iZjDh60p7+ApppTLS11A==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-consumers@3.4.8':
-    resolution: {integrity: sha512-mhnwsypTjG3Hk4Qckb5cza4XDzzHvCnoZoMIX5STL3MwftvGvRkwcTcMMoU/zM3QfMSy0hLZf4NYOq3zUepj+g==}
+  '@kong-ui-public/entities-consumers@3.5.1':
+    resolution: {integrity: sha512-LQTJCgaZ2m15SZpeGARDG0lbNuIPdtSf1pMEmfhX+mDtcDSItOntMPZPNU73Ueo9CBYhmFNM7kLL0N/YHa4SKw==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-data-plane-nodes@0.2.38':
-    resolution: {integrity: sha512-F7QuSfKWIabY+Hk5fK2wTH9mAjO7fBkJpxVUr5hm04nT0X4fo4yoR/9Qq/zqvE0GGIejFgodza2UfYzk5I47qw==}
+  '@kong-ui-public/entities-data-plane-nodes@0.3.0':
+    resolution: {integrity: sha512-n4+U9Xr60KUP9u2IkDtTbxblLxEIN1TkLTUj+Iq+1ALMNk6vbuzFicKfF/Ngh8RJx6vaHC1UiKuz9s2t4J7ysw==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': 9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-gateway-services@3.6.9':
-    resolution: {integrity: sha512-/dVqaizcp72V+fGZsDE9fRb75I0nXqJsXBGj/aJGtLODrlPqxxwCpIx8zoJEBGafhDx04JnnKB2/comtYMQKjA==}
+  '@kong-ui-public/entities-gateway-services@3.7.1':
+    resolution: {integrity: sha512-f7ZXp6hj6hkYsY73k2FLmv3qmzMpJPpusxjBwVOen8plqihcioJ103uE7pxY61Tfo5Mag2+aEzYla59sp7el5w==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-key-sets@3.4.8':
-    resolution: {integrity: sha512-5h8KyeuQNg9GBmjLSmP+dSSqoeSuieD5hcxwgdMorQgxYVvuCS2B8PJgcBbIcpKsI/tZethsLhop9+ChHHiMMw==}
+  '@kong-ui-public/entities-key-sets@3.5.1':
+    resolution: {integrity: sha512-HET/WG4qmitNosw6oy3EQxZ6B8rIBmfEviVUTjGjNndwhs7G+UYWbqSsKeXG8lu4B1xTV8bx1aMc1FhL3Y9Nmw==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-keys@3.4.8':
-    resolution: {integrity: sha512-z07clLhrGW5im4gKC4EYlqZ9sSQIop8YOQrstX8ISjgJa+mGlbpUtUXK+NxHzSXXOpL4LjJrau/Ok3U4jJxQ7Q==}
+  '@kong-ui-public/entities-keys@3.5.1':
+    resolution: {integrity: sha512-hWLsppnAYo0i+INPC0PjiRp3Vk/54G1Bq9Yx+3NPA5FZH1bzf3Ur+n3Aeb0KqfyZPoj4ZH0TbqrvxOBl2bJM4A==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-plugins@8.10.7':
-    resolution: {integrity: sha512-/I/EYmYkC06xxXT3NXAp1RFvUY38CpRXAfaB7+7us6/m4V82ug+vM0uDcQ0Q2pJVD2LPBhgMjSiRgd8MwGsbJQ==}
+  '@kong-ui-public/entities-plugins@8.11.1':
+    resolution: {integrity: sha512-R832mPGomE2W/ltLpkc9le6uszJWiLuOXuoZChGY8MCdP0G5NHjRe6mEWwyQjpVvcpnbB4ac3uPlQNXPAEbj0g==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-routes@3.6.10':
-    resolution: {integrity: sha512-+z0DvcsL15bTuMaE+c8rN/nSH/ygs8rYZWJwMso6QXKnbRLUQrGpWmfwEhtjD3Eyo9Qog7T0ic3kNX6B0Uxeng==}
+  '@kong-ui-public/entities-routes@3.7.1':
+    resolution: {integrity: sha512-e+KAkUSdsN9oBLXJzcClq3NlShAeQhzja8MZFuEInQG9LtNUZHN/UQ0NSSbD1Jz8WpuFxdZgEjQEmKLWASsrQQ==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-shared@3.7.8':
-    resolution: {integrity: sha512-LYRssp3jNMe04arrH29NDqc+vBbS5SEduyZil4g1NZhlb8UzWNd7GTUnvzletABGJAheXIRF/6xtWSqGCoRs2g==}
+  '@kong-ui-public/entities-shared@3.8.0':
+    resolution: {integrity: sha512-ISHkhFw5vKuXUmwaz5c0FO5xZuN7LwbD1guPPWrC+QBNUSasYkjgQa7fEzSqKS/9N7Wb2pFYYq3uoljG55dpYA==}
     peerDependencies:
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-snis@3.4.9':
-    resolution: {integrity: sha512-gsbKfYl9eN4wCGfPkKlA8yID/dL1WYxpxYPjAMvSnaf9WHjsDBDF5OzgRK2JfDKYr147jxLLE+bL76XYftqQKQ==}
+  '@kong-ui-public/entities-snis@3.5.1':
+    resolution: {integrity: sha512-PtJcAeFzgeSCXt5fiKCRaDwpBBRzdKSb7nuAG10u1e8XoYj0fWvtoHvzd0ieY8Ssp2cjtsaoQeanlvXGMmfgPg==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-upstreams-targets@3.4.8':
-    resolution: {integrity: sha512-2TDlZZoib4YmK7tkLLlA0Q0QQgyk4RgfgTPoxNez69U7IeO9dT7wJLLhfcmMfhGDFJh+DDDTai2jJS4DDPpUZA==}
+  '@kong-ui-public/entities-upstreams-targets@3.5.1':
+    resolution: {integrity: sha512-6h7qlskYItTUpTg/6v5Z5k33t44f6PHPUX1cHs4R+D7Ic30Jerqk3nohIN5p5zBPut3nCT85bGRONp3+lsDXAA==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.3.3
 
-  '@kong-ui-public/entities-vaults@3.10.8':
-    resolution: {integrity: sha512-L/sLqN2LfZVGyQJnoLbhpkjMeRE4h8cEo97paXsLIhn0FZ6sljJRiYEoy/e2w4dRzZumNmaetfYYazivHQi0RQ==}
+  '@kong-ui-public/entities-vaults@3.11.1':
+    resolution: {integrity: sha512-4b67GyRbkVZgH6coNQz7MQWy3UMdwkjNND34UFuv6L0IV8pVHMYUAnH0XN6doUxUmgqa2jenbGbxfZu0XhcYmw==}
     peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.8.0
       '@kong-ui-public/i18n': ^2.2.2
+      '@kong/icons': ^1.15.1
       '@kong/kongponents': ^9.4.1
       axios: ^1.6.8
       vue: '>= 3.3.13 < 4'
@@ -653,11 +680,11 @@ packages:
     peerDependencies:
       vue: '>= 3.3.4 < 4'
 
-  '@kong/kongponents@9.5.1':
-    resolution: {integrity: sha512-JWG+3dxPA9uaMY/V0tw4GTfI5VLQenoMBfv+lPfiFgbBBGsY5KixnJdu0ckajljdEhs/Liw+877P61WOhapeuQ==}
+  '@kong/kongponents@9.5.4':
+    resolution: {integrity: sha512-pnZcfulEGDCCBbImXBQcOk+0gYHbWDf1q8z5SLI7PoPxF+YWsBIi/9bUaGkY6Gt2tFwbRUrz4RjXt12cRVPGrA==}
     engines: {node: '>=v16.20.2 || >=18.12.1 || >=20.14.0'}
     peerDependencies:
-      axios: ^1.7.4
+      axios: ^1.7.5
       vue: '>= 3.3.4 < 4'
       vue-router: ^4.4.3
 
@@ -676,38 +703,38 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@peculiar/asn1-cms@2.3.8':
-    resolution: {integrity: sha512-Wtk9R7yQxGaIaawHorWKP2OOOm/RZzamOmSWwaqGphIuU6TcKYih0slL6asZlSSZtVoYTrBfrddSOD/jTu9vuQ==}
+  '@peculiar/asn1-cms@2.3.13':
+    resolution: {integrity: sha512-joqu8A7KR2G85oLPq+vB+NFr2ro7Ls4ol13Zcse/giPSzUNN0n2k3v8kMpf6QdGUhI13e5SzQYN8AKP8sJ8v4w==}
 
-  '@peculiar/asn1-csr@2.3.8':
-    resolution: {integrity: sha512-ZmAaP2hfzgIGdMLcot8gHTykzoI+X/S53x1xoGbTmratETIaAbSWMiPGvZmXRA0SNEIydpMkzYtq4fQBxN1u1w==}
+  '@peculiar/asn1-csr@2.3.13':
+    resolution: {integrity: sha512-+JtFsOUWCw4zDpxp1LbeTYBnZLlGVOWmHHEhoFdjM5yn4wCn+JiYQ8mghOi36M2f6TPQ17PmhNL6/JfNh7/jCA==}
 
-  '@peculiar/asn1-ecc@2.3.8':
-    resolution: {integrity: sha512-Ah/Q15y3A/CtxbPibiLM/LKcMbnLTdUdLHUgdpB5f60sSvGkXzxJCu5ezGTFHogZXWNX3KSmYqilCrfdmBc6pQ==}
+  '@peculiar/asn1-ecc@2.3.13':
+    resolution: {integrity: sha512-3dF2pQcrN/WJEMq+9qWLQ0gqtn1G81J4rYqFl6El6QV367b4IuhcRv+yMA84tNNyHOJn9anLXV5radnpPiG3iA==}
 
-  '@peculiar/asn1-pfx@2.3.8':
-    resolution: {integrity: sha512-XhdnCVznMmSmgy68B9pVxiZ1XkKoE1BjO4Hv+eUGiY1pM14msLsFZ3N7K46SoITIVZLq92kKkXpGiTfRjlNLyg==}
+  '@peculiar/asn1-pfx@2.3.13':
+    resolution: {integrity: sha512-fypYxjn16BW+5XbFoY11Rm8LhZf6euqX/C7BTYpqVvLem1GvRl7A+Ro1bO/UPwJL0z+1mbvXEnkG0YOwbwz2LA==}
 
-  '@peculiar/asn1-pkcs8@2.3.8':
-    resolution: {integrity: sha512-rL8k2x59v8lZiwLRqdMMmOJ30GHt6yuHISFIuuWivWjAJjnxzZBVzMTQ72sknX5MeTSSvGwPmEFk2/N8+UztFQ==}
+  '@peculiar/asn1-pkcs8@2.3.13':
+    resolution: {integrity: sha512-VP3PQzbeSSjPjKET5K37pxyf2qCdM0dz3DJ56ZCsol3FqAXGekb4sDcpoL9uTLGxAh975WcdvUms9UcdZTuGyQ==}
 
-  '@peculiar/asn1-pkcs9@2.3.8':
-    resolution: {integrity: sha512-+nONq5tcK7vm3qdY7ZKoSQGQjhJYMJbwJGbXLFOhmqsFIxEWyQPHyV99+wshOjpOjg0wUSSkEEzX2hx5P6EKeQ==}
+  '@peculiar/asn1-pkcs9@2.3.13':
+    resolution: {integrity: sha512-rIwQXmHpTo/dgPiWqUgby8Fnq6p1xTJbRMxCiMCk833kQCeZrC5lbSKg6NDnJTnX2kC6IbXBB9yCS2C73U2gJg==}
 
-  '@peculiar/asn1-rsa@2.3.8':
-    resolution: {integrity: sha512-ES/RVEHu8VMYXgrg3gjb1m/XG0KJWnV4qyZZ7mAg7rrF3VTmRbLxO8mk+uy0Hme7geSMebp+Wvi2U6RLLEs12Q==}
+  '@peculiar/asn1-rsa@2.3.13':
+    resolution: {integrity: sha512-wBNQqCyRtmqvXkGkL4DR3WxZhHy8fDiYtOjTeCd7SFE5F6GBeafw3EJ94PX/V0OJJrjQ40SkRY2IZu3ZSyBqcg==}
 
-  '@peculiar/asn1-schema@2.3.8':
-    resolution: {integrity: sha512-ULB1XqHKx1WBU/tTFIA+uARuRoBVZ4pNdOA878RDrRbBfBGcSzi5HBkdScC6ZbHn8z7L8gmKCgPC1LHRrP46tA==}
+  '@peculiar/asn1-schema@2.3.13':
+    resolution: {integrity: sha512-3Xq3a01WkHRZL8X04Zsfg//mGaA21xlL4tlVn4v2xGT0JStiztATRkMwa5b+f/HXmY2smsiLXYK46Gwgzvfg3g==}
 
-  '@peculiar/asn1-x509-attr@2.3.8':
-    resolution: {integrity: sha512-4Z8mSN95MOuX04Aku9BUyMdsMKtVQUqWnr627IheiWnwFoheUhX3R4Y2zh23M7m80r4/WG8MOAckRKc77IRv6g==}
+  '@peculiar/asn1-x509-attr@2.3.13':
+    resolution: {integrity: sha512-WpEos6CcnUzJ6o2Qb68Z7Dz5rSjRGv/DtXITCNBtjZIRWRV12yFVci76SVfOX8sisL61QWMhpLKQibrG8pi2Pw==}
 
-  '@peculiar/asn1-x509@2.3.8':
-    resolution: {integrity: sha512-voKxGfDU1c6r9mKiN5ZUsZWh3Dy1BABvTM3cimf0tztNwyMJPhiXY94eRTgsMQe6ViLfT6EoXxkWVzcm3mFAFw==}
+  '@peculiar/asn1-x509@2.3.13':
+    resolution: {integrity: sha512-PfeLQl2skXmxX2/AFFCVaWU8U6FKW1Db43mgBhShCOFS1bVxqtvusq1hVjfuEcuSQGedrLdCSvTgabluwN/M9A==}
 
-  '@peculiar/x509@1.9.7':
-    resolution: {integrity: sha512-O+fR1ge6U8upO52q5b3d4tF4SxUdK4IQ0y++Z/Wlqq+ySZUf+deHnbMlDB1YZsIQ/DXU0i5M7Y1DyF5kwpXouQ==}
+  '@peculiar/x509@1.12.1':
+    resolution: {integrity: sha512-2T9t2viNP9m20mky50igPTpn2ByhHl5NlT6wW4Tp4BejQaQ5XDNZgfsabYwYysLXhChABlgtTCpp2gM3JBZRKA==}
 
   '@playwright/test@1.47.0':
     resolution: {integrity: sha512-SgAdlSwYVpToI4e/IH19IHHWvoijAYH5hu2MWSXptRypLSnzj51PcGD+rsOXFayde4P9ZLi+loXVwArg6IUkCA==}
@@ -1159,8 +1186,8 @@ packages:
     resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
     engines: {node: '>= 12'}
 
-  compare-versions@6.1.0:
-    resolution: {integrity: sha512-LNZQXhqUvqUTotpZ00qLSaify3b4VFD588aRr8MKFw4CMUr98ytzCW5wDH5qx/DEY5kCDXcbcRuCqL0szEf2tg==}
+  compare-versions@6.1.1:
+    resolution: {integrity: sha512-4hm4VPpIecmlg59CHXnRDnqGplJFrbLG4aFEl5vl6cK1u76ws3LLvX7ikFnTDl5vo39sjWD6AaDPYodJp/NNHg==}
 
   computeds@0.0.1:
     resolution: {integrity: sha512-7CEBgcMjVmitjYo5q8JTJVra6X5mQ20uTThdK+0kR7UEaDrAWEQcRiBtWJzga4eRpP6afNwwLsX2SET2JhVB1Q==}
@@ -1665,8 +1692,8 @@ packages:
   intl-messageformat@10.5.14:
     resolution: {integrity: sha512-IjC6sI0X7YRjjyVH9aUgdftcmZK7WXdHeil4KwbjDnRWjnVitKpAx3rr6t6di1joFp5188VqKcobOPA6mCLG/w==}
 
-  ipaddr.js@2.1.0:
-    resolution: {integrity: sha512-LlbxQ7xKzfBusov6UMi4MFpEg0m+mAm9xyNGEduwXMEDuf4WfzB/RZwMVYEd7IKGvh4IUkEXYxtAVu9T3OelJQ==}
+  ipaddr.js@2.2.0:
+    resolution: {integrity: sha512-Ag3wB2o37wslZS19hZqorUnrnzSkpOVy+IiiDEiTqNubEYpYuHWIf6K4psgN2ZWKExS4xhVCrRVfb/wfW8fWJA==}
     engines: {node: '>= 10'}
 
   is-arrayish@0.2.1:
@@ -2084,9 +2111,8 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
-  reflect-metadata@0.2.1:
-    resolution: {integrity: sha512-i5lLI6iw9AU3Uu4szRNPPEkomnkjRTaVt9hy/bn5g/oSzekBSMeLZblcjP74AW0vBabqERLLIrz+gR8QYR54Tw==}
-    deprecated: This version has a critical bug in fallback handling. Please upgrade to reflect-metadata@0.2.2 or newer.
+  reflect-metadata@0.2.2:
+    resolution: {integrity: sha512-urBwgfrvVP/eAyXx4hluJivBKzuEbSQs9rKWCrCkbSxNv8mxPcUZKeuoF3Uy4mJl3Lwprp6yy5/39VWigZ4K6Q==}
 
   regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
@@ -2184,8 +2210,8 @@ packages:
     resolution: {integrity: sha512-bSiSngZ/jWeX93BqeIAbImyTbEihizcwNjFoRUIY/T1wWQsfsm2Vw1agPKylXvQTU7iASGdHhyqRlqQzfz+Htg==}
     engines: {node: '>=18'}
 
-  sortablejs@1.15.2:
-    resolution: {integrity: sha512-FJF5jgdfvoKn1MAKSdGs33bIqLi3LmsgVTliuX6iITj834F+JRQZN90Z93yql8h0K2t0RwDPBmxwlbZfDcxNZA==}
+  sortablejs@1.15.3:
+    resolution: {integrity: sha512-zdK3/kwwAK1cJgy1rwl1YtNTbRmc8qW/+vgXf75A7NHag5of4pyI6uK86ktmQETyWRH7IGaE73uZOOBcGxgqZg==}
 
   source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
@@ -2333,6 +2359,9 @@ packages:
 
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
+
+  tslib@2.7.0:
+    resolution: {integrity: sha512-gLXCKdN1/j47AiHiOkJN69hJmcbGTHI0ImLmbYLHykhgeN0jVGola9yVjFgzCUklsZQMW55o+dW7IXv3RCXDzA==}
 
   tsyringe@4.8.0:
     resolution: {integrity: sha512-YB1FG+axdxADa3ncEtRnQCFq/M0lALGLxSZeVNbTU8NqhOVc51nnv2CISTcvc1kyv6EGPtXVr0v6lWeDxiijOA==}
@@ -2552,7 +2581,7 @@ snapshots:
     dependencies:
       '@babel/types': 7.25.6
 
-  '@babel/runtime@7.25.4':
+  '@babel/runtime@7.25.6':
     dependencies:
       regenerator-runtime: 0.14.1
 
@@ -2779,10 +2808,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
 
-  '@kong-ui-public/app-layout@4.2.26(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/app-layout@4.2.26(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       focus-trap: 7.5.4
       focus-trap-vue: 4.0.3(focus-trap@7.5.4)(vue@3.4.38(typescript@5.4.5))
       lodash.clonedeep: 4.5.0
@@ -2796,114 +2825,98 @@ snapshots:
       swrv: 1.0.4(vue@3.4.38(typescript@5.4.5))
       vue: 3.4.38(typescript@5.4.5)
 
-  '@kong-ui-public/entities-certificates@3.5.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-certificates@3.6.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
-      '@peculiar/x509': 1.9.7
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@peculiar/x509': 1.12.1
       axios: 1.7.7
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    transitivePeerDependencies:
-      - swrv
 
-  '@kong-ui-public/entities-consumer-credentials@3.2.39(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-consumer-credentials@3.3.0(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    transitivePeerDependencies:
-      - swrv
 
-  '@kong-ui-public/entities-consumer-groups@3.4.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-consumer-groups@3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    transitivePeerDependencies:
-      - swrv
 
-  '@kong-ui-public/entities-consumers@3.4.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-consumers@3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    transitivePeerDependencies:
-      - swrv
 
-  '@kong-ui-public/entities-data-plane-nodes@0.2.38(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-data-plane-nodes@0.3.0(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    transitivePeerDependencies:
-      - swrv
 
-  '@kong-ui-public/entities-gateway-services@3.6.9(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-gateway-services@3.7.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    transitivePeerDependencies:
-      - swrv
 
-  '@kong-ui-public/entities-key-sets@3.4.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-key-sets@3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    transitivePeerDependencies:
-      - swrv
 
-  '@kong-ui-public/entities-keys@3.4.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-keys@3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    transitivePeerDependencies:
-      - swrv
 
-  '@kong-ui-public/entities-plugins@8.10.7(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(typescript@5.4.5)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-plugins@8.11.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(typescript@5.4.5)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-consumer-groups': 3.4.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
-      '@kong-ui-public/entities-consumers': 3.4.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
-      '@kong-ui-public/entities-gateway-services': 3.6.9(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
-      '@kong-ui-public/entities-routes': 3.6.10(@kong-ui-public/forms@4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(typescript@5.4.5)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
-      '@kong-ui-public/forms': 4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-consumer-groups': 3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-consumers': 3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-gateway-services': 3.7.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-routes': 3.7.1(w4nfckgp2pts2y46h237hbjvey)
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/forms': 4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       marked: 12.0.2
       vue: 3.4.38(typescript@5.4.5)
@@ -2912,13 +2925,13 @@ snapshots:
       - swrv
       - typescript
 
-  '@kong-ui-public/entities-routes@3.6.10(@kong-ui-public/forms@4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(typescript@5.4.5)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-routes@3.7.1(w4nfckgp2pts2y46h237hbjvey)':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
-      '@kong-ui-public/expressions': 0.4.12(@kong-ui-public/forms@4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/expressions': 0.4.12(@kong-ui-public/forms@4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       lodash.isequal: 4.5.0
       vue: 3.4.38(typescript@5.4.5)
@@ -2928,62 +2941,56 @@ snapshots:
       - swrv
       - typescript
 
-  '@kong-ui-public/entities-shared@3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
       '@kong-ui-public/core': 1.8.0(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
-      compare-versions: 6.1.0
+      compare-versions: 6.1.1
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
     transitivePeerDependencies:
       - swrv
 
-  '@kong-ui-public/entities-snis@3.4.9(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-snis@3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    transitivePeerDependencies:
-      - swrv
 
-  '@kong-ui-public/entities-upstreams-targets@3.4.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-upstreams-targets@3.5.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    transitivePeerDependencies:
-      - swrv
 
-  '@kong-ui-public/entities-vaults@3.10.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/entities-vaults@3.11.1(@kong-ui-public/entities-shared@3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
-      '@kong-ui-public/entities-shared': 3.7.8(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/entities-shared': 3.8.0(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/icons@1.15.1(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       axios: 1.7.7
       vue: 3.4.38(typescript@5.4.5)
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    transitivePeerDependencies:
-      - swrv
 
-  '@kong-ui-public/expressions@0.4.12(@kong-ui-public/forms@4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/expressions@0.4.12(@kong-ui-public/forms@4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))':
     dependencies:
       '@kong-ui-public/core': 1.8.0(axios@1.7.7)(swrv@1.0.4(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
-      '@kong-ui-public/forms': 4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong-ui-public/forms': 4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       monaco-editor: 0.21.3
       uuid: 9.0.1
       vue: 3.4.38(typescript@5.4.5)
@@ -2992,11 +2999,11 @@ snapshots:
       - swrv
       - typescript
 
-  '@kong-ui-public/forms@4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/forms@4.5.2(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       fecha: 4.2.3
       lodash-es: 4.17.21
       vue: 3.4.38(typescript@5.4.5)
@@ -3010,10 +3017,10 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@kong-ui-public/misc-widgets@2.1.16(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong-ui-public/misc-widgets@2.1.16(@kong-ui-public/i18n@2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5)))(@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
       '@kong-ui-public/i18n': 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
-      '@kong/kongponents': 9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      '@kong/kongponents': 9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
       vue: 3.4.38(typescript@5.4.5)
 
   '@kong/design-tokens@1.17.2': {}
@@ -3042,7 +3049,7 @@ snapshots:
     dependencies:
       vue: 3.4.38(typescript@5.4.5)
 
-  '@kong/kongponents@9.5.1(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
+  '@kong/kongponents@9.5.4(axios@1.7.7)(vue-router@4.4.3(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
       '@floating-ui/vue': 1.1.4(vue@3.4.38(typescript@5.4.5))
       '@kong/icons': 1.15.1(vue@3.4.38(typescript@5.4.5))
@@ -3053,12 +3060,12 @@ snapshots:
       focus-trap: 7.5.4
       focus-trap-vue: 4.0.3(focus-trap@7.5.4)(vue@3.4.38(typescript@5.4.5))
       nanoid: 5.0.7
-      sortablejs: 1.15.2
+      sortablejs: 1.15.3
       swrv: 1.0.4(vue@3.4.38(typescript@5.4.5))
       v-calendar: 3.1.2(@popperjs/core@2.11.8)(vue@3.4.38(typescript@5.4.5))
       vue: 3.4.38(typescript@5.4.5)
       vue-bind-once: 0.2.1(vue@3.4.38(typescript@5.4.5))
-      vue-draggable-next: 2.2.1(sortablejs@1.15.2)(vue@3.4.38(typescript@5.4.5))
+      vue-draggable-next: 2.2.1(sortablejs@1.15.3)(vue@3.4.38(typescript@5.4.5))
       vue-router: 4.4.3(vue@3.4.38(typescript@5.4.5))
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -3077,95 +3084,95 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
-  '@peculiar/asn1-cms@2.3.8':
+  '@peculiar/asn1-cms@2.3.13':
     dependencies:
-      '@peculiar/asn1-schema': 2.3.8
-      '@peculiar/asn1-x509': 2.3.8
-      '@peculiar/asn1-x509-attr': 2.3.8
+      '@peculiar/asn1-schema': 2.3.13
+      '@peculiar/asn1-x509': 2.3.13
+      '@peculiar/asn1-x509-attr': 2.3.13
       asn1js: 3.0.5
-      tslib: 2.6.3
+      tslib: 2.7.0
 
-  '@peculiar/asn1-csr@2.3.8':
+  '@peculiar/asn1-csr@2.3.13':
     dependencies:
-      '@peculiar/asn1-schema': 2.3.8
-      '@peculiar/asn1-x509': 2.3.8
+      '@peculiar/asn1-schema': 2.3.13
+      '@peculiar/asn1-x509': 2.3.13
       asn1js: 3.0.5
-      tslib: 2.6.3
+      tslib: 2.7.0
 
-  '@peculiar/asn1-ecc@2.3.8':
+  '@peculiar/asn1-ecc@2.3.13':
     dependencies:
-      '@peculiar/asn1-schema': 2.3.8
-      '@peculiar/asn1-x509': 2.3.8
+      '@peculiar/asn1-schema': 2.3.13
+      '@peculiar/asn1-x509': 2.3.13
       asn1js: 3.0.5
-      tslib: 2.6.3
+      tslib: 2.7.0
 
-  '@peculiar/asn1-pfx@2.3.8':
+  '@peculiar/asn1-pfx@2.3.13':
     dependencies:
-      '@peculiar/asn1-cms': 2.3.8
-      '@peculiar/asn1-pkcs8': 2.3.8
-      '@peculiar/asn1-rsa': 2.3.8
-      '@peculiar/asn1-schema': 2.3.8
+      '@peculiar/asn1-cms': 2.3.13
+      '@peculiar/asn1-pkcs8': 2.3.13
+      '@peculiar/asn1-rsa': 2.3.13
+      '@peculiar/asn1-schema': 2.3.13
       asn1js: 3.0.5
-      tslib: 2.6.3
+      tslib: 2.7.0
 
-  '@peculiar/asn1-pkcs8@2.3.8':
+  '@peculiar/asn1-pkcs8@2.3.13':
     dependencies:
-      '@peculiar/asn1-schema': 2.3.8
-      '@peculiar/asn1-x509': 2.3.8
+      '@peculiar/asn1-schema': 2.3.13
+      '@peculiar/asn1-x509': 2.3.13
       asn1js: 3.0.5
-      tslib: 2.6.3
+      tslib: 2.7.0
 
-  '@peculiar/asn1-pkcs9@2.3.8':
+  '@peculiar/asn1-pkcs9@2.3.13':
     dependencies:
-      '@peculiar/asn1-cms': 2.3.8
-      '@peculiar/asn1-pfx': 2.3.8
-      '@peculiar/asn1-pkcs8': 2.3.8
-      '@peculiar/asn1-schema': 2.3.8
-      '@peculiar/asn1-x509': 2.3.8
-      '@peculiar/asn1-x509-attr': 2.3.8
+      '@peculiar/asn1-cms': 2.3.13
+      '@peculiar/asn1-pfx': 2.3.13
+      '@peculiar/asn1-pkcs8': 2.3.13
+      '@peculiar/asn1-schema': 2.3.13
+      '@peculiar/asn1-x509': 2.3.13
+      '@peculiar/asn1-x509-attr': 2.3.13
       asn1js: 3.0.5
-      tslib: 2.6.3
+      tslib: 2.7.0
 
-  '@peculiar/asn1-rsa@2.3.8':
+  '@peculiar/asn1-rsa@2.3.13':
     dependencies:
-      '@peculiar/asn1-schema': 2.3.8
-      '@peculiar/asn1-x509': 2.3.8
+      '@peculiar/asn1-schema': 2.3.13
+      '@peculiar/asn1-x509': 2.3.13
       asn1js: 3.0.5
-      tslib: 2.6.3
+      tslib: 2.7.0
 
-  '@peculiar/asn1-schema@2.3.8':
+  '@peculiar/asn1-schema@2.3.13':
     dependencies:
       asn1js: 3.0.5
       pvtsutils: 1.3.5
-      tslib: 2.6.3
+      tslib: 2.7.0
 
-  '@peculiar/asn1-x509-attr@2.3.8':
+  '@peculiar/asn1-x509-attr@2.3.13':
     dependencies:
-      '@peculiar/asn1-schema': 2.3.8
-      '@peculiar/asn1-x509': 2.3.8
+      '@peculiar/asn1-schema': 2.3.13
+      '@peculiar/asn1-x509': 2.3.13
       asn1js: 3.0.5
-      tslib: 2.6.3
+      tslib: 2.7.0
 
-  '@peculiar/asn1-x509@2.3.8':
+  '@peculiar/asn1-x509@2.3.13':
     dependencies:
-      '@peculiar/asn1-schema': 2.3.8
+      '@peculiar/asn1-schema': 2.3.13
       asn1js: 3.0.5
-      ipaddr.js: 2.1.0
+      ipaddr.js: 2.2.0
       pvtsutils: 1.3.5
-      tslib: 2.6.3
+      tslib: 2.7.0
 
-  '@peculiar/x509@1.9.7':
+  '@peculiar/x509@1.12.1':
     dependencies:
-      '@peculiar/asn1-cms': 2.3.8
-      '@peculiar/asn1-csr': 2.3.8
-      '@peculiar/asn1-ecc': 2.3.8
-      '@peculiar/asn1-pkcs9': 2.3.8
-      '@peculiar/asn1-rsa': 2.3.8
-      '@peculiar/asn1-schema': 2.3.8
-      '@peculiar/asn1-x509': 2.3.8
+      '@peculiar/asn1-cms': 2.3.13
+      '@peculiar/asn1-csr': 2.3.13
+      '@peculiar/asn1-ecc': 2.3.13
+      '@peculiar/asn1-pkcs9': 2.3.13
+      '@peculiar/asn1-rsa': 2.3.13
+      '@peculiar/asn1-schema': 2.3.13
+      '@peculiar/asn1-x509': 2.3.13
       pvtsutils: 1.3.5
-      reflect-metadata: 0.2.1
-      tslib: 2.6.3
+      reflect-metadata: 0.2.2
+      tslib: 2.7.0
       tsyringe: 4.8.0
 
   '@playwright/test@1.47.0':
@@ -3522,7 +3529,7 @@ snapshots:
     dependencies:
       pvtsutils: 1.3.5
       pvutils: 1.1.3
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   astral-regex@2.0.0: {}
 
@@ -3585,7 +3592,7 @@ snapshots:
   camel-case@4.1.2:
     dependencies:
       pascal-case: 3.1.2
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   caniuse-lite@1.0.30001655: {}
 
@@ -3659,7 +3666,7 @@ snapshots:
 
   commander@8.3.0: {}
 
-  compare-versions@6.1.0: {}
+  compare-versions@6.1.1: {}
 
   computeds@0.0.1: {}
 
@@ -3711,7 +3718,7 @@ snapshots:
 
   date-fns@2.30.0:
     dependencies:
-      '@babel/runtime': 7.25.4
+      '@babel/runtime': 7.25.6
 
   dayjs@1.11.13: {}
 
@@ -3770,7 +3777,7 @@ snapshots:
   dot-case@3.0.4:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   dotenv-expand@8.0.3: {}
 
@@ -4188,7 +4195,7 @@ snapshots:
       '@formatjs/icu-messageformat-parser': 2.7.8
       tslib: 2.6.3
 
-  ipaddr.js@2.1.0: {}
+  ipaddr.js@2.2.0: {}
 
   is-arrayish@0.2.1: {}
 
@@ -4331,7 +4338,7 @@ snapshots:
 
   lower-case@2.0.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   magic-string@0.30.10:
     dependencies:
@@ -4391,7 +4398,7 @@ snapshots:
   no-case@3.0.4:
     dependencies:
       lower-case: 2.0.2
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   node-html-parser@5.4.2:
     dependencies:
@@ -4446,7 +4453,7 @@ snapshots:
   param-case@3.0.4:
     dependencies:
       dot-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   parent-module@1.0.1:
     dependencies:
@@ -4462,7 +4469,7 @@ snapshots:
   pascal-case@3.1.2:
     dependencies:
       no-case: 3.0.4
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   path-browserify@1.0.1: {}
 
@@ -4544,7 +4551,7 @@ snapshots:
 
   pvtsutils@1.3.5:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   pvutils@1.1.3: {}
 
@@ -4554,7 +4561,7 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
-  reflect-metadata@0.2.1: {}
+  reflect-metadata@0.2.2: {}
 
   regenerator-runtime@0.14.1: {}
 
@@ -4650,7 +4657,7 @@ snapshots:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 5.0.0
 
-  sortablejs@1.15.2: {}
+  sortablejs@1.15.3: {}
 
   source-map-js@1.2.0: {}
 
@@ -4792,7 +4799,7 @@ snapshots:
 
   synckit@0.6.2:
     dependencies:
-      tslib: 2.6.3
+      tslib: 2.7.0
 
   tabbable@6.2.0: {}
 
@@ -4828,6 +4835,8 @@ snapshots:
   tslib@1.14.1: {}
 
   tslib@2.6.3: {}
+
+  tslib@2.7.0: {}
 
   tsyringe@4.8.0:
     dependencies:
@@ -4921,9 +4930,9 @@ snapshots:
     dependencies:
       vue: 3.4.38(typescript@5.4.5)
 
-  vue-draggable-next@2.2.1(sortablejs@1.15.2)(vue@3.4.38(typescript@5.4.5)):
+  vue-draggable-next@2.2.1(sortablejs@1.15.3)(vue@3.4.38(typescript@5.4.5)):
     dependencies:
-      sortablejs: 1.15.2
+      sortablejs: 1.15.3
       vue: 3.4.38(typescript@5.4.5)
 
   vue-eslint-parser@9.4.3(eslint@9.9.1):
