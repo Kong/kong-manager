@@ -69,10 +69,6 @@ test.describe('plugins', () => {
 
     await serviceListPage.goto()
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    const uuid = (await page
-      .locator('[data-testid="id-property-value"]')
-      .locator('.copy-container')
-      .innerText() ?? '').trim()
 
     await switchDetailTab(page, 'plugins')
 
@@ -86,8 +82,8 @@ test.describe('plugins', () => {
       async () => await page.getByTestId('basic-auth-card').click(),
     )
 
-    await expect(page.locator('.autosuggest input#service-id')).toBeVisible()
-    await expect(page.locator('.autosuggest input#service-id')).toHaveValue(new RegExp(`${mockServiceName}\\s*-\\s*${uuid}`))
+    await page.waitForSelector('.vue-form-generator')
+    await expect(page.locator('.selection-group')).toHaveCount(0)
 
     await expandAdvancedFields(page)
     await page.locator('#config-anonymous').type('anon')
@@ -186,10 +182,6 @@ test.describe('plugins', () => {
 
     await routeListPage.goto()
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    const uuid = (await page
-      .locator('[data-testid="id-property-value"]')
-      .locator('.copy-container')
-      .innerText() ?? '').trim()
 
     await switchDetailTab(page, 'plugins')
 
@@ -203,8 +195,8 @@ test.describe('plugins', () => {
       async () => await page.getByTestId('basic-auth-card').click(),
     )
 
-    await expect(page.locator('.autosuggest input#route-id')).toBeVisible()
-    await expect(page.locator('.autosuggest input#route-id')).toHaveValue(new RegExp(`${mockRouteName}\\s*-\\s*${uuid}`))
+    await page.waitForSelector('.vue-form-generator')
+    await expect(page.locator('.selection-group')).toHaveCount(0)
 
     await withNavigation(
       page,
@@ -222,10 +214,6 @@ test.describe('plugins', () => {
     await consumerListPage.goto()
 
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    const uuid = (await page
-      .locator('[data-testid="id-property-value"]')
-      .locator('.copy-container')
-      .innerText() ?? '').trim()
 
     await switchDetailTab(page, 'plugins')
     await withNavigation(
@@ -236,8 +224,8 @@ test.describe('plugins', () => {
       page,
       async () => await page.getByTestId('datadog-card').click(),
     )
-    await expect(page.locator('.autosuggest input#consumer-id')).toBeVisible()
-    await expect(page.locator('.autosuggest input#consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
+    await page.waitForSelector('.vue-form-generator')
+    await expect(page.locator('.selection-group')).toHaveCount(0)
     await withNavigation(
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),

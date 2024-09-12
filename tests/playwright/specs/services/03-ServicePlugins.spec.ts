@@ -11,8 +11,6 @@ import { withNavigation } from '@pw/commands/withNavigation'
 import { PluginListPage } from '@pw/pages/plugins'
 import { ServiceListPage } from '@pw/pages/services'
 
-let testService: { id: string; name: string; url: string } | undefined
-
 const test = baseTest().extend<{
   pluginListPage: PluginListPage
   serviceListPage: ServiceListPage
@@ -27,25 +25,16 @@ test.describe('service plugins', () => {
     await clearKongResources('/routes')
     await clearKongResources('/services')
 
-    testService = (await createKongResource('/services', {
+    await createKongResource('/services', {
       name: 'testService',
       url: 'http://example.com:8080/test',
-    }))?.data
+    })
   })
 
   test.afterAll(async () => {
     await clearKongResources('/plugins')
     await clearKongResources('/routes')
     await clearKongResources('/services')
-  })
-
-  test('service plugin has service id prefilled', async ({ page }) => {
-    await page.goto(`/services/${testService?.id}/plugins`)
-    await withNavigation(page, () =>
-      page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]'),
-    )
-    await page.getByTestId('hmac-auth-card').click()
-    await expect(page.locator('.autosuggest input#service-id')).toHaveValue(new RegExp(`${testService?.name}\\s*-\\s*${testService?.id}`))
   })
 
   test('create an service-associated plugin via tab', async ({ page, serviceListPage }) => {
@@ -60,6 +49,8 @@ test.describe('service plugins', () => {
       page.getByTestId('basic-auth-card').click(),
     )
 
+    await page.waitForSelector('.vue-form-generator')
+    await expect(page.locator('.selection-group')).toHaveCount(0)
     await fillEntityForm({ page })
     await withNavigation(page, () => page.getByTestId('form-actions').locator('.k-button.primary').click())
     await waitAndDismissToasts(page)
@@ -85,6 +76,10 @@ test.describe('service plugins', () => {
   test("edit action should bring the user to the plugin's edit page", async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
+
+    // The scope selction should be hidden in UI
+    await page.waitForSelector('.vue-form-generator')
+    await expect(page.locator('.selection-group')).toHaveCount(0)
   })
 
   test('cancel button on the edit page should bring the user back to the plugin tab', async ({ page }) => {

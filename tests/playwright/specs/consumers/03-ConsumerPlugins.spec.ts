@@ -34,7 +34,6 @@ test.describe('consumer plugins', () => {
 
   test('install a plugin from the Plugins tab', async ({ page }) => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
-    const uuid = await page.locator('.copy-container').innerText()
 
     await switchDetailTab(page, 'plugins')
     await withNavigation(
@@ -45,8 +44,8 @@ test.describe('consumer plugins', () => {
       page,
       async () => await page.getByTestId('datadog-card').click(),
     )
-    await expect(page.locator('.autosuggest input#consumer-id')).toBeVisible()
-    await expect(page.locator('.autosuggest input#consumer-id')).toHaveValue(new RegExp(`${mockConsumerName}\\s*-\\s*${uuid}`))
+    await page.waitForSelector('.vue-form-generator')
+    await expect(page.locator('.selection-group')).toHaveCount(0)
     await withNavigation(
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),
