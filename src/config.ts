@@ -21,10 +21,6 @@ const getConfig = <T>(key: string, defaultValue: T): T => {
 
 export const config = {
 
-  get ADMIN_GUI_URL() {
-    return getConfig<string | null>('ADMIN_GUI_URL', null)
-  },
-
   get ADMIN_GUI_PATH() {
     return getConfig<string>('ADMIN_GUI_PATH', '/')
   },
