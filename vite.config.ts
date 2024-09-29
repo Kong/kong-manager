@@ -48,6 +48,11 @@ export default defineConfig({
   server: {
     proxy: {
       '/kconfig.js': process.env.KONG_GUI_URL || 'http://127.0.0.1:8002',
+      '/gateway/api': {
+        target: process.env.KONG_GUI_API_URL || 'http://127.0.0.1:8001',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/gateway\/api/, ''),
+      },
     },
     port: 8080,
   },
