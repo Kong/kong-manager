@@ -20,7 +20,7 @@ runs:
       shell: bash
       env:
         DEFAULT_GATEWAY_IMAGE: |-
-          ${{ format('{0}', inputs.enterprise) == 'true' && 'kong/kong-gateway-internal:nightly-ubuntu' || 'kong/kong:master-ubuntu' }}
+          ${{ format('{0}', inputs.enterprise) == 'true' && 'kong/kong-gateway-internal:nightly-ubuntu' || 'kong/kong:pr-13647-ubuntu' }}
       run: |
         GATEWAY_IMAGE="${{ inputs.current-image }}"
 
