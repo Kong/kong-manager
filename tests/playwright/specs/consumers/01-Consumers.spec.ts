@@ -195,7 +195,7 @@ test.describe('consumers', () => {
     await waitAndDismissToasts(page)
 
     // Add an api key to the consumer from empty
-    await page.click('[data-testid="new-key-auth-credential"]')
+    await page.click('[data-testid="empty-state-action"]')
     await page.waitForSelector('#key')
     await page.fill('#key', 'my-api-key')
     await page.click(consumerListPage.$.submitButton)

@@ -74,7 +74,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]'),
+      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]'),
     )
 
     await withNavigation(
@@ -93,12 +93,12 @@ test.describe('plugins', () => {
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
-    await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
+    await expect(page.locator('.k-table-data tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
   })
 
   test('plugin list should have one plugin now', async ({ page }) => {
-    await expect(page.locator('.kong-ui-entities-plugins-list .k-table tbody tr')).toHaveCount(1)
+    await expect(page.locator('.kong-ui-entities-plugins-list .k-table-data tbody tr')).toHaveCount(1)
   })
 
   test('plugin icons - plugin select', async ({ browserName, page }) => {
@@ -187,7 +187,7 @@ test.describe('plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]'),
+      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]'),
     )
 
     await withNavigation(
@@ -202,7 +202,7 @@ test.describe('plugins', () => {
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
-    await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
+    await expect(page.locator('.k-table-data tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
   })
 
@@ -230,7 +230,7 @@ test.describe('plugins', () => {
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
-    await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
+    await expect(page.locator('.k-table-data tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Datadog')
   })
 
@@ -414,7 +414,7 @@ test.describe('plugins', () => {
     await clearKongResources('/plugins')
     await pluginListPage.goto()
 
-    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
+    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]').click())
     await page.locator('[data-testid="Key Authentication"]').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.waitForSelector('[data-testid="config-key_names-item-0"]')
@@ -444,7 +444,7 @@ test.describe('plugins', () => {
 
     let selectItem: Locator
 
-    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
+    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]').click())
     await page.locator('[data-testid="IP Restriction"]').click()
 
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
@@ -521,7 +521,7 @@ test.describe('plugins', () => {
     }))?.data
 
     await pluginListPage.goto()
-    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
+    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]').click())
     await page.getByTestId('basic-auth-card').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await expect(page.locator('input#service-id')).not.toBeVisible()
@@ -571,7 +571,7 @@ test.describe('plugins', () => {
     await pluginListPage.goto()
 
     // create a scoped plugin
-    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
+    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]').click())
     await page.getByTestId('basic-auth-card').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await page.click('.selection-group .Scoped-check')

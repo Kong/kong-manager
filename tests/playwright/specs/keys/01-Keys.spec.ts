@@ -197,9 +197,9 @@ test.describe('keys', () => {
       method: 'fill',
       withAction: 'cancel',
     }))
-    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText('-')
-    await expect(page.locator('.k-table .table-wrapper [data-testid="kid"]')).toContainText(mockPemKid)
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText('-')
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="name"]')).toContainText('-')
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="kid"]')).toContainText(mockPemKid)
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="tags"]')).toHaveText('-')
   })
 
   test('delete a key', async ({ page }) => {
@@ -211,7 +211,7 @@ test.describe('keys', () => {
   })
 
   test('create a key with pem', async ({ page }) => {
-    await withNavigation(page, () => page.locator('.kong-ui-entities-keys-list [data-testid="new-key"]').click())
+    await withNavigation(page, () => page.locator('.kong-ui-entities-keys-list [data-testid="empty-state-action"]').click())
     await withNavigation(page, () => fillEntityForm({
       page,
       formData: {

@@ -22,15 +22,15 @@ test.describe('upstreams filter', () => {
   })
 
   test('displays all upstreams before search', async ({ page }) => {
-    await expect(page.locator('.kong-ui-entities-upstreams-list tr [data-testid="upstreamA"]')).toBeVisible()
-    await expect(page.locator('.kong-ui-entities-upstreams-list tr [data-testid="upstreamB"]')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-upstreams-list tr[data-testid="upstreamA"]')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-upstreams-list tr[data-testid="upstreamB"]')).toBeVisible()
   })
 
   test('displays only the result after searching for upstream', async ({ page }) => {
     await expect(page.locator('.kong-ui-entity-filter-input')).toBeVisible()
     await page.fill('[data-testid="search-input"]', 'upstreamA')
-    await expect(page.locator('.kong-ui-entities-upstreams-list tr [data-testid="upstreamB"]')).not.toBeVisible()
-    await expect(page.locator('.kong-ui-entities-upstreams-list tr [data-testid="upstreamA"]')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-upstreams-list tr[data-testid="upstreamB"]')).not.toBeVisible()
+    await expect(page.locator('.kong-ui-entities-upstreams-list tr[data-testid="upstreamA"]')).toBeVisible()
   })
 
   test('displays error if no results for upstream', async ({ page }) => {
@@ -38,8 +38,8 @@ test.describe('upstreams filter', () => {
     await page.fill('[data-testid="search-input"]', 'foo')
     await expect(page.locator('.empty-state-title')).toHaveText('No results found')
     // clear the filter
-    await page.locator('[data-testid="clear"]').click()
-    await expect(page.locator('.kong-ui-entities-upstreams-list tr [data-testid="upstreamA"]')).toBeVisible()
-    await expect(page.locator('.kong-ui-entities-upstreams-list tr [data-testid="upstreamB"]')).toBeVisible()
+    await page.locator('[data-testid="empty-state-action"]').click()
+    await expect(page.locator('.kong-ui-entities-upstreams-list tr[data-testid="upstreamA"]')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-upstreams-list tr[data-testid="upstreamB"]')).toBeVisible()
   })
 })

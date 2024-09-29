@@ -39,7 +39,7 @@ test.describe('plugins filter', () => {
     await page.fill('[data-testid="search-input"]', 'foo')
     await expect(page.locator('.empty-state-title')).toHaveText('No results found')
     // clear the filter
-    await page.locator('[data-testid="clear"]').click()
+    await page.locator('[data-testid="empty-state-action"]').click()
     await expect(page.locator('.kong-ui-entities-plugins-list tr[data-testid="basic-auth"]')).toBeVisible()
     await expect(page.locator('.kong-ui-entities-plugins-list tr[data-testid="hmac-auth"]')).toBeVisible()
   })
