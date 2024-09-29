@@ -34,15 +34,15 @@ test.describe('snis filter', () => {
   })
 
   test('displays all snis before search', async ({ page }) => {
-    await expect(page.locator('.kong-ui-entities-snis-list tr [data-testid="snisa"]')).toBeVisible()
-    await expect(page.locator('.kong-ui-entities-snis-list tr [data-testid="snisb"]')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-snis-list tr[data-testid="snisa"]')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-snis-list tr[data-testid="snisb"]')).toBeVisible()
   })
 
   test('displays only the result after search for upstream', async ({ page }) => {
     await expect(page.locator('.kong-ui-entity-filter-input')).toBeVisible()
     await page.fill('[data-testid="search-input"]', 'snisa')
-    await expect(page.locator('.kong-ui-entities-snis-list tr [data-testid="snisb"]')).not.toBeVisible()
-    await expect(page.locator('.kong-ui-entities-snis-list tr [data-testid="snisa"]')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-snis-list tr[data-testid="snisb"]')).not.toBeVisible()
+    await expect(page.locator('.kong-ui-entities-snis-list tr[data-testid="snisa"]')).toBeVisible()
   })
 
   test('displays error if no results for upstream', async ({ page }) => {
@@ -50,8 +50,8 @@ test.describe('snis filter', () => {
     await page.fill('[data-testid="search-input"]', 'foo')
     await expect(page.locator('.empty-state-title')).toHaveText('No results found')
     // clear the filter
-    await page.locator('[data-testid="clear"]').click()
-    await expect(page.locator('.kong-ui-entities-snis-list tr [data-testid="snisa"]')).toBeVisible()
-    await expect(page.locator('.kong-ui-entities-snis-list tr [data-testid="snisb"]')).toBeVisible()
+    await page.locator('[data-testid="empty-state-action"]').click()
+    await expect(page.locator('.kong-ui-entities-snis-list tr[data-testid="snisa"]')).toBeVisible()
+    await expect(page.locator('.kong-ui-entities-snis-list tr[data-testid="snisb"]')).toBeVisible()
   })
 })

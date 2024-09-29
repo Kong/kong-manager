@@ -170,7 +170,7 @@ import {
   KUI_COLOR_BACKGROUND_NEUTRAL,
 } from '@kong/design-tokens'
 import { ProgressIcon, InfoIcon, ChevronDownIcon, MoreIcon } from '@kong/icons'
-import type { FetcherParams } from '@kong-ui-public/entities-shared'
+import type { TableDataFetcherParams } from '@kong/kongponents'
 import type { LogLevel } from '@kong-ui-public/entities-data-plane-nodes'
 import { ChangeLogLevelModal, composables } from '@kong-ui-public/entities-data-plane-nodes'
 import { capitalize, formatDate } from '@/utils'
@@ -245,7 +245,7 @@ const isSomeVisibleNodesSelected = computed<boolean>(() => {
   return selectedNodeCount.value > 0 && selectedNodeCount.value < visibleNodes.value.length
 })
 
-const fetcher = async (props: FetcherParams) => {
+const fetcher = async (props: TableDataFetcherParams) => {
   errorMessage.value = ''
   requestScheduler.cancelAll()
 

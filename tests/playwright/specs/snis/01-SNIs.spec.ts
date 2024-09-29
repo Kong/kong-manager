@@ -93,7 +93,7 @@ test.describe('snis', () => {
           withAction: 'submit',
         }),
     )
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
 
     await clickEntityListAction(page, 'edit')
     await withNavigation(
@@ -107,7 +107,7 @@ test.describe('snis', () => {
           withAction: 'cancel',
         }),
     )
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
 
   test('delete an sni', async ({ page }) => {

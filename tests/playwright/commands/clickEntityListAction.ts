@@ -6,11 +6,11 @@ export const clickEntityListAction = async (
   nth = 1,
 ) => {
   const row = pageOrLocator
-    .locator('.k-table')
+    .locator('.k-table-data')
     .locator('tr')
     .nth(nth)
 
-  await row.locator('[data-testid="overflow-actions-button"]').click()
+  await row.locator('[data-testid="row-actions-dropdown-trigger"]').click()
   await row
     .locator('[data-testid="dropdown-list"]')
     .locator(`[data-testid="action-entity-${action}"]`)

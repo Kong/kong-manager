@@ -36,7 +36,7 @@ test.describe('key-set keys tab', () => {
   test(`create key "${mockJwName}" from the Keys tab `, async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'keys')
-    await withNavigation(page, () => page.locator('.empty-state-action [data-testid="new-key"]').click())
+    await withNavigation(page, () => page.locator('.empty-state-action [data-testid="empty-state-action"]').click())
 
     withNavigation(page, () => fillEntityForm({
       page,
@@ -52,8 +52,8 @@ test.describe('key-set keys tab', () => {
 
     await waitAndDismissToasts(page)
 
-    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockJwName)
-    await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="name"]')).toContainText(mockJwName)
+    await expect(page.locator('.k-table-data tbody tr')).toHaveCount(1)
   })
 
   test('view keys detail page', async ({ page }) => {

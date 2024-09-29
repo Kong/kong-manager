@@ -56,7 +56,7 @@ test.describe('routes plugins', () => {
 
     await withNavigation(
       page,
-      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]'),
+      async () => await page.click('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]'),
     )
 
     await withNavigation(
@@ -71,7 +71,7 @@ test.describe('routes plugins', () => {
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),
     )
-    await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
+    await expect(page.locator('.k-table-data tbody tr')).toHaveCount(1)
     await expect(page.locator('td[data-testid="name"]')).toContainText('Basic Authentication')
   })
 
@@ -90,7 +90,7 @@ test.describe('routes plugins', () => {
           withAction: 'submit',
         }),
     )
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
 
     await clickEntityListAction(page, 'edit')
     await withNavigation(
@@ -104,7 +104,7 @@ test.describe('routes plugins', () => {
           withAction: 'cancel',
         }),
     )
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
 
   test('change scope from global to scoped', async ({ page, pluginListPage, routeListPage }) => {
@@ -125,7 +125,7 @@ test.describe('routes plugins', () => {
 
     // create a global plugin
     await pluginListPage.goto()
-    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
+    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]').click())
     await page.locator('[data-testid="Key Authentication"]').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await withNavigation(page, async () => await page.click(routeListPage.$.submitButton))

@@ -34,13 +34,13 @@ test.describe('certificates', () => {
   })
 
   test('create a certificate - fail', async ({ page }) => {
-    await page.getByTestId('new-certificate').click()
+    await page.getByTestId('empty-state-action').click()
     await page.waitForSelector('.k-breadcrumbs', { state: 'hidden' })
     await expect(page.getByTestId('certificate-create-form-submit')).toBeDisabled()
   })
 
   test('create a certificate', async ({ page }) => {
-    await page.getByTestId('new-certificate').click()
+    await page.getByTestId('empty-state-action').click()
     await page.waitForSelector('.k-breadcrumbs', { state: 'hidden' })
     await fillEntityForm({
       page,
@@ -115,7 +115,7 @@ test.describe('certificates', () => {
   })
 
   test('create a certificate with subject alternative name (SAN) extension', async ({ page }) => {
-    await page.getByTestId('new-certificate').click()
+    await page.getByTestId('empty-state-action').click()
     await fillEntityForm({
       page,
       formData: {
