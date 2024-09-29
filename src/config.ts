@@ -38,18 +38,15 @@ export const config = {
   },
 
   get ADMIN_API_URL() {
-    const ADMIN_API_URL = getConfig<string | null>('ADMIN_API_URL', null)
+    const ADMIN_API_URL = getConfig('ADMIN_API_URL', '')
+
     if (ADMIN_API_URL) {
-      return /^(https?:)?\/\//.test(ADMIN_API_URL)
-        ? ADMIN_API_URL
-        : `${window.location.protocol}//${ADMIN_API_URL}`
+      return /^(https?:)?\/\//.test(ADMIN_API_URL) ? ADMIN_API_URL : `${window.location.protocol}//${ADMIN_API_URL}`
     }
 
-    const port = window.location.protocol.toLowerCase() === 'https:'
-      ? config.ADMIN_API_SSL_PORT
-      : config.ADMIN_API_PORT
+    const baseUrl = `${window.location.protocol}//${window.location.hostname}:${window.location.port}`
 
-    return `${window.location.protocol}//${window.location.hostname}:${port}`
+    return `${baseUrl}${config.ADMIN_GUI_PATH === '/' ? '' : config.ADMIN_GUI_PATH}/gateway/api`
   },
 
   get ANONYMOUS_REPORTS() {
