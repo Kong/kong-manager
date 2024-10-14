@@ -448,7 +448,7 @@ test.describe('upstreams', () => {
     })
   }
 
-  test(`upstream create - successful with hash-on 'cookie',hash-fallback is disabled`, async ({ page, upstreamListPage }) => {
+  test('upstream create - successful with hash-on \'cookie\',hash-fallback is disabled', async ({ page, upstreamListPage }) => {
     await create_upstream(
       page, upstreamListPage,
       async () => {
@@ -574,7 +574,7 @@ test.describe('upstreams', () => {
     await locator.locator('.multiselect-trigger .selection-badges-container').click({ position: { x: 1, y: 1 } })
   }
 
-  test(`upstream update - successful updates 'health check'`, async ({ page, upstreamListPage }) => {
+  test('upstream update - successful updates \'health check\'', async ({ page, upstreamListPage }) => {
     test.slow()
     // create a new upstream
     await create_upstream(
@@ -681,7 +681,7 @@ test.describe('upstreams', () => {
     })
   }
 
-  test(`upstream update - successful with active and passive health check types are all 'tcp'`, async ({ page, upstreamListPage }) => {
+  test('upstream update - successful with active and passive health check types are all \'tcp\'', async ({ page, upstreamListPage }) => {
     await create_upstream(
       page, upstreamListPage,
       async () => {

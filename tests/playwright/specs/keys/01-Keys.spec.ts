@@ -260,6 +260,6 @@ test.describe('keys', () => {
       withAction: 'submit',
     })
     await expect(page.locator('[data-testid="form-error"] .alert-content'))
-      .toHaveText(`UNIQUE violation detected on '{name="pem-key"}'`)
+      .toHaveText('UNIQUE violation detected on \'{name="pem-key"}\'')
   })
 })

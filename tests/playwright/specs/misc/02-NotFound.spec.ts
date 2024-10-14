@@ -47,7 +47,7 @@ test.describe('not found', () => {
   })
 
   test('plugin detail - 404', async ({ page }) => {
-    await expectConfigCardNotFound(page, '/plugins/non-existent/non-existent', `No plugin named 'non-existent'`)
+    await expectConfigCardNotFound(page, '/plugins/non-existent/non-existent', 'No plugin named \'non-existent\'')
   })
 
   test('plugins create - 404', async ({ page }) => {

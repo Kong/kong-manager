@@ -147,7 +147,7 @@ test.describe('services', () => {
     })
 
     await expect(page.getByTestId('form-error')).toBeVisible()
-    await expect(page.getByTestId('form-error')).toHaveText(`UNIQUE violation detected on '{name="testService"}'`)
+    await expect(page.getByTestId('form-error')).toHaveText('UNIQUE violation detected on \'{name="testService"}\'')
   })
 
   test('service create - fail & fix with invalid info', async ({ page }) => {
