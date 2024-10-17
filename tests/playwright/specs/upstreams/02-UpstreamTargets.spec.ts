@@ -56,7 +56,7 @@ test.describe('upstreams', () => {
     await switchDetailTab(page, 'targets')
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
-    await row.locator('[data-testid="overflow-actions-button"]').click()
+    await row.locator('[data-testid="row-actions-dropdown-trigger"]').click()
     await expect(row.locator('[data-testid="action-target-mark-healthy"]')).not.toBeVisible()
     await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).not.toBeVisible()
   })
@@ -80,7 +80,7 @@ test.describe('upstreams', () => {
     await switchDetailTab(page, 'targets')
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
-    await row.locator('[data-testid="overflow-actions-button"]').click()
+    await row.locator('[data-testid="row-actions-dropdown-trigger"]').click()
     await expect(row.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
     await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
   })
@@ -105,7 +105,7 @@ test.describe('upstreams', () => {
     await switchDetailTab(page, 'targets')
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
-    await row.locator('[data-testid="overflow-actions-button"]').click()
+    await row.locator('[data-testid="row-actions-dropdown-trigger"]').click()
     await expect(row.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
     await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
   })
@@ -129,7 +129,7 @@ test.describe('upstreams', () => {
     await switchDetailTab(page, 'targets')
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
-    await row.locator('[data-testid="overflow-actions-button"]').click()
+    await row.locator('[data-testid="row-actions-dropdown-trigger"]').click()
     await expect(row.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
     await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
   })
@@ -151,7 +151,7 @@ test.describe('upstreams', () => {
     await switchDetailTab(page, 'targets')
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
-    await row.locator('[data-testid="overflow-actions-button"]').click()
+    await row.locator('[data-testid="row-actions-dropdown-trigger"]').click()
     await expect(row.locator('[data-testid="action-target-mark-healthy"]')).not.toBeVisible()
     await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).not.toBeVisible()
   })

@@ -62,7 +62,7 @@ test.describe('consumer plugins', () => {
       page,
       () => page.locator('[data-testid="form-actions"] .primary').click(),
     )
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
 
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await expandAdvancedFields(page)
@@ -71,7 +71,7 @@ test.describe('consumer plugins', () => {
       page,
       async () => await page.locator('[data-testid="plugin-edit-form-cancel"]').click(),
     )
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
 
   test('change scope from global to scoped', async ({ page }) => {
@@ -86,7 +86,7 @@ test.describe('consumer plugins', () => {
 
     // create a global plugin
     await pluginListPage.goto()
-    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
+    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]').click())
     await page.locator('[data-testid="Rate Limiting"]').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await expandAdvancedFields(page)

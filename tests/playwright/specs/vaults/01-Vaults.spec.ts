@@ -88,7 +88,7 @@ test.describe('vaults', () => {
           withAction: 'cancel',
         }),
     )
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="tags"]')).toHaveText(mockTag)
   })
 
   test('delete a vault', async ({ page }) => {
