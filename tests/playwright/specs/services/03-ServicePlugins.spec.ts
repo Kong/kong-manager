@@ -43,7 +43,7 @@ test.describe('service plugins', () => {
     await switchDetailTab(page, 'plugins')
     await page.waitForSelector('.kong-ui-entities-plugins-list .k-empty-state')
     await withNavigation(page, () =>
-      page.click('.kong-ui-entities-plugins-list [data-testid="new-plugin"]'),
+      page.click('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]'),
     )
     await withNavigation(page, () =>
       page.getByTestId('basic-auth-card').click(),
@@ -111,7 +111,7 @@ test.describe('service plugins', () => {
 
     // create a global plugin
     await pluginListPage.goto()
-    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="new-plugin"]').click())
+    await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]').click())
     await page.getByTestId('key-auth-card').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await withNavigation(page, async () => await page.click(serviceListPage.$.submitButton))

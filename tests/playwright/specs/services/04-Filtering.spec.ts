@@ -33,7 +33,7 @@ test.describe('Filtering', () => {
   test('displays all services before search', async ({ page, serviceListPage }) => {
     await serviceListPage.goto()
     for (let i = 0; i <= 10; i++) {
-      await expect(page.locator(`.kong-ui-entities-gateway-services-list tr [data-testid="service-${i}"]`)).toBeVisible()
+      await expect(page.locator(`.kong-ui-entities-gateway-services-list tr[data-testid="service-${i}"]`)).toBeVisible()
     }
   })
 

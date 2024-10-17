@@ -82,9 +82,9 @@ test.describe('keySets', () => {
       withAction: 'cancel',
     }))
 
-    await expect(page.locator('.k-table .table-wrapper [data-testid="name"]')).toContainText(mockName)
-    await expect(page.locator('.k-table .table-wrapper [data-testid="tags"]')).toHaveText(mockTags)
-    await expect(page.locator('.k-table tbody tr')).toHaveCount(1)
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="name"]')).toContainText(mockName)
+    await expect(page.locator('.k-table-data .table-wrapper [data-testid="tags"]')).toHaveText(mockTags)
+    await expect(page.locator('.k-table-data tbody tr')).toHaveCount(1)
   })
 
   test('delete a key set', async ({ page }) => {
