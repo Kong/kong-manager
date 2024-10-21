@@ -20,7 +20,7 @@ module.exports = {
         'custom-property-no-missing-var-function': true,
         // Disable the following rules
         'no-descending-specificity': null,
-        'scss/comment-no-empty': null
+        'scss/comment-no-empty': null,
       },
     },
   ],
