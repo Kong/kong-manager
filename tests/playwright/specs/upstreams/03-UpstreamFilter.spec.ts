@@ -15,6 +15,7 @@ test.describe('upstreams filter', () => {
 
   test.beforeEach(async ({ page }) => {
     await new UpstreamListPage(page).goto()
+    await page.waitForSelector('.kong-ui-entity-filter-input')
   })
 
   test.afterAll(async () => {

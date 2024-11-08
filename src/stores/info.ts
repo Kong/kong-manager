@@ -8,7 +8,9 @@ interface State {
 
 export const useInfoStore = defineStore('info', {
   state: (): State => ({
-    info: {},
+    info: {
+      edition: 'community',
+    },
   }),
 
   getters: {
