@@ -70,6 +70,7 @@ test.describe('route creation page', () => {
 
     // the editor shows invalid because it is empty
     await expect(page.locator('.expression-editor')).toHaveClass(/invalid/)
+    await page.waitForSelector('.monaco-editor')
 
     const editor = page.locator('.monaco-editor').first()
 
@@ -113,6 +114,7 @@ test.describe('route creation page', () => {
     await page.locator('#expressions-tab').click()
     // should not contain the paths field
     await expect(configBlock).not.toContainText(/paths:/)
+    await page.waitForSelector('.monaco-editor')
 
     const editor = page.locator('.monaco-editor').first()
 
@@ -162,6 +164,7 @@ test.describe('route creation page', () => {
 
     // switch to the expressions tab
     await page.locator('#expressions-tab').click()
+    await page.waitForSelector('.monaco-editor')
 
     const editor = page.locator('.monaco-editor').first()
 
@@ -186,6 +189,7 @@ test.describe('route creation page', () => {
 
     // switch to the expressions tab
     await page.locator('#expressions-tab').click()
+    await page.waitForSelector('.monaco-editor')
 
     const editor = page.locator('.monaco-editor').first()
 
@@ -213,6 +217,7 @@ test.describe('route creation page', () => {
 
     // switch to the expressions tab
     await page.locator('#expressions-tab').click()
+    await page.waitForSelector('.monaco-editor')
 
     const editor = page.locator('.monaco-editor').first()
 
@@ -245,6 +250,7 @@ test.describe('route creation page', () => {
 
     // switch to the expressions tab
     await page.locator('#expressions-tab').click()
+    await page.waitForSelector('.monaco-editor')
 
     const editor = page.locator('.monaco-editor').first()
 
