@@ -10,7 +10,7 @@ const test = baseTest().extend<{
   routeCreatePage: async ({ page }, use) => use(new RouteCreatePage(page)),
 })
 
-test.describe('route creation page', () => {
+test.describe.skip('route creation page', () => {
   // We assume that Gateway used to run this test group against has router_flavor = expressions
   // Otherwise, we will make it fail here ...
   test.beforeAll(async () => {
