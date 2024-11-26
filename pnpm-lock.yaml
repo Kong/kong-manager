@@ -75,8 +75,8 @@ importers:
         specifier: ^1.11.13
         version: 1.11.13
       monaco-editor:
-        specifier: 0.50.0
-        version: 0.50.0
+        specifier: 0.52.0
+        version: 0.52.0
       pinia:
         specifier: ^2.2.2
         version: 2.2.2(typescript@5.4.5)(vue@3.5.12(typescript@5.4.5))
@@ -164,7 +164,7 @@ importers:
         version: 3.2.2(vite@5.4.6(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2))
       vite-plugin-monaco-editor:
         specifier: ^1.1.0
-        version: 1.1.0(monaco-editor@0.50.0)
+        version: 1.1.0(monaco-editor@0.52.0)
       vue-tsc:
         specifier: ^2.1.4
         version: 2.1.4(typescript@5.4.5)
@@ -2028,9 +2028,6 @@ packages:
   minimatch@9.0.5:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
-
-  monaco-editor@0.50.0:
-    resolution: {integrity: sha512-8CclLCmrRRh+sul7C08BmPBP3P8wVWfBHomsTcndxg5NRCEPfu/mc2AGU8k37ajjDVXcXFc12ORAMUkmk+lkFA==}
 
   monaco-editor@0.52.0:
     resolution: {integrity: sha512-OeWhNpABLCeTqubfqLMXGsqf6OmPU6pHM85kF3dhy6kq5hnhuVS1p3VrEW/XhWHc71P2tHyS5JFySD8mgs1crw==}
@@ -4612,8 +4609,6 @@ snapshots:
     dependencies:
       brace-expansion: 2.0.1
 
-  monaco-editor@0.50.0: {}
-
   monaco-editor@0.52.0: {}
 
   ms@2.1.2: {}
@@ -5150,9 +5145,9 @@ snapshots:
       pathe: 0.2.0
       vite: 5.4.6(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)
 
-  vite-plugin-monaco-editor@1.1.0(monaco-editor@0.50.0):
+  vite-plugin-monaco-editor@1.1.0(monaco-editor@0.52.0):
     dependencies:
-      monaco-editor: 0.50.0
+      monaco-editor: 0.52.0
 
   vite@5.4.6(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2):
     dependencies:
