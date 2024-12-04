@@ -10,6 +10,7 @@
     </template>
   </PageHeader>
   <UpstreamsList
+    cache-identifier="upstreams"
     :config="upstreamListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"

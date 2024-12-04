@@ -10,6 +10,7 @@
     </template>
   </PageHeader>
   <SniList
+    cache-identifier="snis"
     :config="sniListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"

@@ -10,6 +10,7 @@
     </template>
   </PageHeader>
   <GatewayServiceList
+    cache-identifier="services"
     :config="serviceListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"

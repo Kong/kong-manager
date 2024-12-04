@@ -49,7 +49,7 @@ const { t } = useI18n()
 const docsLink = useDocsLink(EntityType.Key)
 
 const keySetId = computed(() => (route.params?.id ?? '') as string)
-const cacheIdentifier = computed(() => `routes-${keySetId.value}`)
+const cacheIdentifier = computed(() => `keys-${keySetId.value}`)
 
 const filterSchema = computed<FilterSchema>(() => {
   return {
