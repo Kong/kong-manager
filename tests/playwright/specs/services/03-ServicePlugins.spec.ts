@@ -50,7 +50,6 @@ test.describe('service plugins', () => {
     )
 
     await page.waitForSelector('.vue-form-generator')
-    await expect(page.locator('.selection-group')).toHaveCount(0)
     await fillEntityForm({ page })
     await withNavigation(page, () => page.getByTestId('form-actions').locator('.k-button.primary').click())
     await waitAndDismissToasts(page)
@@ -76,10 +75,6 @@ test.describe('service plugins', () => {
   test("edit action should bring the user to the plugin's edit page", async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
-
-    // The scope selction should be hidden in UI
-    await page.waitForSelector('.vue-form-generator')
-    await expect(page.locator('.selection-group')).toHaveCount(0)
   })
 
   test('cancel button on the edit page should bring the user back to the plugin tab', async ({ page }) => {

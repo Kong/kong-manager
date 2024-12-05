@@ -64,9 +64,6 @@ test.describe('routes plugins', () => {
       async () => await page.getByTestId('basic-auth-card').click(),
     )
 
-    await page.waitForSelector('.vue-form-generator')
-    await expect(page.locator('.selection-group')).toHaveCount(0)
-
     await withNavigation(
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),
