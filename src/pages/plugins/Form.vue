@@ -11,7 +11,7 @@
     :config="config"
     :plugin-type="pluginType"
     :plugin-id="pluginId"
-    :hide-scope-selection="hideScopeSelection"
+    :disable-scope-selection="disableScopeSelection"
     @error:fetch-schema="onFetchSchemaError"
     @update="onSave"
   />
@@ -67,7 +67,7 @@ const entityScope = computed(() => {
   return null
 })
 
-const hideScopeSelection = computed(() => !!entityScope.value)
+const disableScopeSelection = computed(() => !!entityScope.value)
 
 const redirectPath = useURLFromRouteQuery('redirect')
 

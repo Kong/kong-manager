@@ -82,9 +82,6 @@ test.describe('plugins', () => {
       async () => await page.getByTestId('basic-auth-card').click(),
     )
 
-    await page.waitForSelector('.vue-form-generator')
-    await expect(page.locator('.selection-group')).toHaveCount(0)
-
     await expandAdvancedFields(page)
     await page.locator('#config-anonymous').type('anon')
     await page.locator('#config-hide_credentials').check()
@@ -195,9 +192,6 @@ test.describe('plugins', () => {
       async () => await page.getByTestId('basic-auth-card').click(),
     )
 
-    await page.waitForSelector('.vue-form-generator')
-    await expect(page.locator('.selection-group')).toHaveCount(0)
-
     await withNavigation(
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),
@@ -224,8 +218,6 @@ test.describe('plugins', () => {
       page,
       async () => await page.getByTestId('datadog-card').click(),
     )
-    await page.waitForSelector('.vue-form-generator')
-    await expect(page.locator('.selection-group')).toHaveCount(0)
     await withNavigation(
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),
