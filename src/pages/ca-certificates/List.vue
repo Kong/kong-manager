@@ -10,6 +10,7 @@
     </template>
   </PageHeader>
   <CACertificateList
+    cache-identifier="ca_certificates"
     :config="caCertificateListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"

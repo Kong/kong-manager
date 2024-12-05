@@ -10,6 +10,7 @@
     </template>
   </PageHeader>
   <KeySetList
+    cache-identifier="key_sets"
     :config="keyListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"

@@ -10,6 +10,7 @@
     </template>
   </PageHeader>
   <VaultList
+    cache-identifier="vaults"
     :config="vaultListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"

@@ -10,6 +10,7 @@
     </template>
   </PageHeader>
   <ConsumerList
+    cache-identifier="consumers"
     :config="consumerListConfig"
     :can-create="canCreate"
     :can-delete="canDelete"
