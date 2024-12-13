@@ -1,1 +1,8 @@
+branch_name=$(git symbolic-ref --short HEAD)
+
+if [ "$branch_name" = "main" ]; then
+  echo "ERROR: Direct commits to the 'main' branch are not allowed."
+  exit 1
+fi
+
 pnpm lint-staged
