@@ -13,7 +13,7 @@ const getConfig = <T>(key: string, defaultValue: T): T => {
   try {
     // Properly handle booleans, numbers, arrays, and objects
     return JSON.parse(value)
-  } catch (e) {
+  } catch (_) {
     // Value must have be a string or empty
     return value as T
   }
