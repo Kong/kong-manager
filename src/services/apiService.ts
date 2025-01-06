@@ -1,8 +1,9 @@
-import axios, {
+import {
   type AxiosInstance,
   type AxiosRequestConfig,
 } from 'axios'
 import { config } from 'config'
+import { useAxios } from '@kong-ui-public/entities-shared'
 
 const adminApiUrl = config.ADMIN_API_URL
 
@@ -10,9 +11,7 @@ class ApiService {
   instance: AxiosInstance
 
   constructor() {
-    this.instance = axios.create({
-      timeout: 30000,
-    })
+    this.instance = useAxios().axiosInstance
   }
 
   getInfo() {
