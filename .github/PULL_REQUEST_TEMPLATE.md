@@ -5,4 +5,3 @@
 ### Issue reference
 
 <!--- If it fixes an open issue, please link to the issue here. -->
-Fix #_[issue number]_
