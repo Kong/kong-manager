@@ -4,9 +4,6 @@ description:
 inputs:
   current-image:
     description: If this optional input is not empty, the action will select the provided image.
-  enterprise:
-    description: Whether or not to use enterprise Gateway images.
-    default: 'false' # a string instead of a boolean
 
 outputs:
   image:
@@ -19,8 +16,7 @@ runs:
       id: select-image
       shell: bash
       env:
-        DEFAULT_GATEWAY_IMAGE: |-
-          ${{ format('{0}', inputs.enterprise) == 'true' && 'kong/kong-gateway-internal:nightly-ubuntu' || 'kong/kong:master-ubuntu' }}
+        DEFAULT_GATEWAY_IMAGE: kong/kong:master-ubuntu
       run: |
         GATEWAY_IMAGE="${{ inputs.current-image }}"
 

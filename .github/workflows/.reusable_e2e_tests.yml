@@ -1,6 +1,6 @@
 # This is a BASE reusable workflow used by other workflows for E2E testing with Gateway CE
 
-name: Run E2E Tests - OSS
+name: Run E2E Tests
 
 on:
   workflow_call:
@@ -13,9 +13,9 @@ on:
       retries:
         type: number
         default: 0
-
-env:
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN_PRIVATE_READ }}
+      load-test-image-from-artifact:
+        type: boolean
+        default: false
 
 jobs:
   e2e-tests:
@@ -49,14 +49,14 @@ jobs:
 
       - uses: pnpm/action-setup@v2 # version is determined from the packageManager field in package.json by default.
 
-      - name: Download assets
+      - name: Download release
         timeout-minutes: 5
         uses: actions/download-artifact@v4
         with:
-          name: assets
+          name: release
 
-      - name: Unpack assets
-        run: tar xzvf ./assets.tar.gz
+      - name: Unpack release
+        run: tar xzvf ./release.tar.gz
 
       - id: setup-node
         name: Setup Node
@@ -72,15 +72,20 @@ jobs:
           pnpm install:e2e
           pnpm playwright install chromium
 
-      - name: Log in to GitHub Container Registry
-        timeout-minutes: 1
-        uses: docker/login-action@v2
+      - name: Download test image
+        if: ${{ inputs.load-test-image-from-artifact }}
+        timeout-minutes: 5
+        uses: actions/download-artifact@v4
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          name: docker-test-image
+      
+      - name: Load test image
+        if: ${{ inputs.load-test-image-from-artifact }}
+        run: |
+          gunzip -c docker-test-image.tar.gz | docker load
 
       - name: Select Gateway image
+        if: ${{ !inputs.load-test-image-from-artifact }}
         id: select-gateway-image
         uses: ./.github/actions/select-gateway-image
         with:
@@ -114,7 +119,7 @@ jobs:
           docker compose -f .ci/docker-compose.yml logs
           exit $_compose_exit
 
-      - name: Run E2E tests - OSS
+      - name: Run E2E tests
         timeout-minutes: 10
         env:
           KM_TEST_GUI_URL: ${{ inputs.base-url }}

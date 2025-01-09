@@ -6,6 +6,11 @@ concurrency:
 
 on:
   pull_request:
+  push:
+    branches:
+      - main
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -13,32 +18,17 @@ jobs:
     uses: ./.github/workflows/.reusable_build.yml
     secrets: inherit
 
-  build-and-push-test-image-oss:
-    name: Build and Push Test Image to GHCR - OSS
+  build-test-image:
+    name: Build Test Image
     uses: ./.github/workflows/.reusable_test_image.yml
     needs: build
     secrets: inherit
 
-  build-and-push-test-image-ee:
-    name: Build and Push Test Image to GHCR - EE
-    uses: ./.github/workflows/.reusable_test_image.yml
-    needs: build
-    secrets: inherit
+  e2e-tests:
+    name: E2E Tests
+    needs: build-test-image
+    uses: ./.github/workflows/.reusable_e2e_tests.yml
     with:
-      enterprise: true
-
-  e2e-tests-oss:
-    name: E2E Tests - OSS
-    needs: build-and-push-test-image-oss
-    uses: ./.github/workflows/.reusable_e2e_tests_oss.yml
-    with:
-      gateway-image: ${{ needs.build-and-push-test-image-oss.outputs.image }}
-    secrets: inherit
-
-  e2e-tests-ee:
-    name: E2E Tests - EE
-    needs: build-and-push-test-image-ee
-    uses: ./.github/workflows/.reusable_e2e_tests_ee.yml
-    with:
-      gateway-image: ${{ needs.build-and-push-test-image-ee.outputs.image }}
+      gateway-image: ${{ needs.build-test-image.outputs.image }}
+      load-test-image-from-artifact: true
     secrets: inherit

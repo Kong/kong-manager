@@ -1,8 +1,8 @@
 # This is a reusable workflow
 
-# This workflow builds the test image for testing purposes and pushes it to ghcr.io
+# This workflow builds the test image for testing purposes
 
-name: Build and Push Test Image to GHCR
+name: Build Test Image
 
 on:
   workflow_call:
@@ -10,60 +10,36 @@ on:
       gateway-image:
         description: Name of the Gateway image (base) to use
         type: string
-      enterprise:
-        description: Whether or not to use enterprise Gateway images
-        type: boolean
-        default: false
     outputs:
       image:
         description: Name of the Gateway test image being built
-        value: ${{ jobs.build-and-push-test-image.outputs.image }}
+        value: ${{ jobs.build-test-image.outputs.image }}
 
 jobs:
-  build-and-push-test-image:
-    name: Build and push test image
+  build-test-image:
+    name: Build test image
     runs-on: ${{ vars.RUNS_ON }}
-    permissions:
-      contents: read
-      packages: write
     outputs:
-      image: ${{ steps.build-and-push.outputs.image }}
+      image: ${{ steps.build-and-save.outputs.image }}
 
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
 
-      - name: Download assets
+      - name: Download release
         timeout-minutes: 5
         uses: actions/download-artifact@v4
         with:
-          name: assets
+          name: release
 
-      - name: Unpack assets
-        run: tar xzvf ./assets.tar.gz
+      - name: Unpack release
+        run: tar xzvf ./release.tar.gz
 
       - name: Select Gateway image
         id: select-gateway-image
         uses: ./.github/actions/select-gateway-image
         with:
           current-image: ${{ inputs.gateway-image }}
-          enterprise: ${{ format('{0}', inputs.enterprise) }} # ensure it is a string
-
-      - name: Log in to Docker Hub
-        if: ${{ format('{0}', inputs.enterprise) == 'true' }}
-        timeout-minutes: 1
-        uses: docker/login-action@465a07811f14bebb1938fbed4728c6a1ff8901fc # v2.2.0
-        with:
-          username: ${{ secrets.DOCKER_PULL_USER }}
-          password: ${{ secrets.DOCKER_PULL_PASSWORD }}
-
-      - name: Log in to GitHub Container Registry
-        timeout-minutes: 1
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Pull and inspect base image
         timeout-minutes: 5
@@ -71,15 +47,21 @@ jobs:
           docker pull ${{ steps.select-gateway-image.outputs.image }}
           docker inspect ${{ steps.select-gateway-image.outputs.image }}
 
-      - name: Build and push image
-        id: build-and-push
+      - name: Build and save image
+        id: build-and-save
         env:
           GATEWAY_IMAGE: ${{ steps.select-gateway-image.outputs.image }}
-          GATEWAY_TEST_IMAGE: |-
-            ghcr.io/kong/${{ format('{0}', inputs.enterprise) == 'true' && 'kong-admin-kong-ee' || 'kong-manager' }}:${{ github.sha }}
-
+          GATEWAY_TEST_IMAGE: kong/internal-testing-kong-manager:${{ github.sha }} # Image name here is only used for internal testing
         run: |
           export KONG_MANAGER_BUILD_SHA1=$(cat dist/build.sha1)
           docker compose -f .ci/docker-compose.yml build kong-test-image
-          docker compose -f .ci/docker-compose.yml push kong-test-image
+          docker save $GATEWAY_TEST_IMAGE | gzip > docker-test-image.tar.gz
           echo "image=$GATEWAY_TEST_IMAGE" >> $GITHUB_OUTPUT
+
+      - name: Upload test image
+        timeout-minutes: 5
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-test-image
+          path: ./docker-test-image.tar.gz
+          if-no-files-found: error # It's meaningless to continue if the image is missing
