@@ -13,7 +13,7 @@ import { withNavigation } from '@pw/commands/withNavigation'
 import certificates from '@pw/fixtures/certificates'
 import { ServiceListPage } from '@pw/pages/services'
 
-const testService: { id?: string; name: string; url: string } = {
+const testService: { id?: string, name: string, url: string } = {
   name: 'testService',
   url: 'http://example.com:8080/test',
 }

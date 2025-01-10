@@ -5,18 +5,18 @@ import axios from 'axios'
 const WORKER_COUNT = 10
 
 interface ItemProps {
-  id?: string;
-  username?: string;
-  name?: string;
+  id?: string
+  username?: string
+  name?: string
 }
 
 interface ResponseProps {
-  data: Array<ItemProps>;
+  data: Array<ItemProps>
 }
 
 export type ClearKongResourcesOptions = {
-  throwOnError?: boolean;
-  ignoreNotFound?: boolean;
+  throwOnError?: boolean
+  ignoreNotFound?: boolean
 }
 
 export const clearKongResources = async (endpoint: string, clearOptions: ClearKongResourcesOptions = {}) => {

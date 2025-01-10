@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import type { AnyObject, Info } from './types'
 
 interface State {
-  info: Info;
+  info: Info
 }
 
 export const useInfoStore = defineStore('info', {
