@@ -1,6 +1,6 @@
 interface Pem {
-  privateKey: string;
-  publicKey: string;
+  privateKey: string
+  publicKey: string
 }
 
 const pem: Pem = {

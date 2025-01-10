@@ -256,7 +256,7 @@ const fetcher = async (props: TableDataFetcherParams) => {
   } = props
 
   try {
-    const { data } = await apiService.findAll<{ data: DataPlaneNodeResponse[]; offset?: number }>(
+    const { data } = await apiService.findAll<{ data: DataPlaneNodeResponse[], offset?: number }>(
       'clustering/data-planes',
       {
         size: pageSize,

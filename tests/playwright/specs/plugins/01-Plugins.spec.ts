@@ -24,7 +24,7 @@ const mockPluginName = 'prometheus'
 const mockInstanceName = 'myCustomName'
 
 const test = baseTest().extend<{
-  consumerListPage: ConsumerListPage,
+  consumerListPage: ConsumerListPage
   pluginListPage: PluginListPage
   serviceListPage: ServiceListPage
   routeListPage: RouteListPage

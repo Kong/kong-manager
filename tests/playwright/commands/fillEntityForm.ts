@@ -3,23 +3,23 @@ import { expandAdvancedFields } from './expandAdvancedFields'
 import { selectOption } from './selectOption'
 
 interface Params {
-  page: Page;
+  page: Page
 
-  formData?: Record<string, string | Array<string>>;
+  formData?: Record<string, string | Array<string>>
 
   /**
    * The action to perform after filling in the form.
    * If omitted, no actions will be performed.
    */
-  withAction?: 'submit' | 'cancel';
+  withAction?: 'submit' | 'cancel'
 
-  method?: 'type' | 'fill';
+  method?: 'type' | 'fill'
 
   /**
    * If set to true, the helper assumes that a modal will show up after performing the `*-submit` action.
    * And the primary button on the modal will be clicked.
    */
-  handleModal?: boolean;
+  handleModal?: boolean
 }
 
 export const fillEntityForm = async (params: Params) => {

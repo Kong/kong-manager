@@ -23,8 +23,8 @@ export interface Info {
     pg_ssl?: boolean
   } & AnyObject
   license?: AnyObject
-  version?: string,
-  edition?: GatewayEdition,
+  version?: string
+  edition?: GatewayEdition
   timers?: AnyObject
   plugins?: AnyObject
   hostname?: string
