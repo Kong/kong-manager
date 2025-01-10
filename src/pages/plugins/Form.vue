@@ -14,6 +14,7 @@
     :disable-scope-selection="disableScopeSelection"
     @error:fetch-schema="onFetchSchemaError"
     @update="onSave"
+    @cancel="onFormCancel"
   />
 </template>
 
@@ -77,12 +78,21 @@ const cancelRoute = computed(() => {
 
 const config = reactive({
   ...toRefs(useFormGeneralConfig()),
-  cancelRoute,
   entityId: computed(() => entityScope.value?.id ?? ''),
   entityType: computed(() => entityScope.value?.typeLiteral),
   disableConsumerGroupScope: true,
   isNewOtelSchema: true,
 })
+
+// return to previous page on cancel
+const onFormCancel = (): void => {
+  if (history.state?.back) {
+    router.back()
+    return
+  } else {
+    router.push(cancelRoute.value)
+  }
+}
 
 const onFetchSchemaError = (err: AxiosError) => {
   if (err.response?.status === 404) {
