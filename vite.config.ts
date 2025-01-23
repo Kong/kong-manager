@@ -63,6 +63,7 @@ export default defineConfig({
     },
     postcss: {
       plugins: [
+        // @ts-ignore
         autoprefixer,
       ],
     },
