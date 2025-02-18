@@ -1,6 +1,7 @@
 import { test as pwTest, type BrowserContext, type Page } from '@playwright/test'
 import config from '@pw-config'
 import { withNavigation } from './commands/withNavigation'
+import { failOnCSPViolations } from './helpers/console'
 
 export interface SharedState {
   context?: BrowserContext | null
@@ -69,7 +70,14 @@ const baseTest = (sharedState: SharedState | null = {}) => {
   // make playwright always run tests from first to last when retry happens
   t.describe.configure({ mode: 'serial' })
 
+  let unregisterCSPViolationWatcher: () => void | undefined
+
+  t.beforeAll(async ({ page })=>{
+    unregisterCSPViolationWatcher = failOnCSPViolations(page)
+  })
+
   t.afterAll(async ({ context, page }) => {
+    unregisterCSPViolationWatcher?.()
     await page.close()
     await context.close()
   })
