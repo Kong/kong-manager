@@ -16,6 +16,9 @@ on:
       load-test-image-from-artifact:
         type: boolean
         default: false
+      enable-csp-header:
+        type: boolean
+        default: false
 
 jobs:
   e2e-tests:
@@ -78,7 +81,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: docker-test-image
-      
+
       - name: Load test image
         if: ${{ inputs.load-test-image-from-artifact }}
         run: |
@@ -98,6 +101,7 @@ jobs:
         env:
           GATEWAY_IMAGE: ${{ inputs.gateway-image }}
           KONG_ROUTER_FLAVOR: ${{ matrix.router-flavor }}
+          KONG_ADMIN_GUI_CSP_HEADER: ${{ inputs.enable-csp-header && 'on' || 'off' }}
         run: |
           _compose_exit=0
           docker compose -f .ci/docker-compose.yml up -d kong --wait || _compose_exit=$?
@@ -118,6 +122,13 @@ jobs:
           docker compose -f .ci/docker-compose.yml up -d kong-hybrid-dp --scale kong-hybrid-dp=3 --wait || _compose_exit=$?
           docker compose -f .ci/docker-compose.yml logs
           exit $_compose_exit
+
+      - name: Ensure CSP header
+        if: ${{ inputs.enable-csp-header }}
+        run: |
+          header_lines=$(curl -s -D - -o /dev/null http://localhost:8002/index.html)
+          echo $header_lines
+          echo $header_lines | grep -q "Content-Security-Policy: default-src 'self';"
 
       - name: Run E2E tests
         timeout-minutes: 10
