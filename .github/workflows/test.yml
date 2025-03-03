@@ -23,8 +23,6 @@ jobs:
     uses: ./.github/workflows/.reusable_test_image.yml
     needs: build
     secrets: inherit
-    with:
-      gateway-image: docker.io/kong/kong-dev:pr-14287-ubuntu # TODO: Revert this line before merging
 
   e2e-tests:
     name: E2E Tests
