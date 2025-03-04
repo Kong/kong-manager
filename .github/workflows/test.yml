@@ -28,7 +28,17 @@ jobs:
     name: E2E Tests
     needs: build-test-image
     uses: ./.github/workflows/.reusable_e2e_tests.yml
+    secrets: inherit
     with:
       gateway-image: ${{ needs.build-test-image.outputs.image }}
       load-test-image-from-artifact: true
+
+  e2e-tests-csp-on:
+    name: E2E Tests (CSP on)
+    needs: build-test-image
+    uses: ./.github/workflows/.reusable_e2e_tests.yml
     secrets: inherit
+    with:
+      gateway-image: ${{ needs.build-test-image.outputs.image }}
+      load-test-image-from-artifact: true
+      enable-csp-header: true
