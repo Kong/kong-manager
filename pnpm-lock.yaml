@@ -104,7 +104,7 @@ importers:
         version: 20.4.2
       '@vitejs/plugin-vue':
         specifier: ^5.2.1
-        version: 5.2.1(vite@6.1.4(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0))(vue@3.5.12(typescript@5.4.5))
+        version: 5.2.1(vite@6.1.5(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0))(vue@3.5.12(typescript@5.4.5))
       '@vue/tsconfig':
         specifier: ^0.5.1
         version: 0.5.1
@@ -157,11 +157,11 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
       vite:
-        specifier: ^6.1.4
-        version: 6.1.4(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0)
+        specifier: ^6.1.5
+        version: 6.1.5(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0)
       vite-plugin-html:
         specifier: ^3.2.2
-        version: 3.2.2(vite@6.1.4(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0))
+        version: 3.2.2(vite@6.1.5(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0))
       vue-tsc:
         specifier: ^2.1.4
         version: 2.1.4(typescript@5.4.5)
@@ -2724,8 +2724,8 @@ packages:
     peerDependencies:
       vite: '>=2.0.0'
 
-  vite@6.1.4:
-    resolution: {integrity: sha512-VzONrF/qqEg/JBwHXBJdVSmBZBhwiPGinyUb0SQLByqQwi6o8UvX5TWLkpvkq3tvN8Cr273ieZDt36CGwWRMvA==}
+  vite@6.1.5:
+    resolution: {integrity: sha512-H/gAFpW5I4ow/8Bz4t4i8k2St5JThMlqUT8gsH5v0rkqbqpf4qLrFozjq/V2KG1iOXF+3Ko9mlG0kmGerktWJw==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -3776,9 +3776,9 @@ snapshots:
       '@typescript-eslint/types': 8.24.1
       eslint-visitor-keys: 4.2.0
 
-  '@vitejs/plugin-vue@5.2.1(vite@6.1.4(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0))(vue@3.5.12(typescript@5.4.5))':
+  '@vitejs/plugin-vue@5.2.1(vite@6.1.5(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0))(vue@3.5.12(typescript@5.4.5))':
     dependencies:
-      vite: 6.1.4(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0)
+      vite: 6.1.5(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0)
       vue: 3.5.12(typescript@5.4.5)
 
   '@volar/language-core@2.4.1':
@@ -5456,7 +5456,7 @@ snapshots:
     optionalDependencies:
       vue: 3.5.12(typescript@5.4.5)
 
-  vite-plugin-html@3.2.2(vite@6.1.4(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0)):
+  vite-plugin-html@3.2.2(vite@6.1.5(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0)):
     dependencies:
       '@rollup/pluginutils': 4.2.1
       colorette: 2.0.20
@@ -5470,9 +5470,9 @@ snapshots:
       html-minifier-terser: 6.1.0
       node-html-parser: 5.4.2
       pathe: 0.2.0
-      vite: 6.1.4(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0)
+      vite: 6.1.5(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0)
 
-  vite@6.1.4(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0):
+  vite@6.1.5(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.5.3
