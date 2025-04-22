@@ -361,10 +361,10 @@ const setNodeLogLevel = async (id: string, logLevel: LogLevel, revertAfter: numb
   }
 }
 
-const copyId = (row: DataPlaneNode, copyToClipboard: (val: string) => boolean): void => {
+const copyId = async (row: DataPlaneNode, copyToClipboard: (val: string) => Promise<boolean>) => {
   const id = row.id as string
 
-  if (!copyToClipboard(id)) {
+  if (!await copyToClipboard(id)) {
     toaster.open({
       appearance: 'danger',
       message: t('entities.dp-nodes.error.copy.fail'),
