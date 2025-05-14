@@ -32,20 +32,22 @@ test.describe('route creation page', () => {
     await clearKongResources('/routes')
   })
 
-  test('tabs', async ({ page }) => {
+  test('config flavor', async ({ page }) => {
     await page.getByTestId('form-content').isVisible()
+    await page.getByTestId('route-form-config-type-advanced').click()
 
-    // tabs should be visible
-    await expect(page.getByTestId('route-form-config-tabs')).toBeVisible()
-    await expect(page.locator('#traditional-tab')).toBeVisible()
-    await expect(page.locator('#expressions-tab')).toBeVisible()
+    // flavors should be visible
+    await expect(page.getByTestId('route-form-config-flavor')).toBeVisible()
+    await expect(page.getByTestId('traditional-option')).toBeVisible()
+    await expect(page.getByTestId('expressions-option')).toBeVisible()
   })
 
   test('submit button states', async ({ page }) => {
     await page.getByTestId('form-content').isVisible()
+    await page.getByTestId('route-form-config-type-advanced').click()
 
-    // traditional tab should be active by default
-    await expect(page.locator('#traditional-tab')).toHaveClass(/active/)
+    // traditional flavor should be active by default
+    await expect(page.getByTestId('traditional-option')).toHaveClass(/selected/)
     // submit button should be disabled
     await expect(page.getByTestId('route-create-form-submit')).toBeDisabled()
     // fill in a path
@@ -53,18 +55,18 @@ test.describe('route creation page', () => {
     // submit button should be enabled
     await expect(page.getByTestId('route-create-form-submit')).toBeEnabled()
 
-    // switch to the expressions tab
-    await page.locator('#expressions-tab').click()
+    // switch to the expressions flavor
+    await page.getByTestId('expressions-option').click()
     // submit button should be disabled again
     await expect(page.getByTestId('route-create-form-submit')).toBeDisabled()
 
-    // switch back to the traditional tab
-    await page.locator('#traditional-tab').click()
+    // switch back to the traditional flavor
+    await page.getByTestId('traditional-option').click()
     // submit button should be enabled again
     await expect(page.getByTestId('route-create-form-submit')).toBeEnabled()
 
-    // switch back to the expressions tab
-    await page.locator('#expressions-tab').click()
+    // switch back to the expressions flavor
+    await page.getByTestId('expressions-option').click()
     // submit button should be disabled again
     await expect(page.getByTestId('route-create-form-submit')).toBeDisabled()
 
@@ -92,6 +94,7 @@ test.describe('route creation page', () => {
 
   test('view configuration', async ({ page }) => {
     await page.getByTestId('form-content').isVisible()
+    await page.getByTestId('route-form-config-type-advanced').click()
 
     // open the slide out
     await page.getByTestId('route-create-form-view-configuration').click()
@@ -110,8 +113,8 @@ test.describe('route creation page', () => {
     // still should not contain the expression field
     await expect(configBlock).not.toContainText(/expression:/)
 
-    // switch to the expressions tab
-    await page.locator('#expressions-tab').click()
+    // switch to the expressions flavor
+    await page.getByTestId('expressions-option').click()
     // should not contain the paths field
     await expect(configBlock).not.toContainText(/paths:/)
     await page.waitForSelector('.monaco-editor')
@@ -127,16 +130,16 @@ test.describe('route creation page', () => {
     // but should contain the expression field
     await expect(configBlock).toContainText(/expression: http\.path == "\/kong"/)
 
-    // switch back to the traditional tab
-    await page.locator('#traditional-tab').click()
+    // switch back to the traditional flavor
+    await page.getByTestId('traditional-option').click()
     // should contain the paths field
     await expect(configBlock).toContainText(/paths:/)
     await expect(configBlock).toContainText(/- \/trad\/1/)
     // should not contain the expression field
     await expect(configBlock).not.toContainText(/expression:/)
 
-    // switch back to the expressions tab
-    await page.locator('#expressions-tab').click()
+    // switch back to the expressions flavor
+    await page.getByTestId('expressions-option').click()
     // should not contain the paths field
     await expect(configBlock).not.toContainText(/paths:/)
     // should contain the expression field
@@ -159,11 +162,12 @@ test.describe('route creation page', () => {
 
   test('create an expressions route', async ({ page }) => {
     await page.getByTestId('form-content').isVisible()
+    await page.getByTestId('route-form-config-type-advanced').click()
 
     await page.getByTestId('route-form-name').fill('expr-1')
 
-    // switch to the expressions tab
-    await page.locator('#expressions-tab').click()
+    // switch to the expressions flavor
+    await page.getByTestId('expressions-option').click()
     await page.waitForSelector('.monaco-editor')
 
     const editor = page.locator('.monaco-editor').first()
@@ -183,12 +187,13 @@ test.describe('route creation page', () => {
 
   test('create a traditional route - also entered expressions', async ({ page }) => {
     await page.getByTestId('form-content').isVisible()
+    await page.getByTestId('route-form-config-type-advanced').click()
 
     await page.getByTestId('route-form-name').fill('trad-2')
     await page.getByTestId('route-form-paths-input-1').fill('/trad/2')
 
-    // switch to the expressions tab
-    await page.locator('#expressions-tab').click()
+    // switch to the expressions flavor
+    await page.getByTestId('expressions-option').click()
     await page.waitForSelector('.monaco-editor')
 
     const editor = page.locator('.monaco-editor').first()
@@ -197,8 +202,8 @@ test.describe('route creation page', () => {
     await editor.click()
     await page.keyboard.type('http.path == "/trad/2"')
 
-    // switch back to the traditional tab
-    await page.locator('#traditional-tab').click()
+    // switch back to the traditional flavor
+    await page.getByTestId('traditional-option').click()
 
     const submit = page.getByTestId('route-create-form-submit')
 
@@ -212,11 +217,12 @@ test.describe('route creation page', () => {
 
   test('create an expressions route - also entered traditional', async ({ page }) => {
     await page.getByTestId('form-content').isVisible()
+    await page.getByTestId('route-form-config-type-advanced').click()
 
     await page.getByTestId('route-form-name').fill('expr-2')
 
-    // switch to the expressions tab
-    await page.locator('#expressions-tab').click()
+    // switch to the expressions flavor
+    await page.getByTestId('expressions-option').click()
     await page.waitForSelector('.monaco-editor')
 
     const editor = page.locator('.monaco-editor').first()
@@ -225,13 +231,13 @@ test.describe('route creation page', () => {
     await editor.click()
     await page.keyboard.type('http.path == "/expr/2"')
 
-    // switch back to the traditional tab
-    await page.locator('#traditional-tab').click()
+    // switch back to the traditional flavor
+    await page.getByTestId('traditional-option').click()
 
     await page.getByTestId('route-form-paths-input-1').fill('/expr/2')
 
-    // switch to the expressions tab
-    await page.locator('#expressions-tab').click()
+    // switch to the expressions flavor
+    await page.getByTestId('expressions-option').click()
 
     const submit = page.getByTestId('route-create-form-submit')
 
@@ -245,11 +251,12 @@ test.describe('route creation page', () => {
 
   test('create an expressions route - negative', async ({ page }) => {
     await page.getByTestId('form-content').isVisible()
+    await page.getByTestId('route-form-config-type-advanced').click()
 
     await page.getByTestId('route-form-name').fill('expr-3')
 
-    // switch to the expressions tab
-    await page.locator('#expressions-tab').click()
+    // switch to the expressions flavor
+    await page.getByTestId('expressions-option').click()
     await page.waitForSelector('.monaco-editor')
 
     const editor = page.locator('.monaco-editor').first()
