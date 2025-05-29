@@ -49,15 +49,6 @@ jobs:
 
       - uses: pnpm/action-setup@v2 # version is determined from the packageManager field in package.json by default.
 
-      - name: Download assets
-        timeout-minutes: 5
-        uses: actions/download-artifact@v4
-        with:
-          name: assets
-
-      - name: Unpack assets
-        run: tar xzvf ./assets.tar.gz
-
       - id: setup-node
         name: Setup Node
         timeout-minutes: 5
@@ -72,20 +63,6 @@ jobs:
           pnpm install:e2e
           pnpm playwright install chromium
 
-      - name: Log in to GitHub Container Registry
-        timeout-minutes: 1
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Select Gateway image
-        id: select-gateway-image
-        uses: ./.github/actions/select-gateway-image
-        with:
-          current-image: ${{ inputs.gateway-image }}
-
       - name: Start Kong traditional
         if: ${{ matrix.suite != 'data-plane-nodes' }}
         timeout-minutes: 10
@@ -96,21 +73,6 @@ jobs:
         run: |
           _compose_exit=0
           docker compose -f .ci/docker-compose.yml up -d kong --wait || _compose_exit=$?
-          docker compose -f .ci/docker-compose.yml logs
-          exit $_compose_exit
-
-      - name: Start Kong hybrid
-        if: ${{ matrix.suite == 'data-plane-nodes' }}
-        timeout-minutes: 10
-        working-directory: ${{ github.workspace }}
-        env:
-          GATEWAY_IMAGE: ${{ inputs.gateway-image }}
-        run: |
-          mkdir -p hybrid
-          chmod a+w ./hybrid
-          docker compose -f .ci/docker-compose.yml up kong-gen-cert
-          _compose_exit=0
-          docker compose -f .ci/docker-compose.yml up -d kong-hybrid-dp --scale kong-hybrid-dp=3 --wait || _compose_exit=$?
           docker compose -f .ci/docker-compose.yml logs
           exit $_compose_exit
 

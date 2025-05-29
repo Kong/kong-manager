@@ -5,40 +5,13 @@ concurrency:
   cancel-in-progress: true
 
 on:
+  push:
   pull_request:
 
 jobs:
-  build:
-    name: Build
-    uses: ./.github/workflows/.reusable_build.yml
-    secrets: inherit
-
-  build-and-push-test-image-oss:
-    name: Build and Push Test Image to GHCR - OSS
-    uses: ./.github/workflows/.reusable_test_image.yml
-    needs: build
-    secrets: inherit
-
-  build-and-push-test-image-ee:
-    name: Build and Push Test Image to GHCR - EE
-    uses: ./.github/workflows/.reusable_test_image.yml
-    needs: build
-    secrets: inherit
-    with:
-      enterprise: true
-
   e2e-tests-oss:
     name: E2E Tests - OSS
-    needs: build-and-push-test-image-oss
     uses: ./.github/workflows/.reusable_e2e_tests_oss.yml
     with:
-      gateway-image: ${{ needs.build-and-push-test-image-oss.outputs.image }}
-    secrets: inherit
-
-  e2e-tests-ee:
-    name: E2E Tests - EE
-    needs: build-and-push-test-image-ee
-    uses: ./.github/workflows/.reusable_e2e_tests_ee.yml
-    with:
-      gateway-image: ${{ needs.build-and-push-test-image-ee.outputs.image }}
+      gateway-image: kong/kong-dev:3.9.1-rc.1
     secrets: inherit
