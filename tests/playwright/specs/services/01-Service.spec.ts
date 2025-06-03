@@ -160,12 +160,9 @@ test.describe('services', () => {
         'gateway-service-name-input': 'wrong.service',
         'gateway-service-url-input': 'wrongurl.com',
       },
-      withAction: 'submit',
     })
 
-    await expect(page.getByTestId('form-error')).toBeVisible()
-    // Error message differs in different browsers
-    await expect(page.getByTestId('form-error')).toHaveText(/(.*\bURL\b.*)/gi)
+    await expect(page.getByTestId('service-create-form-submit')).toBeDisabled()
 
     await withNavigation(page, () =>
       fillEntityForm({
@@ -208,8 +205,8 @@ test.describe('services', () => {
       page.locator('.toolbar-button-container .primary').click(),
     )
 
-    await expect(page.getByTestId('collapse-trigger-content')).toBeVisible()
-    await page.getByTestId('collapse-trigger-content').click()
+    await expect(page.getByTestId('advanced-fields-collapse')).toBeVisible()
+    await page.getByTestId('advanced-fields-collapse').locator('button').click()
 
     await fillEntityForm({
       page,
@@ -234,7 +231,7 @@ test.describe('services', () => {
       )
       const data = {
         'gateway-service-name-input': `test_protocol_${protocol}`,
-        'gateway-service-host-input': `www.test_protocal_${protocol}.com`,
+        'gateway-service-host-input': `www.test-protocal-${protocol}.com`,
         'gateway-service-port-input': '80',
         ...!['grpc', 'grpcs', 'tcp', 'tls'].includes(protocol)
           ? { 'gateway-service-path-input': '/' }
@@ -242,7 +239,8 @@ test.describe('services', () => {
       }
 
       await page.getByTestId('gateway-service-protocol-radio').click()
-      await page.getByTestId('gateway-service-protocol-select').click({ force: true })
+      await page.getByTestId('gateway-service-protocol-select').click()
+      await page.locator(`.select-item[data-testid="select-item-${protocol}"]`).scrollIntoViewIfNeeded()
       await page.locator(`.select-item[data-testid="select-item-${protocol}"]`).click()
       if (['grpc', 'grpcs', 'tcp', 'tls'].includes(protocol)) {
         await expect(page.getByTestId('gateway-service-path-input')).not.toBeVisible()
@@ -276,7 +274,7 @@ test.describe('services', () => {
       page.locator('.table-empty-state .primary').click(),
     )
 
-    await page.getByTestId('collapse-trigger-content').click()
+    await page.getByTestId('advanced-fields-collapse').locator('button').click()
 
     await withNavigation(page, () => fillEntityForm({
       page,
@@ -292,7 +290,7 @@ test.describe('services', () => {
     await expect(page.locator('[data-testid="tls_verify-property-value"]')).toHaveText('Use default system setting')
 
     await withNavigation(page, () => clickHeaderAction(page, 'edit'))
-    await page.getByTestId('collapse-trigger-content').click()
+    await page.getByTestId('advanced-fields-collapse').locator('button').click()
 
     await expect(page.getByTestId('gateway-service-tls-verify-checkbox')).not.toBeChecked()
     await page.getByTestId('gateway-service-tls-verify-checkbox').click()
@@ -302,7 +300,7 @@ test.describe('services', () => {
     await waitAndDismissToasts(page)
 
     await withNavigation(page, () => clickHeaderAction(page, 'edit'))
-    await page.getByTestId('collapse-trigger-content').click()
+    await page.getByTestId('advanced-fields-collapse').locator('button').click()
 
     await expect(page.getByTestId('gateway-service-tls-verify-false-option')).toBeChecked()
     await page.getByTestId('gateway-service-tls-verify-true-option').click()
@@ -311,7 +309,7 @@ test.describe('services', () => {
     await waitAndDismissToasts(page)
 
     await withNavigation(page, () => clickHeaderAction(page, 'edit'))
-    await page.getByTestId('collapse-trigger-content').click()
+    await page.getByTestId('advanced-fields-collapse').locator('button').click()
 
     await expect(page.getByTestId('gateway-service-tls-verify-true-option')).toBeChecked()
   })
@@ -327,7 +325,7 @@ test.describe('services', () => {
       page.locator('.toolbar-button-container .primary').click(),
     )
 
-    await page.getByTestId('collapse-trigger-content').click()
+    await page.getByTestId('advanced-fields-collapse').locator('button').click()
 
     await withNavigation(page, () =>
       fillEntityForm({
@@ -349,7 +347,7 @@ test.describe('services', () => {
     await deleteKongResource('/services', serviceId)
   })
 
-  test('service edit - fail due to empty required field', async ({ page, serviceListPage }) => {
+  test('service edit - submit button disabled due to empty required field', async ({ page, serviceListPage }) => {
     await clearKongResources('/services')
     const service = (await createKongResource('/services', testService))?.data
 
@@ -357,12 +355,7 @@ test.describe('services', () => {
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
 
     await page.getByTestId('gateway-service-host-input').fill('')
-    await fillEntityForm({
-      page,
-      formData: {},
-      withAction: 'submit',
-    })
-    await expect(page.locator('.k-alert.success')).not.toBeVisible()
+    await expect(page.getByTestId('service-edit-form-submit')).toBeDisabled()
     await deleteKongResource('/services', service.id)
   })
 
@@ -372,6 +365,7 @@ test.describe('services', () => {
     await serviceListPage.goto()
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await withNavigation(page, () => clickHeaderAction(page, 'edit'))
+    await page.getByTestId('tags-collapse').locator('button').click()
 
     await withNavigation(page, () =>
       fillEntityForm({
@@ -386,6 +380,7 @@ test.describe('services', () => {
 
     // update the tag
     await withNavigation(page, () => clickHeaderAction(page, 'edit'))
+    await page.getByTestId('tags-collapse').locator('button').click()
     await withNavigation(page, () =>
       fillEntityForm({
         page,

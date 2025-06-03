@@ -2,9 +2,10 @@
   <PageHeader
     :title="isEditing ? t('entities.service.edit.form.title') : t('entities.service.create.form.title')"
   />
-  <LegacyGatewayServiceForm
+  <GatewayServiceForm
     :config="serviceFormConfig"
     :gateway-service-id="id"
+    hide-try-sample-api-button
     @update="handleUpdate"
   />
 </template>
@@ -12,7 +13,7 @@
 <script setup lang="ts">
 import { computed, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { LegacyGatewayServiceForm } from '@kong-ui-public/entities-gateway-services'
+import { GatewayServiceForm } from '@kong-ui-public/entities-gateway-services'
 import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useFormRedirectOnCancel } from '@/composables/useFormRedirect'
 import { useToaster } from '@/composables/useToaster'

@@ -13,7 +13,7 @@ interface Params {
    */
   withAction?: 'submit' | 'cancel'
 
-  method?: 'type' | 'fill'
+  method?: 'fill' | 'pressSequentially'
 
   /**
    * If set to true, the helper assumes that a modal will show up after performing the `*-submit` action.
@@ -27,7 +27,7 @@ export const fillEntityForm = async (params: Params) => {
     page,
     formData = {},
     withAction,
-    method = 'type',
+    method = 'fill',
     handleModal,
   } = params
 
