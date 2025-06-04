@@ -13,5 +13,5 @@ jobs:
     name: E2E Tests - OSS
     uses: ./.github/workflows/.reusable_e2e_tests_oss.yml
     with:
-      gateway-image: kong/kong-dev:3.9.1-rc.1
+      gateway-image: kong/kong-dev:3.9.1-rc.2
     secrets: inherit
