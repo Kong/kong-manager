@@ -5,7 +5,7 @@ import { selectOption } from './selectOption'
 interface Params {
   page: Page
 
-  formData?: Record<string, string | Array<string>>
+  formData?: Record<string, string | string[]>
 
   /**
    * The action to perform after filling in the form.

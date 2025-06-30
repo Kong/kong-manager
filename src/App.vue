@@ -27,7 +27,7 @@ const route = useRoute()
 const infoStore = useInfoStore()
 const { isHybridMode } = storeToRefs(infoStore)
 
-const sidebarItems = computed<Array<SidebarPrimaryItem>>(() => [
+const sidebarItems = computed<SidebarPrimaryItem[]>(() => [
   {
     name: 'Overview',
     to: { name: 'overview' },
