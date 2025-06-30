@@ -12,7 +12,7 @@ const convertTitleToHash = (title: string) => `#${title.replace(/\s+/g, '-').toL
 // But in our app, we expect the tab to switch between paths instead of hashes.
 // This composable takes an array of route-based objects and converts it to an array of hash-based objects,
 // so that the consuming component can pass the returned array to <KTabs>.
-export const useTabs = (tabs: Array<Tab>) => {
+export const useTabs = (tabs: Tab[]) => {
   const route = useRoute()
   const router = useRouter()
 

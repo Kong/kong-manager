@@ -183,7 +183,7 @@ interface DataPlaneNodeResponse {
   hostname: string
   version: string
   last_seen: string
-  rpc_capabilities?: Array<string>
+  rpc_capabilities?: string[]
   cert_details: {
     expiry_timestamp: number
   }
@@ -222,7 +222,7 @@ const headers = [
 ]
 
 const tableKey = ref<number>(0)
-const visibleNodes = ref<Array<DataPlaneNode>>([])
+const visibleNodes = ref<DataPlaneNode[]>([])
 const errorMessage = ref<string>('')
 const modalVisible = ref<boolean>(false)
 const nodeLogLevel = ref<Record<string, LogLevelResponse>>({})

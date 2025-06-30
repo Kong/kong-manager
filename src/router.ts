@@ -5,7 +5,7 @@ import {
 import { config } from 'config'
 import { useInfoStore } from './stores/info'
 
-const routes: Array<RouteRecordRaw> = [
+const routes: RouteRecordRaw[] = [
   // overview page
   {
     name: 'overview',

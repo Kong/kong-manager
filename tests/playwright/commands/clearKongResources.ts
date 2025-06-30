@@ -11,7 +11,7 @@ interface ItemProps {
 }
 
 interface ResponseProps {
-  data: Array<ItemProps>
+  data: ItemProps[]
 }
 
 export type ClearKongResourcesOptions = {
@@ -30,7 +30,7 @@ export const clearKongResources = async (endpoint: string, clearOptions: ClearKo
     method: 'GET' as const,
     headers: {},
   }
-  const tasks: (() => AxiosPromise)[] = []
+  const tasks: Array<() => AxiosPromise> = []
 
   try {
     const items: ItemProps[] = []
