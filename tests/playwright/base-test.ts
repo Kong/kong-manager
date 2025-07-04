@@ -72,7 +72,7 @@ const baseTest = (sharedState: SharedState | null = {}) => {
 
   let unregisterCSPViolationWatcher: () => void | undefined
 
-  t.beforeAll(async ({ page })=>{
+  t.beforeAll(async ({ page }) => {
     unregisterCSPViolationWatcher = failOnCSPViolations(page)
   })
 
