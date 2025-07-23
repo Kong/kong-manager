@@ -9,7 +9,6 @@ registries:
   npm:
     type: npm-registry
     url: https://registry.npmjs.org
-    replaces-base: true
 
 updates:
   - package-ecosystem: "npm"
