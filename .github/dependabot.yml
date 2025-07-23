@@ -5,16 +5,9 @@
 
 version: 2
 
-registries:
-  npm:
-    type: npm-registry
-    url: https://registry.npmjs.org
-
 updates:
   - package-ecosystem: "npm"
     directory: "/"
-    registries:
-      - npm
     schedule:
       interval: "weekly"
       day: "friday"
@@ -33,8 +26,6 @@ updates:
 
   - package-ecosystem: "npm"
     directory: "/tests/playwright"
-    registries:
-      - npm
     schedule:
       interval: "weekly"
       day: "friday"
