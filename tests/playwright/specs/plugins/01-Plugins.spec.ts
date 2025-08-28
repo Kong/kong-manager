@@ -521,11 +521,11 @@ test.describe('plugins', () => {
     // click scoped & select a service
     await page.click('.selection-group .Scoped-check')
     await page.click('input#service-id')
-    await page.fill('input#service-id', 'test_service')
+    await page.fill('input#service-id', service.name)
     await page.waitForTimeout(300)
-    await expect(page.locator('.select-item')).toContainText('test_service')
+    await expect(page.locator('.select-item')).toContainText(service.name)
     await page.click('.select-item')
-    await expect(page.locator('input#service-id')).toHaveValue(`test_service`)
+    await expect(page.locator('input#service-id')).toHaveValue(service.name)
 
     // switch back to global
     await page.click('.selection-group .Global-check')
