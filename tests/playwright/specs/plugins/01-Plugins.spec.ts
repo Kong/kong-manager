@@ -453,7 +453,7 @@ test.describe('plugins', () => {
     await expect(selectItem).toContainText(`${service?.data.name}`)
     await expect(selectItem).toContainText(`${service?.data.id}`)
     await selectItem.click()
-    await expect(page.locator('input#service-id')).toHaveValue(`${service?.data.name} - ${service?.data.id}`)
+    await expect(page.locator('input#service-id')).toHaveValue(`${service?.data.name}`)
 
     await page.click('input#route-id')
     await page.fill('input#route-id', 'test_route')
