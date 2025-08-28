@@ -453,7 +453,7 @@ test.describe('plugins', () => {
     await expect(selectItem).toContainText(`${service?.data.name}`)
     await expect(selectItem).toContainText(`${service?.data.id}`)
     await selectItem.click()
-    await expect(page.locator('input#service-id')).toHaveValue(`${service?.data.name} - ${service?.data.id}`)
+    await expect(page.locator('input#service-id')).toHaveValue(`${service?.data.name}`)
 
     await page.click('input#route-id')
     await page.fill('input#route-id', 'test_route')
@@ -462,7 +462,7 @@ test.describe('plugins', () => {
     await expect(selectItem).toContainText(`${route?.data.name}`)
     await expect(selectItem).toContainText(`${route?.data.id}`)
     await selectItem.click()
-    await expect(page.locator('input#route-id')).toHaveValue(`${route?.data.name} - ${route?.data.id}`)
+    await expect(page.locator('input#route-id')).toHaveValue(`${route?.data.name}`)
 
     await page.click('input#consumer-id')
     await page.fill('input#consumer-id', 'test_consumer')
@@ -471,7 +471,7 @@ test.describe('plugins', () => {
     await expect(selectItem).toContainText(`${consumer?.data.username}`)
     await expect(selectItem).toContainText(`${consumer?.data.id}`)
     await selectItem.click()
-    await expect(page.locator('input#consumer-id')).toHaveValue(`${consumer?.data.username} - ${consumer?.data.id}`)
+    await expect(page.locator('input#consumer-id')).toHaveValue(`${consumer?.data.username}`)
 
     await withNavigation(page, async () =>
       await fillEntityForm({
@@ -488,9 +488,9 @@ test.describe('plugins', () => {
     await expect(page.locator('input#route-id')).toBeVisible()
     await expect(page.locator('input#consumer-id')).toBeVisible()
 
-    await expect(page.locator('input#service-id')).toHaveValue(`${service?.data.name} - ${service?.data.id}`)
-    await expect(page.locator('input#route-id')).toHaveValue(`${route?.data.name} - ${route?.data.id}`)
-    await expect(page.locator('input#consumer-id')).toHaveValue(`${consumer?.data.username} - ${consumer?.data.id}`)
+    await expect(page.locator('input#service-id')).toHaveValue(`${service?.data.name}`)
+    await expect(page.locator('input#route-id')).toHaveValue(`${route?.data.name}`)
+    await expect(page.locator('input#consumer-id')).toHaveValue(`${consumer?.data.username}`)
   })
 
   test('the "Applied To" column should be able to click and navigate to the entity', async ({ page, pluginListPage }) => {
@@ -521,11 +521,11 @@ test.describe('plugins', () => {
     // click scoped & select a service
     await page.click('.selection-group .Scoped-check')
     await page.click('input#service-id')
-    await page.fill('input#service-id', 'test_service')
+    await page.fill('input#service-id', service.name)
     await page.waitForTimeout(300)
-    await expect(page.locator('.select-item')).toContainText('test_service')
+    await expect(page.locator('.select-item')).toContainText(service.name)
     await page.click('.select-item')
-    await expect(page.locator('input#service-id')).toHaveValue(`test_service - ${service?.id}`)
+    await expect(page.locator('input#service-id')).toHaveValue(service.name)
 
     // switch back to global
     await page.click('.selection-group .Global-check')

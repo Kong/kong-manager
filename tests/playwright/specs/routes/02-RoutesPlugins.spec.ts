@@ -135,9 +135,10 @@ test.describe('routes plugins', () => {
     await page.click('.selection-group .Scoped-check')
     await page.click('input#route-id')
     await page.fill('input#route-id', mockRouteName)
+    const routeItemSelector = '.entity-form label[for="route-id"] + .field-wrap .select-item'
     await page.waitForTimeout(300)
-    await expect(page.locator('.select-item')).toContainText(mockRouteName)
-    await page.click('.select-item')
+    await expect(page.locator(routeItemSelector)).toContainText(mockRouteName)
+    await page.click(routeItemSelector)
     await withNavigation(page, () => page.click(routeListPage.$.submitButton))
     await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Route')
