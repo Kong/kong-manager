@@ -462,7 +462,7 @@ test.describe('plugins', () => {
     await expect(selectItem).toContainText(`${route?.data.name}`)
     await expect(selectItem).toContainText(`${route?.data.id}`)
     await selectItem.click()
-    await expect(page.locator('input#route-id')).toHaveValue(`${route?.data.name} - ${route?.data.id}`)
+    await expect(page.locator('input#route-id')).toHaveValue(`${route?.data.name}`)
 
     await page.click('input#consumer-id')
     await page.fill('input#consumer-id', 'test_consumer')
@@ -471,7 +471,7 @@ test.describe('plugins', () => {
     await expect(selectItem).toContainText(`${consumer?.data.username}`)
     await expect(selectItem).toContainText(`${consumer?.data.id}`)
     await selectItem.click()
-    await expect(page.locator('input#consumer-id')).toHaveValue(`${consumer?.data.username} - ${consumer?.data.id}`)
+    await expect(page.locator('input#consumer-id')).toHaveValue(`${consumer?.data.username}`)
 
     await withNavigation(page, async () =>
       await fillEntityForm({
@@ -488,9 +488,9 @@ test.describe('plugins', () => {
     await expect(page.locator('input#route-id')).toBeVisible()
     await expect(page.locator('input#consumer-id')).toBeVisible()
 
-    await expect(page.locator('input#service-id')).toHaveValue(`${service?.data.name} - ${service?.data.id}`)
-    await expect(page.locator('input#route-id')).toHaveValue(`${route?.data.name} - ${route?.data.id}`)
-    await expect(page.locator('input#consumer-id')).toHaveValue(`${consumer?.data.username} - ${consumer?.data.id}`)
+    await expect(page.locator('input#service-id')).toHaveValue(`${service?.data.name}`)
+    await expect(page.locator('input#route-id')).toHaveValue(`${route?.data.name}`)
+    await expect(page.locator('input#consumer-id')).toHaveValue(`${consumer?.data.username}`)
   })
 
   test('the "Applied To" column should be able to click and navigate to the entity', async ({ page, pluginListPage }) => {
@@ -525,7 +525,7 @@ test.describe('plugins', () => {
     await page.waitForTimeout(300)
     await expect(page.locator('.select-item')).toContainText('test_service')
     await page.click('.select-item')
-    await expect(page.locator('input#service-id')).toHaveValue(`test_service - ${service?.id}`)
+    await expect(page.locator('input#service-id')).toHaveValue(`test_service`)
 
     // switch back to global
     await page.click('.selection-group .Global-check')
