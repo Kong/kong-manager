@@ -5,8 +5,8 @@
       title="go to overview page"
     >
       <img
-        src="@/assets/logo.svg?external"
-        alt="Kong Manager Logo"
+        src="@/assets/logo.png?external"
+        alt="apiRuler Manager Logo"
       >
     </router-link>
   </div>
