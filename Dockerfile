@@ -2,10 +2,9 @@
 FROM node:20-alpine AS build
 WORKDIR /app
 COPY . .
-# pnpm kullanıyorsanız corepack ile etkinleştirin; npm ise bu iki satırı kaldırın
-RUN corepack enable && corepack prepare pnpm@latest --activate
-RUN pnpm install --frozen-lockfile || npm ci
-RUN pnpm build || npm run build
+
+RUN npm install
+RUN npm run build
 
 # 2) Statik dosyayı Nginx ile servis et
 FROM nginx:alpine
