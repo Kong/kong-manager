@@ -5,7 +5,8 @@
       title="go to overview page"
     >
       <img
-        src="@/assets/logo.png?external"
+        height="45"
+        src="@/assets/logo_white_reverse.png?external"
         alt="apiRuler Manager Logo"
       >
     </router-link>

@@ -2,14 +2,10 @@
   <AppLayout
     :sidebar-top-items="sidebarItems"
   >
-    <template #navbar-right>
-      <GithubStar url="https://github.com/kong/kong" />
-    </template>
     <template #sidebar-header>
       <NavbarLogo />
     </template>
     <router-view />
-    <MakeAWish />
   </AppLayout>
 </template>
 
@@ -18,10 +14,8 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { AppLayout, type SidebarPrimaryItem } from '@kong-ui-public/app-layout'
-import { GithubStar } from '@kong-ui-public/misc-widgets'
 import { useInfoStore } from '@/stores/info'
 import NavbarLogo from '@/components/NavbarLogo.vue'
-import MakeAWish from '@/components/MakeAWish.vue'
 
 const route = useRoute()
 const infoStore = useInfoStore()
@@ -118,7 +112,7 @@ const sidebarItems = computed<SidebarPrimaryItem[]>(() => [
 <style scoped lang="scss">
 .app-title {
   color: #fff;
-  margin: 0;
+  margin: 50;
   font-size: 20px;
 }
 
@@ -131,5 +125,14 @@ const sidebarItems = computed<SidebarPrimaryItem[]>(() => [
 :deep(.json-content.k-code-block) {
   border-top-left-radius: $kui-border-radius-0 !important;
   border-top-right-radius: $kui-border-radius-0 !important;
+}
+
+:deep(.kong-ui-app-sidebar), :deep(.kong-ui-app-navbar) {
+  background-color: #CA3433 !important; // Use your preferred color
+}
+
+:deep(.sidebar-header:after), :deep(.sidebar-footer:before){
+  background: none !important;
+  box-shadow: none !important;
 }
 </style>
