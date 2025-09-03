@@ -94,6 +94,12 @@ const sidebarItems = computed<SidebarPrimaryItem[]>(() => [
     key: 'Key Sets',
     active: route.meta?.entity === 'key-set',
   },
+  {
+    name: 'Monitoring',
+    to: '/monitoring/',
+    key: 'Monitoring',
+    active: route.path.startsWith('/monitoring'),
+  },
   ...(
     isHybridMode.value
       ? [
