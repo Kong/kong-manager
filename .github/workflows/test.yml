@@ -7,11 +7,11 @@ concurrency:
 on:
   pull_request:
   push:
-    # [NOTE] Branches
+    # [NOTE] branches
     # On main branch: main
     # On release branch: release/**
     branches: ["main"]
-    # [NOTE] Tags
+    # [NOTE] tags
     # On main branch: nightly
     # On release branch: vX.X.*
     tags: ["nightly"]
