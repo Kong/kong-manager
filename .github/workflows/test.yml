@@ -54,6 +54,8 @@ jobs:
     name: Create Release
     needs: [e2e-tests, e2e-tests-csp-on]
     runs-on: ${{ vars.RUNS_ON }}
+    permissions:
+      contents: write
     steps:
       - name: Download release
         timeout-minutes: 5
