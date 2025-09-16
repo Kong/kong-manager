@@ -4,8 +4,29 @@ import {
 
 import { config } from 'config'
 import { useInfoStore } from './stores/info'
+import { useAuthStore } from './stores/auth'
 
 const routes: RouteRecordRaw[] = [
+  // auth pages
+  {
+    name: 'login',
+    path: '/login',
+    component: () => import('@/pages/auth/Login.vue'),
+    meta: {
+      title: 'Giriş Yap',
+      requiresAuth: false,
+    },
+  },
+  {
+    name: 'change-password',
+    path: '/change-password',
+    component: () => import('@/pages/auth/ChangePassword.vue'),
+    meta: {
+      title: 'Şifre Değiştir',
+      requiresAuth: true,
+    },
+  },
+
   // overview page
   {
     name: 'overview',
@@ -13,6 +34,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/overview/Overview.vue'),
     meta: {
       title: 'Overview',
+      requiresAuth: true,
     },
   },
 
@@ -23,6 +45,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('@/pages/NotFound.vue'),
     meta: {
       title: 'Not Found',
+      requiresAuth: true,
     },
   },
 
@@ -34,6 +57,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'service',
       title: 'Gateway Services',
+      requiresAuth: true,
     },
   },
   {
@@ -43,6 +67,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'service',
       title: 'Create Gateway Service',
+      requiresAuth: true,
     },
   },
   {
@@ -52,6 +77,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'service',
       title: 'Edit Gateway Service',
+      requiresAuth: true,
     },
   },
   {
@@ -61,6 +87,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'service',
       title: 'View Gateway Service',
+      requiresAuth: true,
     },
     children: [
       {
@@ -70,6 +97,7 @@ const routes: RouteRecordRaw[] = [
         meta: {
           entity: 'service',
           title: 'Gateway Service Routes',
+          requiresAuth: true,
         },
       },
       {
@@ -80,6 +108,7 @@ const routes: RouteRecordRaw[] = [
           entity: 'service',
           scopedIn: 'services',
           title: 'Gateway Service Plugins',
+          requiresAuth: true,
         },
       },
     ],
@@ -93,6 +122,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'route',
       title: 'Routes',
+      requiresAuth: true,
     },
   },
   {
@@ -102,6 +132,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'route',
       title: 'Create Route',
+      requiresAuth: true,
     },
   },
   {
@@ -111,6 +142,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'route',
       title: 'Edit Route',
+      requiresAuth: true,
     },
   },
   {
@@ -120,6 +152,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'route',
       title: 'View Route',
+      requiresAuth: true,
     },
     children: [
       {
@@ -130,6 +163,7 @@ const routes: RouteRecordRaw[] = [
           entity: 'route',
           scopedIn: 'routes',
           title: 'Route Plugins',
+          requiresAuth: true,
         },
       },
     ],
@@ -143,6 +177,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'consumer',
       title: 'Consumers',
+      requiresAuth: true,
     },
   },
   {
@@ -152,6 +187,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'consumer',
       title: 'Create Consumer',
+      requiresAuth: true,
     },
   },
   {
@@ -161,6 +197,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'consumer',
       title: 'Edit Consumer',
+      requiresAuth: true,
     },
   },
   {
@@ -170,6 +207,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'consumer',
       title: 'View Consumer',
+      requiresAuth: true,
     },
     children: [
       {
@@ -179,6 +217,7 @@ const routes: RouteRecordRaw[] = [
         meta: {
           entity: 'consumer',
           title: 'Consumer Credentials',
+          requiresAuth: true,
         },
       },
       {
@@ -189,6 +228,7 @@ const routes: RouteRecordRaw[] = [
           entity: 'consumer',
           scopedIn: 'consumers',
           title: 'Consumer Plugins',
+          requiresAuth: true,
         },
       },
     ],
@@ -200,6 +240,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'consumer',
       title: 'Create Consumer Credential',
+      requiresAuth: true,
     },
   },
   {
@@ -209,6 +250,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'consumer',
       title: 'Edit Consumer Credential',
+      requiresAuth: true,
     },
   },
 
@@ -220,6 +262,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'plugin',
       title: 'Plugins',
+      requiresAuth: true,
     },
   },
   {
@@ -229,6 +272,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'plugin',
       title: 'Select Plugin',
+      requiresAuth: true,
     },
   },
   {
@@ -238,6 +282,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'plugin',
       title: 'Create Plugin',
+      requiresAuth: true,
     },
   },
   {
@@ -247,6 +292,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'plugin',
       title: 'Edit Plugin',
+      requiresAuth: true,
     },
   },
   {
@@ -256,6 +302,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'plugin',
       title: 'View Plugin',
+      requiresAuth: true,
     },
   },
 
@@ -267,6 +314,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'upstream',
       title: 'Upstreams',
+      requiresAuth: true,
     },
   },
   {
@@ -276,6 +324,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'upstream',
       title: 'Create Upstream',
+      requiresAuth: true,
     },
   },
   {
@@ -285,6 +334,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'upstream',
       title: 'Edit Upstream',
+      requiresAuth: true,
     },
   },
   {
@@ -294,6 +344,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'upstream',
       title: 'View Upstream',
+      requiresAuth: true,
     },
     children: [
       {
@@ -303,6 +354,7 @@ const routes: RouteRecordRaw[] = [
         meta: {
           entity: 'upstream',
           title: 'Upstream Targets',
+          requiresAuth: true,
         },
       },
     ],
@@ -316,6 +368,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'sni',
       title: 'SNIs',
+      requiresAuth: true,
     },
   },
   {
@@ -325,6 +378,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'sni',
       title: 'Create SNI',
+      requiresAuth: true,
     },
   },
   {
@@ -334,6 +388,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'sni',
       title: 'Edit SNI',
+      requiresAuth: true,
     },
   },
 
@@ -345,6 +400,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'key-set',
       title: 'Key Sets',
+      requiresAuth: true,
     },
   },
   {
@@ -354,6 +410,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'key-set',
       title: 'Create Key Set',
+      requiresAuth: true,
     },
   },
   {
@@ -363,6 +420,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'key-set',
       title: 'Edit Key Set',
+      requiresAuth: true,
     },
   },
   {
@@ -372,6 +430,7 @@ const routes: RouteRecordRaw[] = [
     meta: {
       entity: 'key-set',
       title: 'View Key Set',
+      requiresAuth: true,
     },
     children: [
       {
@@ -381,6 +440,7 @@ const routes: RouteRecordRaw[] = [
         meta: {
           entity: 'key-set',
           title: 'Key Set Keys',
+          requiresAuth: true,
         },
       },
     ],
@@ -436,6 +496,7 @@ entities.forEach((entityName: EntityName) => {
       meta: {
         entity: entity.key,
         title: `${entity.capitalizedNamePlural}`,
+        requiresAuth: true,
       },
     },
     {
@@ -445,6 +506,7 @@ entities.forEach((entityName: EntityName) => {
       meta: {
         entity: entity.key,
         title: `Create ${entity.capitalizedName}`,
+        requiresAuth: true,
       },
     },
     {
@@ -454,6 +516,7 @@ entities.forEach((entityName: EntityName) => {
       meta: {
         entity: entity.key,
         title: `Edit ${entity.capitalizedName}`,
+        requiresAuth: true,
       },
     },
     {
@@ -463,6 +526,7 @@ entities.forEach((entityName: EntityName) => {
       meta: {
         entity: entity.key,
         title: `View ${entity.capitalizedName}`,
+        requiresAuth: true,
       },
     },
   )
@@ -473,8 +537,25 @@ export const router = createRouter({
   routes,
 })
 
-router.beforeEach(() => {
+router.beforeEach((to, from, next) => {
   const infoStore = useInfoStore()
+  const authStore = useAuthStore()
+
+  // Kullanıcı bilgisini geri yükle
+  authStore.restoreUser()
+
+  // Auth kontrolü
+  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+    next('/login')
+    return
+  }
+
+  // Zaten giriş yapmış kullanıcı login sayfasına gitmeye çalışırsa ana sayfaya yönlendir
+  if (to.name === 'login' && authStore.isAuthenticated) {
+    next('/')
+    return
+  }
 
   infoStore.getInfo({ silent: true })
+  next()
 })

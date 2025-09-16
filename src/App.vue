@@ -5,21 +5,38 @@
     <template #sidebar-header>
       <NavbarLogo />
     </template>
+    <template #sidebar-footer>
+      <UserMenu />
+    </template>
     <router-view />
   </AppLayout>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { AppLayout, type SidebarPrimaryItem } from '@kong-ui-public/app-layout'
 import { useInfoStore } from '@/stores/info'
+import { useAuth } from '@/composables/useAuth'
 import NavbarLogo from '@/components/NavbarLogo.vue'
+import UserMenu from '@/components/UserMenu.vue'
 
 const route = useRoute()
 const infoStore = useInfoStore()
 const { isHybridMode } = storeToRefs(infoStore)
+const { restoreUser, isAuthenticated } = useAuth()
+
+// Sayfa yüklendiğinde kullanıcı bilgisini geri yükle
+onMounted(() => {
+  restoreUser()
+  console.log('App mounted - isAuthenticated:', isAuthenticated.value)
+})
+
+// Debug için watch ekle
+watch(isAuthenticated, (newVal) => {
+  console.log('isAuthenticated changed:', newVal)
+})
 
 const sidebarItems = computed<SidebarPrimaryItem[]>(() => [
   {
