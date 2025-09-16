@@ -67,7 +67,7 @@ jobs:
           name: release
 
       - name: Create nightly release
-        if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/release/')'
+        if: "github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/heads/release/')"
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
