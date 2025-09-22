@@ -27,6 +27,17 @@ const routes: RouteRecordRaw[] = [
     },
   },
 
+  // dashboard page
+  {
+    name: 'dashboard',
+    path: '/dashboard',
+    component: () => import('@/pages/dashboard/Dashboard.vue'),
+    meta: {
+      title: 'Dashboard',
+      requiresAuth: true,
+    },
+  },
+
   // overview page
   {
     name: 'overview',

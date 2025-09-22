@@ -40,6 +40,12 @@ watch(isAuthenticated, (newVal) => {
 
 const sidebarItems = computed<SidebarPrimaryItem[]>(() => [
   {
+    name: 'Dashboard',
+    to: { name: 'dashboard' },
+    key: 'Dashboard',
+    active: route.name === 'dashboard',
+  },
+  {
     name: 'Overview',
     to: { name: 'overview' },
     key: 'Overview',
