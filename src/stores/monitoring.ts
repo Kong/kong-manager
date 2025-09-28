@@ -124,17 +124,27 @@ export const useMonitoringStore = defineStore('monitoring', {
           port: config.pg_port || 0,
         }
 
-        // Connection metrics için gerçekçi dinamik veriler
-        // Gerçek implementasyonda Kong Status API /metrics endpoint'i kullanılacak
-        this.updateConnectionMetrics({
-          active: Math.floor(Math.random() * 8) + 2, // 2-10 arası
-          reading: Math.floor(Math.random() * 2), // 0-1 arası
-          writing: Math.floor(Math.random() * 4) + 1, // 1-5 arası
-          waiting: Math.floor(Math.random() * 3), // 0-2 arası
-          accepted: this.connectionMetrics.accepted + Math.floor(Math.random() * 100) + 50, // Artan değer
-          handled: this.connectionMetrics.handled + Math.floor(Math.random() * 100) + 50, // Artan değer
-          totalRequests: this.connectionMetrics.totalRequests + Math.floor(Math.random() * 150) + 75, // Artan değer
-        })
+        // Kong Status API'den gerçek connection metrics verilerini çek
+        return apiService.get('status')
+          .then((statusResponse: any) => {
+            const serverData = statusResponse.data?.server || {}
+
+            this.updateConnectionMetrics({
+              active: serverData.connections_active || 0,
+              reading: serverData.connections_reading || 0,
+              writing: serverData.connections_writing || 0,
+              waiting: serverData.connections_waiting || 0,
+              accepted: serverData.connections_accepted || 0,
+              handled: serverData.connections_handled || 0,
+              totalRequests: serverData.total_requests || 0,
+            })
+
+            return statusResponse.data
+          })
+          .catch((statusError: any) => {
+            console.warn('Kong Status API error, using fallback values:', statusError)
+            // Status API çağrısı başarısız olursa mevcut değerleri koru
+          })
 
         this.lastUpdated = new Date()
       } catch (error) {

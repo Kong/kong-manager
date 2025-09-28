@@ -21,7 +21,10 @@
 
     <!-- Connection Metrics Grid -->
     <div class="metrics-grid">
-      <div class="metric-card">
+      <div
+        class="metric-card"
+        :class="{ 'no-connections': connectionMetrics.active === 0 }"
+      >
         <div class="metric-label">
           ACTIVE
         </div>
@@ -69,6 +72,15 @@
           {{ formattedHandled }}
         </div>
       </div>
+    </div>
+
+    <!-- No Activity Warning -->
+    <div
+      v-if="isNoActivity"
+      class="no-activity-warning"
+    >
+      <span class="warning-icon">⚠️</span>
+      <span class="warning-text">No active connections detected. Kong Gateway appears to be idle.</span>
     </div>
 
     <!-- Info Cards Grid -->
@@ -190,6 +202,13 @@ const formatAdminListen = computed(() => {
   }
   return JSON.stringify(nodeInfo.value.adminListen)
 })
+
+const isNoActivity = computed(() => {
+  return connectionMetrics.value.active === 0 &&
+         connectionMetrics.value.reading === 0 &&
+         connectionMetrics.value.writing === 0 &&
+         connectionMetrics.value.waiting === 0
+})
 </script>
 
 <style scoped lang="scss">
@@ -265,6 +284,15 @@ $card-spacing: 32px;
   &:hover {
     border-color: $kui-color-border-neutral-strong;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  &.no-connections {
+    background: $kui-color-background-neutral-weakest;
+    border-color: $kui-color-border-neutral-weak;
+
+    .metric-value {
+      color: $kui-color-text-neutral-weak;
+    }
   }
 }
 
@@ -367,6 +395,28 @@ $card-spacing: 32px;
 .loading-spinner {
   font-size: 14px;
   color: $kui-color-text-neutral-stronger;
+}
+
+// No Activity Warning
+.no-activity-warning {
+  background: $kui-color-background-neutral-weakest;
+  border: 1px solid $kui-color-border-neutral-weak;
+  border-radius: $kui-border-radius-10;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $kui-color-text-neutral-stronger;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.warning-icon {
+  font-size: 16px;
+}
+
+.warning-text {
+  font-weight: $kui-font-weight-medium;
 }
 
 // Error Banner
