@@ -46,12 +46,6 @@ const sidebarItems = computed<SidebarPrimaryItem[]>(() => [
     active: route.name === 'dashboard',
   },
   {
-    name: 'Overview',
-    to: { name: 'overview' },
-    key: 'Overview',
-    active: route.name === 'overview',
-  },
-  {
     name: 'Gateway Services',
     to: { name: 'service-list' },
     key: 'Gateway Services',

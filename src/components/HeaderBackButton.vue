@@ -29,7 +29,7 @@ const redirectURL = useURLFromRouteQuery('redirect')
 
 const back = () => {
   let backTo: RouteLocationRaw = {
-    name: props.entity ? `${props.entity}-list` : 'overview',
+    name: props.entity ? `${props.entity}-list` : 'dashboard',
   }
 
   if (redirectURL.value) {

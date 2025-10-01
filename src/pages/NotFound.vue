@@ -5,8 +5,8 @@
       tag="p"
       keypath="not-found.description"
     >
-      <template #overview>
-        <router-link :to="{ name: 'overview' }">
+      <template #dashboard>
+        <router-link :to="{ name: 'dashboard' }">
           return home
         </router-link>
       </template>

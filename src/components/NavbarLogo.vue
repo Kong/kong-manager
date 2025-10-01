@@ -1,8 +1,8 @@
 <template>
   <div class="brand-logo">
     <router-link
-      :to="{ name: 'overview' }"
-      title="go to overview page"
+      :to="{ name: 'dashboard' }"
+      title="go to dashboard page"
     >
       <img
         height="45"
