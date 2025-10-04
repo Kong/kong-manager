@@ -148,6 +148,9 @@
       </KCard>
     </div>
 
+    <!-- Service Traffic Chart -->
+    <ServiceTrafficChart class="traffic-chart-section" />
+
     <!-- Loading Overlay -->
     <div
       v-if="isLoading"
@@ -179,6 +182,7 @@ import { computed } from 'vue'
 import { useConnectionMonitoring } from '@/composables/useConnectionMonitoring'
 import PageHeader from '@/components/PageHeader.vue'
 import SupportText from '@/components/SupportText.vue'
+import ServiceTrafficChart from '@/components/ServiceTrafficChart.vue'
 
 defineOptions({
   name: 'ManagerDashboard',
@@ -220,6 +224,11 @@ $card-spacing: 32px;
   flex-direction: column;
   gap: 24px;
   padding: 0;
+}
+
+// Traffic Chart Section
+.traffic-chart-section {
+  margin-top: 8px;
 }
 
 // CONNECTIONS Header

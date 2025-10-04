@@ -5,8 +5,8 @@
     <template #sidebar-header>
       <NavbarLogo />
     </template>
-    <template #sidebar-footer>
-      <UserMenu />
+    <template #navbar-right>
+      <UserMenuTopRight />
     </template>
     <router-view />
   </AppLayout>
@@ -20,7 +20,7 @@ import { AppLayout, type SidebarPrimaryItem } from '@kong-ui-public/app-layout'
 import { useInfoStore } from '@/stores/info'
 import { useAuth } from '@/composables/useAuth'
 import NavbarLogo from '@/components/NavbarLogo.vue'
-import UserMenu from '@/components/UserMenu.vue'
+import UserMenuTopRight from '@/components/UserMenuTopRight.vue'
 
 const route = useRoute()
 const infoStore = useInfoStore()
@@ -44,12 +44,6 @@ const sidebarItems = computed<SidebarPrimaryItem[]>(() => [
     to: { name: 'dashboard' },
     key: 'Dashboard',
     active: route.name === 'dashboard',
-  },
-  {
-    name: 'Overview',
-    to: { name: 'overview' },
-    key: 'Overview',
-    active: route.name === 'overview',
   },
   {
     name: 'Gateway Services',

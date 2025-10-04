@@ -71,6 +71,9 @@ importers:
       axios:
         specifier: ^1.8.2
         version: 1.11.0
+      chart.js:
+        specifier: ^4.5.0
+        version: 4.5.0
       dayjs:
         specifier: ^1.11.13
         version: 1.11.18
@@ -83,6 +86,9 @@ importers:
       vue:
         specifier: ^3.5.12
         version: 3.5.20(typescript@5.9.2)
+      vue-chartjs:
+        specifier: ^5.3.2
+        version: 5.3.2(chart.js@4.5.0)(vue@3.5.20(typescript@5.9.2))
       vue-router:
         specifier: ^4.4.5
         version: 4.5.1(vue@3.5.20(typescript@5.9.2))
@@ -750,6 +756,9 @@ packages:
       vue: '>= 3.5.0 < 4'
       vue-router: ^4.5.1
 
+  '@kurkle/color@0.3.4':
+    resolution: {integrity: sha512-M5UknZPHRu3DEDWoipU6sE8PdkZ6Z/S+v4dD+Ke8IaNlpdSQah50lz1KtcFBa2vsdOnwbbnxJwVM4wty6udA5w==}
+
   '@material-design-icons/font@0.14.15':
     resolution: {integrity: sha512-h4YFZnYxNuciEKR0jAOekaQmIg2UGUSxbnoyzo4OdE42gy9QB3UnrjLcASiDy9ra8fqrcHy+NqxTHx7F86BH0A==}
 
@@ -1347,6 +1356,10 @@ packages:
   chalk@5.6.0:
     resolution: {integrity: sha512-46QrSQFyVSEyYAgQ22hQ+zDa60YHA4fBstHmtSApj1Y5vKtG27fWowW03jCk5KcbXEWPZUIR894aARCA/G1kfQ==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
+
+  chart.js@4.5.0:
+    resolution: {integrity: sha512-aYeC/jDgSEx8SHWZvANYMioYMZ2KX02W6f6uVfyteuCGcadDLcYVHdfdygsTQkQ4TKn5lghoojAsPj5pu0SnvQ==}
+    engines: {pnpm: '>=8'}
 
   chokidar@4.0.3:
     resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
@@ -2818,6 +2831,12 @@ packages:
   vscode-uri@3.1.0:
     resolution: {integrity: sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==}
 
+  vue-chartjs@5.3.2:
+    resolution: {integrity: sha512-NrkbRRoYshbXbWqJkTN6InoDVwVb90C0R7eAVgMWcB9dPikbruaOoTFjFYHE/+tNPdIe6qdLCDjfjPHQ0fw4jw==}
+    peerDependencies:
+      chart.js: ^4.1.1
+      vue: ^3.0.0-0 || ^2.7.0
+
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
     engines: {node: '>=12'}
@@ -3506,6 +3525,8 @@ snapshots:
       - solid-js
       - svelte
 
+  '@kurkle/color@0.3.4': {}
+
   '@material-design-icons/font@0.14.15': {}
 
   '@nodelib/fs.scandir@2.1.5':
@@ -4134,6 +4155,10 @@ snapshots:
       supports-color: 7.2.0
 
   chalk@5.6.0: {}
+
+  chart.js@4.5.0:
+    dependencies:
+      '@kurkle/color': 0.3.4
 
   chokidar@4.0.3:
     dependencies:
@@ -5570,6 +5595,11 @@ snapshots:
       yaml: 2.8.1
 
   vscode-uri@3.1.0: {}
+
+  vue-chartjs@5.3.2(chart.js@4.5.0)(vue@3.5.20(typescript@5.9.2)):
+    dependencies:
+      chart.js: 4.5.0
+      vue: 3.5.20(typescript@5.9.2)
 
   vue-demi@0.14.10(vue@3.5.20(typescript@5.9.2)):
     dependencies:
