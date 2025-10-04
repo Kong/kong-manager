@@ -1,0 +1,546 @@
+// Kong Kongponents Global Overrides
+// Bu dosya tüm Kong component'lerinin görünümünü özelleştirir
+
+// ===== KongIcon'u Tamamen Gizle =====
+// Global - her yerde çalış
+.kong-icon,
+.kui-icon,
+[data-testid="kui-icon-wrapper-kong-icon"],
+[class*="kong-icon"],
+[class*="kui-icon"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+// Deep selector da ekle
+.kong-icon,
+.kui-icon,
+[data-testid="kui-icon-wrapper-kong-icon"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+// ===== KCard Overrides =====
+.k-card {
+  // KongIcon'u gizle
+  .kong-icon,
+  .card-icon,
+  svg,
+  [class*="icon"],
+  i {
+    display: none !important;
+  }
+}
+
+// ===== KButton Overrides =====
+.k-button {
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: none;
+  padding: 10px 20px;
+  transition: all 0.2s ease;
+
+  &.primary {
+    background: linear-gradient(135deg, #CA3433 0%, #a02827 100%);
+    border: none;
+
+    &:hover {
+      background: linear-gradient(135deg, #a02827 0%, #851f1e 100%);
+    }
+  }
+
+  &.secondary {
+    border: 2px solid #CA3433;
+    color: #CA3433;
+    background: transparent;
+
+    &:hover {
+      background: #CA3433;
+      color: white;
+    }
+  }
+}
+
+// ===== KBadge Overrides =====
+.k-badge {
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+
+  &.success {
+    background: #10b981;
+    color: white;
+  }
+
+  &.warning {
+    background: #f59e0b;
+    color: white;
+  }
+
+  &.error {
+    background: #ef4444;
+    color: white;
+  }
+
+  &.info {
+    background: #3b82f6;
+    color: white;
+  }
+}
+
+// ===== KTabs Overrides =====
+.k-tabs {
+  .tabs-container {
+    border-bottom: 2px solid #e5e7eb;
+
+    .tab {
+      font-weight: 500;
+      padding: 12px 24px;
+      color: #6b7280;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: #CA3433;
+      }
+
+      &.active {
+        color: #CA3433;
+        border-bottom: 3px solid #CA3433;
+        margin-bottom: -2px;
+      }
+    }
+  }
+}
+
+// ===== KTable Overrides =====
+.k-table {
+  border-radius: 8px;
+  overflow: hidden;
+
+  thead {
+    background: #f9fafb;
+
+    th {
+      font-weight: 600;
+      color: #374151;
+      padding: 16px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #f9fafb;
+      }
+
+      td {
+        padding: 16px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+    }
+  }
+}
+
+// ===== KInput / Form Elements Overrides =====
+.k-input,
+.k-select,
+.k-textarea {
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  padding: 10px 16px;
+  transition: all 0.2s ease;
+
+  &:focus {
+    border-color: #CA3433;
+    box-shadow: 0 0 0 3px rgba(202, 52, 51, 0.1);
+    outline: none;
+  }
+
+  &:hover {
+    border-color: #d1d5db;
+  }
+}
+
+// ===== KDropdown Overrides =====
+.k-dropdown {
+  .dropdown-trigger {
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+    padding: 10px 16px;
+
+    &:hover {
+      border-color: #CA3433;
+    }
+  }
+
+  .dropdown-menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #e5e7eb;
+
+    .dropdown-item {
+      padding: 12px 16px;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #f9fafb;
+        color: #CA3433;
+      }
+    }
+  }
+}
+
+// ===== KCheckbox / KRadio Overrides =====
+.k-checkbox,
+.k-radio {
+  input[type="checkbox"],
+  input[type="radio"] {
+    &:checked {
+      background-color: #CA3433;
+      border-color: #CA3433;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(202, 52, 51, 0.1);
+    }
+  }
+}
+
+// ===== KTooltip Overrides =====
+.k-tooltip {
+  background: #1f2937;
+  color: white;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+// ===== KEmptyState Overrides =====
+// KongIcon'u tamamen bloke et
+.k-empty-state,
+.empty-state-wrapper,
+[class*="empty-state"] {
+  padding: 60px 20px;
+
+  // Tüm ikonları tamamen gizle - daha agresif
+  .empty-state-icon,
+  .icon,
+  svg,
+  i,
+  img,
+  span[class*="icon"],
+  .kong-icon,
+  .kui-icon,
+  [data-testid*="icon"],
+  [class*="KongIcon"],
+  .k-icon {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -99999px !important;
+    pointer-events: none !important;
+  }
+
+  .empty-state-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-top: 16px;
+  }
+
+  .empty-state-message {
+    color: #6b7280;
+    margin-top: 8px;
+  }
+}
+
+// KongIcon'u her yerde bloke et
+.kong-icon,
+.kui-icon,
+[class*="KongIcon"],
+svg.kong-icon,
+svg.kui-icon {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -99999px !important;
+  pointer-events: none !important;
+}
+
+// ===== KExternalLink Overrides =====
+.k-external-link {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+// ===== Loading States =====
+.k-skeleton,
+.k-spinner {
+  .spinner-circle {
+    stroke: #CA3433;
+  }
+}
+
+// ===== Alert / Toast Overrides =====
+.k-alert,
+.k-toast {
+  border-radius: 8px;
+  padding: 16px;
+
+  &.success {
+    background: #d1fae5;
+    border-left: 4px solid #10b981;
+    color: #065f46;
+  }
+
+  &.error {
+    background: #fee2e2;
+    border-left: 4px solid #ef4444;
+    color: #CA3433;
+  }
+
+  &.warning {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    color: #92400e;
+  }
+
+  &.info {
+    background: #dbeafe;
+    border-left: 4px solid #3b82f6;
+    color: #1e40af;
+  }
+}
+
+// ===== Navbar & Sidebar Background =====
+.kong-ui-app-navbar {
+  background: #CA3433 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+// ===== Sidebar Navigation Overrides =====
+.kong-ui-app-sidebar {
+  background: linear-gradient(180deg, #CA3433 0%, #2731a0 100%) !important;
+}
+
+// ===== UserMenu Modernization - Sağ Üste Taşındı =====
+// Sidebar footer'ı gizle
+.kong-ui-app-sidebar-footer {
+  display: none !important;
+}
+
+// Ana layout'ta sağ üst köşeye UserMenu ekle
+.kong-ui-app-layout {
+  .app-layout-header {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+  }
+}
+
+// UserMenu - Navbar içinde sol tarafta
+.user-menu-top-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #CA3433;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    .username {
+      color: white;
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .email {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 11px;
+      line-height: 1.2;
+    }
+  }
+
+  .user-actions {
+    display: flex;
+    gap: 8px;
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+
+    .action-button {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 6px 14px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+
+      &.logout {
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.4);
+        color: white;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.3);
+          border-color: white;
+        }
+      }
+    }
+  }
+}
+
+// ============================================
+// GLOBAL FONT SYSTEM - INTER FONT OPTIMIZATION
+// ============================================
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-weight: 400;
+  letter-spacing: -0.011em;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+strong, b {
+  font-weight: 600;
+}
+
+// ============================================
+// ENHANCED HOVER & TRANSITION EFFECTS
+// ============================================
+
+// Smooth transitions for all interactive elements
+a, button, input, textarea, select, [role="button"] {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+// Table row highlight
+.k-table tbody tr:hover,
+[class*="table"] tbody tr:hover {
+  background-color: rgba(202, 52, 51, 0.04) !important;
+  cursor: pointer;
+}
+
+// Input elegant focus
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: 0 0 0 4px rgba(202, 52, 51, 0.08) !important;
+  border-color: #CA3433 !important;
+}
+
+
+// ============================================
+// IMPROVED SCROLLBAR
+// ============================================
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CA3433;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a02827;
+}
+
+// ============================================
+// SMOOTH SCROLL & FOCUS IMPROVEMENTS
+// ============================================
+html {
+  scroll-behavior: smooth;
+}
+
+*:focus-visible {
+  outline: 3px solid rgba(202, 52, 51, 0.5) !important;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+// ============================================
+// LOADING STATES ANIMATION
+// ============================================
+[class*="loading"],
+[class*="spinner"],
+.k-skeleton {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

@@ -6,7 +6,7 @@
 
 <style scoped lang="scss">
 .support-text {
-  color: $kui-color-text;
+  color: #444444;
   margin-bottom: 16px;
 }
 </style>
