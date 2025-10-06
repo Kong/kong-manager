@@ -363,88 +363,15 @@ svg.kui-icon {
   }
 }
 
-// UserMenu - Navbar içinde sol tarafta
-.user-menu-top-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 16px;
-
-  .user-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #CA3433;
-    font-weight: 700;
-    font-size: 14px;
-  }
-
-  .user-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-
-    .username {
-      color: white;
-      font-weight: 600;
-      font-size: 13px;
-      line-height: 1.2;
-    }
-
-    .email {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 11px;
-      line-height: 1.2;
-    }
-  }
-
-  .user-actions {
-    display: flex;
-    gap: 8px;
-    margin-left: 12px;
-    padding-left: 12px;
-    border-left: 1px solid rgba(255, 255, 255, 0.2);
-
-    .action-button {
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: white;
-      padding: 6px 14px;
-      border-radius: 16px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 500;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.25);
-        border-color: rgba(255, 255, 255, 0.5);
-      }
-
-      &.logout {
-        background: rgba(255, 255, 255, 0.2);
-        border-color: rgba(255, 255, 255, 0.4);
-        color: white;
-
-        &:hover {
-          background: rgba(255, 255, 255, 0.3);
-          border-color: white;
-        }
-      }
-    }
-  }
-}
+// UserMenu - Navbar içinde dropdown olarak
+// Tüm stiller artık component'te scoped olarak tanımlı
+// Burada sadece temel düzen kuralları
 
 // ============================================
-// GLOBAL FONT SYSTEM - INTER FONT OPTIMIZATION
+// GLOBAL FONT SYSTEM - NOTO SANS FONT OPTIMIZATION
 // ============================================
 * {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
+  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

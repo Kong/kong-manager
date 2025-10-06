@@ -3,77 +3,75 @@
     class="traffic-chart-card"
     title="SERVICE TRAFFIC"
   >
-    <template #body>
-      <div class="chart-container">
-        <div
-          v-if="isLoading"
-          class="chart-loading"
-        >
-          <span class="loading-text">Loading metrics...</span>
+    <div class="chart-container">
+      <div
+        v-if="isLoading"
+        class="chart-loading"
+      >
+        <span class="loading-text">Loading metrics...</span>
+      </div>
+
+      <div
+        v-else-if="error"
+        class="chart-error"
+      >
+        <span class="error-icon">⚠️</span>
+        <span class="error-text">{{ error }}</span>
+      </div>
+
+      <div
+        v-else-if="serviceMetrics.length === 0"
+        class="chart-empty"
+      >
+        <span class="empty-icon">📊</span>
+        <span class="empty-text">No services found. Create a service to see traffic data.</span>
+      </div>
+
+      <div
+        v-else
+        class="chart-wrapper"
+      >
+        <!-- Doughnut Chart -->
+        <div class="chart-canvas">
+          <Doughnut
+            :data="chartData"
+            :options="chartOptions"
+          />
         </div>
 
-        <div
-          v-else-if="error"
-          class="chart-error"
-        >
-          <span class="error-icon">⚠️</span>
-          <span class="error-text">{{ error }}</span>
-        </div>
-
-        <div
-          v-else-if="serviceMetrics.length === 0"
-          class="chart-empty"
-        >
-          <span class="empty-icon">📊</span>
-          <span class="empty-text">No services found. Create a service to see traffic data.</span>
-        </div>
-
-        <div
-          v-else
-          class="chart-wrapper"
-        >
-          <!-- Doughnut Chart -->
-          <div class="chart-canvas">
-            <Doughnut
-              :data="chartData"
-              :options="chartOptions"
-            />
+        <!-- Legend -->
+        <div class="chart-legend">
+          <div class="legend-title">
+            Services
+          </div>
+          <div class="legend-items">
+            <div
+              v-for="metric in serviceMetrics"
+              :key="metric.id"
+              class="legend-item"
+            >
+              <span
+                class="legend-color"
+                :style="{ backgroundColor: metric.color }"
+              />
+              <span class="legend-name">{{ metric.name }}</span>
+              <span class="legend-value">{{ formatNumber(metric.requests) }}</span>
+            </div>
           </div>
 
-          <!-- Legend -->
-          <div class="chart-legend">
-            <div class="legend-title">
-              Services
-            </div>
-            <div class="legend-items">
-              <div
-                v-for="metric in serviceMetrics"
-                :key="metric.id"
-                class="legend-item"
-              >
-                <span
-                  class="legend-color"
-                  :style="{ backgroundColor: metric.color }"
-                />
-                <span class="legend-name">{{ metric.name }}</span>
-                <span class="legend-value">{{ formatNumber(metric.requests) }}</span>
-              </div>
-            </div>
-
-            <!-- Total -->
-            <div class="legend-total">
-              <span class="total-label">Total Requests</span>
-              <span class="total-value">{{ formatNumber(totalRequests) }}</span>
-            </div>
+          <!-- Total -->
+          <div class="legend-total">
+            <span class="total-label">Total Requests</span>
+            <span class="total-value">{{ formatNumber(totalRequests) }}</span>
           </div>
         </div>
       </div>
-    </template>
+    </div>
   </KCard>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { Doughnut } from 'vue-chartjs'
 import {
   Chart as ChartJS,
@@ -83,7 +81,8 @@ import {
   type ChartOptions,
 } from 'chart.js'
 import { KCard } from '@kong/kongponents'
-import { useServiceMetrics } from '@/composables/useServiceMetrics'
+import { storeToRefs } from 'pinia'
+import { useServiceMetricsStore } from '@/stores/serviceMetrics'
 
 // Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend)
@@ -92,7 +91,14 @@ defineOptions({
   name: 'ServiceTrafficChart',
 })
 
-const { serviceMetrics, isLoading, error } = useServiceMetrics()
+const store = useServiceMetricsStore()
+const { serviceMetrics, isLoading, error } = storeToRefs(store)
+
+onMounted(() => {
+  console.log('[ServiceTrafficChart] Component mounted, starting auto-refresh...')
+  // Service Traffic'i 60 saniyede bir güncelle (Connection metrics 5 saniyede bir)
+  store.startAutoRefresh(60000) // 60 seconds
+})
 
 // Format number with K, M suffixes
 const formatNumber = (num: number): string => {
@@ -260,6 +266,8 @@ const chartOptions = computed<ChartOptions<'doughnut'>>(() => ({
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .legend-title {
@@ -278,6 +286,7 @@ const chartOptions = computed<ChartOptions<'doughnut'>>(() => ({
   max-height: 250px;
   overflow-y: auto;
   padding-right: 8px;
+  max-width: 100%;
 
   // Custom scrollbar
   &::-webkit-scrollbar {
@@ -303,6 +312,8 @@ const chartOptions = computed<ChartOptions<'doughnut'>>(() => ({
   background: #f9fafb;
   border-radius: 8px;
   transition: all 0.2s ease;
+  min-width: 0;
+  max-width: 100%;
 
   &:hover {
     background: #f3f4f6;
@@ -326,12 +337,14 @@ const chartOptions = computed<ChartOptions<'doughnut'>>(() => ({
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 0;
 }
 
 .legend-value {
   font-size: 14px;
   font-weight: 600;
   color: #1f2937;
+  flex-shrink: 0;
 }
 
 // Total
@@ -343,17 +356,23 @@ const chartOptions = computed<ChartOptions<'doughnut'>>(() => ({
   background: linear-gradient(135deg, #CA3433 0%, #a02827 100%);
   border-radius: 8px;
   margin-top: 8px;
+  max-width: 100%;
+  min-width: 0;
 
   .total-label {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.9);
     font-weight: 500;
+    flex-shrink: 1;
+    min-width: 0;
   }
 
   .total-value {
     font-size: 18px;
     font-weight: 700;
     color: white;
+    flex-shrink: 0;
+    margin-left: 8px;
   }
 }
 
@@ -371,6 +390,48 @@ const chartOptions = computed<ChartOptions<'doughnut'>>(() => ({
   .chart-wrapper {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .chart-legend {
+    max-width: 100%;
+  }
+
+  .legend-item {
+    padding: 6px 10px;
+    gap: 8px;
+  }
+
+  .legend-total {
+    padding: 10px 12px;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    .total-label,
+    .total-value {
+      font-size: 12px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .legend-item {
+    padding: 6px 8px;
+  }
+
+  .legend-name {
+    font-size: 12px;
+  }
+
+  .legend-value {
+    font-size: 12px;
+  }
+
+  .legend-total {
+    padding: 8px 10px;
+
+    .total-value {
+      font-size: 14px;
+    }
   }
 }
 </style>
