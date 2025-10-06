@@ -35,6 +35,7 @@ interface MonitoringState {
   isLoading: boolean
   error: string | null
   lastUpdated: Date | null
+  isFirstLoad: boolean
 }
 
 export const useMonitoringStore = defineStore('monitoring', {
@@ -66,6 +67,7 @@ export const useMonitoringStore = defineStore('monitoring', {
     isLoading: false,
     error: null,
     lastUpdated: null,
+    isFirstLoad: true,
   }),
 
   getters: {
@@ -96,7 +98,10 @@ export const useMonitoringStore = defineStore('monitoring', {
 
   actions: {
     async fetchMetrics() {
-      this.isLoading = true
+      // Sadece ilk yüklemede loading göster
+      if (this.isFirstLoad) {
+        this.isLoading = true
+      }
       this.error = null
 
       try {
@@ -139,19 +144,21 @@ export const useMonitoringStore = defineStore('monitoring', {
               totalRequests: serverData.total_requests || 0,
             })
 
+            this.lastUpdated = new Date()
             return statusResponse.data
           })
           .catch((statusError: any) => {
             console.warn('Kong Status API error, using fallback values:', statusError)
             // Status API çağrısı başarısız olursa mevcut değerleri koru
           })
-
-        this.lastUpdated = new Date()
       } catch (error) {
         this.error = error instanceof Error ? error.message : 'Monitoring verileri alınamadı'
         console.error('Monitoring data fetch error:', error)
       } finally {
-        this.isLoading = false
+        if (this.isFirstLoad) {
+          this.isLoading = false
+          this.isFirstLoad = false
+        }
       }
     },
 

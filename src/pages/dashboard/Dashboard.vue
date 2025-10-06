@@ -148,8 +148,10 @@
       </KCard>
     </div>
 
-    <!-- Service Traffic Chart -->
-    <ServiceTrafficChart class="traffic-chart-section" />
+    <!-- Service Traffic Chart - KeepAlive ile gereksiz re-render'ları engelle -->
+    <KeepAlive>
+      <ServiceTrafficChart class="traffic-chart-section" />
+    </KeepAlive>
 
     <!-- Loading Overlay -->
     <div
@@ -179,7 +181,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
 import { useConnectionMonitoring } from '@/composables/useConnectionMonitoring'
+import { useServiceMetricsStore } from '@/stores/serviceMetrics'
 import PageHeader from '@/components/PageHeader.vue'
 import SupportText from '@/components/SupportText.vue'
 import ServiceTrafficChart from '@/components/ServiceTrafficChart.vue'
@@ -194,11 +198,14 @@ const {
   datastoreInfo,
   isLoading,
   error,
-  formattedTotalRequests,
   formattedAccepted,
   formattedHandled,
   clearError,
 } = useConnectionMonitoring()
+
+// Get service-based total requests from shared store
+const serviceMetricsStore = useServiceMetricsStore()
+const { formattedTotalRequests } = storeToRefs(serviceMetricsStore)
 
 const formatAdminListen = computed(() => {
   if (!nodeInfo.value.adminListen || nodeInfo.value.adminListen.length === 0) {
