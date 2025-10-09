@@ -1,6 +1,13 @@
 <template>
   <div class="login-container">
     <div class="login-card">
+      <div class="login-logo">
+        <img
+          src="@/assets/apiruler-logo.svg"
+          alt="ApiRuler Logo"
+          class="logo-image"
+        >
+      </div>
       <div class="login-header">
         <h2>ApiRuler Manager</h2>
         <p>Lütfen giriş yapın</p>
@@ -127,6 +134,17 @@ const handleLogin = async () => {
   padding: 40px;
   width: 100%;
   max-width: 400px;
+}
+
+.login-logo {
+  text-align: center;
+  margin-bottom: 30px;
+
+  .logo-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
 }
 
 .login-header {

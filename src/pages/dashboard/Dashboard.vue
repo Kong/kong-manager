@@ -83,6 +83,11 @@
       <span class="warning-text">No active connections detected. Kong Gateway appears to be idle.</span>
     </div>
 
+    <!-- Service Traffic Chart - KeepAlive ile gereksiz re-render'ları engelle -->
+    <KeepAlive>
+      <ServiceTrafficChart class="traffic-chart-section" />
+    </KeepAlive>
+
     <!-- Info Cards Grid -->
     <div class="info-cards-grid">
       <!-- NODE INFO Card -->
@@ -147,11 +152,6 @@
         </div>
       </KCard>
     </div>
-
-    <!-- Service Traffic Chart - KeepAlive ile gereksiz re-render'ları engelle -->
-    <KeepAlive>
-      <ServiceTrafficChart class="traffic-chart-section" />
-    </KeepAlive>
 
     <!-- Loading Overlay -->
     <div
