@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { keycloak, loginWithPassword } from '@/keycloak'
 
 export interface User {
   username: string
@@ -8,50 +9,46 @@ export interface User {
 
 export const useAuthStore = defineStore('auth', () => {
   const user = ref<User | null>(null)
-  const isAuthenticated = computed(() => !!user.value)
+  const isAuthenticated = computed(() => !!user.value && keycloak.authenticated)
 
-  // Basit kullanıcı girişi (gerçek uygulamada API çağrısı yapılmalı)
-  const login = async (username: string, password: string): Promise<boolean> => {
-    // Demo için sabit kullanıcı bilgileri
-    if (username === 'admin' && password === 'admin123') {
+  // Keycloak'tan kullanıcı bilgisini yükle
+  const loadUserFromKeycloak = () => {
+    if (keycloak.authenticated && keycloak.tokenParsed) {
       user.value = {
-        username: 'admin',
-        email: 'admin@apiruler.com',
+        username: keycloak.tokenParsed.preferred_username || 'Unknown',
+        email: keycloak.tokenParsed.email,
       }
-      localStorage.setItem('auth_user', JSON.stringify(user.value))
-      return true
     }
-    return false
   }
 
-  // Şifre değiştirme
-  const changePassword = async (currentPassword: string, newPassword: string): Promise<boolean> => {
-    // Demo için mevcut şifre kontrolü
-    if (currentPassword === 'admin123') {
-      // Gerçek uygulamada API çağrısı yapılmalı
-      console.log('Şifre değiştirildi:', newPassword)
-      return true
+  // Keycloak ROPC flow ile login
+  const login = async (username: string, password: string): Promise<boolean> => {
+    const success = await loginWithPassword(username, password)
+    if (success) {
+      loadUserFromKeycloak()
     }
-    return false
+    return success
   }
 
-  // Çıkış yapma
+  // Şifre değiştirme - Keycloak account management sayfasına yönlendir
+  const changePassword = async (_currentPassword: string, _newPassword: string): Promise<boolean> => {
+    // Keycloak account management sayfasını aç
+    const accountUrl = `${keycloak.authServerUrl}/realms/${keycloak.realm}/account`
+    window.open(accountUrl, '_blank')
+    return true
+  }
+
+  // Çıkış yapma - Keycloak logout
   const logout = () => {
+    keycloak.logout({
+      redirectUri: window.location.origin,
+    })
     user.value = null
-    localStorage.removeItem('auth_user')
   }
 
-  // Sayfa yenilendiğinde kullanıcı bilgisini geri yükle
+  // Sayfa yenilendiğinde kullanıcı bilgisini geri yükle (artık Keycloak'tan)
   const restoreUser = () => {
-    const savedUser = localStorage.getItem('auth_user')
-    if (savedUser) {
-      try {
-        user.value = JSON.parse(savedUser)
-      } catch (error) {
-        console.error('Kullanıcı bilgisi yüklenemedi:', error)
-        localStorage.removeItem('auth_user')
-      }
-    }
+    loadUserFromKeycloak()
   }
 
   return {
@@ -61,5 +58,6 @@ export const useAuthStore = defineStore('auth', () => {
     logout,
     changePassword,
     restoreUser,
+    loadUserFromKeycloak,
   }
 })

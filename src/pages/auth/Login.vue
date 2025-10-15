@@ -23,7 +23,7 @@
             id="username"
             v-model="formData.username"
             type="text"
-            placeholder="admin"
+            placeholder="Kullanıcı adınızı girin"
             autocomplete="username"
             required
             class="form-input"
@@ -36,7 +36,7 @@
             id="password"
             v-model="formData.password"
             type="password"
-            placeholder="admin123"
+            placeholder="Şifrenizi girin"
             autocomplete="current-password"
             required
             class="form-input"

@@ -1,0 +1,32 @@
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.4.0
+    container_name: keycloak
+    ports:
+      - "7080:8080"
+    environment:
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      KC_HTTP_ENABLED: "true"
+      KC_HOSTNAME_STRICT: "false"
+      KC_HOSTNAME_STRICT_HTTPS: "false"
+    volumes:
+      - ./keycloak-theme/apiruler:/opt/keycloak/themes/apiruler
+      - ./keycloak-init.sh:/opt/keycloak/bin/init.sh
+      - keycloak-data:/opt/keycloak/data
+    command: start-dev
+    restart: unless-stopped
+
+  keycloak-init:
+    image: quay.io/keycloak/keycloak:26.4.0
+    container_name: keycloak-init
+    depends_on:
+      - keycloak
+    entrypoint: ["/bin/bash", "/opt/keycloak/bin/init.sh"]
+    volumes:
+      - ./keycloak-init.sh:/opt/keycloak/bin/init.sh
+    network_mode: "service:keycloak"
+    restart: "no"
+
+volumes:
+  keycloak-data:

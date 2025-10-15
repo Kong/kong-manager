@@ -77,6 +77,9 @@ importers:
       dayjs:
         specifier: ^1.11.13
         version: 1.11.18
+      keycloak-js:
+        specifier: ^26.2.1
+        version: 26.2.1
       monaco-editor:
         specifier: 0.52.2
         version: 0.52.2
@@ -2104,6 +2107,9 @@ packages:
 
   jsonfile@6.2.0:
     resolution: {integrity: sha512-FGuPw30AdOIUTRMC2OMRtQV+jkVj2cfPqSeWXv1NEAJ1qZ5zb1X6z1mFhbfOB/iy3ssJCD+3KuZ8r8C3uVFlAg==}
+
+  keycloak-js@26.2.1:
+    resolution: {integrity: sha512-bZt6fQj/TLBAmivXSxSlqAJxBx/knNZDQGJIW4ensGYGN4N6tUKV8Zj3Y7/LOV8eIpvWsvqV70fbACihK8Ze0Q==}
 
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
@@ -4907,6 +4913,8 @@ snapshots:
       universalify: 2.0.1
     optionalDependencies:
       graceful-fs: 4.2.11
+
+  keycloak-js@26.2.1: {}
 
   keyv@4.5.4:
     dependencies:
