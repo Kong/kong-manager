@@ -44,10 +44,8 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted, onUnmounted } from 'vue'
-import { useRouter } from 'vue-router'
 import { useAuth } from '@/composables/useAuth'
 
-const router = useRouter()
 const { user, isAuthenticated, logout } = useAuth()
 
 const isDropdownOpen = ref(false)
@@ -69,7 +67,9 @@ const menuItems = computed<MenuItem[]>(() => [
     label: 'Şifre Değiştir',
     action: () => {
       closeDropdown()
-      router.push('/change-password')
+      // Keycloak account management sayfasını aç
+      const accountUrl = 'http://localhost:7080/realms/master/account'
+      window.open(accountUrl, '_blank')
     },
     danger: false,
   },
@@ -78,7 +78,7 @@ const menuItems = computed<MenuItem[]>(() => [
     action: () => {
       closeDropdown()
       logout()
-      router.push('/login')
+      // Keycloak logout otomatik olarak redirect yapıyor, router.push'a gerek yok
     },
     danger: true,
   },

@@ -24,3 +24,11 @@ bundle-analyzer
 *.njsproj
 *.sln
 *.sw?
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Docker volumes (managed by docker-compose)
+# Note: keycloak-theme/ should be committed

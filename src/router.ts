@@ -4,7 +4,6 @@ import {
 
 import { config } from 'config'
 import { useInfoStore } from './stores/info'
-import { useAuthStore } from './stores/auth'
 
 const routes: RouteRecordRaw[] = [
   // auth pages
@@ -537,25 +536,29 @@ export const router = createRouter({
   routes,
 })
 
-router.beforeEach((to, from, next) => {
+// Router guard - Authentication kontrolü
+router.beforeEach(async (to, from, next) => {
   const infoStore = useInfoStore()
-  const authStore = useAuthStore()
 
-  // Kullanıcı bilgisini geri yükle
-  authStore.restoreUser()
+  // Lazy import to avoid circular dependency
+  const { keycloak } = await import('@/keycloak')
 
-  // Auth kontrolü
-  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-    next('/login')
-    return
-  }
-
-  // Zaten giriş yapmış kullanıcı login sayfasına gitmeye çalışırsa ana sayfaya yönlendir
-  if (to.name === 'login' && authStore.isAuthenticated) {
+  // Login sayfasına gidiliyorsa ve authenticated ise, ana sayfaya yönlendir
+  if (to.name === 'login' && keycloak.authenticated) {
     next('/')
     return
   }
 
-  infoStore.getInfo({ silent: true })
+  // Protected route ve authenticated değilse, login sayfasına yönlendir
+  if (to.meta.requiresAuth && !keycloak.authenticated) {
+    next('/login')
+    return
+  }
+
+  // Info store'u güncelle (authenticated ise)
+  if (keycloak.authenticated) {
+    infoStore.getInfo({ silent: true })
+  }
+
   next()
 })
