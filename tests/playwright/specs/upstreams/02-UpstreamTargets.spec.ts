@@ -57,8 +57,8 @@ test.describe('upstreams', () => {
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
     await row.locator('[data-testid="row-actions-dropdown-trigger"]').click()
-    await expect(row.locator('[data-testid="action-target-mark-healthy"]')).not.toBeVisible()
-    await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).not.toBeVisible()
+    await expect(page.locator('[data-testid="action-target-mark-healthy"]')).not.toBeVisible()
+    await expect(page.locator('[data-testid="action-target-mark-unhealthy"]')).not.toBeVisible()
   })
 
   test('enable active healthcheck, mark healthy/unhealthy should appear in the menu', async ({ page }) => {
@@ -81,8 +81,8 @@ test.describe('upstreams', () => {
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
     await row.locator('[data-testid="row-actions-dropdown-trigger"]').click()
-    await expect(row.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
-    await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
+    await expect(page.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
+    await expect(page.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
   })
 
   test('enable passive healthcheck, mark healthy/unhealthy should appear in the menu', async ({ page }) => {
@@ -106,8 +106,8 @@ test.describe('upstreams', () => {
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
     await row.locator('[data-testid="row-actions-dropdown-trigger"]').click()
-    await expect(row.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
-    await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
+    await expect(page.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
+    await expect(page.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
   })
 
   test('enable active+passive healthcheck, mark healthy/unhealthy should appear in the menu', async ({ page }) => {
@@ -130,8 +130,8 @@ test.describe('upstreams', () => {
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
     await row.locator('[data-testid="row-actions-dropdown-trigger"]').click()
-    await expect(row.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
-    await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
+    await expect(page.locator('[data-testid="action-target-mark-healthy"]')).toBeVisible()
+    await expect(page.locator('[data-testid="action-target-mark-unhealthy"]')).toBeVisible()
   })
 
   test('hybrid mode: mark healthy/unhealthy should not appear in the menu', async ({ page }) => {
@@ -152,7 +152,7 @@ test.describe('upstreams', () => {
     const row = page.locator('.kong-ui-entities-targets-list').locator('tbody tr').first()
 
     await row.locator('[data-testid="row-actions-dropdown-trigger"]').click()
-    await expect(row.locator('[data-testid="action-target-mark-healthy"]')).not.toBeVisible()
-    await expect(row.locator('[data-testid="action-target-mark-unhealthy"]')).not.toBeVisible()
+    await expect(page.locator('[data-testid="action-target-mark-healthy"]')).not.toBeVisible()
+    await expect(page.locator('[data-testid="action-target-mark-unhealthy"]')).not.toBeVisible()
   })
 })
