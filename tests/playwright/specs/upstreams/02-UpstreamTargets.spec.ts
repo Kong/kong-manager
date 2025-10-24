@@ -48,7 +48,7 @@ test.describe('upstreams', () => {
     await page.locator('[data-testid="target-form-target"]').type('123')
     await page.locator('.k-prompt [data-testid="modal-action-button"]').click()
     await expect(page.locator('.kong-ui-entities-target-form [data-testid="form-error"]')).toBeVisible()
-    await expect(page.locator('.kong-ui-entities-target-form [data-testid="form-error"]')).toHaveText('schema violation (target: Invalid target (\'123\'); not a valid hostname or ip address)')
+    await expect(page.locator('.kong-ui-entities-target-form [data-testid="form-error"]')).toHaveText('schema violation (target: Invalid target; not a valid hostname or ip address)')
   })
 
   test('mark healthy/unhealthy should not appear in the menu', async ({ page }) => {
