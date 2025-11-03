@@ -3,19 +3,9 @@ import {
 } from 'vue-router'
 
 import { config } from 'config'
-import { useInfoStore } from './stores/info'
 
 const routes: RouteRecordRaw[] = [
   // auth pages
-  {
-    name: 'login',
-    path: '/login',
-    component: () => import('@/pages/auth/Login.vue'),
-    meta: {
-      title: 'Giriş Yap',
-      requiresAuth: false,
-    },
-  },
   {
     name: 'change-password',
     path: '/change-password',
@@ -538,25 +528,32 @@ export const router = createRouter({
 
 // Router guard - Authentication kontrolü
 router.beforeEach(async (to, from, next) => {
-  const infoStore = useInfoStore()
-
   // Lazy import to avoid circular dependency
   const { keycloak } = await import('@/keycloak')
 
-  // Login sayfasına gidiliyorsa ve authenticated ise, ana sayfaya yönlendir
-  if (to.name === 'login' && keycloak.authenticated) {
-    next('/')
+  // Keycloak callback URL'ini kontrol et (code ve state parametreleri var)
+  const isKeycloakCallback = to.query.code && to.query.state
+
+  // Callback URL ise, Keycloak'un işlemesine izin ver
+  if (isKeycloakCallback) {
+    next()
     return
   }
 
-  // Protected route ve authenticated değilse, login sayfasına yönlendir
+  // Protected route ve authenticated değilse, Keycloak login'e yönlendir
   if (to.meta.requiresAuth && !keycloak.authenticated) {
-    next('/login')
+    keycloak.login({
+      redirectUri: window.location.origin + to.fullPath,
+    })
+    // Navigation'ı iptal et (Keycloak sayfasına yönlendiriliyor)
+    next(false)
     return
   }
 
   // Info store'u güncelle (authenticated ise)
   if (keycloak.authenticated) {
+    const { useInfoStore } = await import('./stores/info')
+    const infoStore = useInfoStore()
     infoStore.getInfo({ silent: true })
   }
 
