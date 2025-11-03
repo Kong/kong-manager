@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import { keycloak, loginWithPassword } from '@/keycloak'
+import { keycloak } from '@/keycloak'
 
 export interface User {
   username: string
@@ -21,13 +21,11 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
-  // Keycloak ROPC flow ile login
-  const login = async (username: string, password: string): Promise<boolean> => {
-    const success = await loginWithPassword(username, password)
-    if (success) {
-      loadUserFromKeycloak()
-    }
-    return success
+  // Keycloak login sayfasına yönlendir (Authorization Code Flow)
+  const login = () => {
+    keycloak.login({
+      redirectUri: window.location.origin,
+    })
   }
 
   // Şifre değiştirme - Keycloak account management sayfasına yönlendir

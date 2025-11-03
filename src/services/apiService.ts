@@ -8,10 +8,13 @@ import { useAxios } from '@kong-ui-public/entities-shared'
 const adminApiUrl = config.ADMIN_API_URL
 
 class ApiService {
-  instance: AxiosInstance
+  private _instance: AxiosInstance | null = null
 
-  constructor() {
-    this.instance = useAxios().axiosInstance
+  get instance(): AxiosInstance {
+    if (!this._instance) {
+      this._instance = useAxios().axiosInstance
+    }
+    return this._instance
   }
 
   getInfo() {
