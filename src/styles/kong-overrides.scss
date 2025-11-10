@@ -2,39 +2,9 @@
 // Bu dosya tüm Kong component'lerinin görünümünü özelleştirir
 
 // ===== KongIcon'u Tamamen Gizle =====
-// Global - her yerde çalış
 .kong-icon,
-.kui-icon,
-[data-testid="kui-icon-wrapper-kong-icon"],
-[class*="kong-icon"],
-[class*="kui-icon"] {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  width: 0 !important;
-  height: 0 !important;
-  position: absolute !important;
-  left: -9999px !important;
-}
-
-// Deep selector da ekle
-.kong-icon,
-.kui-icon,
 [data-testid="kui-icon-wrapper-kong-icon"] {
   display: none !important;
-  visibility: hidden !important;
-}
-
-// ===== KCard Overrides =====
-.k-card {
-  // KongIcon'u gizle
-  .kong-icon,
-  .card-icon,
-  svg,
-  [class*="icon"],
-  i {
-    display: none !important;
-  }
 }
 
 // ===== KButton Overrides =====
@@ -43,7 +13,7 @@
   font-weight: 500;
   text-transform: none;
   padding: 10px 20px;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
   &.primary {
     background: linear-gradient(135deg, #CA3433 0%, #a02827 100%);
@@ -103,7 +73,7 @@
       font-weight: 500;
       padding: 12px 24px;
       color: #6b7280;
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 
       &:hover {
         color: #CA3433;
@@ -119,82 +89,61 @@
 }
 
 // ===== KTable Overrides =====
-.k-table {
-  border-radius: 8px;
-  overflow: hidden;
 
-  thead {
-    background: #f9fafb;
-
-    th {
-      font-weight: 600;
-      color: #374151;
-      padding: 16px;
-      border-bottom: 2px solid #e5e7eb;
-    }
-  }
-
-  tbody {
-    tr {
-      transition: background 0.2s ease;
-
-      &:hover {
-        background: #f9fafb;
-      }
-
-      td {
-        padding: 16px;
-        border-bottom: 1px solid #e5e7eb;
-      }
-    }
-  }
-}
 
 // ===== KInput / Form Elements Overrides =====
-.k-input,
-.k-select,
-.k-textarea {
-  border-radius: 8px;
-  border: 2px solid #e5e7eb;
-  padding: 10px 16px;
-  transition: all 0.2s ease;
 
-  &:focus {
-    border-color: #CA3433;
-    box-shadow: 0 0 0 3px rgba(202, 52, 51, 0.1);
-    outline: none;
-  }
+.k-select {
+  .select-input {
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+    padding: 10px 16px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    background: white;
 
-  &:hover {
-    border-color: #d1d5db;
+    &:hover {
+      border-color: #d1d5db;
+    }
+
+    &:focus,
+    &.focused {
+      border-color: #CA3433;
+      box-shadow: 0 0 0 4px rgba(202, 52, 51, 0.08);
+      outline: none;
+    }
   }
 }
 
-// ===== KDropdown Overrides =====
-.k-dropdown {
-  .dropdown-trigger {
+.k-textarea {
+  textarea {
+    border-radius: 8px;
+    border: 2px solid #e5e7eb;
+    padding: 10px 16px;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 14px;
+
+    &:focus {
+      border-color: #CA3433;
+      box-shadow: 0 0 0 4px rgba(202, 52, 51, 0.08);
+      outline: none;
+    }
+
+    &:hover {
+      border-color: #d1d5db;
+    }
+  }
+}
+
+// ===== KDropdown & KPop Overrides =====
+.k-dropdown,
+.k-pop {
+  .popover-trigger {
     border-radius: 8px;
     border: 2px solid #e5e7eb;
     padding: 10px 16px;
 
     &:hover {
       border-color: #CA3433;
-    }
-  }
-
-  .dropdown-menu {
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    border: 1px solid #e5e7eb;
-
-    .dropdown-item {
-      padding: 12px 16px;
-      transition: all 0.2s ease;
-
-      &:hover {
-        background: #f9fafb;
-        color: #CA3433;
-      }
     }
   }
 }
@@ -210,7 +159,7 @@
     }
 
     &:focus {
-      box-shadow: 0 0 0 3px rgba(202, 52, 51, 0.1);
+      box-shadow: 0 0 0 4px rgba(202, 52, 51, 0.08);
     }
   }
 }
@@ -225,64 +174,6 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-// ===== KEmptyState Overrides =====
-// KongIcon'u tamamen bloke et
-.k-empty-state,
-.empty-state-wrapper,
-[class*="empty-state"] {
-  padding: 60px 20px;
-
-  // Tüm ikonları tamamen gizle - daha agresif
-  .empty-state-icon,
-  .icon,
-  svg,
-  i,
-  img,
-  span[class*="icon"],
-  .kong-icon,
-  .kui-icon,
-  [data-testid*="icon"],
-  [class*="KongIcon"],
-  .k-icon {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    width: 0 !important;
-    height: 0 !important;
-    position: absolute !important;
-    left: -99999px !important;
-    pointer-events: none !important;
-  }
-
-  .empty-state-title {
-    font-size: 20px;
-    font-weight: 600;
-    color: #1f2937;
-    margin-top: 16px;
-  }
-
-  .empty-state-message {
-    color: #6b7280;
-    margin-top: 8px;
-  }
-}
-
-// KongIcon'u her yerde bloke et
-.kong-icon,
-.kui-icon,
-[class*="KongIcon"],
-svg.kong-icon,
-svg.kui-icon {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  width: 0 !important;
-  height: 0 !important;
-  position: absolute !important;
-  left: -99999px !important;
-  pointer-events: none !important;
-}
-
 // ===== KExternalLink Overrides =====
 .k-external-link {
   display: none !important;
@@ -293,8 +184,19 @@ svg.kui-icon {
 // ===== Loading States =====
 .k-skeleton,
 .k-spinner {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
   .spinner-circle {
     stroke: #CA3433;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
   }
 }
 
@@ -335,41 +237,19 @@ svg.kui-icon {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
-// ===== Sidebar Navigation Overrides =====
 .kong-ui-app-sidebar {
   background: linear-gradient(180deg, #CA3433 0%, #2731a0 100%) !important;
 }
 
-// ===== UserMenu Modernization - Sağ Üste Taşındı =====
-// Sidebar footer'ı gizle
 .kong-ui-app-sidebar-footer {
   display: none !important;
 }
 
-// Ana layout'ta sağ üst köşeye UserMenu ekle
-.kong-ui-app-layout {
-  .app-layout-header {
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-  }
-}
-
-// UserMenu - Navbar içinde dropdown olarak
-// Tüm stiller artık component'te scoped olarak tanımlı
-// Burada sadece temel düzen kuralları
-
 // ============================================
-// GLOBAL FONT SYSTEM - NOTO SANS FONT OPTIMIZATION
+// GLOBAL STYLES
 // ============================================
+
+// Font System
 * {
   font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
   -webkit-font-smoothing: antialiased;
@@ -393,34 +273,12 @@ strong, b {
   font-weight: 600;
 }
 
-// ============================================
-// ENHANCED HOVER & TRANSITION EFFECTS
-// ============================================
-
-// Smooth transitions for all interactive elements
+// Smooth Transitions
 a, button, input, textarea, select, [role="button"] {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-// Table row highlight
-.k-table tbody tr:hover,
-[class*="table"] tbody tr:hover {
-  background-color: rgba(202, 52, 51, 0.04) !important;
-  cursor: pointer;
-}
-
-// Input elegant focus
-input:focus,
-textarea:focus,
-select:focus {
-  box-shadow: 0 0 0 4px rgba(202, 52, 51, 0.08) !important;
-  border-color: #CA3433 !important;
-}
-
-
-// ============================================
-// IMPROVED SCROLLBAR
-// ============================================
+// Scrollbar
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -441,33 +299,14 @@ select:focus {
   background: #a02827;
 }
 
-// ============================================
-// SMOOTH SCROLL & FOCUS IMPROVEMENTS
-// ============================================
+// Smooth Scroll
 html {
   scroll-behavior: smooth;
 }
 
+// Focus Visible
 *:focus-visible {
   outline: 3px solid rgba(202, 52, 51, 0.5) !important;
   outline-offset: 2px;
   border-radius: 6px;
-}
-
-// ============================================
-// LOADING STATES ANIMATION
-// ============================================
-[class*="loading"],
-[class*="spinner"],
-.k-skeleton {
-  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
 }
