@@ -1,5 +1,6 @@
 import { expect } from '@playwright/test'
 import baseTest from '@pw/base-test'
+import { autocompleteDeleteModal } from '@pw/commands/autocompleteDeleteModal'
 import { clearKongResources } from '@pw/commands/clearKongResources'
 import { clickEntityListAction } from '@pw/commands/clickEntityListAction'
 import { createKongResource } from '@pw/commands/createKongResource'
@@ -204,8 +205,7 @@ test.describe('keys', () => {
 
   test('delete a key', async ({ page }) => {
     await clickEntityListAction(page, 'delete')
-    await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
-    await page.locator('.kong-ui-entity-delete-modal [data-testid="modal-action-button"]').click()
+    await autocompleteDeleteModal(page)
     await waitAndDismissToasts(page)
     await expect(page.locator('.table-empty-state')).toBeVisible()
   })
