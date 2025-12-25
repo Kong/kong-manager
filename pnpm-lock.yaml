@@ -103,8 +103,8 @@ importers:
         specifier: ^20.3.1
         version: 20.4.2
       '@vitejs/plugin-vue':
-        specifier: ^5.2.1
-        version: 5.2.1(vite@6.4.1(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0))(vue@3.5.22(typescript@5.4.5))
+        specifier: ^5.2.4
+        version: 5.2.4(vite@6.4.1(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0))(vue@3.5.22(typescript@5.4.5))
       '@vue/tsconfig':
         specifier: ^0.5.1
         version: 0.5.1
@@ -1156,8 +1156,8 @@ packages:
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
 
-  '@vitejs/plugin-vue@5.2.1':
-    resolution: {integrity: sha512-cxh314tzaWwOLqVes2gnnCtvBDcM1UMdn+iFR+UjAn411dPT3tOmqrJjbMd7koZpMAmBM/GqeV4n9ge7JSiJJQ==}
+  '@vitejs/plugin-vue@5.2.4':
+    resolution: {integrity: sha512-7Yx/SXSOcQq5HiiV3orevHUFn+pmMB4cgbEkDYgnkUWb0WfeQ/wa2yFv6D5ICiCQOVpjA7vYDXrC7AGO8yjDHA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     peerDependencies:
       vite: ^5.0.0 || ^6.0.0
@@ -4221,7 +4221,7 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@vitejs/plugin-vue@5.2.1(vite@6.4.1(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0))(vue@3.5.22(typescript@5.4.5))':
+  '@vitejs/plugin-vue@5.2.4(vite@6.4.1(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0))(vue@3.5.22(typescript@5.4.5))':
     dependencies:
       vite: 6.4.1(@types/node@20.4.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.5.0)
       vue: 3.5.22(typescript@5.4.5)
