@@ -1,0 +1,148 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "timezone": "Asia/Shanghai",
+  "schedule": [
+    "before 6:40am on Friday"
+  ],
+  "prConcurrentLimit": 10,
+  "automerge": false,
+  "labels": [
+    "dependencies"
+  ],
+  "enabledManagers": [
+    "npm"
+  ],
+  "rangeStrategy": "bump",
+  "hostRules": [
+    {
+      "hostType": "npm",
+      "matchHost": "registry.npmjs.org"
+    }
+  ],
+  "ignorePaths": [
+    "**/node_modules/**"
+  ],
+  "packageRules": [
+    {
+      "description": "Disable all other dependency updates by default",
+      "enabled": false,
+      "matchPackageNames": [
+        "*"
+      ]
+    },
+    {
+      "description": "@kong/* and @kong-ui-public/* dependencies group",
+      "groupName": "kong packages",
+      "enabled": true,
+      "matchPackageNames": [
+        "/^@kong//",
+        "/^@kong-ui-public//"
+      ]
+    },
+    {
+      "description": "@playwright/test",
+      "groupName": "playwright",
+      "enabled": true,
+      "matchPackageNames": [
+        "@playwright/test"
+      ]
+    },
+    {
+      "description": "Explicitly enable Vue and Vite ecosystem",
+      "enabled": true,
+      "matchPackageNames": [
+        "vue",
+        "vue-router",
+        "pinia",
+        "vite",
+        "vite-plugin-html",
+        "vitest",
+        "/^@vitejs//"
+      ]
+    },
+    {
+      "description": "Vue ecosystem - patch updates",
+      "groupName": "vue ecosystem (patch)",
+      "matchPackageNames": [
+        "vue",
+        "vue-router",
+        "pinia"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "minimumReleaseAge": "7 days"
+    },
+    {
+      "description": "Vue ecosystem - minor updates",
+      "groupName": "vue ecosystem (minor)",
+      "matchPackageNames": [
+        "vue",
+        "vue-router",
+        "pinia"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "minimumReleaseAge": "30 days"
+    },
+    {
+      "description": "Vue ecosystem - major updates",
+      "groupName": "vue ecosystem (major)",
+      "matchPackageNames": [
+        "vue",
+        "vue-router",
+        "pinia"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "minimumReleaseAge": "60 days"
+    },
+    {
+      "description": "Vite ecosystem - patch updates",
+      "groupName": "vite ecosystem (patch)",
+      "matchPackageNames": [
+        "vite",
+        "vite-plugin-html",
+        "vitest",
+        "/^@vitejs//"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "minimumReleaseAge": "7 days"
+    },
+    {
+      "description": "Vite ecosystem - minor updates",
+      "groupName": "vite ecosystem (minor)",
+      "matchPackageNames": [
+        "vite",
+        "vite-plugin-html",
+        "vitest",
+        "/^@vitejs//"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "minimumReleaseAge": "30 days"
+    },
+    {
+      "description": "Vite ecosystem - major updates",
+      "groupName": "vite ecosystem (major)",
+      "matchPackageNames": [
+        "vite",
+        "vite-plugin-html",
+        "vitest",
+        "/^@vitejs//"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "minimumReleaseAge": "60 days"
+    }
+  ]
+}
