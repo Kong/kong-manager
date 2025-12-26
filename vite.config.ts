@@ -51,7 +51,6 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern',
         additionalData: '@use "@kong/design-tokens/tokens/scss/variables" as *;',
       },
     },
