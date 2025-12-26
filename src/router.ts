@@ -425,7 +425,7 @@ entities.forEach((entityName: EntityName) => {
   const entity = typeof entityName === 'string' ? { key: entityName } : entityName
 
   entity.keyPlural = entity.keyPlural ?? `${entity.key}s`
-  entity.capitalizedName = entity.capitalizedName ?? `${entity.key.charAt(0).toUpperCase()}${entity.key.slice(1)}`.replace(/(-[a-z])/, ([_, letter]) => ` ${letter.toUpperCase()}`)
+  entity.capitalizedName = entity.capitalizedName ?? `${entity.key.charAt(0).toUpperCase()}${entity.key.slice(1)}`.replace(/(-[a-z])/, ([_, letter]) => ` ${letter!.toUpperCase()}`)
   entity.capitalizedNamePlural = `${entity.capitalizedName}s`
 
   routes.push(

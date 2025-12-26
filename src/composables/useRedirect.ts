@@ -10,7 +10,7 @@ export const useURLFromRouteQuery = (urlKey: string) => {
     let url: LocationQueryValue = null
 
     if (Array.isArray(query)) {
-      url = query[0]
+      url = query[0]!
       console.warn(`useURLFromRouteQuery: "${urlKey}" in query should not be an array, using first element this time`)
     } else if (typeof query === 'string') {
       url = query

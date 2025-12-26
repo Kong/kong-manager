@@ -50,7 +50,7 @@ const credentialPlugins = [
 ]
   .filter(plugin => !!pluginMeta[plugin])
   .map(plugin => ({
-    title: pluginMeta[plugin].name,
+    title: pluginMeta[plugin]!.name,
     pluginType: plugin,
   }))
 

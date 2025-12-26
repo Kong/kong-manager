@@ -77,14 +77,14 @@
             class="node-log-level-container"
           >
             <KBadge appearance="info">
-              {{ capitalize(nodeLogLevel[row.id].current_level) }}
+              {{ capitalize(nodeLogLevel[row.id]!.current_level) }}
             </KBadge>
             <KTooltip
-              v-if="nodeLogLevel[row.id].current_level !== nodeLogLevel[row.id].original_level"
+              v-if="nodeLogLevel[row.id]!.current_level !== nodeLogLevel[row.id]!.original_level"
               max-width="180"
               :text="t('entities.dp-nodes.tooltips.revert', {
-                level: capitalize(nodeLogLevel[row.id].original_level),
-                time: formatDateFromTimeout(nodeLogLevel[row.id].timeout),
+                level: capitalize(nodeLogLevel[row.id]!.original_level),
+                time: formatDateFromTimeout(nodeLogLevel[row.id]!.timeout),
               })"
             >
               <InfoIcon
@@ -230,7 +230,7 @@ const hasLogLevelChanged = ref<boolean>(false) // if some log level has been cha
 
 const nodeCurrentLogLevel = computed<Map<string, LogLevel>>(() => {
   return Object.keys(nodeLogLevel.value).reduce((acc, id) => {
-    acc.set(id, nodeLogLevel.value[id].current_level)
+    acc.set(id, nodeLogLevel.value[id]!.current_level)
 
     return acc
   }, new Map())
