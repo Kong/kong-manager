@@ -4,6 +4,7 @@ import path from 'path'
 import autoprefixer from 'autoprefixer'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { visualizer } from 'rollup-plugin-visualizer'
+import monaco from '@kong-ui-public/monaco-editor/vite-plugin'
 
 const basePath = process.env.NODE_ENV !== 'production' || process.env.DISABLE_BASE_PATH === 'true' ? '/' : '/__km_base__/'
 
@@ -37,6 +38,9 @@ export default defineConfig({
       template: 'treemap', // sunburst|treemap|network
       gzipSize: true,
       brotliSize: true,
+    }),
+    monaco({
+      languages: ['yaml'],
     }),
   ],
   server: {
