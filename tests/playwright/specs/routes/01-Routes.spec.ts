@@ -524,7 +524,7 @@ test.describe('routes', () => {
       await fillArrayField(page, 'hosts', ['localhost'])
     }, data,
     async () => {
-      await expect(page.getByTestId('protocols-property-value')).toContainText('httphttps')
+      await expect(page.getByTestId('protocols-property-value')).toContainText('https')
     })
   })
 
@@ -537,11 +537,11 @@ test.describe('routes', () => {
     await createRoute(page, async () => {
       await selectService(page, service.id)
       await page.getByTestId('route-form-config-type-advanced').click()
-      await selectProtocols(page, 'https')
+      await selectProtocols(page, 'http')
       await fillArrayField(page, 'hosts', ['localhost'])
     }, data,
     async () => {
-      await expect(page.getByTestId('protocols-property-value')).toContainText('https')
+      await expect(page.getByTestId('protocols-property-value')).toContainText('http')
     })
   })
 
