@@ -58,7 +58,7 @@ test.describe('plugins', () => {
     const emptyState = page.locator('.kong-ui-entities-plugins-list .k-empty-state')
 
     await expect(emptyState).toBeVisible()
-    await expect(emptyState).toContainText('Configure a New Plugin')
+    await expect(emptyState).toContainText('Configure a new plugin')
   })
 
   test('install a plugin when the scope is "service"', async ({ page, serviceListPage }) => {
