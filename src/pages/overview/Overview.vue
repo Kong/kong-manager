@@ -1,57 +1,72 @@
 <template>
-  <section class="info-container">
-    <KCard
-      v-for="infoItem in info"
-      :key="infoItem.title"
-      :title="infoItem.title"
-    >
-      <ul class="info-list">
-        <li
-          v-for="item in infoItem.items"
-          :key="item.label"
-          class="info-item"
-        >
-          <label>{{ item.label }}</label>
-          <KBadge
-            max-width="300px"
-            :tooltip="String(item.value)"
-            truncation-tooltip
+  <section class="overview-shell">
+    <header class="hb-header">
+      <p class="hb-header__meta">
+        Hablou API Control
+      </p>
+      <h1 class="hb-header__title">
+        hbControl
+      </h1>
+    </header>
+
+    <section class="info-container">
+      <KCard
+        v-for="infoItem in info"
+        :key="infoItem.title"
+        :title="infoItem.title"
+        class="hb-card"
+      >
+        <ul class="info-list">
+          <li
+            v-for="item in infoItem.items"
+            :key="item.label"
+            class="info-item"
           >
-            {{ item.value }}
-          </KBadge>
+            <label>{{ item.label }}</label>
+            <KBadge
+              max-width="300px"
+              :tooltip="String(item.value)"
+              truncation-tooltip
+              class="hb-chip"
+            >
+              {{ item.value }}
+            </KBadge>
+          </li>
+        </ul>
+      </KCard>
+    </section>
+
+    <KCard
+      title="hbControl Resources"
+      class="resource-card hb-card"
+    >
+      <ul class="resource-list">
+        <li
+          v-for="resource in resources"
+          :key="resource.title"
+          class="resource-item"
+        >
+          <a
+            class="resource-link"
+            :href="resource.link"
+            rel="noopener"
+            target="_blank"
+          >
+            <component
+              :is="resource.icon"
+              :color="KUI_COLOR_TEXT_PRIMARY_STRONG"
+            />
+            <div class="resource-info">
+              <span class="resource-title">{{ resource.title }}</span>
+              <span class="resource-description">{{ resource.description }}</span>
+            </div>
+          </a>
         </li>
       </ul>
     </KCard>
+
+    <KonnectCTA class="hb-cta" />
   </section>
-  <KCard
-    title="Resources"
-    class="resource-card"
-  >
-    <ul class="resource-list">
-      <li
-        v-for="resource in resources"
-        :key="resource.title"
-        class="resource-item"
-      >
-        <a
-          class="resource-link"
-          :href="resource.link"
-          rel="noopener"
-          target="_blank"
-        >
-          <component
-            :is="resource.icon"
-            :color="KUI_COLOR_TEXT_PRIMARY_STRONG"
-          />
-          <div class="resource-info">
-            <span class="resource-title">{{ resource.title }}</span>
-            <span class="resource-description">{{ resource.description }}</span>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </KCard>
-  <KonnectCTA />
 </template>
 
 <script setup lang="ts">
@@ -200,15 +215,70 @@ const resources = computed(() => [
 </script>
 
 <style scoped lang="scss">
+$base-layer: #0e1320;
+$section-layer: #161b29;
+$card-layer: #303443;
+$primary: #00c2a8;
+$text-primary: #e6f1ff;
+$text-secondary: #a8b3cf;
 $card-spacing: 32px;
+$card-radius: 16px;
+
+.overview-shell {
+  background: $base-layer;
+  color: $text-primary;
+  padding: 24px;
+  border-radius: $card-radius;
+}
+
+.hb-header {
+  margin-bottom: 32px;
+
+  &__meta {
+    margin: 0 0 8px;
+    color: $text-secondary;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    margin: 0;
+    color: $text-primary;
+    font-size: clamp(34px, 5vw, 52px);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+  }
+}
 
 .info-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: $card-spacing;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px 32px;
   margin-bottom: $card-spacing;
 }
-.info-list, .resource-list {
+
+.hb-card {
+  border-radius: $card-radius;
+  background: $section-layer;
+  color: $text-primary;
+
+  :deep(.card-header) {
+    padding: 24px 24px 8px;
+    color: $text-secondary;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  :deep(.card-content) {
+    padding: 8px 24px 24px;
+  }
+}
+
+.info-list,
+.resource-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -217,77 +287,105 @@ $card-spacing: 32px;
 .info-item {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 10px 0;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 14px 12px;
+  border-radius: 12px;
+  background: color-mix(in srgb, $card-layer 82%, $section-layer 18%);
+  transition: background-color 0.2s ease-out;
 
   &:not(:last-child) {
-    border-bottom: 1px solid $kui-color-border;
+    margin-bottom: 12px;
+  }
+
+  &:hover {
+    background: color-mix(in srgb, $card-layer 68%, $primary 32%);
   }
 
   label {
-    color: $kui-color-text-neutral-stronger;
-    font-size: 14px;
-    font-weight: bold;
+    color: $text-secondary;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.4;
     margin: 0;
   }
 }
 
 .resource-card {
-  padding: 0;
+  padding: 4px;
   margin-bottom: $card-spacing;
-  gap: 0;
-
-  :deep(.card-header) {
-    padding: $kui-space-80;
-  }
+  background: $section-layer;
 }
 
 .resource-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-top: 1px solid $kui-color-border;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  padding: 12px;
 }
 
 .resource-item {
   .resource-link {
     display: flex;
-    align-items: center;
-    border-bottom: 1px solid $kui-color-border;
-    transition: background-color 0.3s;
-    padding: 16px $kui-space-80;
+    align-items: flex-start;
+    gap: 14px;
+    transition: background-color 0.2s ease-out, transform 0.2s ease-out;
+    padding: 18px 20px;
     text-decoration: none;
-    color: inherit;
+    color: $text-primary;
     height: 100%;
+    border-radius: 14px;
+    background: color-mix(in srgb, $card-layer 74%, $section-layer 26%);
 
     &:hover {
-      background-color: $kui-color-background-primary-weakest;
+      background: linear-gradient(135deg, #3fe0c6 0%, #00c2a8 40%, #1e3a8a 100%);
+      color: $text-primary;
+      transform: translateY(-1px);
     }
   }
 
   &:nth-child(odd) .resource-link {
-    border-right: 1px solid $kui-color-border;
+    background: color-mix(in srgb, $card-layer 84%, $base-layer 16%);
   }
 
-  &:nth-last-child(-n+2) .resource-link {
-    border-bottom: none;
+  &:nth-child(even) .resource-link {
+    margin-top: 14px;
   }
 
   .resource-info {
     display: flex;
     flex-direction: column;
-    margin-left: 12px;
   }
 
   .resource-title {
-    color: $kui-color-text-primary-strong;
-    font-size: 14px;
-    font-weight: bold;
+    color: inherit;
+    font-size: 15px;
+    font-weight: 600;
     margin-bottom: 6px;
   }
 
   .resource-description {
-    color: $kui-color-text-neutral-stronger;
+    color: color-mix(in srgb, $text-secondary 80%, $text-primary 20%);
     font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+.hb-chip {
+  :deep(.k-badge) {
+    border-radius: 999px;
+    background: color-mix(in srgb, $card-layer 76%, $primary 24%);
+    color: $text-primary;
+  }
+}
+
+.hb-cta {
+  :deep(.konnect-cta) {
+    background: rgba(18, 26, 43, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
   }
 }
 </style>
