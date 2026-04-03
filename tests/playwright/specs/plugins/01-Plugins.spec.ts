@@ -388,7 +388,7 @@ test.describe('plugins', () => {
     await expect(filterInput).toBeVisible()
     await filterInput.fill('traf')
     await expect(page.getByTestId('collapse-title')).toHaveCount(1)
-    await expect(page.getByTestId('collapse-title')).toContainText('Traffic Control')
+    await expect(page.getByTestId('collapse-title')).toContainText('Traffic control')
 
     await filterInput.fill('bas')
     await expect(page.getByTestId('collapse-title')).toHaveCount(1)
