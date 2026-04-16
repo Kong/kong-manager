@@ -24,8 +24,8 @@ importers:
         specifier: ^0.6.9
         version: 0.6.9(fxg3tkgmp5fqvn4iz65wpqqqcy)
       '@kong-ui-public/entities-gateway-services':
-        specifier: ^3.16.9
-        version: 3.16.9(fxg3tkgmp5fqvn4iz65wpqqqcy)
+        specifier: 3.17.2-pr.3134.46e69958b.0
+        version: 3.17.2-pr.3134.46e69958b.0(fxg3tkgmp5fqvn4iz65wpqqqcy)
       '@kong-ui-public/entities-key-sets':
         specifier: ^3.10.9
         version: 3.10.9(fxg3tkgmp5fqvn4iz65wpqqqcy)
@@ -598,6 +598,17 @@ packages:
       '@kong/icons': ^1.48.0
       '@kong/kongponents': ^9.52.5
       axios: ^1.13.5
+      vue: '>= 3.3.13 < 4'
+      vue-router: ^4.6.4
+
+  '@kong-ui-public/entities-gateway-services@3.17.2-pr.3134.46e69958b.0':
+    resolution: {integrity: sha512-b8BFrucHLpsJ51REhSNIz5PX1WdSz4KanwQb0lPVStTiYy0/HWvmpaKhNpFJpvvyQRZTySAvTD1dTC+hQCzO9g==}
+    peerDependencies:
+      '@kong-ui-public/entities-shared': ^3.41.7
+      '@kong-ui-public/i18n': ^2.4.6
+      '@kong/icons': ^1.48.0
+      '@kong/kongponents': ^9.52.5
+      axios: ^1.15.0
       vue: '>= 3.3.13 < 4'
       vue-router: ^4.6.4
 
@@ -4007,6 +4018,16 @@ snapshots:
       vue-router: 5.0.4(@vue/compiler-sfc@3.5.32)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3))
 
   '@kong-ui-public/entities-gateway-services@3.16.9(fxg3tkgmp5fqvn4iz65wpqqqcy)':
+    dependencies:
+      '@kong-ui-public/entities-shared': 3.41.5(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.32(typescript@5.9.3)))(@kong/kongponents@9.52.9(vue-router@5.0.4(@vue/compiler-sfc@3.5.32)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3)))(@shikijs/core@3.21.0)(@shikijs/engine-javascript@3.21.0)(axios@1.13.5)(shiki@3.21.0)(vue-router@5.0.4(@vue/compiler-sfc@3.5.32)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3))
+      '@kong-ui-public/i18n': 2.4.6(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3))
+      '@kong/icons': 1.48.0(vue@3.5.32(typescript@5.9.3))
+      '@kong/kongponents': 9.52.9(vue-router@5.0.4(@vue/compiler-sfc@3.5.32)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3))
+      axios: 1.13.5
+      vue: 3.5.32(typescript@5.9.3)
+      vue-router: 5.0.4(@vue/compiler-sfc@3.5.32)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3))
+
+  '@kong-ui-public/entities-gateway-services@3.17.2-pr.3134.46e69958b.0(fxg3tkgmp5fqvn4iz65wpqqqcy)':
     dependencies:
       '@kong-ui-public/entities-shared': 3.41.5(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3)))(@kong/icons@1.48.0(vue@3.5.32(typescript@5.9.3)))(@kong/kongponents@9.52.9(vue-router@5.0.4(@vue/compiler-sfc@3.5.32)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3)))(@shikijs/core@3.21.0)(@shikijs/engine-javascript@3.21.0)(axios@1.13.5)(shiki@3.21.0)(vue-router@5.0.4(@vue/compiler-sfc@3.5.32)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3)))(vue@3.5.32(typescript@5.9.3))
       '@kong-ui-public/i18n': 2.4.6(typescript@5.9.3)(vue@3.5.32(typescript@5.9.3))

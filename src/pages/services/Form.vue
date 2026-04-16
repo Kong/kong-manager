@@ -6,6 +6,7 @@
     :config="serviceFormConfig"
     :gateway-service-id="id"
     hide-try-sample-api-button
+    :is-tls-sans-supported="false"
     @update="handleUpdate"
   />
 </template>
