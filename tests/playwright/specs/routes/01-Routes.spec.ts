@@ -576,10 +576,10 @@ test.describe('routes', () => {
     })
   })
 
-  test('create route - with pre-populated service.id - select service is hidden', async ({ page }) => {
+  test('create route - with pre-populated service.id - select service is disabled', async ({ page }) => {
     await clearKongResources('/services')
 
-    await createKongResource('/services', {
+    const res = await createKongResource('/services', {
       name: 'service1',
       url: 'http://service1',
     })
@@ -588,7 +588,8 @@ test.describe('routes', () => {
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'routes')
     await page.click('.kong-ui-entities-routes-list .table-empty-state .primary')
-    await expect(page.locator('[data-testid="route-form-service-id"]')).not.toBeVisible()
+    await expect(page.locator('[data-testid="route-form-service-id"]')).toHaveValue(res?.data.id)
+    await expect(page.locator('[data-testid="route-form-service-id"]')).toBeDisabled()
   })
 
   test('removing scoped route\'s service field should cause no errors', async ({ page, routeListPage }) => {
