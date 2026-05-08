@@ -78,7 +78,7 @@ test.describe('upstreams', () => {
   })
 
   test('upstream list is empty', async ({ page }) => {
-    await expectEmptyEntityList(page, 'upstreams', 'Configure a New Upstream')
+    await expectEmptyEntityList(page, 'upstreams', 'Configure a new upstream')
   })
 
   test('create an upstream', async ({ page }) => {
@@ -126,7 +126,7 @@ test.describe('upstreams', () => {
     // switch targets tab
     await switchDetailTab(page, 'targets')
     await expect(page.locator('.kong-ui-entities-targets-list .table-empty-state .primary')).toBeVisible()
-    await expect(page.locator('.kong-ui-entities-targets-list .table-empty-state .empty-state-title')).toHaveText('Configure a New Target')
+    await expect(page.locator('.kong-ui-entities-targets-list .table-empty-state .empty-state-title')).toHaveText('Configure a new target')
   })
 
   test('submit/cancel upstream editing', async ({ page }) => {

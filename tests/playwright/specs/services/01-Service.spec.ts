@@ -42,7 +42,7 @@ test.describe('services', () => {
   })
 
   test('service list should be empty', async ({ page }) => {
-    await expectEmptyEntityList(page, 'gateway-services', 'Configure a New Gateway Service')
+    await expectEmptyEntityList(page, 'gateway-services', 'Configure a new gateway service')
   })
 
   test('service create - cancel button', async ({ page }) => {
@@ -50,7 +50,7 @@ test.describe('services', () => {
       page.locator('.table-empty-state .primary').click(),
     )
     await page.getByTestId('service-create-form-cancel').click()
-    await expectEmptyEntityList(page, 'gateway-services', 'Configure a New Gateway Service')
+    await expectEmptyEntityList(page, 'gateway-services', 'Configure a new gateway service')
   })
 
   test('service create - fail with required field', async ({ page }) => {

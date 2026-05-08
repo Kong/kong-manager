@@ -75,7 +75,7 @@ test.describe('routes', () => {
   })
 
   test('route list is empty', async ({ page }) => {
-    await expectEmptyEntityList(page, 'routes', 'Configure a New Route')
+    await expectEmptyEntityList(page, 'routes', 'Configure a new route')
   })
 
   test('route create - cancel button', async ({ page }) => {
@@ -83,7 +83,7 @@ test.describe('routes', () => {
       page.locator('.table-empty-state .primary').click(),
     )
     await page.locator('[data-testid="route-create-form-cancel"]').click()
-    await expectEmptyEntityList(page, 'routes', 'Configure a New Route')
+    await expectEmptyEntityList(page, 'routes', 'Configure a new route')
   })
 
   test('route create - save button is disabled', async ({ page }) => {

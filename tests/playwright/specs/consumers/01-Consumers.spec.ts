@@ -32,7 +32,7 @@ test.describe('consumers', () => {
   })
 
   test('consumer list - empty', async ({ page }) => {
-    await expect(page.locator('.k-empty-state')).toContainText('Configure a New Consumer')
+    await expect(page.locator('.k-empty-state')).toContainText('Configure a new consumer')
   })
 
   test('consumer create from - entrance and exit', async ({ page }) => {
