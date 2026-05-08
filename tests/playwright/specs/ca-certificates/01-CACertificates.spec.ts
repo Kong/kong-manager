@@ -30,7 +30,7 @@ test.describe('CA certificates', () => {
   })
 
   test('ca certificate list should be empty', async ({ page }) => {
-    await expectEmptyEntityList(page, 'ca-certificates', 'Configure a New CA Certificate')
+    await expectEmptyEntityList(page, 'ca-certificates', 'Configure a new CA certificate')
   })
 
   test('create a CA certificate - fail', async ({ page }) => {

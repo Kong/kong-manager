@@ -44,7 +44,7 @@ test.describe('service routes', () => {
   test('service routes list is empty', async ({ page }) => {
     await withNavigation(page, () => clickEntityListAction(page, 'view'))
     await switchDetailTab(page, 'routes')
-    await expectEmptyEntityList(page, 'routes', 'Configure a New Route')
+    await expectEmptyEntityList(page, 'routes', 'Configure a new route')
   })
 
   test('service route create - cancel button', async ({ page }) => {
@@ -58,7 +58,7 @@ test.describe('service routes', () => {
     await expect(page.locator('.kong-ui-entities-route-form')).toBeVisible()
     await page.locator('[data-testid="route-create-form-cancel"]').click()
 
-    await expectEmptyEntityList(page, 'routes', 'Configure a New Route')
+    await expectEmptyEntityList(page, 'routes', 'Configure a new route')
   })
 
   test('create an service-associated route with empty methods - save button is disabled', async ({ page }) => {
@@ -177,6 +177,6 @@ test.describe('service routes', () => {
     await clickEntityListAction(page, 'delete')
     await autocompleteDeleteModal(page)
     // redirects back to the route tab
-    await expectEmptyEntityList(page, 'routes', 'Configure a New Route')
+    await expectEmptyEntityList(page, 'routes', 'Configure a new route')
   })
 })

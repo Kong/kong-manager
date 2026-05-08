@@ -43,7 +43,7 @@ test.describe('snis', () => {
   })
 
   test('sni list is empty', async ({ page }) => {
-    await expectEmptyEntityList(page, 'snis', 'Configure a New SNI')
+    await expectEmptyEntityList(page, 'snis', 'Configure a new SNI')
   })
 
   test('create an sni - fail', async ({ page }) => {
@@ -114,6 +114,6 @@ test.describe('snis', () => {
     await clickEntityListAction(page, 'delete')
     await expect(page.locator('.kong-ui-entity-delete-modal .modal-container')).toBeVisible()
     await page.locator('.modal-footer .footer-actions .danger').click()
-    await expectEmptyEntityList(page, 'snis', 'Configure a New SNI')
+    await expectEmptyEntityList(page, 'snis', 'Configure a new SNI')
   })
 })
