@@ -21,14 +21,14 @@ p {
 }
 
 a {
-  color: $kui-color-text-primary-strong;
+  color: var(--kui-color-text-primary-strong, $kui-color-text-primary-strong);
   text-decoration: none;
 }
 
 hr {
   margin-top: 1rem 0;
   border: 0;
-  border-top: 1px solid $kui-color-border;
+  border-top: 1px solid var(--kui-color-border, $kui-color-border);
 }
 
 ul {

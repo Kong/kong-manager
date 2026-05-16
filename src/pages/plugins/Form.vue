@@ -135,6 +135,6 @@ const onSave = (plugin) => {
 
 <style scoped lang="scss">
 .plugin-form-header {
-  margin-bottom: $kui-space-50;
+  margin-bottom: var(--kui-space-50, $kui-space-50);
 }
 </style>

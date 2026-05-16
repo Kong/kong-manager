@@ -79,6 +79,6 @@ const pluginDetailConfig = reactive({
 }
 
 .button-edit {
-  margin-left: $kui-space-60;
+  margin-left: var(--kui-space-60, $kui-space-60);
 }
 </style>

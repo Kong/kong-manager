@@ -77,6 +77,6 @@ const onSave = () => {
 
 <style scoped lang="scss">
 .credential-form-header {
-  margin-bottom: $kui-space-50;
+  margin-bottom: var(--kui-space-50, $kui-space-50);
 }
 </style>

@@ -50,7 +50,7 @@ body {
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.5;
-  color: $kui-color-text-neutral-stronger;
+  color: var(--kui-color-text-neutral-stronger, $kui-color-text-neutral-stronger);
   background-color: #fff;
 }
 
@@ -114,7 +114,7 @@ dd {
 //
 
 a {
-  color: $kui-color-text-primary-strong;
+  color: var(--kui-color-text-primary-strong, $kui-color-text-primary-strong);
   text-decoration: none;
 
   &:hover,
