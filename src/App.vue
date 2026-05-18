@@ -129,7 +129,7 @@ const sidebarItems = computed<SidebarPrimaryItem[]>(() => [
 }
 
 :deep(.json-content.k-code-block) {
-  border-top-left-radius: $kui-border-radius-0 !important;
-  border-top-right-radius: $kui-border-radius-0 !important;
+  border-top-left-radius: var(--kui-border-radius-0, $kui-border-radius-0) !important;
+  border-top-right-radius: var(--kui-border-radius-0, $kui-border-radius-0) !important;
 }
 </style>

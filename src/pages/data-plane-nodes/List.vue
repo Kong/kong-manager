@@ -389,13 +389,13 @@ watch(modalVisible, (val) => {
 
 <style scoped lang="scss">
 .actions-trigger {
-  background-color: $kui-color-background-transparent !important;
+  background-color: var(--kui-color-background-transparent, $kui-color-background-transparent) !important;
   border: none !important;
 }
 
 .node-log-level-container {
   display: flex;
-  gap: $kui-space-40;
+  gap: var(--kui-space-40, $kui-space-40);
   align-items: center;
 }
 </style>

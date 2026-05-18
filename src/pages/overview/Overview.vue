@@ -221,11 +221,11 @@ $card-spacing: 32px;
   padding: 10px 0;
 
   &:not(:last-child) {
-    border-bottom: 1px solid $kui-color-border;
+    border-bottom: 1px solid var(--kui-color-border, $kui-color-border);
   }
 
   label {
-    color: $kui-color-text-neutral-stronger;
+    color: var(--kui-color-text-neutral-stronger, $kui-color-text-neutral-stronger);
     font-size: 14px;
     font-weight: bold;
     margin: 0;
@@ -238,34 +238,34 @@ $card-spacing: 32px;
   gap: 0;
 
   :deep(.card-header) {
-    padding: $kui-space-80;
+    padding: var(--kui-space-80, $kui-space-80);
   }
 }
 
 .resource-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-top: 1px solid $kui-color-border;
+  border-top: 1px solid var(--kui-color-border, $kui-color-border);
 }
 
 .resource-item {
   .resource-link {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $kui-color-border;
+    border-bottom: 1px solid var(--kui-color-border, $kui-color-border);
     transition: background-color 0.3s;
-    padding: 16px $kui-space-80;
+    padding: 16px var(--kui-space-80, $kui-space-80);
     text-decoration: none;
     color: inherit;
     height: 100%;
 
     &:hover {
-      background-color: $kui-color-background-primary-weakest;
+      background-color: var(--kui-color-background-primary-weakest, $kui-color-background-primary-weakest);
     }
   }
 
   &:nth-child(odd) .resource-link {
-    border-right: 1px solid $kui-color-border;
+    border-right: 1px solid var(--kui-color-border, $kui-color-border);
   }
 
   &:nth-last-child(-n+2) .resource-link {
@@ -279,14 +279,14 @@ $card-spacing: 32px;
   }
 
   .resource-title {
-    color: $kui-color-text-primary-strong;
+    color: var(--kui-color-text-primary-strong, $kui-color-text-primary-strong);
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 6px;
   }
 
   .resource-description {
-    color: $kui-color-text-neutral-stronger;
+    color: var(--kui-color-text-neutral-stronger, $kui-color-text-neutral-stronger);
     font-size: 12px;
   }
 }

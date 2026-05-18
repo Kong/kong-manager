@@ -35,7 +35,7 @@
 .form-control {
   width: 100%;
   &:required {
-    border-color: $kui-color-border-disabled;
+    border-color: var(--kui-color-border-disabled, $kui-color-border-disabled);
   }
 }
 

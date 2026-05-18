@@ -1,7 +1,7 @@
 .kong-ui-entity-base-form {
   @media screen and (min-width: 1280px) {
     .form-section-wrapper {
-      column-gap: $kui-space-130 !important;
+      column-gap: var(--kui-space-130, $kui-space-130) !important;
     }
   }
 
@@ -41,16 +41,16 @@ fieldset {
 // fieldItemsClasses
 .kong-form-array-field-item {
   display: flex;
-  margin-top: $kui-space-40;
+  margin-top: var(--kui-space-40, $kui-space-40);
 }
 
 .kong-form-array-string-field-item {
   display: flex;
-  margin-top: $kui-space-40;
+  margin-top: var(--kui-space-40, $kui-space-40);
 }
 
 // newElementButtonLabelClasses
 .kong-form-new-element-button-label {
-  margin-top: $kui-space-80 !important;
-  margin-bottom: $kui-space-80 !important;
+  margin-top: var(--kui-space-80, $kui-space-80) !important;
+  margin-bottom: var(--kui-space-80, $kui-space-80) !important;
 }

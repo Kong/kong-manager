@@ -25,7 +25,7 @@
 
   h2 {
     font-size: 72px;
-    color: $kui-color-text-disabled;
+    color: var(--kui-color-text-disabled, $kui-color-text-disabled);
     line-height: 1;
   }
 
