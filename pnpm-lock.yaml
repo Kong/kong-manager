@@ -34,7 +34,7 @@ importers:
         version: 3.13.24(@kong-ui-public/entities-shared@3.50.1(tudbg7ytqyrv2wjgs4fnjf7nfm))(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(@kong/icons@1.59.0(vue@3.5.35(typescript@5.9.3)))(@kong/kongponents@9.60.0(vue-router@5.0.7(@vue/compiler-sfc@3.5.35)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(axios@1.16.0)(vue-router@5.0.7(@vue/compiler-sfc@3.5.35)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3))
       '@kong-ui-public/entities-plugins':
         specifier: 9.216.0
-        version: 9.216.0(i5obbi6proqfomdgw6jpnpl3ji)
+        version: 9.216.0(3sgohsejl2z4xilz76b4rxgqdy)
       '@kong-ui-public/entities-routes':
         specifier: 3.22.30
         version: 3.22.30(ogkwfwnm5vh2mbqkkkooffixyu)
@@ -97,8 +97,8 @@ importers:
         specifier: ^1.6.2
         version: 1.6.2(@typescript-eslint/parser@8.46.1(eslint@9.9.1)(typescript@5.9.3))(eslint@9.9.1)(typescript@5.9.3)
       '@playwright/test':
-        specifier: ^1.60.0
-        version: 1.60.0
+        specifier: ^1.61.0
+        version: 1.61.0
       '@types/lodash-es':
         specifier: ^4.17.12
         version: 4.17.12
@@ -963,8 +963,8 @@ packages:
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.60.0':
-    resolution: {integrity: sha512-O71yZIbAh/PxDMNGns37GHBIfrVkEVyn+AXyIa5dOTfb4/xNvRWV+Vv/NMbNCtODB/pO7vLlF2OTmMVLhmr7Ag==}
+  '@playwright/test@1.61.0':
+    resolution: {integrity: sha512-cKA5B6lpFEMyMGjxF54QihfYpB4FkEGH+qZhtArDEG+wezQAJY8Pq6C7T1SjWz+FFzt3TbyoXBQYk/0292TdJA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2980,13 +2980,13 @@ packages:
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
 
-  playwright-core@1.60.0:
-    resolution: {integrity: sha512-9bW6zvX/m0lEbgTKJ6YppOKx8H3VOPBMOCFh2irXFOT4BbHgrx5hPjwJYLT40Lu+4qtD36qKc/Hn56StUW57IA==}
+  playwright-core@1.61.0:
+    resolution: {integrity: sha512-caX7TrY3Ml6egyDX0WUcTHDxodl/b51y5wJOdCEA36QviK/s2g081hvmGs8eaE3DWb6NYZQ6BjO/QkNRPenoPA==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.60.0:
-    resolution: {integrity: sha512-hheHdokM8cdqCb0lcE3s+zT4t4W+vvjpGxsZlDnikarzx8tSzMebh3UiFtgqwFwnTnjYQcsyMF8ei2mCO/tpeA==}
+  playwright@1.61.0:
+    resolution: {integrity: sha512-Z+7BeeqQPRRzklHsVFP4KTGIyMxKUmfeRA4WisM6G3/XW6nwGeX6fX9qYaDa+CiUqpOkb2f6X3nar05R3kSuJQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4094,7 +4094,7 @@ snapshots:
 
   '@kong-ui-public/entities-plugins-metadata@1.13.3': {}
 
-  '@kong-ui-public/entities-plugins@9.216.0(i5obbi6proqfomdgw6jpnpl3ji)':
+  '@kong-ui-public/entities-plugins@9.216.0(3sgohsejl2z4xilz76b4rxgqdy)':
     dependencies:
       '@kong-ui-public/entities-consumer-groups': 4.5.27(@kong-ui-public/entities-shared@3.50.1(tudbg7ytqyrv2wjgs4fnjf7nfm))(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(@kong/icons@1.59.0(vue@3.5.35(typescript@5.9.3)))(@kong/kongponents@9.60.0(vue-router@5.0.7(@vue/compiler-sfc@3.5.35)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(axios@1.16.0)(vue-router@5.0.7(@vue/compiler-sfc@3.5.35)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3))
       '@kong-ui-public/entities-consumers': 4.4.25(@kong-ui-public/entities-shared@3.50.1(tudbg7ytqyrv2wjgs4fnjf7nfm))(@kong-ui-public/i18n@2.4.6(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(@kong/icons@1.59.0(vue@3.5.35(typescript@5.9.3)))(@kong/kongponents@9.60.0(vue-router@5.0.7(@vue/compiler-sfc@3.5.35)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(axios@1.16.0)(vue-router@5.0.7(@vue/compiler-sfc@3.5.35)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3))
@@ -4128,7 +4128,7 @@ snapshots:
       vue-router: 5.0.7(@vue/compiler-sfc@3.5.35)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.35(typescript@5.9.3)))(vue@3.5.35(typescript@5.9.3))
       zod: 4.1.4
     optionalDependencies:
-      '@playwright/test': 1.60.0
+      '@playwright/test': 1.61.0
     transitivePeerDependencies:
       - swrv
       - typescript
@@ -4492,9 +4492,9 @@ snapshots:
 
   '@pkgr/core@0.2.9': {}
 
-  '@playwright/test@1.60.0':
+  '@playwright/test@1.61.0':
     dependencies:
-      playwright: 1.60.0
+      playwright: 1.61.0
 
   '@popperjs/core@2.11.8': {}
 
@@ -6462,11 +6462,11 @@ snapshots:
       exsolve: 1.0.8
       pathe: 2.0.3
 
-  playwright-core@1.60.0: {}
+  playwright-core@1.61.0: {}
 
-  playwright@1.60.0:
+  playwright@1.61.0:
     dependencies:
-      playwright-core: 1.60.0
+      playwright-core: 1.61.0
     optionalDependencies:
       fsevents: 2.3.2
 
