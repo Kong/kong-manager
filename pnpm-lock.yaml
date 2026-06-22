@@ -91,11 +91,14 @@ importers:
         version: 5.0.7(@vue/compiler-sfc@3.5.38)(pinia@3.0.4(typescript@5.9.3)(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))
     devDependencies:
       '@kong/design-tokens':
-        specifier: ^1.23.0
-        version: 1.23.0(eslint@9.9.1)(vue-eslint-parser@10.2.0(eslint@9.9.1))
+        specifier: ^2.0.0
+        version: 2.0.0
       '@kong/eslint-config-kong-ui':
-        specifier: ^1.6.2
-        version: 1.6.2(@typescript-eslint/parser@8.46.1(eslint@9.9.1)(typescript@5.9.3))(eslint@9.9.1)(typescript@5.9.3)
+        specifier: ^1.7.1
+        version: 1.7.1(@typescript-eslint/parser@8.46.1(eslint@9.9.1)(typescript@5.9.3))(eslint@9.9.1)(typescript@5.9.3)
+      '@kong/stylelint-plugin-design-tokens':
+        specifier: ^1.0.1
+        version: 1.0.1(stylelint@16.9.0(typescript@5.9.3))
       '@playwright/test':
         specifier: ^1.61.0
         version: 1.61.0
@@ -811,23 +814,25 @@ packages:
       shiki: '>=3.0.0 <5.0.0'
       vue: ^3.5.35
 
-  '@kong/design-tokens@1.23.0':
-    resolution: {integrity: sha512-DKBmwvBb4FEb/L+Og3YziJSNr9fF67V2wit/ZIiSt+vldUT/Rc14H6nQf5yr/bxVJTqxaEL2Z5mN7tvDNKftdw==}
+  '@kong/design-tokens@2.0.0':
+    resolution: {integrity: sha512-5IzpE2QK1PV2f+lQ697PlAB0sxBosjRpM4g955TQkSN3fKDUKRn6DPgKDRX7LGEkqNGLn1jwy8jN70CMRbEi7w==}
+    engines: {node: '>=20.19.5', pnpm: '>=10.28.2'}
+
+  '@kong/eslint-config-kong-ui@1.7.1':
+    resolution: {integrity: sha512-LAvIZJtTpf7yWRdqlrYeI7nUWmG9x5QMy4m2OGBpDwt+MCxveH6xPRMMgQZwGjupl4odR5Kg4KN1AVMCFdlk6g==}
+    engines: {node: '>=18.0.0'}
+    peerDependencies:
+      eslint: '>= 9.37.0'
+
+  '@kong/eslint-plugin-design-tokens@1.0.1':
+    resolution: {integrity: sha512-n31tvVfQ7rzk/DmlVkOHiPW+3WyxLuxWxBdvD6FxG1SyyvX9f0WMEf5tQfEUCZ2XmoY9y3Fw33G7BS6sw9LYIw==}
     engines: {node: '>=20.19.5', pnpm: '>=10.28.2'}
     peerDependencies:
       eslint: ^9.0.0
       vue-eslint-parser: '>=10.2.0'
     peerDependenciesMeta:
-      eslint:
-        optional: true
       vue-eslint-parser:
         optional: true
-
-  '@kong/eslint-config-kong-ui@1.6.2':
-    resolution: {integrity: sha512-e1ExwzkIYStLyY5W0UkWumUJMVNliCph1BS+4IM9HOll7BarKMdu4yyQQWbNVkkgvtq5cl09Lm31EZ8BfYJyLQ==}
-    engines: {node: '>=18.0.0'}
-    peerDependencies:
-      eslint: '>= 9.37.0'
 
   '@kong/icons@1.59.0':
     resolution: {integrity: sha512-YaS75G35wdZdnKSPfUIP0NTZEhwbw6MWyAEYq8q6dmgUMoeWn1+D+N/Y6+oHDyLhXCYr4WAZv2QenBrFcqZprw==}
@@ -841,6 +846,12 @@ packages:
     peerDependencies:
       vue: '>= 3.5.0 < 4'
       vue-router: 4 || 5
+
+  '@kong/stylelint-plugin-design-tokens@1.0.1':
+    resolution: {integrity: sha512-OSyqM8VdcxBcETv8sQsBoUTstbwaFmuPmXI/m4E2Mtbvh5S2i9VGnbC6LJToZUudaE3ndLk8PLlQZA7j29a2sQ==}
+    engines: {node: '>=20.19.5', pnpm: '>=10.28.2'}
+    peerDependencies:
+      stylelint: '>=14.0.0'
 
   '@material-design-icons/font@0.14.13':
     resolution: {integrity: sha512-qU5Zms9VUdxxq4oC7lY+Eibz+O6YjmctGZKToUfqQOC4qVkbUNksu+0UizFBdbtx8euERZ3GGcFoN6F9LeXSMw==}
@@ -4292,14 +4303,12 @@ snapshots:
       shiki-codegen: 4.2.0
       vue: 3.5.38(typescript@5.9.3)
 
-  '@kong/design-tokens@1.23.0(eslint@9.9.1)(vue-eslint-parser@10.2.0(eslint@9.9.1))':
-    optionalDependencies:
-      eslint: 9.9.1
-      vue-eslint-parser: 10.2.0(eslint@9.9.1)
+  '@kong/design-tokens@2.0.0': {}
 
-  '@kong/eslint-config-kong-ui@1.6.2(@typescript-eslint/parser@8.46.1(eslint@9.9.1)(typescript@5.9.3))(eslint@9.9.1)(typescript@5.9.3)':
+  '@kong/eslint-config-kong-ui@1.7.1(@typescript-eslint/parser@8.46.1(eslint@9.9.1)(typescript@5.9.3))(eslint@9.9.1)(typescript@5.9.3)':
     dependencies:
       '@eslint/js': 9.37.0
+      '@kong/eslint-plugin-design-tokens': 1.0.1(eslint@9.9.1)(vue-eslint-parser@10.2.0(eslint@9.9.1))
       '@stylistic/eslint-plugin': 5.4.0(eslint@9.9.1)
       eslint: 9.9.1
       eslint-plugin-cypress: 5.2.0(eslint@9.9.1)
@@ -4316,6 +4325,12 @@ snapshots:
       - '@typescript-eslint/parser'
       - supports-color
       - typescript
+
+  '@kong/eslint-plugin-design-tokens@1.0.1(eslint@9.9.1)(vue-eslint-parser@10.2.0(eslint@9.9.1))':
+    dependencies:
+      eslint: 9.9.1
+    optionalDependencies:
+      vue-eslint-parser: 10.2.0(eslint@9.9.1)
 
   '@kong/icons@1.59.0(vue@3.5.38(typescript@5.9.3))':
     dependencies:
@@ -4345,6 +4360,10 @@ snapshots:
       - react-dom
       - solid-js
       - svelte
+
+  '@kong/stylelint-plugin-design-tokens@1.0.1(stylelint@16.9.0(typescript@5.9.3))':
+    dependencies:
+      stylelint: 16.9.0(typescript@5.9.3)
 
   '@material-design-icons/font@0.14.13': {}
 
@@ -5061,6 +5080,10 @@ snapshots:
     dependencies:
       acorn: 8.15.0
 
+  acorn-jsx@5.3.2(acorn@8.16.0):
+    dependencies:
+      acorn: 8.16.0
+
   acorn@8.12.0: {}
 
   acorn@8.15.0: {}
@@ -5709,8 +5732,8 @@ snapshots:
 
   espree@10.4.0:
     dependencies:
-      acorn: 8.15.0
-      acorn-jsx: 5.3.2(acorn@8.15.0)
+      acorn: 8.16.0
+      acorn-jsx: 5.3.2(acorn@8.16.0)
       eslint-visitor-keys: 4.2.1
 
   espree@9.6.1:
@@ -6098,7 +6121,7 @@ snapshots:
 
   jsonc-eslint-parser@2.4.1:
     dependencies:
-      acorn: 8.15.0
+      acorn: 8.16.0
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
       semver: 7.7.3
