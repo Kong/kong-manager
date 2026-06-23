@@ -5,7 +5,7 @@ module.exports = {
     'stylelint-config-recommended-vue/scss',
   ],
   plugins: [
-    '@kong/design-tokens/stylelint-plugin',
+    '@kong/stylelint-plugin-design-tokens',
   ],
   overrides: [
     {
@@ -13,8 +13,8 @@ module.exports = {
         'src/**/*.{css,scss,sass,less,styl,vue}',
       ],
       rules: {
-        '@kong/design-tokens/use-proper-token': true,
-        '@kong/design-tokens/token-var-usage': true,
+        '@kong/stylelint-plugin-design-tokens/use-proper-token': true,
+        '@kong/stylelint-plugin-design-tokens/token-var-usage': true,
         // Only allow @kong/design-tokens or `--kong-ui-*` CSS custom properties
         'custom-property-pattern': [
           '^(kui-|kong-ui-).+$',

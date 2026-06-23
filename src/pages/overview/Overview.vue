@@ -41,7 +41,7 @@
         >
           <component
             :is="resource.icon"
-            :color="KUI_COLOR_TEXT_PRIMARY_STRONG"
+            :color="`var(--kui-color-text-primary-strong, ${KUI_COLOR_TEXT_PRIMARY_STRONG})`"
           />
           <div class="resource-info">
             <span class="resource-title">{{ resource.title }}</span>
