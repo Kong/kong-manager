@@ -62,8 +62,9 @@ function parseVersionedEntry(entry) {
     .split('||')
     .map((v) => v.trim())
     .filter(Boolean)
-  // Only handle exact versions; bail (keep as-is) on anything else.
-  if (versions.length === 0 || !versions.every((v) => /^\d+\.\d+\.\d+/.test(v))) {
+  // Only handle concrete versions (release or prerelease); bail on ranges/other.
+  const isConcreteVersion = (v) => /^\d+\.\d+\.\d+(?:[-+][\w.-]+)?$/.test(v)
+  if (versions.length === 0 || !versions.every(isConcreteVersion)) {
     return null
   }
   return { name, versions }
@@ -74,7 +75,7 @@ async function getPublishTimes(pkg) {
   if (publishTimesCache.has(pkg)) return publishTimesCache.get(pkg)
   let times = null
   try {
-    const res = await fetch(`${REGISTRY}/${pkg.replace('/', '%2F')}`, {
+    const res = await fetch(`${REGISTRY}/${pkg.replaceAll('/', '%2F')}`, {
       headers: authToken ? { authorization: `Bearer ${authToken}` } : {},
     })
     if (res.ok) {
