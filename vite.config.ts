@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, type CSSOptions } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import autoprefixer from 'autoprefixer'
@@ -6,6 +6,8 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 import { visualizer } from 'rollup-plugin-visualizer'
 
 const basePath = process.env.NODE_ENV !== 'production' || process.env.DISABLE_BASE_PATH === 'true' ? '/' : '/__km_base__/'
+
+type PostcssPlugin = NonNullable<Exclude<NonNullable<CSSOptions['postcss']>, string>['plugins']>[number]
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -56,8 +58,7 @@ export default defineConfig({
     },
     postcss: {
       plugins: [
-        // @ts-ignore
-        autoprefixer,
+        autoprefixer as PostcssPlugin,
       ],
     },
   },

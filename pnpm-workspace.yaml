@@ -1,0 +1,9 @@
+packages:
+  - tests/playwright
+
+allowBuilds:
+  esbuild: true
+  vue-demi: true
+minimumReleaseAgeExclude:
+  - '@kong/*'
+  - '@kong-ui-public/*'
