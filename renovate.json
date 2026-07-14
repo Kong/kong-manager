@@ -43,11 +43,13 @@
       ]
     },
     {
-      "description": "@playwright/test",
-      "groupName": "playwright",
+      "description": "playwright, axios, lodash - enable",
       "enabled": true,
       "matchPackageNames": [
-        "@playwright/test"
+        "@playwright/test",
+        "axios",
+        "lodash-es",
+        "@types/lodash-es"
       ]
     },
     {
@@ -146,6 +148,48 @@
         "vite-plugin-html",
         "vitest",
         "/^@vitejs//"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "minimumReleaseAge": "60 days"
+    },
+    {
+      "description": "playwright, axios, lodash - patch updates",
+      "groupName": "misc dependencies (patch)",
+      "matchPackageNames": [
+        "@playwright/test",
+        "axios",
+        "lodash-es",
+        "@types/lodash-es"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ],
+      "minimumReleaseAge": "7 days"
+    },
+    {
+      "description": "playwright, axios, lodash - minor updates",
+      "groupName": "misc dependencies (minor)",
+      "matchPackageNames": [
+        "@playwright/test",
+        "axios",
+        "lodash-es",
+        "@types/lodash-es"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ],
+      "minimumReleaseAge": "30 days"
+    },
+    {
+      "description": "playwright, axios, lodash - major updates",
+      "groupName": "misc dependencies (major)",
+      "matchPackageNames": [
+        "@playwright/test",
+        "axios",
+        "lodash-es",
+        "@types/lodash-es"
       ],
       "matchUpdateTypes": [
         "major"

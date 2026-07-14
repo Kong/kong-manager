@@ -1,0 +1,49 @@
+name: Weekly Dependency Audit Fix
+
+on:
+  schedule:
+    # 07:00 on Monday in Asia/Shanghai = 23:00 on Sunday UTC
+    - cron: "00 23 * * 0"
+  workflow_dispatch:
+
+jobs:
+  audit-fix:
+    name: Audit Fix and Open PR
+    runs-on: ${{ vars.RUNS_ON }}
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0 version is determined from the packageManager field in package.json by default.
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+          cache: pnpm
+
+      - name: Install dependency
+        run: pnpm install
+
+      - name: Run audit fix
+        continue-on-error: true
+        run: pnpm audit --fix=update
+
+      - name: Prune stale minimumReleaseAge excludes
+        run: pnpm audit:prune-exclude
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.GH_PAT }}
+          commit-message: "chore(deps): weekly audit fix"
+          title: "chore(deps): weekly audit fix"
+          body: |
+            Automated weekly dependency maintenance.
+
+            Workflow run: [${{ github.workflow }} #${{ github.run_number }}](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+          branch: chore/weekly-audit-fix
+          delete-branch: true
+          labels: |
+            dependencies

@@ -6,9 +6,10 @@
   "scripts": {
     "serve": "vite",
     "build": "vite build",
-    "install:e2e": "pnpm --dir tests/playwright install",
-    "test:e2e": "pnpm --dir tests/playwright run test",
-    "playwright": "pnpm --dir tests/playwright exec playwright",
+    "install:e2e": "pnpm install --filter playwright-tests",
+    "test:e2e": "pnpm --filter playwright-tests run test",
+    "playwright": "pnpm --filter playwright-tests exec playwright",
+    "audit:prune-exclude": "node scripts/prune-min-release-age-exclude.mjs",
     "preview": "vite build && vite preview",
     "lint": "pnpm lint:eslint && pnpm lint:vue && pnpm lint:playwright && pnpm lint:style",
     "lint:eslint": "eslint src tests/playwright",
@@ -57,7 +58,7 @@
     "@kong/stylelint-plugin-design-tokens": "^1.0.1",
     "@playwright/test": "^1.61.1",
     "@types/lodash-es": "^4.17.12",
-    "@types/node": "^20.3.1",
+    "@types/node": "^20.4.2",
     "@vitejs/plugin-vue": "^6.0.7",
     "@vue/tsconfig": "^0.9.1",
     "autoprefixer": "^10.4.20",
@@ -78,12 +79,12 @@
     "typescript": "^5.9.3",
     "vite": "^8.0.16",
     "vite-plugin-html": "^3.2.2",
-    "vue-tsc": "^3.3.6"
+    "vue-tsc": "^3.3.7"
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not IE <= 11"
   ],
-  "packageManager": "pnpm@9.9.0"
+  "packageManager": "pnpm@11.10.0"
 }
