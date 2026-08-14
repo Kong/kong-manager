@@ -565,7 +565,7 @@ test.describe('upstreams', () => {
 
     // open dropdown
 
-    await locator.locator('.multiselect-trigger').click()
+    await locator.locator('.multiselect-trigger').click({ position: { x: 1, y: 1 } })
     for (let index = 0, len = statuses.length; index < len; index++) {
       await locator.locator(`.multiselect-item[data-testid="multiselect-item-${statuses[index]}"]`).click()
     }
