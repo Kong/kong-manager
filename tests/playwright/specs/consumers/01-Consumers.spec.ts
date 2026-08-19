@@ -189,7 +189,7 @@ test.describe('consumers', () => {
     await switchDetailTab(page, 'credentials')
     await withNavigation(page, () => page.locator('.k-empty-state button').click())
     await withNavigation(page, () => page.locator('[data-testid="Key Authentication"]').click())
-    await page.waitForSelector('#config-key_names')
+    await page.waitForSelector('[data-testid="ff-config.key_names.0"]')
     await page.click(consumerListPage.$.submitButton)
     await page.waitForSelector(consumerListPage.$.success)
     await waitAndDismissToasts(page)
