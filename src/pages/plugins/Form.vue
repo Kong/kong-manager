@@ -12,6 +12,7 @@
     :plugin-type="pluginType"
     :plugin-id="pluginId"
     :disable-scope-selection="disableScopeSelection"
+    enable-vault-secret-picker
     @error:fetch-schema="onFetchSchemaError"
     @update="onSave"
     @cancel="onFormCancel"
@@ -22,15 +23,18 @@
 import type { AxiosError } from 'axios'
 import { computed, toRefs, reactive } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { PluginForm, type EntityRow as PluginSchema } from '@kong-ui-public/entities-plugins'
+import { PluginForm, useProvideExperimentalFreeForms, type EntityRow as PluginSchema } from '@kong-ui-public/entities-plugins'
 import { useFormGeneralConfig } from '@/composables/useFormGeneralConfig'
 import { useURLFromRouteQuery } from '@/composables/useRedirect'
 import { useI18n } from '@/composables/useI18n'
 import { useToaster } from '@/composables/useToaster'
 import PageHeader from '@/components/PageHeader.vue'
 import { pluginMeta } from './PluginMeta'
+import { PLUGIN_GROUP_AND_SCOPE_MAP } from '@kong-ui-public/entities-plugins-metadata'
 
 defineOptions({ name: 'PluginForm' })
+
+useProvideExperimentalFreeForms(Object.keys(PLUGIN_GROUP_AND_SCOPE_MAP))
 
 const route = useRoute()
 const router = useRouter()
