@@ -132,10 +132,10 @@ test.describe('routes plugins', () => {
     // Update plugin and scope it to consumer
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
-    await page.click('.selection-group .Scoped-check')
-    await page.click('input#route-id')
-    await page.fill('input#route-id', mockRouteName)
-    const routeItemSelector = '.entity-form label[for="route-id"] + .field-wrap .select-item'
+    await page.getByText('Scoped', { exact: true }).click()
+    await page.click('input#route')
+    await page.fill('input#route', mockRouteName)
+    const routeItemSelector = '.select-popover:visible .select-item'
     await page.waitForTimeout(300)
     await expect(page.locator(routeItemSelector)).toContainText(mockRouteName)
     await page.click(routeItemSelector)
@@ -150,7 +150,7 @@ test.describe('routes plugins', () => {
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Route')
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
-    await page.click('.selection-group .Global-check')
+    await page.getByText('Global', { exact: true }).click()
     await withNavigation(page, () => page.click(routeListPage.$.submitButton))
     await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')

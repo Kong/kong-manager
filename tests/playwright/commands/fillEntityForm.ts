@@ -50,14 +50,17 @@ export const fillEntityForm = async (params: Params) => {
 
     // for text input
     if (typeof value === 'string') {
-      await page.getByTestId(key).or(page.locator(`#${key}`))[method](value)
+      await page.getByTestId(key).or(page.getByTestId(`ff-${key}`)).or(page.locator(`#${key}`))[method](value)
     }
 
     if (value && value.constructor === Array) {
       for (const [index, item] of value.entries()) {
-        await page.click(`[data-testid="add-${key}"]`)
-        await page.waitForSelector(`[data-testid="${key}-item-${index}"] input`)
-        await page[method](`[data-testid="${key}-item-${index}"] input`, item)
+        await page.locator(`[data-testid="add-${key}"]`).or(page.locator(`[data-testid="ff-add-item-btn-${key}"]`)).click()
+
+        const itemInput = page.locator(`[data-testid="${key}-item-${index}"] input`).or(page.locator(`[data-testid="ff-${key}.${index}"]`))
+
+        await itemInput.waitFor()
+        await itemInput[method](item)
       }
     }
   }

@@ -55,7 +55,7 @@ test.describe('consumer plugins', () => {
     await switchDetailTab(page, 'plugins')
     await clickEntityListAction(page, 'edit')
     await expandAdvancedFields(page)
-    await page.locator('#tags').fill(mockTag)
+    await page.locator('[data-testid="ff-tags"]').fill(mockTag)
     await withNavigation(
       page,
       () => page.locator('[data-testid="form-actions"] .primary').click(),
@@ -64,7 +64,7 @@ test.describe('consumer plugins', () => {
 
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await expandAdvancedFields(page)
-    await page.locator('#tags').fill(`${mockTag}${mockTag}`)
+    await page.locator('[data-testid="ff-tags"]').fill(`${mockTag}${mockTag}`)
     await withNavigation(
       page,
       async () => await page.locator('[data-testid="plugin-edit-form-cancel"]').click(),
@@ -88,7 +88,7 @@ test.describe('consumer plugins', () => {
     await page.locator('[data-testid="Rate Limiting"]').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
     await expandAdvancedFields(page)
-    await page.locator('#config-second').fill('30')
+    await page.locator('[data-testid="ff-config.second"]').fill('30')
     await withNavigation(
       page,
       async () => await page.locator('[data-testid="form-actions"] .primary').click(),
@@ -99,12 +99,12 @@ test.describe('consumer plugins', () => {
     // Update plugin and scope it to consumer
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
-    await page.click('.selection-group .Scoped-check')
-    await page.click('input#consumer-id')
-    await page.fill('input#consumer-id', mockConsumerName)
+    await page.getByText('Scoped', { exact: true }).click()
+    await page.click('input#consumer')
+    await page.fill('input#consumer', mockConsumerName)
     await page.waitForTimeout(300)
-    await expect(page.locator('label[for="select-a-consumer"] + .field-wrap .select-item')).toContainText(mockConsumerName)
-    await page.click('label[for="select-a-consumer"] + .field-wrap .select-item')
+    await expect(page.locator('.select-popover:visible .select-item')).toContainText(mockConsumerName)
+    await page.click('.select-popover:visible .select-item')
     await withNavigation(page, () => page.click(consumerListPage.$.submitButton))
     await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Consumer')
@@ -119,7 +119,7 @@ test.describe('consumer plugins', () => {
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Consumer')
     await withNavigation(page, () => clickEntityListAction(page, 'edit'))
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
-    await page.click('.selection-group .Global-check')
+    await page.getByText('Global', { exact: true }).click()
     await withNavigation(page, () => page.click(consumerListPage.$.submitButton))
     await pluginListPage.goto()
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')

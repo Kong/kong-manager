@@ -83,8 +83,8 @@ test.describe('plugins', () => {
     )
 
     await expandAdvancedFields(page)
-    await page.locator('#config-anonymous').type('anon')
-    await page.locator('#config-hide_credentials').check()
+    await page.locator('[data-testid="ff-config.anonymous"]').type('anon')
+    await page.locator('[data-testid="ff-config.hide_credentials"]').check()
 
     await withNavigation(
       page,
@@ -248,10 +248,10 @@ test.describe('plugins', () => {
     await pluginListPage.goto()
     await withNavigation(page, async () => await clickEntityListAction(page, 'edit'))
 
-    await expect(page.locator('.autosuggest input#consumer-id')).toBeVisible()
-    await page.locator('.autosuggest input#consumer-id').click()
-    await page.locator('.autosuggest input#consumer-id').fill('')
-    await page.locator('.autosuggest input#consumer-id').type('another')
+    await expect(page.locator('input#consumer')).toBeVisible()
+    await page.locator('input#consumer').click()
+    await page.locator('input#consumer').fill('')
+    await page.locator('input#consumer').type('another')
     await page.locator(`[data-testid="select-item-${res2?.data.id}"]`).click()
 
     await withNavigation(page, async () =>
@@ -289,10 +289,10 @@ test.describe('plugins', () => {
       async () => await page.getByTestId('basic-auth-card').click(),
     )
 
-    await page.click('.plugin-protocols-select .multiselect-trigger')
+    await page.click('[data-testid="ff-protocols"]')
     await page.click('.multiselect-item[data-testid="multiselect-item-grpcs"]')
     await page.click('.multiselect-item[data-testid="multiselect-item-https"]')
-    await page.click('.plugin-protocols-select .multiselect-trigger')
+    await page.click('[data-testid="ff-protocols"]')
 
     await withNavigation(
       page,
@@ -361,7 +361,7 @@ test.describe('plugins', () => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     await expect(getPropertyValue(page, 'instance_name')).toContainText('')
     await withNavigation(page, async () => await page.getByTestId('header-edit-button').click())
-    await expect(page.locator('#instance_name')).toHaveValue('')
+    await expect(page.locator('[data-testid="ff-instance_name"]')).toHaveValue('')
   })
 
   test('supports instance_name param', async ({ page, pluginListPage }) => {
@@ -378,7 +378,7 @@ test.describe('plugins', () => {
     await withNavigation(page, async () => await clickEntityListAction(page, 'view'))
     await expect(getPropertyValue(page, 'instance_name')).toContainText(mockInstanceName)
     await withNavigation(page, async () => await page.getByTestId('header-edit-button').click())
-    await expect(page.locator('#instance_name')).toHaveValue(mockInstanceName)
+    await expect(page.locator('[data-testid="ff-instance_name"]')).toHaveValue(mockInstanceName)
   })
 
   test('filter should work in plugin select page', async ({ page }) => {
@@ -409,8 +409,8 @@ test.describe('plugins', () => {
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]').click())
     await page.locator('[data-testid="Key Authentication"]').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
-    await page.waitForSelector('[data-testid="config-key_names-item-0"]')
-    await expect(page.locator('[data-testid="config-key_names-item-0"] input')).toHaveValue('apikey')
+    await page.waitForSelector('[data-testid="ff-config.key_names.0"]')
+    await expect(page.locator('[data-testid="ff-config.key_names.0"]')).toHaveValue('apikey')
   })
 
   test('by using plugin "ip-restriction" as example, service, route and consumer should be auto completed', async ({ page }) => {
@@ -440,43 +440,43 @@ test.describe('plugins', () => {
     await page.locator('[data-testid="IP Restriction"]').click()
 
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
-    await expect(page.locator('input#service-id')).not.toBeVisible()
-    await expect(page.locator('input#route-id')).not.toBeVisible()
-    await expect(page.locator('input#consumer-id')).not.toBeVisible()
+    await expect(page.locator('input#service')).not.toBeVisible()
+    await expect(page.locator('input#route')).not.toBeVisible()
+    await expect(page.locator('input#consumer')).not.toBeVisible()
 
-    await page.click('.selection-group .Scoped-check')
+    await page.getByText('Scoped', { exact: true }).click()
 
-    await page.click('input#service-id')
-    await page.fill('input#service-id', 'test_service')
+    await page.click('input#service')
+    await page.fill('input#service', 'test_service')
     await page.waitForTimeout(300)
-    selectItem = page.locator('.autosuggest .select-popover').nth(0).locator('.select-item')
+    selectItem = page.locator('.select-popover').nth(0).locator('.select-item')
     await expect(selectItem).toContainText(`${service?.data.name}`)
     await expect(selectItem).toContainText(`${service?.data.id}`)
     await selectItem.click()
-    await expect(page.locator('input#service-id')).toHaveValue(`${service?.data.name}`)
+    await expect(page.locator('input#service')).toHaveValue(`${service?.data.name}`)
 
-    await page.click('input#route-id')
-    await page.fill('input#route-id', 'test_route')
+    await page.click('input#route')
+    await page.fill('input#route', 'test_route')
     await page.waitForTimeout(300)
-    selectItem = page.locator('.autosuggest .select-popover').nth(1).locator('.select-item')
+    selectItem = page.locator('.select-popover').nth(1).locator('.select-item')
     await expect(selectItem).toContainText(`${route?.data.name}`)
     await expect(selectItem).toContainText(`${route?.data.id}`)
     await selectItem.click()
-    await expect(page.locator('input#route-id')).toHaveValue(`${route?.data.name}`)
+    await expect(page.locator('input#route')).toHaveValue(`${route?.data.name}`)
 
-    await page.click('input#consumer-id')
-    await page.fill('input#consumer-id', 'test_consumer')
+    await page.click('input#consumer')
+    await page.fill('input#consumer', 'test_consumer')
     await page.waitForTimeout(300)
-    selectItem = page.locator('.autosuggest .select-popover').nth(2).locator('.select-item')
+    selectItem = page.locator('.select-popover').nth(2).locator('.select-item')
     await expect(selectItem).toContainText(`${consumer?.data.username}`)
     await expect(selectItem).toContainText(`${consumer?.data.id}`)
     await selectItem.click()
-    await expect(page.locator('input#consumer-id')).toHaveValue(`${consumer?.data.username}`)
+    await expect(page.locator('input#consumer')).toHaveValue(`${consumer?.data.username}`)
 
     await withNavigation(page, async () =>
       await fillEntityForm({
         page,
-        formData: { 'config-allow': ['0.0.0.0/32'] },
+        formData: { 'config.allow': ['0.0.0.0/32'] },
         withAction: 'submit',
       }),
     )
@@ -484,13 +484,13 @@ test.describe('plugins', () => {
     await clickHeaderAction(page, 'edit')
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
 
-    await expect(page.locator('input#service-id')).toBeVisible()
-    await expect(page.locator('input#route-id')).toBeVisible()
-    await expect(page.locator('input#consumer-id')).toBeVisible()
+    await expect(page.locator('input#service')).toBeVisible()
+    await expect(page.locator('input#route')).toBeVisible()
+    await expect(page.locator('input#consumer')).toBeVisible()
 
-    await expect(page.locator('input#service-id')).toHaveValue(`${service?.data.name}`)
-    await expect(page.locator('input#route-id')).toHaveValue(`${route?.data.name}`)
-    await expect(page.locator('input#consumer-id')).toHaveValue(`${consumer?.data.username}`)
+    await expect(page.locator('input#service')).toHaveValue(`${service?.data.name}`)
+    await expect(page.locator('input#route')).toHaveValue(`${route?.data.name}`)
+    await expect(page.locator('input#consumer')).toHaveValue(`${consumer?.data.username}`)
   })
 
   test('the "Applied To" column should be able to click and navigate to the entity', async ({ page, pluginListPage }) => {
@@ -516,20 +516,20 @@ test.describe('plugins', () => {
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]').click())
     await page.getByTestId('basic-auth-card').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
-    await expect(page.locator('input#service-id')).not.toBeVisible()
+    await expect(page.locator('input#service')).not.toBeVisible()
 
     // click scoped & select a service
-    await page.click('.selection-group .Scoped-check')
-    await page.click('input#service-id')
-    await page.fill('input#service-id', service.name)
+    await page.getByText('Scoped', { exact: true }).click()
+    await page.click('input#service')
+    await page.fill('input#service', service.name)
     await page.waitForTimeout(300)
-    await expect(page.locator('.select-item')).toContainText(service.name)
-    await page.click('.select-item')
-    await expect(page.locator('input#service-id')).toHaveValue(service.name)
+    await expect(page.locator('.select-popover:visible .select-item')).toContainText(service.name)
+    await page.click('.select-popover:visible .select-item')
+    await expect(page.locator('input#service')).toHaveValue(service.name)
 
     // switch back to global
-    await page.click('.selection-group .Global-check')
-    await expect(page.locator('input#service-id')).not.toBeVisible()
+    await page.getByText('Global', { exact: true }).click()
+    await expect(page.locator('input#service')).not.toBeVisible()
 
     // submit form
     await withNavigation(page, async () =>
@@ -546,9 +546,9 @@ test.describe('plugins', () => {
     await expect(page.locator('.kong-ui-entities-plugins-list [data-testid="appliedTo"] .k-badge')).toContainText('Global')
     await clickEntityListAction(page, 'edit')
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
-    await expect(page.locator('input#service-id')).not.toBeVisible()
-    await page.click('.selection-group .Scoped-check')
-    await expect(page.locator('input#service-id')).toHaveValue('')
+    await expect(page.locator('input#service')).not.toBeVisible()
+    await page.getByText('Scoped', { exact: true }).click()
+    await expect(page.locator('input#service')).toHaveValue('')
   })
 
   test('can delete service id from a plugin', async ({ page, pluginListPage }) => {
@@ -566,12 +566,12 @@ test.describe('plugins', () => {
     await withNavigation(page, async () => await page.locator('.kong-ui-entities-plugins-list [data-testid="empty-state-action"]').click())
     await page.getByTestId('basic-auth-card').click()
     await page.waitForSelector('.kong-ui-entities-plugin-form-container')
-    await page.click('.selection-group .Scoped-check')
-    await page.click('input#service-id')
-    await page.fill('input#service-id', 'test_service')
+    await page.getByText('Scoped', { exact: true }).click()
+    await page.click('input#service')
+    await page.fill('input#service', 'test_service')
     await page.waitForTimeout(300)
-    await expect(page.locator('.select-item')).toContainText('test_service')
-    await page.click('.select-item')
+    await expect(page.locator('.select-popover:visible .select-item')).toContainText('test_service')
+    await page.click('.select-popover:visible .select-item')
     await withNavigation(page, async () => await fillEntityForm({
       page,
       withAction: 'submit',
