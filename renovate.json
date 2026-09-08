@@ -43,6 +43,16 @@
       ]
     },
     {
+      "description": "Pin @kong-ui-public/entities-plugins to v9.x, never allow major version bumps",
+      "matchPackageNames": [
+        "@kong-ui-public/entities-plugins"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "enabled": false
+    },
+    {
       "description": "playwright, axios, lodash - enable",
       "enabled": true,
       "matchPackageNames": [
