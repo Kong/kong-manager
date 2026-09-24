@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@kong-ui-public/app-layout':
-        specifier: ^4.13.21
-        version: 4.13.21(@kong/kongponents@9.64.17(vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rolldown@1.2.4)(rollup@4.52.5)(vite@8.2.2(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rolldown@1.2.4)(rollup@4.52.5)(vite@8.2.2(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))
+        specifier: ^5.0.1
+        version: 5.0.1(@kong/kongponents@9.64.17(vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rolldown@1.2.4)(rollup@4.52.5)(vite@8.2.2(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rolldown@1.2.4)(rollup@4.52.5)(vite@8.2.2(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))
       '@kong-ui-public/entities-certificates':
         specifier: ^3.16.42
         version: 3.16.42(@kong-ui-public/entities-shared@3.67.5(f8de8a08b20df60ed3b7dbfc69b94247))(@kong-ui-public/entities-vaults@4.17.5(7c7bf09c82026d715e0dbd0d075e9bf6))(@kong-ui-public/i18n@2.5.1(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(@kong/icons@1.62.1(vue@3.5.42(typescript@5.9.3)))(@kong/kongponents@9.64.17(vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rolldown@1.2.4)(rollup@4.52.5)(vite@8.2.2(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3)))(axios@1.19.0)(vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rolldown@1.2.4)(rollup@4.52.5)(vite@8.2.2(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))
@@ -554,8 +554,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@kong-ui-public/app-layout@4.13.21':
-    resolution: {integrity: sha512-3niVt4rEsVAnJff6Oeb+nA2CGYkKy3S/e0WTl1uT/Cf+PDF+JepIAa3i2vSSOKR+PF4u1Pyx7kKKfZdMvC/Z0g==}
+  '@kong-ui-public/app-layout@5.0.1':
+    resolution: {integrity: sha512-NWFISO2y3TLz1smXqQZpc8318C5oTu9OdWxZ0nFILfJRALy1a8NLiELtbQ6WE20GeJ+p8fTywwUKpWqmCNwCBg==}
     peerDependencies:
       '@kong/kongponents': ^9.63.0
       vue: '>= 3.3.13 < 4'
@@ -4045,7 +4045,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@kong-ui-public/app-layout@4.13.21(@kong/kongponents@9.64.17(vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rolldown@1.2.4)(rollup@4.52.5)(vite@8.2.2(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rolldown@1.2.4)(rollup@4.52.5)(vite@8.2.2(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))':
+  '@kong-ui-public/app-layout@5.0.1(@kong/kongponents@9.64.17(vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rolldown@1.2.4)(rollup@4.52.5)(vite@8.2.2(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3)))(vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rolldown@1.2.4)(rollup@4.52.5)(vite@8.2.2(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@kong/icons': 1.62.1(vue@3.5.42(typescript@5.9.3))
       '@kong/kongponents': 9.64.17(vue-router@5.2.0(@vue/compiler-sfc@3.5.42)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.42(typescript@5.9.3)))(rolldown@1.2.4)(rollup@4.52.5)(vite@8.2.2(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))
