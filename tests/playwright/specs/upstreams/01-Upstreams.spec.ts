@@ -633,7 +633,7 @@ test.describe('upstreams', () => {
         const active = await getPropertyValue(page, 'active').innerText()
 
         expect(JSON.parse(passive)).toEqual(JSON.parse('{ "healthy": { "successes": 8, "http_statuses": [ 200 ] }, "type": "http", "unhealthy": { "timeouts": 10, "http_failures": 10, "http_statuses": [ 429, 500, 503, 100, 101 ], "tcp_failures": 5 } }'))
-        expect(JSON.parse(active)).toEqual(JSON.parse('{ "headers": { "h1": [ "v1", "v2" ] }, "http_path": "/path", "https_sni": null, "concurrency": 15, "type": "http", "https_verify_certificate": true, "healthy": { "http_statuses": [ 200, 302, 100, 103 ], "successes": 10, "interval": 10 }, "unhealthy": { "timeouts": 10, "http_failures": 10, "http_statuses": [ 404, 429, 500, 501, 502, 503, 504, 505, 100, 101 ], "interval": 10, "tcp_failures": 5 }, "timeout": 5 }'))
+        expect(JSON.parse(active)).toEqual(JSON.parse('{ "headers": { "h1": [ "v1", "v2" ] }, "http_path": "/path", "https_sni": null, "concurrency": 15, "type": "http", "https_verify_certificate": true, "healthy": { "http_statuses": [ 200, 302, 100, 103 ], "successes": 10, "interval": 10 }, "unhealthy": { "timeouts": 10, "http_failures": 10, "http_statuses": [ 429, 404, 500, 501, 502, 503, 504, 505, 100, 101 ], "interval": 10, "tcp_failures": 5 }, "timeout": 5 }'))
       },
     )
   })
