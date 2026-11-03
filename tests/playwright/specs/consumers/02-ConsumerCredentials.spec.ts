@@ -40,8 +40,8 @@ test.describe('consumer credentials', () => {
     const basicAuthLocator = page.locator('.credential-list-wrapper').filter({ hasText: 'Basic Authentication' })
 
     await basicAuthLocator.locator('[data-testid="empty-state-action"]').click()
-    await page.locator('#username').fill(mockCredential)
-    await page.locator('#password').fill(mockCredentialPassword)
+    await page.getByTestId('ff-username').fill(mockCredential)
+    await page.getByTestId('ff-password').fill(mockCredentialPassword)
     await page.locator('[data-testid="form-actions"] .primary').click()
     await expect(basicAuthLocator.locator('table [data-testid="username"]')).toContainText(mockCredential)
   })
