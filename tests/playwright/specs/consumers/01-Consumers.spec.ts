@@ -196,8 +196,8 @@ test.describe('consumers', () => {
 
     // Add an api key to the consumer from empty
     await page.click('[data-testid="empty-state-action"]')
-    await page.waitForSelector('#key')
-    await page.fill('#key', 'my-api-key')
+    await page.getByTestId('ff-key').getByTestId('sensitive-input').waitFor()
+    await page.getByTestId('ff-key').getByTestId('sensitive-input').fill('my-api-key')
     await page.click(consumerListPage.$.submitButton)
     await page.waitForSelector(consumerListPage.$.success)
     await waitAndDismissToasts(page)
@@ -206,8 +206,8 @@ test.describe('consumers', () => {
     const keyAuthLocator = page.locator('.credential-list-wrapper').filter({ hasText: 'Key Authentication' })
 
     await keyAuthLocator.locator('[data-testid="toolbar-add-credential"]').click()
-    await page.waitForSelector('#key')
-    await page.fill('#key', 'my-second-api-key')
+    await page.getByTestId('ff-key').getByTestId('sensitive-input').waitFor()
+    await page.getByTestId('ff-key').getByTestId('sensitive-input').fill('my-second-api-key')
     await page.click(consumerListPage.$.submitButton)
     await page.waitForSelector(consumerListPage.$.success)
     expect(await keyAuthLocator.locator('table tbody tr').count()).toBe(2)
