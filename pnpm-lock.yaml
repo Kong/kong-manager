@@ -31,7 +31,7 @@ importers:
         version: 3.17.11(@kong-ui-public/entities-shared@3.72.1(fea14aa6538dc2f460e8221efe612bd2))(@kong-ui-public/i18n@2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(@kong/icons@1.64.0(vue@3.5.45(typescript@5.9.3)))(@kong/kongponents@9.66.13(vue-router@5.3.1(@vue/compiler-sfc@3.5.45)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(rolldown@1.2.15)(rollup@4.52.5)(vite@8.3.5(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3)))(axios@1.20.0)(vue-router@5.3.1(@vue/compiler-sfc@3.5.45)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(rolldown@1.2.15)(rollup@4.52.5)(vite@8.3.5(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))
       '@kong-ui-public/entities-plugins':
         specifier: 10.4.2
-        version: 10.4.2(899713578830555c529664537010a00a)
+        version: 10.4.2(9d91143474a581ecc26dee2f0f788b01)
       '@kong-ui-public/entities-plugins-metadata':
         specifier: ^1.17.1
         version: 1.17.1
@@ -100,8 +100,8 @@ importers:
         specifier: ^2.0.3
         version: 2.0.3(stylelint@16.9.0(typescript@5.9.3))
       '@playwright/test':
-        specifier: ^1.64.0
-        version: 1.64.0
+        specifier: ^1.64.1
+        version: 1.64.1
       '@types/lodash-es':
         specifier: ^4.17.12
         version: 4.17.12
@@ -178,8 +178,8 @@ importers:
   tests/playwright:
     devDependencies:
       '@playwright/test':
-        specifier: 1.64.0
-        version: 1.64.0
+        specifier: 1.64.1
+        version: 1.64.1
       axios:
         specifier: ^1.20.0
         version: 1.20.0
@@ -1027,8 +1027,8 @@ packages:
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.64.0':
-    resolution: {integrity: sha512-oTN9FNYuN6bqQMwiho6jJKLCG2/QOYCixGXuCjRmzOq23eODeukuY2XiAVoVpAECbuezMt1MHQjAiQxK8F+Y+g==}
+  '@playwright/test@1.64.1':
+    resolution: {integrity: sha512-IaYGml/nSOiZWROfPtuIL7neuu9qDOZ3TNvNljUIrhDMxiGTgPjzj/g9p9RxpS2tSepPDRY+UwAaEeiKtUvIAg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -3064,13 +3064,13 @@ packages:
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
 
-  playwright-core@1.64.0:
-    resolution: {integrity: sha512-T9r+MZkTECl2+oUcZ26YgZzTrYidTsIhYYkJix+6iDOymOb1FB2RLLSOxRGnZGv5DStt+aduIVbt+E8WygXYpg==}
+  playwright-core@1.64.1:
+    resolution: {integrity: sha512-BC4s8y6SEVA6Q1rSxZTto8hI1KUI3xXlHGZgvGqP4IqPdI/a6FX9H29IDNz7vKo9l21b6LfYosScPL6M3xxyDQ==}
     engines: {node: '>=20'}
     hasBin: true
 
-  playwright@1.64.0:
-    resolution: {integrity: sha512-kVzTnYFYEyQ9RGzBjNCd2+yEqWmVbxl3AHPynv3qQ6JTjv4a+kwRcnqQwIpuP3NnrnIrE/Q6wWAIAvMfIE2/Yg==}
+  playwright@1.64.1:
+    resolution: {integrity: sha512-HCrVhHr5QQuwYoswEUGTb7gGp522yflbv/ST8nF4sFWGuLjQCt17Q/EubpGGSNKYn1tsTCPZxqHhHCfVURu7UA==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -4204,7 +4204,7 @@ snapshots:
 
   '@kong-ui-public/entities-plugins-metadata@1.17.1': {}
 
-  '@kong-ui-public/entities-plugins@10.4.2(899713578830555c529664537010a00a)':
+  '@kong-ui-public/entities-plugins@10.4.2(9d91143474a581ecc26dee2f0f788b01)':
     dependencies:
       '@kong-ui-public/entities-consumer-groups': 4.9.11(@kong-ui-public/entities-shared@3.72.1(fea14aa6538dc2f460e8221efe612bd2))(@kong-ui-public/i18n@2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(@kong/icons@1.64.0(vue@3.5.45(typescript@5.9.3)))(@kong/kongponents@9.66.13(vue-router@5.3.1(@vue/compiler-sfc@3.5.45)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(rolldown@1.2.15)(rollup@4.52.5)(vite@8.3.5(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3)))(axios@1.20.0)(vue-router@5.3.1(@vue/compiler-sfc@3.5.45)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(rolldown@1.2.15)(rollup@4.52.5)(vite@8.3.5(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))
       '@kong-ui-public/entities-consumers': 4.9.11(@kong-ui-public/entities-shared@3.72.1(fea14aa6538dc2f460e8221efe612bd2))(@kong-ui-public/i18n@2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(@kong/icons@1.64.0(vue@3.5.45(typescript@5.9.3)))(@kong/kongponents@9.66.13(vue-router@5.3.1(@vue/compiler-sfc@3.5.45)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(rolldown@1.2.15)(rollup@4.52.5)(vite@8.3.5(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3)))(axios@1.20.0)(vue-router@5.3.1(@vue/compiler-sfc@3.5.45)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(rolldown@1.2.15)(rollup@4.52.5)(vite@8.3.5(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))
@@ -4216,7 +4216,7 @@ snapshots:
       '@kong-ui-public/entities-shared': 3.72.1(fea14aa6538dc2f460e8221efe612bd2)
       '@kong-ui-public/entities-vaults': 4.19.11(84735955dc9ebb93d31b7197fe3048b0)
       '@kong-ui-public/forms': 4.36.12(9bbe78b5657e66b56f2d4790a67e300c)
-      '@kong-ui-public/freeform': 0.8.3(b808947a2a96896bcbc2b541ffacb63b)
+      '@kong-ui-public/freeform': 0.8.3(38823838565aa9039985e532e8f204e5)
       '@kong-ui-public/i18n': 2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3))
       '@kong-ui-public/misc-widgets': 2.7.6(@kong-ui-public/i18n@2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(@kong/icons@1.64.0(vue@3.5.45(typescript@5.9.3)))(@kong/kongponents@9.66.13(vue-router@5.3.1(@vue/compiler-sfc@3.5.45)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(rolldown@1.2.15)(rollup@4.52.5)(vite@8.3.5(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3))
       '@kong-ui-public/monaco-editor': 0.27.9(@kong-ui-public/i18n@2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(@kong/icons@1.64.0(vue@3.5.45(typescript@5.9.3)))(@kong/kongponents@9.66.13(vue-router@5.3.1(@vue/compiler-sfc@3.5.45)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(rolldown@1.2.15)(rollup@4.52.5)(vite@8.3.5(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.45(typescript@5.9.3)))(vue@3.5.45(typescript@5.9.3)))(@shikijs/monaco@4.5.0)(monaco-editor@0.52.2)(shiki@4.5.0)(vue@3.5.45(typescript@5.9.3))(zod@4.1.4)
@@ -4240,7 +4240,7 @@ snapshots:
       vue-router: 5.3.1(@vue/compiler-sfc@3.5.45)(esbuild@0.27.2)(pinia@4.0.3(@vue/devtools-api@8.2.1)(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3)))(rolldown@1.2.15)(rollup@4.52.5)(vite@8.3.5(@types/node@20.4.2)(esbuild@0.27.2)(sass@1.80.3)(terser@5.18.2)(yaml@2.9.0))(vue@3.5.45(typescript@5.9.3))
       zod: 4.1.4
     optionalDependencies:
-      '@playwright/test': 1.64.0
+      '@playwright/test': 1.64.1
     transitivePeerDependencies:
       - '@kong/design-tokens'
       - swrv
@@ -4357,7 +4357,7 @@ snapshots:
       lodash-es: 4.18.1
       vue: 3.5.45(typescript@5.9.3)
 
-  '@kong-ui-public/freeform@0.8.3(b808947a2a96896bcbc2b541ffacb63b)':
+  '@kong-ui-public/freeform@0.8.3(38823838565aa9039985e532e8f204e5)':
     dependencies:
       '@kong-ui-public/forms': 4.36.12(9bbe78b5657e66b56f2d4790a67e300c)
       '@kong-ui-public/i18n': 2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3))
@@ -4372,7 +4372,7 @@ snapshots:
       marked: 18.1.1
       vue: 3.5.45(typescript@5.9.3)
     optionalDependencies:
-      '@playwright/test': 1.64.0
+      '@playwright/test': 1.64.1
 
   '@kong-ui-public/i18n@2.5.1(typescript@5.9.3)(vue@3.5.45(typescript@5.9.3))':
     dependencies:
@@ -4654,9 +4654,9 @@ snapshots:
 
   '@pkgr/core@0.2.9': {}
 
-  '@playwright/test@1.64.0':
+  '@playwright/test@1.64.1':
     dependencies:
-      playwright: 1.64.0
+      playwright: 1.64.1
 
   '@popperjs/core@2.11.8': {}
 
@@ -6621,26 +6621,26 @@ snapshots:
       exsolve: 1.0.8
       pathe: 2.0.3
 
-  playwright-core@1.64.0: {}
+  playwright-core@1.64.1: {}
 
-  playwright@1.64.0:
+  playwright@1.64.1:
     dependencies:
-      playwright-core: 1.64.0
+      playwright-core: 1.64.1
 
   postcss-html@1.7.0:
     dependencies:
       htmlparser2: 8.0.2
       js-tokens: 9.0.1
-      postcss: 8.5.30
-      postcss-safe-parser: 6.0.0(postcss@8.5.30)
+      postcss: 8.5.32
+      postcss-safe-parser: 6.0.0(postcss@8.5.32)
 
   postcss-media-query-parser@0.2.3: {}
 
   postcss-resolve-nested-selector@0.1.6: {}
 
-  postcss-safe-parser@6.0.0(postcss@8.5.30):
+  postcss-safe-parser@6.0.0(postcss@8.5.32):
     dependencies:
-      postcss: 8.5.30
+      postcss: 8.5.32
 
   postcss-safe-parser@7.0.0(postcss@8.5.26):
     dependencies:
