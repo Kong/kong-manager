@@ -13,6 +13,10 @@ jobs:
   audit-fix:
     name: Audit Fix and Open PR
     runs-on: ${{ vars.RUNS_ON }}
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
 
     steps:
       - name: Checkout source code
@@ -36,20 +40,11 @@ jobs:
       - name: Prune stale minimumReleaseAge excludes
         run: pnpm audit:prune-exclude
 
-      - name: Generate Kong app token
-        id: app-token
-        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
-        with:
-          client-id: ${{ vars.KONG_GH_APP_ID }}
-          private-key: ${{ secrets.KONG_GH_APP_PRIVATE_KEY }}
-          owner: Kong
-          permission-contents: write
-          permission-pull-requests: write
-
       - name: Create pull request
+        id: create-pr
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ github.token }}
           commit-message: "chore(deps): weekly audit fix"
           title: "chore(deps): weekly audit fix"
           body: |
@@ -60,3 +55,14 @@ jobs:
           delete-branch: true
           labels: |
             dependencies
+
+      # Pushes and pull requests made with `GITHUB_TOKEN` start no `push` or `pull_request`
+      # workflow, so the tests would not run on the pull request. A `workflow_dispatch` event
+      # is the exception, and the run reports its checks on the head commit of the branch.
+      - name: Run tests on the pull request branch
+        if: ${{ steps.create-pr.outputs.pull-request-operation == 'created' || steps.create-pr.outputs.pull-request-operation == 'updated' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          BRANCH: ${{ steps.create-pr.outputs.pull-request-branch }}
+        run: gh workflow run test.yml --ref "$BRANCH"
