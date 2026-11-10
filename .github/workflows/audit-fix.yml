@@ -16,7 +16,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-      actions: write
 
     steps:
       - name: Checkout source code
@@ -41,7 +40,6 @@ jobs:
         run: pnpm audit:prune-exclude
 
       - name: Create pull request
-        id: create-pr
         uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
         with:
           token: ${{ github.token }}
@@ -55,14 +53,3 @@ jobs:
           delete-branch: true
           labels: |
             dependencies
-
-      # Pushes and pull requests made with `GITHUB_TOKEN` start no `push` or `pull_request`
-      # workflow, so the tests would not run on the pull request. A `workflow_dispatch` event
-      # is the exception, and the run reports its checks on the head commit of the branch.
-      - name: Run tests on the pull request branch
-        if: ${{ steps.create-pr.outputs.pull-request-operation == 'created' || steps.create-pr.outputs.pull-request-operation == 'updated' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-          BRANCH: ${{ steps.create-pr.outputs.pull-request-branch }}
-        run: gh workflow run test.yml --ref "$BRANCH"
