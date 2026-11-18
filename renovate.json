@@ -14,7 +14,9 @@
     "dependencies"
   ],
   "enabledManagers": [
-    "npm"
+    "npm",
+    "github-actions",
+    "custom.regex"
   ],
   "rangeStrategy": "bump",
   "hostRules": [
@@ -33,6 +35,11 @@
       "matchPackageNames": [
         "*"
       ]
+    },
+    {
+      "description": "GitHub Actions updates",
+      "enabled": true,
+      "matchManagers": ["github-actions", "custom.regex"]
     },
     {
       "description": "@kong/* and @kong-ui-public/* dependencies group",
