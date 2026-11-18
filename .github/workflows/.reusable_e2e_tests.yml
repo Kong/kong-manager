@@ -48,13 +48,13 @@ jobs:
 
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
 
       - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0 version is determined from the packageManager field in package.json by default.
 
       - name: Download release
         timeout-minutes: 5
-        uses: actions/download-artifact@v4.1.3
+        uses: actions/download-artifact@87c55149d96e628cc2ef7e6fc2aab372015aec85 # v4.1.3
         with:
           name: release
 
@@ -64,7 +64,7 @@ jobs:
       - id: setup-node
         name: Setup Node
         timeout-minutes: 5
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3
         with:
           node-version-file: ".nvmrc"
           cache: pnpm
@@ -78,7 +78,7 @@ jobs:
       - name: Download test image
         if: ${{ inputs.load-test-image-from-artifact }}
         timeout-minutes: 5
-        uses: actions/download-artifact@v4.1.3
+        uses: actions/download-artifact@87c55149d96e628cc2ef7e6fc2aab372015aec85 # v4.1.3
         with:
           name: docker-test-image
 
@@ -144,7 +144,7 @@ jobs:
       - name: Upload results
         if: ${{ !cancelled() }}
         continue-on-error: true
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: results-${{ matrix.suite }}
           path: tests/playwright/test-results/
