@@ -19,6 +19,7 @@
     "custom.regex"
   ],
   "rangeStrategy": "bump",
+  "minimumReleaseAge": null,
   "hostRules": [
     {
       "hostType": "npm",
@@ -39,7 +40,8 @@
     {
       "description": "GitHub Actions updates",
       "enabled": true,
-      "matchManagers": ["github-actions", "custom.regex"]
+      "matchManagers": ["github-actions", "custom.regex"],
+      "minimumReleaseAge": "12 days"
     },
     {
       "description": "@kong/* and @kong-ui-public/* dependencies group",
