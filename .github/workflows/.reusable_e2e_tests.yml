@@ -64,7 +64,7 @@ jobs:
       - id: setup-node
         name: Setup Node
         timeout-minutes: 5
-        uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3
+        uses: actions/setup-node@3235b876344d2a9aa001b8d1453c930bba69e610 # v3.9.1
         with:
           node-version-file: ".nvmrc"
           cache: pnpm
